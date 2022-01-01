@@ -48,7 +48,6 @@ public class PickUpController : MonoBehaviour
         equipped = true;
 
         SetLayerRecursively(gameObject, LayerMask.NameToLayer("EquipedGun"));
-
         //Make weapon a child of the camera and move it to default position
         transform.SetParent(gunContainer);
         transform.localPosition = Vector3.zero;

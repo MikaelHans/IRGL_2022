@@ -5,21 +5,24 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - CinemachineTarget
+  - Bullet
+  - Wall
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - player
   - Water
   - UI
-  - 
-  - 
+  - Item
+  - Gun
   - PostProcessing
-  - 
+  - EquipedGun
   - FirstPersonWeapon
   - PhysicalAmmo
   - Ground
-  - 
+  - Chest
   - 
   - 
   - 
