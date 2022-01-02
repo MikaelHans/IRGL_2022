@@ -1,8 +1,9 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnlockableChest : MonoBehaviour
+public class UnlockableChest : MonoBehaviourPun
 {
     public bool isPlayed = false, isOpened = false;
     public GameObject[] items;
@@ -35,7 +36,7 @@ public class UnlockableChest : MonoBehaviour
         isOpened = true;
         for(int i = 0; i < items.Length; i++)
         {
-            Instantiate(items[i], transform.position + (transform.forward * 2), transform.rotation);
+            PhotonNetwork.Instantiate("Prefabs/" + items[i].name, transform.position + (transform.forward * 2), transform.rotation);
         }
         game.closeWindow();
         Destroy(gameObject);
