@@ -1529,3 +1529,4 @@ Received Import Request.
 Start importing Assets/Wand and Circles/Polygon City Free Pack - Environment and Interior/DEMO/ReflectionProbe-0.exr using Guid(5b8cf7fd48ea21b47829da468c97f6cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bb843a59940a40852f1dc655c62f057') in 0.047417 seconds 
   Import took 0.050068 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
