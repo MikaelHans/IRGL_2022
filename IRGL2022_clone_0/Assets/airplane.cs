@@ -9,10 +9,12 @@ public class airplane : MonoBehaviour
     public GameObject spawnPos;
     public Vector3 movespeed;
     public bool GameStart;
+    Camera airplaneCam;
     // Start is called before the first frame update
     void Start()
     {
         GameStart = false;
+        airplaneCam = GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame
@@ -21,8 +23,9 @@ public class airplane : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && GameStart == false)
         {
             //player drop from airplane
-            PhotonNetwork.Instantiate("Prefabs/player_", spawnPos.transform.position, Quaternion.identity, 0);//instantiate player prefab
+            PhotonNetwork.Instantiate("Prefabs/First Person Player", spawnPos.transform.position, Quaternion.identity, 0);//instantiate player prefab
             GameStart = true;
+            airplaneCam.enabled = false;
         }
     }
 

@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "com.google.external-dependency-manager": "file:../Assets/GooglePackages/com.google.external-dependency-manager-1.2.168.tgz",
+    "com.google.firebase.app": "file:../Assets/GooglePackages/com.google.firebase.app-8.7.0.tgz",
+    "com.google.firebase.auth": "file:../Assets/GooglePackages/com.google.firebase.auth-8.7.0.tgz",
     "com.hwaet.projectcloner": "https://github.com/hwaet/UnityProjectCloner.git",
     "com.unity.cinemachine": "2.6.11",
     "com.unity.collab-proxy": "1.11.2",
