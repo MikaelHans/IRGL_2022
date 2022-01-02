@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "53777091908",
+    "project_id": "irgl-2022",
+    "storage_bucket": "irgl-2022.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53777091908:android:40d0d4c7b1b3670a51db11",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.FirebaseAuthTutorialStarterProject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "53777091908-a5geaq45q9hqhsjp9aff164atkqbill7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX8L_C5XckD79iuLos90Y0C4Z9cj3rIuI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "53777091908-a5geaq45q9hqhsjp9aff164atkqbill7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53777091908:android:3c3059a81e5e99c351db11",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.LoginRegisterFirebaseUnity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "53777091908-a5geaq45q9hqhsjp9aff164atkqbill7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX8L_C5XckD79iuLos90Y0C4Z9cj3rIuI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "53777091908-a5geaq45q9hqhsjp9aff164atkqbill7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
