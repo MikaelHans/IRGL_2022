@@ -41,6 +41,11 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler
             inventory.Remove(item);
         }
     }
+    
+    public void removeItem()
+    {
+        inventory.Remove(item);
+    }
 
     public void onUseItem()
     {
