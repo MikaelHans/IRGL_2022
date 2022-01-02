@@ -1,6 +1,7 @@
+using Photon.Pun;
 using UnityEngine;
 
-public class CharacterPickUpItem : MonoBehaviour
+public class CharacterPickUpItem : MonoBehaviourPun
 {
     public Inventory inventory;
     public RaycastHit rayHit;
@@ -20,16 +21,16 @@ public class CharacterPickUpItem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             Vector3 direction = fpsCam.transform.forward;
-
             //RayCast
             if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, pickUpRange, whatIsItem))
             {
-                GameObject item = rayHit.collider.gameObject;
+                GameObject item = rayHit.collider.gameObject;               
                 pickUpItem(item.GetComponent<Item>());
-                Destroy(item);                
+                PhotonNetwork.Destroy(PhotonView.Find(item.GetPhotonView().ViewID));
             }
         }
     }
+
 
     void pickUpItem(Item item)
     {
