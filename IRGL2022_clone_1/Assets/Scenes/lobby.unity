@@ -941,7 +941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63eb58a98f3ecbc45864c6bdde6bde0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownTime: 3
+  countdownTime: 30
 --- !u!4 &1030371326
 Transform:
   m_ObjectHideFlags: 0

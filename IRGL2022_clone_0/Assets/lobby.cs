@@ -35,6 +35,7 @@ public class lobby : MonoBehaviourPun
                 PhotonNetwork.LoadLevel("main");
                 startGame = false;
             }
+            Debug.Log(countdownTime);
         }
     }
 }
