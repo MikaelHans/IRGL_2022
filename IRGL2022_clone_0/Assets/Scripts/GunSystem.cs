@@ -183,9 +183,7 @@ public class GunSystem : MonoBehaviourPun
                 else
                 {
                     rayHit.collider.GetComponent<Player>().TakeDamage(damage - damage * 20 / 100, currentPlayer.playerName);
-                }
-
-                
+                }               
                 
             }
             if (rayHit.collider.CompareTag("Wall"))

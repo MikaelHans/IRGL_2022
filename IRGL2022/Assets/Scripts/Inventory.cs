@@ -1,7 +1,8 @@
+using Photon.Pun;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviourPun
 {
     public InventoryUI UI;
 
@@ -37,7 +38,8 @@ public class Inventory : MonoBehaviour
 
     public void Remove(Item item)
     {
-        item.itemObject = Instantiate(item.prefab, transform.position + (transform.forward * 2), transform.rotation);
+        //item.itemObject = Instantiate(item.prefab, transform.position + (transform.forward * 2), transform.rotation);
+        item.itemObject = PhotonNetwork.Instantiate("Prefabs/" + item.prefab.name, transform.position + (transform.forward * 2), transform.rotation);
         item.itemObject.GetComponent<Item>().amount = item.amount;
         item.itemObject.GetComponent<Item>().prefab = item.prefab;
         items.Remove(item);
