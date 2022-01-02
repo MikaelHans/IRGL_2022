@@ -42,6 +42,8 @@ MonoBehaviour:
   - rpc_Pickup
   - rpc_PickUp
   - rpc_pickup
+  - rpz_muzzle_flash
+  - rpc_TakeDamage
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0
