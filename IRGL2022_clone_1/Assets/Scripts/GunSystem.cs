@@ -168,6 +168,7 @@ public class GunSystem : MonoBehaviourPun
                 //damage enemy here
                 Debug.DrawLine(fpsCam.transform.position, rayHit.point, Color.red, 20.0f, false);
                 Debug.Log(fpsCam.transform.position - rayHit.point);
+                Debug.Log(rayHit.point);
                 rayHit.collider.GetComponent<Player>().TakeDamage(damage, currentPlayer.playerName);
                 
             }
