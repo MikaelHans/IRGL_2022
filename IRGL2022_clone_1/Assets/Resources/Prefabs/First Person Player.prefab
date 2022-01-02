@@ -6527,9 +6527,9 @@ MonoBehaviour:
   gravity: -9.8
   crouchModifier: 0.5
   walkingHeight: 1
-  crouchingHeight: 1
+  crouchingHeight: 0.5
   walkCamera: 0.8
-  crouchCamera: 0.4
+  crouchCamera: 0.6
   body: {fileID: 4373194739275054115}
   groundCheck: {fileID: 4373194739148615589}
   groundDistance: 0.4
