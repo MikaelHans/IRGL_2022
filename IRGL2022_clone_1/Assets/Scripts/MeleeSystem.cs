@@ -1,3 +1,4 @@
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
@@ -34,13 +35,16 @@ public class MeleeSystem : MonoBehaviour
 
     private void MyInput()
     {
-        shooting = Input.GetKeyDown(KeyCode.Mouse0);
-
-        //shoot
-        if (readyToShoot && shooting)
+        if(currentPlayer.photonView.IsMine)
         {
-            Shoot();
-        }
+            shooting = Input.GetKeyDown(KeyCode.Mouse0);
+
+            //shoot
+            if (readyToShoot && shooting)
+            {
+                Shoot();
+            }
+        }        
     }
 
     private void Shoot()

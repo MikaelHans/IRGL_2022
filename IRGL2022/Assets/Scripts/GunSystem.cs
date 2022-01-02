@@ -1,7 +1,8 @@
 using UnityEngine;
 using TMPro;
+using Photon.Pun;
 
-public class GunSystem : MonoBehaviour
+public class GunSystem : MonoBehaviourPun
 {
     //Gun stats
     public int damage;
@@ -62,50 +63,53 @@ public class GunSystem : MonoBehaviour
 
     private void MyInput()
     {
-        //if player can hold mouse to shoot or not(spray opo tapping)
-        if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
-        else shooting = Input.GetKeyDown(KeyCode.Mouse0);
-
-        //reload
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
-
-        //reload if magazine is empty and player try to shoot
-        if (readyToShoot && shooting && !reloading && bulletsLeft <= 0)
-            Reload();
-
-        //shoot
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        if(photonView.IsMine)
         {
-            bulletsShot = bulletsPerTap;
-            Shoot();
-        }
+            //if player can hold mouse to shoot or not(spray opo tapping)
+            if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
+            else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if(Input.GetMouseButtonDown(1))
-        {
-            if(!fpsCam.GetComponent<MouseLook>().isInventoryOpened)
+            //reload
+            if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
+
+            //reload if magazine is empty and player try to shoot
+            if (readyToShoot && shooting && !reloading && bulletsLeft <= 0)
+                Reload();
+
+            //shoot
+            if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
             {
-                if (!isADS)
+                bulletsShot = bulletsPerTap;
+                Shoot();
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (!fpsCam.GetComponent<MouseLook>().isInventoryOpened)
                 {
-                    ADS();
+                    if (!isADS)
+                    {
+                        ADS();
+                    }
+                    else
+                    {
+                        stopADS();
+                    }
                 }
-                else
-                {
-                    stopADS();
-                }
-            }                     
-        }
-        if(isADS)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, weaponPickUpController.adsContainer.position, aimAnimationSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, weaponPickUpController.adsContainer.transform.rotation, aimAnimationSpeed * Time.deltaTime);
-            SetFieldOfView(Mathf.Lerp(fpsCam.fieldOfView, defaultFOV * zoomRatio, aimAnimationSpeed * Time.deltaTime * 2));
-        }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, weaponPickUpController.gunContainer.position, aimAnimationSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, weaponPickUpController.gunContainer.transform.rotation, aimAnimationSpeed * Time.deltaTime);
-            SetFieldOfView(Mathf.Lerp(fpsCam.fieldOfView, defaultFOV, aimAnimationSpeed * Time.deltaTime * 2));
-        }
+            }
+            if (isADS)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, weaponPickUpController.adsContainer.position, aimAnimationSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, weaponPickUpController.adsContainer.transform.rotation, aimAnimationSpeed * Time.deltaTime);
+                SetFieldOfView(Mathf.Lerp(fpsCam.fieldOfView, defaultFOV * zoomRatio, aimAnimationSpeed * Time.deltaTime * 2));
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, weaponPickUpController.gunContainer.position, aimAnimationSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, weaponPickUpController.gunContainer.transform.rotation, aimAnimationSpeed * Time.deltaTime);
+                SetFieldOfView(Mathf.Lerp(fpsCam.fieldOfView, defaultFOV, aimAnimationSpeed * Time.deltaTime * 2));
+            }
+        }       
     }
 
     public void ADS()
@@ -179,6 +183,7 @@ public class GunSystem : MonoBehaviour
 
         //graphics        
         muzzleFlash.Play();
+        photonView.RPC("rpz_muzzle_flash", RpcTarget.All);
 
         bulletsLeft--;
         bulletsShot--;
@@ -190,6 +195,12 @@ public class GunSystem : MonoBehaviour
             Invoke("Shoot", timeBetweenShots);
         }
 
+    }
+
+    [PunRPC]
+    public void rpz_muzzle_flash()
+    {
+        muzzleFlash.Play();
     }
 
     private void ResetShot()

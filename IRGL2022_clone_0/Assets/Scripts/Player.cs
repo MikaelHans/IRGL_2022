@@ -9,13 +9,16 @@ public class Player : MonoBehaviourPun
     public Image healthBar;
     public string playerName = "";
     Camera playerCam;
+    Canvas playerCanvas;
     // Start is called before the first frame update
     void Start()
     {
         playerCam = gameObject.GetComponentInChildren<Camera>();
+        playerCanvas = gameObject.GetComponentInChildren<Canvas>();
         if (!photonView.IsMine)
         {
             playerCam.enabled = false;
+            playerCanvas.enabled = false;
         }
     }
 
@@ -27,7 +30,13 @@ public class Player : MonoBehaviourPun
 
     public void TakeDamage(float damage, string damagerName)
     {
-        if(damagerName != playerName)
+        photonView.RPC("rpc_TakeDamage", RpcTarget.All, damage, damagerName);
+    }
+
+    [PunRPC]
+    public void rpc_TakeDamage(float damage, string damagerName)
+    {
+        //if (damagerName != playerName)
             currentHealth -= damage;
         if (currentHealth <= 0)
             Death();
