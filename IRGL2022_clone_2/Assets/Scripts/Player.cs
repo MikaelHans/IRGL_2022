@@ -18,6 +18,7 @@ public class Player : MonoBehaviourPun
         if (!photonView.IsMine)
         {
             playerCam.enabled = false;
+            playerCam.gameObject.SetActive(false);
             playerCanvas.enabled = false;
         }
     }
