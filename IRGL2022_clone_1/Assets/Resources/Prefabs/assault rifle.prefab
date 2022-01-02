@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4360725702067032092}
   - component: {fileID: 4360725702067032093}
   - component: {fileID: 614051214344700773}
-  - component: {fileID: 5406504469855205740}
+  - component: {fileID: 6098512157245754764}
   m_Layer: 7
   m_Name: assault rifle
   m_TagString: Untagged
@@ -150,11 +150,11 @@ MonoBehaviour:
   OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 5406504469855205740}
+  - {fileID: 6098512157245754764}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &5406504469855205740
+--- !u!114 &6098512157245754764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,13 +163,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4360725702067032094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a9d0508dc1e1a44792bec2324f575d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: 0
-  position: 0
-  ThisObjTransform: {fileID: 0}
-  lerp_speed: 0
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1001 &4360725702463721710
 PrefabInstance:
   m_ObjectHideFlags: 0
