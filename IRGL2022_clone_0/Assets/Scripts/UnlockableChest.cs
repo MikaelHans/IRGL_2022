@@ -39,7 +39,7 @@ public class UnlockableChest : MonoBehaviourPun
             PhotonNetwork.Instantiate("Prefabs/" + items[i].name, transform.position + (transform.forward * 2), transform.rotation);
         }
         game.closeWindow();
-        Destroy(gameObject);
+        PhotonNetwork.Destroy(gameObject);
     }
 
     public void Close()
