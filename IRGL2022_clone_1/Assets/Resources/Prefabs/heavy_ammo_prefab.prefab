@@ -131,7 +131,7 @@ MonoBehaviour:
   maxStack: 100
   amount: 30
   itemObject: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 3698957746102539112}
   ammoType: Heavy
 --- !u!114 &100501939205418829
 MonoBehaviour:
