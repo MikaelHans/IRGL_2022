@@ -41,6 +41,7 @@ public class Inventory : MonoBehaviourPun
     {
         //item.itemObject = Instantiate(item.prefab, transform.position + (transform.forward * 2), transform.rotation);
         item.itemObject = PhotonNetwork.Instantiate("Prefabs/" + item.prefab.name, transform.position + (transform.forward * 2), transform.rotation);
+        item.itemObject.GetPhotonView().TransferOwnership(PhotonNetwork.MasterClient);
         containerForRpc = item;
         photonView.RPC("rpc_configure_item", RpcTarget.All);
     }

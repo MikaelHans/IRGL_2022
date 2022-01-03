@@ -10,17 +10,17 @@ public class Player : MonoBehaviourPun
     public string playerName = "";
     Camera playerCam;
     Canvas playerCanvas;
-    InventoryUI inventoryUI;
+    public InventoryUI inventoryUI;
     // Start is called before the first frame update
     void Start()
     {
         playerCam = gameObject.GetComponentInChildren<Camera>();
         playerCanvas = gameObject.GetComponentInChildren<Canvas>();
-        inventoryUI = GetComponentInChildren<InventoryUI>();
+        //inventoryUI = GetComponentInChildren<InventoryUI>();
         if (!photonView.IsMine)
         {
             playerCam.enabled = false;
-            playerCam.gameObject.SetActive(false);
+            //playerCam.gameObject.SetActive(false);
             playerCanvas.enabled = false;
         }
     }
@@ -54,6 +54,6 @@ public class Player : MonoBehaviourPun
     {
         //Death function
         inventoryUI.removeAll();
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }
