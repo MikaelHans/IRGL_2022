@@ -11,6 +11,7 @@ public class Player : MonoBehaviourPun
     Camera playerCam;
     Canvas playerCanvas;
     public Inventory inventory;
+    public ChracterPickUpWeapon weapons;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +30,8 @@ public class Player : MonoBehaviourPun
     void Update()
     {
         healthBar.fillAmount = currentHealth / maxHealth;
-        if (currentHealth <= 0)
-            Death();
+        //if (currentHealth <= 0)
+        //    Death();
     }
 
     public void TakeDamage(float damage, string damagerName)
@@ -56,6 +57,8 @@ public class Player : MonoBehaviourPun
     {
         //Death function
         inventory.removeAll();
+        weapons.dropgunFromSlot(0);
+        weapons.dropgunFromSlot(1);
         Destroy(gameObject);
     }
 }

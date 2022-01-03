@@ -198,7 +198,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
         }
     }
 
-    private void dropgunFromSlot(int index)
+    public void dropgunFromSlot(int index)
     {
         photonView.RPC("rpc_drop", RpcTarget.All, index);        
     }
