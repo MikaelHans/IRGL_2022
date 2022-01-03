@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5943343873150286095
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 4
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
@@ -8,9 +21,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: box_ammo
-  m_Shader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
-  m_ShaderKeywords: _EMISSION _GLOSSINESS_FROM_BASE_ALPHA _NORMALMAP _SPECULAR_COLOR
-  m_LightmapFlags: 1
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_ShaderKeywords: _NORMALMAP
+  m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
@@ -26,6 +39,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: ea9925ec5b4e0334e880f676dde474f8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClearCoatMap:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -64,6 +81,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _fillTexture:
+        m_Texture: {fileID: 2800000, guid: f83110014b3b69544a7e9aaae8e96295, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _scanlineTexture:
+        m_Texture: {fileID: 2800000, guid: d8bd472723e2dd749afb2ff091176b75, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -77,16 +102,26 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_13b1d1188d254b22948d3d919b8bd26d: 2
+    - Vector1_aaf19653876144f7b0301383900e4279: 0.01
+    - Vector1_ef09f986c0114dcdba27c20ae0710560: 15
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
+    - _ClearCoat: 0
+    - _ClearCoatMask: 0
+    - _ClearCoatSmoothness: 1
     - _Cull: 2
     - _Cutoff: 0.5
+    - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EmissionScaleUI: 0
+    - _EnvironmentReflections: 1
+    - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossinessSource: 0
+    - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -96,18 +131,43 @@ Material:
     - _Shininess: 0.5
     - _Smoothness: 0.5
     - _SmoothnessSource: 0
+    - _SmoothnessTextureChannel: 0
     - _SpecSource: 0
-    - _SpecularHighlights: 0
+    - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
     - _UVSec: 0
+    - _WorkflowMode: 1
     - _ZWrite: 1
+    - _enableFillTexture: 1
+    - _enableIntersection: 1
+    - _enableRimGlow: 1
+    - _enableRipple: 1
+    - _enableScanLine: 0
+    - _fill: 0.01
+    - _impactRippleAmplitude: 0
+    - _impactRippleMaxRadius: 0.1
+    - _impactRippleSpeed: 0
+    - _intersectionMultiplier: 1
+    - _intersectionOffset: 1.5
+    - _rimGlowNoiseDensity: 4
+    - _rimGlowNoiseSpeed: 1
+    - _rimPulseSpeed: 3
+    - _scanSize: 0.8
+    - _scanSpeed: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _baseColor: {r: 0, g: 0.6196079, b: 0.9882354, a: 1}
+    - _fillOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _fillTiling: {r: 10, g: 10, b: 0, a: 0}
+    - _impactPoint: {r: 0, g: 0, b: 0, a: 0}
+    - _impactRippleDirection: {r: 0, g: 0, b: 1, a: 0}
+    - _rimColor: {r: 2, g: 0.2916075, b: 0.052356, a: 0}
+    - _rimPower: {r: 1.5, g: 5, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1547528416166219457
 MonoBehaviour:
