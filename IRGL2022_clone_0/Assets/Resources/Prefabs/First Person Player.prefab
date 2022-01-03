@@ -6626,7 +6626,7 @@ MonoBehaviour:
   currentHealth: 100
   healthBar: {fileID: 4373194738414222610}
   playerName: 
-  inventoryUI: {fileID: 4373194738005955683}
+  inventory: {fileID: 4373194738681279167}
 --- !u!114 &2114925153598477862
 MonoBehaviour:
   m_ObjectHideFlags: 0

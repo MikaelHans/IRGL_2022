@@ -1,8 +1,9 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayMinigame : MonoBehaviour
+public class PlayMinigame : MonoBehaviourPun
 {
     public RaycastHit rayHit;
     public LayerMask whatIsItem;
@@ -17,7 +18,7 @@ public class PlayMinigame : MonoBehaviour
     void Update()
     {
         //Check if player is in range and "E" is pressed
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && photonView.IsMine)
         {
             Vector3 direction = fpsCam.transform.forward;
 
