@@ -23,10 +23,10 @@ TagManager:
   - PhysicalAmmo
   - Ground
   - Chest
-  - 
-  - 
-  - 
-  - 
+  - Melee
+  - Character
+  - OtherMinimap
+  - MyMinimap
   - 
   - 
   - 
