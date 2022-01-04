@@ -171,20 +171,24 @@ public class GunSystem : MonoBehaviourPun
 
                 float yHitLocation = rayHit.point.y - rayHit.collider.gameObject.transform.position.y;
                 Debug.Log(yHitLocation);
-
+                float enemyhealth;
                 if(yHitLocation > 0.5)
                 {
-                    rayHit.collider.GetComponent<Player>().TakeDamage(damage + damage * 50 / 100, currentPlayer.playerName);
+                    enemyhealth = rayHit.collider.GetComponent<Player>().TakeDamage(damage + damage * 50 / 100, currentPlayer.playerName);
                 }
                 else if(yHitLocation > 0.2)
                 {
-                    rayHit.collider.GetComponent<Player>().TakeDamage(damage + damage * 100 / 100, currentPlayer.playerName);
+                    enemyhealth = rayHit.collider.GetComponent<Player>().TakeDamage(damage + damage * 100 / 100, currentPlayer.playerName);
                 }
                 else
                 {
-                    rayHit.collider.GetComponent<Player>().TakeDamage(damage - damage * 20 / 100, currentPlayer.playerName);
-                }               
-                
+                    enemyhealth = rayHit.collider.GetComponent<Player>().TakeDamage(damage - damage * 20 / 100, currentPlayer.playerName);
+                }  
+                if(enemyhealth <= 0)
+                {
+                    //killed an enemy then add points
+                    currentPlayer.points += 100;
+                }
             }
             if (rayHit.collider.CompareTag("Wall"))
             {

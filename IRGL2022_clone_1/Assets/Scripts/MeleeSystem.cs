@@ -58,13 +58,19 @@ public class MeleeSystem : MonoBehaviour
         //RayCast
         if (Physics.Raycast(fpsCam.transform.position + (direction * 0.5f), direction, out rayHit, range, whatIsEnemy))
         {
-
+            float enemyhealth;
             if (rayHit.collider.CompareTag("Enemy"))
             {
                 //damage enemy here
-                rayHit.collider.GetComponent<Player>().TakeDamage(damage, currentPlayer.playerName);
+                enemyhealth = rayHit.collider.GetComponent<Player>().TakeDamage(damage, currentPlayer.playerName);
+                if (enemyhealth <= 0)
+                {
+                    //killed an enemy then add points
+                    currentPlayer.points += 200;
+                }
 
             }
+            
 
         }
 

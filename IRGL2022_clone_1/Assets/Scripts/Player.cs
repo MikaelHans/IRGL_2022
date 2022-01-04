@@ -6,6 +6,7 @@ public class Player : MonoBehaviourPun
 {
     public float maxHealth = 100f;
     public float currentHealth = 100.0f;
+    public float points = 0;
     public Image healthBar;
     public string playerName = "";
     Camera playerCam;
@@ -31,9 +32,10 @@ public class Player : MonoBehaviourPun
         healthBar.fillAmount = currentHealth / maxHealth;
     }
 
-    public void TakeDamage(float damage, string damagerName)
+    public float TakeDamage(float damage, string damagerName)
     {
         photonView.RPC("rpc_TakeDamage", RpcTarget.All, damage, damagerName);
+        return currentHealth - damage;
     }
 
     [PunRPC]
@@ -49,6 +51,7 @@ public class Player : MonoBehaviourPun
     {
         currentHealth = Mathf.Min(maxHealth, currentHealth + healthRestored);
     }
+
 
     public void Death()
     {
