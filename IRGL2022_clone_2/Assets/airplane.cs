@@ -22,18 +22,15 @@ public class airplane : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        if(photonView.IsMine)
+        if (Input.GetKeyDown(KeyCode.Space) && GameStart == false)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && GameStart == false)
-            {
-                //player drop from airplane
-                PhotonNetwork.Instantiate("Prefabs/First Person Player", spawnPos.transform.position, Quaternion.identity, 0);//instantiate player prefab
-                GameStart = true;
-                airplaneCam.enabled = false;
+            //player drop from airplane
+            PhotonNetwork.Instantiate("Prefabs/First Person Player", spawnPos.transform.position, Quaternion.identity, 0);//instantiate player prefab
+            GameStart = true;
+            airplaneCam.enabled = false;
 
-            }
         }
-        
+
     }
 
     private void FixedUpdate()
