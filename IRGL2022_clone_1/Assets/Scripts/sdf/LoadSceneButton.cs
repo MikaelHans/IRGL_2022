@@ -37,7 +37,7 @@ namespace Unity.FPS.UI
         {
             max_player_in_room = 20;
             max_dc_time = 300 * 1000;
-            default_room_name = "IRGLROOM";
+            default_room_name = "IRGLROOM2";
             DefaultRoomOptions = new RoomOptions();
         }        
 
@@ -65,7 +65,7 @@ namespace Unity.FPS.UI
         }
 
         #region Join room functions
-        public void JoinRoom(string roomName = "IRGLROOM")//called when user press to join room
+        public void JoinRoom(string roomName = "IRGLROOM2")//called when user press to join room
         {
             PhotonNetwork.JoinRoom(roomName);//join room
         }
