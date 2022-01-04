@@ -10,7 +10,7 @@ public class Player : MonoBehaviourPun
     public string playerName = "";
     Camera playerCam;
     Canvas playerCanvas;
-    public Inventory inventory;
+    public InventoryUI inventoryUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +29,6 @@ public class Player : MonoBehaviourPun
     void Update()
     {
         healthBar.fillAmount = currentHealth / maxHealth;
-        if (currentHealth <= 0)
-            Death();
     }
 
     public void TakeDamage(float damage, string damagerName)
@@ -55,7 +53,7 @@ public class Player : MonoBehaviourPun
     public void Death()
     {
         //Death function
-        inventory.removeAll();
-        Destroy(gameObject);
+        inventoryUI.removeAll();
+        //Destroy(gameObject);
     }
 }

@@ -48,7 +48,8 @@ public class PickUpController : MonoBehaviourPun
     {
         equipped = true;
         photonView.RequestOwnership();
-        SetLayerRecursively(gameObject, LayerMask.NameToLayer("EquipedGun"));
+        if(photonView.IsMine)
+            SetLayerRecursively(gameObject, LayerMask.NameToLayer("EquipedGun"));
         //Make weapon a child of the camera and move it to default position
         transform.SetParent(gunContainer);
         transform.localPosition = Vector3.zero;
@@ -72,8 +73,8 @@ public class PickUpController : MonoBehaviourPun
     public void Drop()
     {
         equipped = false;
-
-        SetLayerRecursively(gameObject, LayerMask.NameToLayer("Gun"));
+        if (photonView.IsMine)
+            SetLayerRecursively(gameObject, LayerMask.NameToLayer("Gun"));
 
         //Set parent to null
         transform.SetParent(null);

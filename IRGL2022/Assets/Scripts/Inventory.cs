@@ -67,14 +67,6 @@ public class Inventory : MonoBehaviourPun
         UI.UpdateUI();
     }
 
-    public void removeAll()
-    {
-        for(int i = 0; i < items.Count; i++)
-        {
-            Remove(items[i]);
-        }
-    }
-
     public void UseItemInInventory(Item item)
     {
         foreach (Item i in items)
