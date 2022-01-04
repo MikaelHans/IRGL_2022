@@ -6,7 +6,7 @@ using Firebase.Auth;
 using Firebase.Firestore;
 
 
-public class airplane : MonoBehaviour
+public class airplane : MonoBehaviourPun
 {
     public GameObject spawnPos;
     public Vector3 movespeed;
@@ -22,14 +22,18 @@ public class airplane : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && GameStart == false)
+        if(photonView.IsMine)
         {
-            //player drop from airplane
-            PhotonNetwork.Instantiate("Prefabs/First Person Player", spawnPos.transform.position, Quaternion.identity, 0);//instantiate player prefab
-            GameStart = true;
-            airplaneCam.enabled = false;
-            
+            if (Input.GetKeyDown(KeyCode.Space) && GameStart == false)
+            {
+                //player drop from airplane
+                PhotonNetwork.Instantiate("Prefabs/First Person Player", spawnPos.transform.position, Quaternion.identity, 0);//instantiate player prefab
+                GameStart = true;
+                airplaneCam.enabled = false;
+
+            }
         }
+        
     }
 
     private void FixedUpdate()
