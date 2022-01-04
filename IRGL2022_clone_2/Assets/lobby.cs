@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using Firebase.Firestore;
 
 public class lobby : MonoBehaviourPun
 {
@@ -12,8 +13,14 @@ public class lobby : MonoBehaviourPun
     void Start()
     {
         PhotonNetwork.Instantiate("Prefabs/First Person Player", new Vector3(0, 2, 0), Quaternion.identity, 0);//instantiate player prefab
-                                                                                                   //
-        if(PhotonNetwork.IsMasterClient)
+        var firestore = FirebaseFirestore.DefaultInstance;
+        string email = FindObjectOfType<AuthManager>().playerEmail;
+        string characterPath = "dbPlayer/" + email;
+        var characterData = new CharacterData { points = 0, position = new Vector3(0,0,0) };
+        firestore.Document(characterPath).SetAsync(characterData);
+
+
+        if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.AutomaticallySyncScene = true;
         }
