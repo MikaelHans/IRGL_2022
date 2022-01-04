@@ -70,7 +70,7 @@ MonoBehaviour:
   gunCam: {fileID: 0}
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 4104
   controller: {fileID: 0}
   inventory: {fileID: 0}
   weaponPickUpController: {fileID: 4705280805442977874}
@@ -150,7 +150,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: -2353125174849731001}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
