@@ -12,6 +12,8 @@ public class Player : MonoBehaviourPun
     Camera playerCam;
     Canvas playerCanvas;
     public InventoryUI inventoryUI;
+    public ChracterPickUpWeapon weapons;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +59,8 @@ public class Player : MonoBehaviourPun
     {
         //Death function
         inventoryUI.removeAll();
+        weapons.dropgunFromSlot(0);
+        weapons.dropgunFromSlot(1);
         //Destroy(gameObject);
     }
 }

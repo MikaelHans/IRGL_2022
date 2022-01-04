@@ -8,6 +8,7 @@ TagManager:
   - CinemachineTarget
   - Bullet
   - Wall
+  - WorldBorder
   layers:
   - Default
   - TransparentFX

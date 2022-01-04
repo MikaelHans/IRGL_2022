@@ -10,9 +10,12 @@ namespace Unity.FPS.Game
         public float DPS = 5;
         public float tickTime = 1;
         private float totalTime = 0;
+        private Player player;
         // Start is called before the first frame update
         void Start()
         {
+            player = gameObject.GetComponent<Player>();
+            worldBorder = GameObject.FindGameObjectWithTag("WorldBorder");
         }
 
         // Update is called once per frame
@@ -28,11 +31,14 @@ namespace Unity.FPS.Game
             totalTime += Time.deltaTime;
             if (totalTime > tickTime)
             {
-                if (!IsInside(worldBorder.GetComponentInChildren<CapsuleCollider>(), transform.position))
+                if(worldBorder != null)
                 {
-                    this.GetComponent<Health>().TakeDamage(DPS, worldBorder);
-                    totalTime = 0;
-                }
+                    if (!IsInside(worldBorder.GetComponent<MeshCollider>(), transform.position))
+                    {
+                        player.TakeDamage(DPS, "WorldBorder");
+                        totalTime = 0;
+                    }
+                }                
             }
         }
     }

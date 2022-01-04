@@ -198,7 +198,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
         }
     }
 
-    private void dropgunFromSlot(int index)
+    public void dropgunFromSlot(int index)
     {
         if(index >=0 && index < weapon.Length)
         {

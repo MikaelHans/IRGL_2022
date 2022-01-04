@@ -4909,7 +4909,7 @@ MonoBehaviour:
   gunCam: {fileID: 0}
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 4104
   controller: {fileID: 0}
   inventory: {fileID: 0}
   weaponPickUpController: {fileID: 4311835750542008015}
