@@ -13,11 +13,6 @@ public class lobby : MonoBehaviourPun
     void Start()
     {
         PhotonNetwork.Instantiate("Prefabs/First Person Player", new Vector3(0, 2, 0), Quaternion.identity, 0);//instantiate player prefab
-        var firestore = FirebaseFirestore.DefaultInstance;
-        string email = FindObjectOfType<AuthManager>().playerEmail;
-        string characterPath = "dbPlayer/" + email;
-        var characterData = new CharacterData { points = 0, position = new Vector3(0,0,0) };
-        firestore.Document(characterPath).SetAsync(characterData);
 
 
         if (PhotonNetwork.IsMasterClient)

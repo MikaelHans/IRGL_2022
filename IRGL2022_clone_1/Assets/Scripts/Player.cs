@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class Player : MonoBehaviourPun
 {
@@ -44,7 +46,7 @@ public class Player : MonoBehaviourPun
     public void rpc_TakeDamage(float damage, string damagerName)
     {
         //if (damagerName != playerName)
-            currentHealth -= damage;
+        currentHealth -= damage;
         if (currentHealth <= 0)
             Death();
     }
@@ -61,6 +63,7 @@ public class Player : MonoBehaviourPun
         inventoryUI.removeAll();
         weapons.dropgunFromSlot(0);
         weapons.dropgunFromSlot(1);
-        //Destroy(gameObject);
+        Destroy(gameObject);
+        SceneManager.LoadScene("GameOver");
     }
 }

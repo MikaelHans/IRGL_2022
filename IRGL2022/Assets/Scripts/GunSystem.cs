@@ -201,7 +201,6 @@ public class GunSystem : MonoBehaviourPun
         //shake camera
 
         //graphics        
-        muzzleFlash.Play();
         photonView.RPC("rpz_muzzle_flash", RpcTarget.All);
 
         bulletsLeft--;
