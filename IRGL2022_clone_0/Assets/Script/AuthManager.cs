@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class AuthManager : MonoBehaviour
 {
     //Firebase variables
+    public string playerEmail;
     [Header("Firebase")]
     public DependencyStatus dependencyStatus;
     public FirebaseAuth auth;
@@ -30,6 +31,7 @@ public class AuthManager : MonoBehaviour
 
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         //Check that all of the necessary dependencies for Firebase are present on the system
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
@@ -103,6 +105,7 @@ public class AuthManager : MonoBehaviour
             //User is now logged in
             //Now get the result
             User = LoginTask.Result;
+            playerEmail = User.Email;
             Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
             warningLoginText.text = "";
             confirmLoginText.text = "Logged In";
