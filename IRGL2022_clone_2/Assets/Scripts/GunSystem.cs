@@ -63,7 +63,7 @@ public class GunSystem : MonoBehaviourPun
 
     private void MyInput()
     {
-        if(!photonView.IsMine)
+        if(photonView.IsMine)
         {
             //if player can hold mouse to shoot or not(spray opo tapping)
             if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
@@ -201,7 +201,6 @@ public class GunSystem : MonoBehaviourPun
         //shake camera
 
         //graphics        
-        muzzleFlash.Play();
         photonView.RPC("rpz_muzzle_flash", RpcTarget.All);
 
         bulletsLeft--;
