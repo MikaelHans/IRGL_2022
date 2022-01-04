@@ -63,7 +63,7 @@ public class GunSystem : MonoBehaviourPun
 
     private void MyInput()
     {
-        if(photonView.IsMine)
+        if(currentPlayer.photonView.IsMine)
         {
             //if player can hold mouse to shoot or not(spray opo tapping)
             if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);

@@ -8,7 +8,16 @@ public class IgnoreWorldBorder : MonoBehaviour
     public GameObject worldborder;
     void Start()
     {
-        Physics.IgnoreCollision(worldborder.GetComponentInChildren<CapsuleCollider>(), GetComponent<Collider>());
-        Physics.IgnoreCollision(worldborder.GetComponent<MeshCollider>(), GetComponent<Collider>());
+        if (worldborder != null)
+        {
+            //Physics.IgnoreCollision(worldborder.GetComponentInChildren<CapsuleCollider>(), GetComponent<Collider>());
+            Physics.IgnoreCollision(worldborder.GetComponent<MeshCollider>(), GetComponent<Collider>());
+        }
+
+        
+    }
+    private void Awake()
+    {
+        worldborder = GameObject.FindGameObjectWithTag("WorldBorder");
     }
 }

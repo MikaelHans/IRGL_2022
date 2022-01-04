@@ -6921,7 +6921,7 @@ MonoBehaviour:
   crouchCamera: 0.6
   body: {fileID: 4373194739275054115}
   groundCheck: {fileID: 4373194739148615589}
-  groundDistance: 0.4
+  groundDistance: 1
   groundMask:
     serializedVersion: 2
     m_Bits: 4096
