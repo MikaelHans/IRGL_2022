@@ -46,6 +46,7 @@ MonoBehaviour:
   - rpc_TakeDamage
   - rpc_destroy
   - rpc_configure_item
+  - rpc_drop
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0

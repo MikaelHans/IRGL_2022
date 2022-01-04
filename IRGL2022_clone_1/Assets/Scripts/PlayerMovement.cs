@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviourPun
     public bool isSprinting;
     public bool isCrouching;
 
-    public Camera fpsCam;
+    public Camera fpsCam;    
     public RaycastHit rayHit;
     public LayerMask whatIsObstacle;
 

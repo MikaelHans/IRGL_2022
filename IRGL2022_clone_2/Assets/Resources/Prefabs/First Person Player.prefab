@@ -7016,6 +7016,7 @@ MonoBehaviour:
   points: 0
   healthBar: {fileID: 4373194738414222610}
   playerName: 
+  MinimapCamera: {fileID: 190486139}
   inventoryUI: {fileID: 4373194738005955683}
   weapons: {fileID: 4373194738681279165}
 --- !u!114 &2114925153598477862

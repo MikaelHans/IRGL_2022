@@ -13,6 +13,7 @@ public class Player : MonoBehaviourPun
     public string playerName = "";
     Camera playerCam;
     Canvas playerCanvas;
+    public Camera MinimapCamera;
     public InventoryUI inventoryUI;
     public ChracterPickUpWeapon weapons;
 
@@ -26,6 +27,7 @@ public class Player : MonoBehaviourPun
         {
             playerCam.enabled = false;
             //playerCam.gameObject.SetActive(false);
+            MinimapCamera.enabled = false;
             playerCanvas.enabled = false;
         }
     }
@@ -60,10 +62,22 @@ public class Player : MonoBehaviourPun
     public void Death()
     {
         //Death function
-        inventoryUI.removeAll();
-        weapons.dropgunFromSlot(0);
-        weapons.dropgunFromSlot(1);
-        Destroy(gameObject);
+        if(photonView.IsMine)
+        {
+            inventoryUI.removeAll();
+            weapons.dropgunFromSlot(0);
+            weapons.dropgunFromSlot(1);
+            PhotonNetwork.Disconnect();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void OnDisconnectedFromPhoton()
+    {
+        Debug.Log("OnPhotonPlayerDisconnected");        
         SceneManager.LoadScene("GameOver");
     }
 }
