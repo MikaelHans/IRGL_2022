@@ -6,10 +6,13 @@ public class Inventory : MonoBehaviourPun
 {
     public InventoryUI UI;
 
-	public List<Item> items = new List<Item>();
+	
     public int spaceLimit = 20;
     public Player currentPlayer;
     Item containerForRpc;
+
+
+    public List<ItemData> items = new List<ItemData>();
 
     public void AddItem(Item item)
     {
@@ -19,11 +22,12 @@ public class Inventory : MonoBehaviourPun
             return;
         }
 
-        foreach(Item i in items)
+        foreach(ItemData i in items)
         {
-            if(i.GetType().Name == item.GetType().Name && item.itemName == i.itemName)
+            Item tmp = i.prefab.GetComponent<Item>();
+            if(tmp.GetType().Name == item.GetType().Name && item.itemName == tmp.itemName)
             {
-                int remainingslot = i.maxStack - i.amount;
+                int remainingslot = tmp.maxStack - tmp.amount;
                 int getIn = Mathf.Min(remainingslot, item.amount);
                 item.amount -= getIn;
                 i.amount += getIn;
@@ -31,19 +35,34 @@ public class Inventory : MonoBehaviourPun
         }
         if(item.amount > 0)
         {
-            items.Add(item);
+            ItemData newitem = new ItemData();
+            newitem.prefab = item.prefab;
+            newitem.amount = item.amount;
+            newitem.name = item.name;
+            items.Add(newitem);
         }
 
         UI.UpdateUI();
     }
 
-    public void Remove(Item item)
+    public void Remove(ItemData item)
     {
-        //item.itemObject = Instantiate(item.prefab, transform.position + (transform.forward * 2), transform.rotation);
-        item.itemObject = PhotonNetwork.Instantiate("Prefabs/" + item.prefab.name, transform.position + (transform.forward * 2), transform.rotation);
-        item.itemObject.GetPhotonView().TransferOwnership(PhotonNetwork.MasterClient);
-        containerForRpc = item;
-        photonView.RPC("rpc_configure_item", RpcTarget.All);
+        // //item.itemObject = Instantiate(item.prefab, transform.position + (transform.forward * 2), transform.rotation);
+        // item.itemObject = PhotonNetwork.Instantiate("Prefabs/" + item.prefab.name, transform.position + (transform.forward * 2), transform.rotation);
+        // item.itemObject.GetPhotonView().TransferOwnership(PhotonNetwork.MasterClient);
+        // containerForRpc = item;
+        // photonView.RPC("rpc_configure_item", RpcTarget.All);
+    }
+
+    public ItemData[] getAllItem()
+    {
+        ItemData[] allitems = new ItemData[items.Count];
+        //convert item to gameobject
+        for(int i = 0; i < items.Count; i++)
+        {
+            allitems[i] = items[i];
+        }
+        return allitems;
     }
 
     [PunRPC]
@@ -52,7 +71,7 @@ public class Inventory : MonoBehaviourPun
         Item item = containerForRpc;
         item.itemObject.GetComponent<Item>().amount = item.amount;
         item.itemObject.GetComponent<Item>().prefab = item.prefab;
-        items.Remove(item);
+        // items.Remove(item);
         UI.UpdateUI();
     }
 
@@ -69,13 +88,13 @@ public class Inventory : MonoBehaviourPun
 
     public void UseItemInInventory(Item item)
     {
-        foreach (Item i in items)
-        {
-            if (item == i)
-            {
-                i.Use(currentPlayer);
-            }
-        }
-        removeAllZeroItem();
+        // foreach (Item i in items)
+        // {
+        //     if (item == i)
+        //     {
+        //         i.Use(currentPlayer);
+        //     }
+        // }
+        // removeAllZeroItem();
     }
 }

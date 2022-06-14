@@ -2683,11 +2683,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7300111515750872664}
   - component: {fileID: 7300111515750872670}
-  - component: {fileID: 7300111515750872669}
+  - component: {fileID: -7544527785435883061}
   - component: {fileID: 7300111515750872668}
+  - component: {fileID: 7300111515750872669}
   - component: {fileID: 7300111515750872665}
   - component: {fileID: 6498052910644058925}
-  - component: {fileID: 4403926148876065771}
   m_Layer: 13
   m_Name: Chest
   m_TagString: Untagged
@@ -2752,19 +2752,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7300111515750872669
-BoxCollider:
+--- !u!114 &-7544527785435883061
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7300111515750872659}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.7, y: 1.5, z: 1.4}
-  m_Center: {x: 0, y: 0.75, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &7300111515750872668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2780,11 +2789,23 @@ MonoBehaviour:
   isPlayed: 0
   isOpened: 0
   items:
-  - {fileID: 4360725702067032094, guid: b06feed0683fc474c818baa135b60a30, type: 3}
-  - {fileID: 2737699300689847269, guid: f75c9506eaaf9b1429ea2a3f28cef172, type: 3}
-  - {fileID: 2737699300689847269, guid: f75c9506eaaf9b1429ea2a3f28cef172, type: 3}
-  - {fileID: 6860850774082911116, guid: 46ef64a8b24505444b5548086a6fd85b, type: 3}
+  - prefab: {fileID: 0}
+    amount: 2
+    name: potion
   game: {fileID: 7300111515750872665}
+--- !u!65 &7300111515750872669
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7300111515750872659}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7, y: 1.5, z: 1.4}
+  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!114 &7300111515750872665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2827,28 +2848,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4403926148876065771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7300111515750872659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1 &7300111515771943653
 GameObject:
   m_ObjectHideFlags: 0

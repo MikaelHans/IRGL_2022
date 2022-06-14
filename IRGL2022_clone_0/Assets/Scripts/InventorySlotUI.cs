@@ -10,13 +10,13 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler
     public Inventory inventory;
 
 
-    public Item item;
+    public ItemData item;
 
-    public void AddItem(Item newItem)
+    public void AddItem(ItemData newItem)
     {
         item = newItem;
 
-        icon.sprite = item.icon;
+        icon.sprite = item.prefab.GetComponent<Item>().icon;
         icon.enabled = true;
 
         stack.text = item.amount.ToString();
@@ -49,6 +49,6 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler
 
     public void onUseItem()
     {
-        inventory.UseItemInInventory(item);
+        // inventory.UseItemInInventory(item);
     }
 }

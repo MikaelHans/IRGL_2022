@@ -51,6 +51,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8584e4bb22a6d4fbc5f16d09fbebda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: shotgun
+  icon: {fileID: 0}
+  maxStack: 0
+  amount: 0
+  itemObject: {fileID: 0}
+  prefab: {fileID: 4705280805442977878}
   damage: 10
   timeBetweenShooting: 0.1
   spread: 0.05

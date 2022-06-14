@@ -9,6 +9,7 @@ namespace Unity.FPS.Gameplay
     [RequireComponent(typeof(CharacterController), typeof(PlayerInputHandler), typeof(AudioSource))]
     public class PlayerCharacterController : MonoBehaviourPun
     {
+        public Rigidbody2D rb;
         [Header("References")]
         [Tooltip("Reference to the main camera used for the player")]
         public Camera PlayerCamera;
@@ -245,7 +246,7 @@ namespace Unity.FPS.Gameplay
             // Tell the weapons manager to switch to a non-existing weapon in order to lower the weapon
             m_WeaponsManager.SwitchToWeaponIndex(-1, true);
 
-            EventManager.Broadcast(Events.PlayerDeathEvent);
+            EventManager.Broadcast(Events.PlayerDeathEvent);            
         }
 
         void GroundCheck()

@@ -4890,6 +4890,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8584e4bb22a6d4fbc5f16d09fbebda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: dmr
+  icon: {fileID: 0}
+  maxStack: 0
+  amount: 0
+  itemObject: {fileID: 0}
+  prefab: {fileID: 4311835750542008011}
   damage: 15
   timeBetweenShooting: 0.3
   spread: 0.01

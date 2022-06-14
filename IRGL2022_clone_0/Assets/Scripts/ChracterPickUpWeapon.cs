@@ -54,7 +54,6 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
             {
                 Vector3 direction = fpsCam.transform.forward;
 
-
                 photonView.RPC("rpc_pickup", RpcTarget.All, direction);
             }
 
@@ -202,6 +201,11 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
     public void dropgunFromSlot(int index)
     {
         photonView.RPC("rpc_drop", RpcTarget.All, index);
+    }
+
+    public GameObject[] dropgunAllGun()
+    {
+        return weapon;
     }
 
     [PunRPC]

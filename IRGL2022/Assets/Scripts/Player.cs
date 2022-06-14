@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviourPun
 {
@@ -16,6 +17,8 @@ public class Player : MonoBehaviourPun
     public Camera MinimapCamera;
     public InventoryUI inventoryUI;
     public ChracterPickUpWeapon weapons;
+
+    public GameObject chest;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,11 @@ public class Player : MonoBehaviourPun
     void Update()
     {
         healthBar.fillAmount = currentHealth / maxHealth;
+        //check player health
+        if (currentHealth <= 0)
+        {
+            Death();
+        }
     }
 
     public float TakeDamage(float damage, string damagerName)
@@ -61,23 +69,68 @@ public class Player : MonoBehaviourPun
 
     public void Death()
     {
-        //Death function
-        if(photonView.IsMine)
+        //Death function        
+        if (photonView.IsMine)
         {
-            inventoryUI.removeAll();
-            weapons.dropgunFromSlot(0);
-            weapons.dropgunFromSlot(1);
-            PhotonNetwork.Disconnect();
+            // inventoryUI.removeAll();
+            //weapons.dropgunFromSlot();
+            List<ItemData> allitems = new List<ItemData>();
+            // foreach (GameObject weapon in weapons.dropgunAllGun())
+            // {
+            //     allitems.Add(weapon);
+            // }
+            foreach (ItemData item in inventoryUI.inventory.getAllItem())
+            {
+                allitems.Add(item);
+            }
+            //export weapon data to itemdata
+            GameObject[] allweapons = weapons.weapon;//get weapons array
+            foreach(GameObject weapon in allweapons)
+            {
+                if (weapon != null)
+                {                    
+                    Item weapon_item = weapon.GetComponent<Item>();
+                    if (!weapon.GetComponent<MeleeSystem>())
+                    {
+                        ItemData itemData = new ItemData();
+                        itemData.prefab = weapon_item.prefab;
+                        itemData.name = weapon_item.name;
+                        itemData.amount = 1;
+                        allitems.Add(itemData);
+                    }                    
+                }              
+            }
+
+            //export allitem to json
+            string json = JsonHelper.ToJson<ItemData>(allitems.ToArray());
+            //rpc call
+            photonView.RPC("sync_item_in_chest", RpcTarget.All, json);
+            Debug.Log(json);
+
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
+        //chest.GetComponent<UnlockableChest>().fillChest();
+
+
+    }
+
+    [PunRPC]
+    public void sync_item_in_chest(string json)
+    {
+        if (photonView.IsMine)
+        {
+            GameObject chest = PhotonNetwork.Instantiate("Prefabs/Chest",transform.position, transform.rotation, 0);
+            chest.GetComponent<UnlockableChest>().sync_chest(json);
+            PhotonNetwork.Destroy(gameObject);
+        }     
     }
 
     public void OnDisconnectedFromPhoton()
     {
-        Debug.Log("OnPhotonPlayerDisconnected");        
+        Debug.Log("OnPhotonPlayerDisconnected");
         SceneManager.LoadScene("GameOver");
     }
 }

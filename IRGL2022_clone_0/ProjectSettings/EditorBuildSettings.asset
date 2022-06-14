@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/IntroMenu.unity
     guid: 56e3faabc5bb30f49a68bb8f1292f988
   - enabled: 1
-    path: Assets/FPS/Scenes/WinScene.unity
+    path: Assets/Assets/FPS/Scenes/WinScene.unity
     guid: 037d06fbede2b4041a843d9ee6fe750c
   - enabled: 1
-    path: Assets/FPS/Scenes/LoseScene.unity
+    path: Assets/Assets/FPS/Scenes/LoseScene.unity
     guid: 72e5c65a45893714484002914e3fd521
   - enabled: 1
-    path: Assets/FPS/Scenes/MainScene.unity
+    path: Assets/Assets/FPS/Scenes/MainScene.unity
     guid: d794a2ef8ba31d847ad3c19d03e2ddb9
   - enabled: 1
     path: Assets/Scenes/lobby.unity
@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/main.unity
     guid: 5a463281e6e238742a45430f11e82829
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/LoginMenu.unity
     guid: 029d31f8129922d46a8ab0eafc5f175e
   - enabled: 1
     path: Assets/Scenes/GameOver.unity

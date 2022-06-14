@@ -1,6 +1,7 @@
 using UnityEngine;
+using Photon.Pun;
 
-public class Item : MonoBehaviour
+public class Item : MonoBehaviourPun
 {
     public string itemName = "item";
     public Sprite icon = null;

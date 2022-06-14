@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using Photon.Pun;
 
-public class GunSystem : MonoBehaviourPun
+public class GunSystem : Item
 {
     //Gun stats
     public int damage;
@@ -46,11 +46,11 @@ public class GunSystem : MonoBehaviourPun
 
         MyInput();
         int ammoCount = 0;
-        foreach (Item item in inventory.items)
+        foreach (ItemData item in inventory.items)
         {
-            if (item.GetType().Name == "Ammo")
+            if (item.prefab.GetType().Name == "Ammo")
             {
-                if (item.getAmmoType() == ammoType)
+                if (item.prefab.GetComponent<Ammo>().getAmmoType() == ammoType)
                 {
                     ammoCount += item.amount;
                 }
@@ -234,11 +234,11 @@ public class GunSystem : MonoBehaviourPun
     {
         int ammoCount = 0;
         int missingBullet = (magazineSize - bulletsLeft) / bulletsPerTap;
-        foreach(Item item in inventory.items)
+        foreach(ItemData item in inventory.items)
         {
             if(item.GetType().Name == "Ammo")
             {
-                if(item.getAmmoType() == ammoType)
+                if(item.prefab.GetComponent<Ammo>().getAmmoType() == ammoType)
                 {
                     ammoCount += item.amount;
                 }
@@ -246,11 +246,11 @@ public class GunSystem : MonoBehaviourPun
         }
         int bulletreload = Mathf.Min(ammoCount * bulletsPerTap, magazineSize);
         bulletsLeft = bulletreload;
-        foreach(Item item in inventory.items)
+        foreach(ItemData item in inventory.items)
         {
             if(item.GetType().Name == "Ammo")
             {
-                if(item.getAmmoType() == ammoType)
+                if(item.prefab.GetComponent<Ammo>().getAmmoType() == ammoType)
                 {
                     int bulletremove = Mathf.Min(missingBullet, item.amount);
                     missingBullet -= bulletremove;

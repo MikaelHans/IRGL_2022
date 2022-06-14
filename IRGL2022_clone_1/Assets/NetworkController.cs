@@ -36,12 +36,15 @@ public class NetworkController : MonoBehaviourPun, IPunObservable
             float rotY = (float)stream.ReceiveNext();
             incomingRotContainer = new Vector3(0, rotY, 0);
         }
+        
     }
 
     private void Awake()
     {
         ThisObjTransform = gameObject.GetComponent<Transform>();
+        gameObject.GetComponent<PhotonView>().ObservedComponents.Add(this);
     }
+
 
     private void FixedUpdate()
     {

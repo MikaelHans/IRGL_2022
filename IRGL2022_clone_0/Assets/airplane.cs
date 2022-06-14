@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-using Firebase.Auth;
-using Firebase.Firestore;
 
 
 public class airplane : MonoBehaviourPun

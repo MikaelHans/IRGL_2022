@@ -9,6 +9,10 @@ public class CharacterPickUpItem : MonoBehaviourPun
     public Camera fpsCam;
     public float pickUpRange;
     // Start is called before the first frame update
+    public struct ItemData
+    {
+
+    }
     void Start()
     {
         
@@ -18,7 +22,7 @@ public class CharacterPickUpItem : MonoBehaviourPun
     void Update()
     {
         //Check if player is in range and "E" is pressed
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && photonView.IsMine)
         {
             Vector3 direction = fpsCam.transform.forward;
             //RayCast
