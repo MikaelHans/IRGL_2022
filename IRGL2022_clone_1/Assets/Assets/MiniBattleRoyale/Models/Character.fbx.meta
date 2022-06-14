@@ -1,287 +1,845 @@
 fileFormatVersion: 2
 guid: fc3384aa0898c9241b8e9b59349f7990
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: BackPack
-    100002: //RootNode
-    100004: Clavicle_l
-    100006: Clavicle_r
-    100008: Foot
-    100010: foot2_l
-    100012: foot2_r
-    100014: foot_l
-    100016: foot_r
-    100018: Hair
-    100020: hair.000
-    100022: hair.001
-    100024: hair.002
-    100026: hair.003
-    100028: hair.004
-    100030: hair.005
-    100032: hair.006
-    100034: hair.007
-    100036: hair.008
-    100038: hair.009
-    100040: Hand
-    100042: hand_l
-    100044: hand_r
-    100046: Head
-    100048: Helmet
-    100050: Lower Body
-    100052: Lowerarm_l
-    100054: Lowerarm_r
-    100056: LowerLeg_l
-    100058: LowerLeg_r
-    100060: mc_Foot_Base
-    100062: mc_Foot_Boot
-    100064: mc_Foot_Shoe
-    100066: mc_Hand_Base
-    100068: mc_Hand_Glove
-    100070: mc_Hand_Long-glove
-    100072: mc_LowerBody_Base
-    100074: mc_LowerBody_Pants
-    100076: mc_LowerBody_Shorts
-    100078: mc_UpperBody_Base
-    100080: mc_UpperBody_Base.002
-    100082: mc_UpperBody_Base.003
-    100084: mc_UpperBody_Base.004
-    100086: mc_UpperBody_Long-sleeve
-    100088: mc_UpperBody_T-Shirt
-    100090: mc_UpperBody_Tanktop
-    100092: mc_Vest_utility belt
-    100094: middle2_l
-    100096: middle2_r
-    100098: middle_l
-    100100: middle_r
-    100102: miniCharacters_RIG
-    100104: mr_BackPack_militaryBackpack
-    100106: mr_BackPack_smallBackpack
-    100108: mr_helmet_commonHelmet
-    100110: mr_helmet_militaryHelmet
-    100112: mr_helmet_miniSupaHelmet
-    100114: mr_parachute
-    100116: Neck
-    100118: Pelvis
-    100120: smoothcharacter_BackPack_commonBackpack
-    100122: Spine
-    100124: Spine2
-    100126: thumb2_l
-    100128: thumb2_r
-    100130: thumb_l
-    100132: thumb_r
-    100134: Upper Body
-    100136: Upperarm_l
-    100138: Upperarm_r
-    100140: UpperLeg_l
-    100142: UpperLeg_r
-    100144: Vest
-    100146: mc_Helmet_SuperHelmet
-    100148: mc_BackPack_CommonBackpack
-    100150: mc_BackPack_MilitaryBackPack
-    100152: mc_BackPack_SmallBackPack
-    100154: mc_Belt_Utility belt
-    100156: mc_Helmet_CommonHelmet
-    100158: mc_Helmet_MilitaryHelmet
-    100160: mc_Parachute
-    100162: mc_Vest_CommonVest
-    100164: mc_Vest_military
-    100166: mc_Vest_SpecialForces
-    100168: mc_UpperBody_athletic
-    400000: BackPack
-    400002: //RootNode
-    400004: Clavicle_l
-    400006: Clavicle_r
-    400008: Foot
-    400010: foot2_l
-    400012: foot2_r
-    400014: foot_l
-    400016: foot_r
-    400018: Hair
-    400020: hair.000
-    400022: hair.001
-    400024: hair.002
-    400026: hair.003
-    400028: hair.004
-    400030: hair.005
-    400032: hair.006
-    400034: hair.007
-    400036: hair.008
-    400038: hair.009
-    400040: Hand
-    400042: hand_l
-    400044: hand_r
-    400046: Head
-    400048: Helmet
-    400050: Lower Body
-    400052: Lowerarm_l
-    400054: Lowerarm_r
-    400056: LowerLeg_l
-    400058: LowerLeg_r
-    400060: mc_Foot_Base
-    400062: mc_Foot_Boot
-    400064: mc_Foot_Shoe
-    400066: mc_Hand_Base
-    400068: mc_Hand_Glove
-    400070: mc_Hand_Long-glove
-    400072: mc_LowerBody_Base
-    400074: mc_LowerBody_Pants
-    400076: mc_LowerBody_Shorts
-    400078: mc_UpperBody_Base
-    400080: mc_UpperBody_Base.002
-    400082: mc_UpperBody_Base.003
-    400084: mc_UpperBody_Base.004
-    400086: mc_UpperBody_Long-sleeve
-    400088: mc_UpperBody_T-Shirt
-    400090: mc_UpperBody_Tanktop
-    400092: mc_Vest_utility belt
-    400094: middle2_l
-    400096: middle2_r
-    400098: middle_l
-    400100: middle_r
-    400102: miniCharacters_RIG
-    400104: mr_BackPack_militaryBackpack
-    400106: mr_BackPack_smallBackpack
-    400108: mr_helmet_commonHelmet
-    400110: mr_helmet_militaryHelmet
-    400112: mr_helmet_miniSupaHelmet
-    400114: mr_parachute
-    400116: Neck
-    400118: Pelvis
-    400120: smoothcharacter_BackPack_commonBackpack
-    400122: Spine
-    400124: Spine2
-    400126: thumb2_l
-    400128: thumb2_r
-    400130: thumb_l
-    400132: thumb_r
-    400134: Upper Body
-    400136: Upperarm_l
-    400138: Upperarm_r
-    400140: UpperLeg_l
-    400142: UpperLeg_r
-    400144: Vest
-    400146: mc_Helmet_SuperHelmet
-    400148: mc_BackPack_CommonBackpack
-    400150: mc_BackPack_MilitaryBackPack
-    400152: mc_BackPack_SmallBackPack
-    400154: mc_Belt_Utility belt
-    400156: mc_Helmet_CommonHelmet
-    400158: mc_Helmet_MilitaryHelmet
-    400160: mc_Parachute
-    400162: mc_Vest_CommonVest
-    400164: mc_Vest_military
-    400166: mc_Vest_SpecialForces
-    400168: mc_UpperBody_athletic
-    2100000: mc_Foot_Boot
-    2100002: mc_Skin-color
-    2100004: mc_Foot_Shoe
-    2100006: mc_Hand_Long-glove
-    2100008: mc_Hand_Glove
-    2100010: mc_LowerBody_Pants
-    2100012: miniCharacters_StarterPalette
-    2100014: mc_LowerBody_Shorts
-    2100016: mc_Underwear
-    2100018: mc_UpperBody_Tanktop
-    2100020: mc_UpperBody_Long-sleeve
-    2100022: mc_UpperBody_T-Shirt
-    2100024: mc_Hair
-    2100026: mc_Helmet_SuperHelmet
-    2100028: mc_LowerBody_Underwear
-    4300000: mc_Foot_Boot
-    4300002: mc_Foot_Shoe
-    4300004: mc_Foot_Base
-    4300006: mc_Hand_Long-glove
-    4300008: mc_Hand_Glove
-    4300010: mc_Hand_Base
-    4300012: mc_LowerBody_Pants
-    4300014: mc_LowerBody_Shorts
-    4300016: mc_LowerBody_Base
-    4300018: mc_UpperBody_Tanktop
-    4300020: mc_UpperBody_Long-sleeve
-    4300022: mc_UpperBody_T-Shirt
-    4300024: mc_UpperBody_Base
-    4300026: mc_UpperBody_Base.004
-    4300028: mc_UpperBody_Base.003
-    4300030: mc_UpperBody_Base.002
-    4300032: mr_BackPack_smallBackpack
-    4300034: mr_parachute
-    4300036: mr_BackPack_militaryBackpack
-    4300038: smoothcharacter_BackPack_commonBackpack
-    4300040: mr_helmet_miniSupaHelmet
-    4300042: mr_helmet_militaryHelmet
-    4300044: mr_helmet_commonHelmet
-    4300046: hair.000
-    4300048: hair.001
-    4300050: hair.002
-    4300052: hair.003
-    4300054: hair.004
-    4300056: hair.005
-    4300058: hair.006
-    4300060: hair.007
-    4300062: hair.008
-    4300064: hair.009
-    4300066: mc_Vest_utility belt
-    4300068: mc_Helmet_SuperHelmet
-    4300070: mc_Vest_military
-    4300072: mc_Vest_SpecialForces
-    4300074: mc_Vest_CommonVest
-    4300076: mc_Belt_Utility belt
-    4300078: mc_BackPack_SmallBackPack
-    4300080: mc_Parachute
-    4300082: mc_BackPack_MilitaryBackPack
-    4300084: mc_BackPack_CommonBackpack
-    4300086: mc_Helmet_MilitaryHelmet
-    4300088: mc_Helmet_CommonHelmet
-    4300090: mc_UpperBody_athletic
-    9500000: //RootNode
-    13700000: hair.000
-    13700002: hair.001
-    13700004: hair.002
-    13700006: hair.003
-    13700008: hair.004
-    13700010: hair.005
-    13700012: hair.006
-    13700014: hair.007
-    13700016: hair.008
-    13700018: hair.009
-    13700020: mc_Foot_Base
-    13700022: mc_Foot_Boot
-    13700024: mc_Foot_Shoe
-    13700026: mc_Hand_Base
-    13700028: mc_Hand_Glove
-    13700030: mc_Hand_Long-glove
-    13700032: mc_LowerBody_Base
-    13700034: mc_LowerBody_Pants
-    13700036: mc_LowerBody_Shorts
-    13700038: mc_UpperBody_Base
-    13700040: mc_UpperBody_Base.002
-    13700042: mc_UpperBody_Base.003
-    13700044: mc_UpperBody_Base.004
-    13700046: mc_UpperBody_Long-sleeve
-    13700048: mc_UpperBody_T-Shirt
-    13700050: mc_UpperBody_Tanktop
-    13700052: mc_Vest_utility belt
-    13700054: mr_BackPack_militaryBackpack
-    13700056: mr_BackPack_smallBackpack
-    13700058: mr_helmet_commonHelmet
-    13700060: mr_helmet_militaryHelmet
-    13700062: mr_helmet_miniSupaHelmet
-    13700064: mr_parachute
-    13700066: smoothcharacter_BackPack_commonBackpack
-    13700068: mc_Helmet_SuperHelmet
-    13700070: mc_BackPack_CommonBackpack
-    13700072: mc_BackPack_MilitaryBackPack
-    13700074: mc_BackPack_SmallBackPack
-    13700076: mc_Belt_Utility belt
-    13700078: mc_Helmet_CommonHelmet
-    13700080: mc_Helmet_MilitaryHelmet
-    13700082: mc_Parachute
-    13700084: mc_Vest_CommonVest
-    13700086: mc_Vest_military
-    13700088: mc_Vest_SpecialForces
-    13700090: mc_UpperBody_athletic
-    2186277476908879412: ImportLogs
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: BackPack
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      1: 100004
+    second: Clavicle_l
+  - first:
+      1: 100006
+    second: Clavicle_r
+  - first:
+      1: 100008
+    second: Foot
+  - first:
+      1: 100010
+    second: foot2_l
+  - first:
+      1: 100012
+    second: foot2_r
+  - first:
+      1: 100014
+    second: foot_l
+  - first:
+      1: 100016
+    second: foot_r
+  - first:
+      1: 100018
+    second: Hair
+  - first:
+      1: 100020
+    second: hair.000
+  - first:
+      1: 100022
+    second: hair.001
+  - first:
+      1: 100024
+    second: hair.002
+  - first:
+      1: 100026
+    second: hair.003
+  - first:
+      1: 100028
+    second: hair.004
+  - first:
+      1: 100030
+    second: hair.005
+  - first:
+      1: 100032
+    second: hair.006
+  - first:
+      1: 100034
+    second: hair.007
+  - first:
+      1: 100036
+    second: hair.008
+  - first:
+      1: 100038
+    second: hair.009
+  - first:
+      1: 100040
+    second: Hand
+  - first:
+      1: 100042
+    second: hand_l
+  - first:
+      1: 100044
+    second: hand_r
+  - first:
+      1: 100046
+    second: Head
+  - first:
+      1: 100048
+    second: Helmet
+  - first:
+      1: 100050
+    second: Lower Body
+  - first:
+      1: 100052
+    second: Lowerarm_l
+  - first:
+      1: 100054
+    second: Lowerarm_r
+  - first:
+      1: 100056
+    second: LowerLeg_l
+  - first:
+      1: 100058
+    second: LowerLeg_r
+  - first:
+      1: 100060
+    second: mc_Foot_Base
+  - first:
+      1: 100062
+    second: mc_Foot_Boot
+  - first:
+      1: 100064
+    second: mc_Foot_Shoe
+  - first:
+      1: 100066
+    second: mc_Hand_Base
+  - first:
+      1: 100068
+    second: mc_Hand_Glove
+  - first:
+      1: 100070
+    second: mc_Hand_Long-glove
+  - first:
+      1: 100072
+    second: mc_LowerBody_Base
+  - first:
+      1: 100074
+    second: mc_LowerBody_Pants
+  - first:
+      1: 100076
+    second: mc_LowerBody_Shorts
+  - first:
+      1: 100078
+    second: mc_UpperBody_Base
+  - first:
+      1: 100080
+    second: mc_UpperBody_Base.002
+  - first:
+      1: 100082
+    second: mc_UpperBody_Base.003
+  - first:
+      1: 100084
+    second: mc_UpperBody_Base.004
+  - first:
+      1: 100086
+    second: mc_UpperBody_Long-sleeve
+  - first:
+      1: 100088
+    second: mc_UpperBody_T-Shirt
+  - first:
+      1: 100090
+    second: mc_UpperBody_Tanktop
+  - first:
+      1: 100092
+    second: mc_Vest_utility belt
+  - first:
+      1: 100094
+    second: middle2_l
+  - first:
+      1: 100096
+    second: middle2_r
+  - first:
+      1: 100098
+    second: middle_l
+  - first:
+      1: 100100
+    second: middle_r
+  - first:
+      1: 100102
+    second: miniCharacters_RIG
+  - first:
+      1: 100104
+    second: mr_BackPack_militaryBackpack
+  - first:
+      1: 100106
+    second: mr_BackPack_smallBackpack
+  - first:
+      1: 100108
+    second: mr_helmet_commonHelmet
+  - first:
+      1: 100110
+    second: mr_helmet_militaryHelmet
+  - first:
+      1: 100112
+    second: mr_helmet_miniSupaHelmet
+  - first:
+      1: 100114
+    second: mr_parachute
+  - first:
+      1: 100116
+    second: Neck
+  - first:
+      1: 100118
+    second: Pelvis
+  - first:
+      1: 100120
+    second: smoothcharacter_BackPack_commonBackpack
+  - first:
+      1: 100122
+    second: Spine
+  - first:
+      1: 100124
+    second: Spine2
+  - first:
+      1: 100126
+    second: thumb2_l
+  - first:
+      1: 100128
+    second: thumb2_r
+  - first:
+      1: 100130
+    second: thumb_l
+  - first:
+      1: 100132
+    second: thumb_r
+  - first:
+      1: 100134
+    second: Upper Body
+  - first:
+      1: 100136
+    second: Upperarm_l
+  - first:
+      1: 100138
+    second: Upperarm_r
+  - first:
+      1: 100140
+    second: UpperLeg_l
+  - first:
+      1: 100142
+    second: UpperLeg_r
+  - first:
+      1: 100144
+    second: Vest
+  - first:
+      1: 100146
+    second: mc_Helmet_SuperHelmet
+  - first:
+      1: 100148
+    second: mc_BackPack_CommonBackpack
+  - first:
+      1: 100150
+    second: mc_BackPack_MilitaryBackPack
+  - first:
+      1: 100152
+    second: mc_BackPack_SmallBackPack
+  - first:
+      1: 100154
+    second: mc_Belt_Utility belt
+  - first:
+      1: 100156
+    second: mc_Helmet_CommonHelmet
+  - first:
+      1: 100158
+    second: mc_Helmet_MilitaryHelmet
+  - first:
+      1: 100160
+    second: mc_Parachute
+  - first:
+      1: 100162
+    second: mc_Vest_CommonVest
+  - first:
+      1: 100164
+    second: mc_Vest_military
+  - first:
+      1: 100166
+    second: mc_Vest_SpecialForces
+  - first:
+      1: 100168
+    second: mc_UpperBody_athletic
+  - first:
+      4: 400000
+    second: BackPack
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      4: 400004
+    second: Clavicle_l
+  - first:
+      4: 400006
+    second: Clavicle_r
+  - first:
+      4: 400008
+    second: Foot
+  - first:
+      4: 400010
+    second: foot2_l
+  - first:
+      4: 400012
+    second: foot2_r
+  - first:
+      4: 400014
+    second: foot_l
+  - first:
+      4: 400016
+    second: foot_r
+  - first:
+      4: 400018
+    second: Hair
+  - first:
+      4: 400020
+    second: hair.000
+  - first:
+      4: 400022
+    second: hair.001
+  - first:
+      4: 400024
+    second: hair.002
+  - first:
+      4: 400026
+    second: hair.003
+  - first:
+      4: 400028
+    second: hair.004
+  - first:
+      4: 400030
+    second: hair.005
+  - first:
+      4: 400032
+    second: hair.006
+  - first:
+      4: 400034
+    second: hair.007
+  - first:
+      4: 400036
+    second: hair.008
+  - first:
+      4: 400038
+    second: hair.009
+  - first:
+      4: 400040
+    second: Hand
+  - first:
+      4: 400042
+    second: hand_l
+  - first:
+      4: 400044
+    second: hand_r
+  - first:
+      4: 400046
+    second: Head
+  - first:
+      4: 400048
+    second: Helmet
+  - first:
+      4: 400050
+    second: Lower Body
+  - first:
+      4: 400052
+    second: Lowerarm_l
+  - first:
+      4: 400054
+    second: Lowerarm_r
+  - first:
+      4: 400056
+    second: LowerLeg_l
+  - first:
+      4: 400058
+    second: LowerLeg_r
+  - first:
+      4: 400060
+    second: mc_Foot_Base
+  - first:
+      4: 400062
+    second: mc_Foot_Boot
+  - first:
+      4: 400064
+    second: mc_Foot_Shoe
+  - first:
+      4: 400066
+    second: mc_Hand_Base
+  - first:
+      4: 400068
+    second: mc_Hand_Glove
+  - first:
+      4: 400070
+    second: mc_Hand_Long-glove
+  - first:
+      4: 400072
+    second: mc_LowerBody_Base
+  - first:
+      4: 400074
+    second: mc_LowerBody_Pants
+  - first:
+      4: 400076
+    second: mc_LowerBody_Shorts
+  - first:
+      4: 400078
+    second: mc_UpperBody_Base
+  - first:
+      4: 400080
+    second: mc_UpperBody_Base.002
+  - first:
+      4: 400082
+    second: mc_UpperBody_Base.003
+  - first:
+      4: 400084
+    second: mc_UpperBody_Base.004
+  - first:
+      4: 400086
+    second: mc_UpperBody_Long-sleeve
+  - first:
+      4: 400088
+    second: mc_UpperBody_T-Shirt
+  - first:
+      4: 400090
+    second: mc_UpperBody_Tanktop
+  - first:
+      4: 400092
+    second: mc_Vest_utility belt
+  - first:
+      4: 400094
+    second: middle2_l
+  - first:
+      4: 400096
+    second: middle2_r
+  - first:
+      4: 400098
+    second: middle_l
+  - first:
+      4: 400100
+    second: middle_r
+  - first:
+      4: 400102
+    second: miniCharacters_RIG
+  - first:
+      4: 400104
+    second: mr_BackPack_militaryBackpack
+  - first:
+      4: 400106
+    second: mr_BackPack_smallBackpack
+  - first:
+      4: 400108
+    second: mr_helmet_commonHelmet
+  - first:
+      4: 400110
+    second: mr_helmet_militaryHelmet
+  - first:
+      4: 400112
+    second: mr_helmet_miniSupaHelmet
+  - first:
+      4: 400114
+    second: mr_parachute
+  - first:
+      4: 400116
+    second: Neck
+  - first:
+      4: 400118
+    second: Pelvis
+  - first:
+      4: 400120
+    second: smoothcharacter_BackPack_commonBackpack
+  - first:
+      4: 400122
+    second: Spine
+  - first:
+      4: 400124
+    second: Spine2
+  - first:
+      4: 400126
+    second: thumb2_l
+  - first:
+      4: 400128
+    second: thumb2_r
+  - first:
+      4: 400130
+    second: thumb_l
+  - first:
+      4: 400132
+    second: thumb_r
+  - first:
+      4: 400134
+    second: Upper Body
+  - first:
+      4: 400136
+    second: Upperarm_l
+  - first:
+      4: 400138
+    second: Upperarm_r
+  - first:
+      4: 400140
+    second: UpperLeg_l
+  - first:
+      4: 400142
+    second: UpperLeg_r
+  - first:
+      4: 400144
+    second: Vest
+  - first:
+      4: 400146
+    second: mc_Helmet_SuperHelmet
+  - first:
+      4: 400148
+    second: mc_BackPack_CommonBackpack
+  - first:
+      4: 400150
+    second: mc_BackPack_MilitaryBackPack
+  - first:
+      4: 400152
+    second: mc_BackPack_SmallBackPack
+  - first:
+      4: 400154
+    second: mc_Belt_Utility belt
+  - first:
+      4: 400156
+    second: mc_Helmet_CommonHelmet
+  - first:
+      4: 400158
+    second: mc_Helmet_MilitaryHelmet
+  - first:
+      4: 400160
+    second: mc_Parachute
+  - first:
+      4: 400162
+    second: mc_Vest_CommonVest
+  - first:
+      4: 400164
+    second: mc_Vest_military
+  - first:
+      4: 400166
+    second: mc_Vest_SpecialForces
+  - first:
+      4: 400168
+    second: mc_UpperBody_athletic
+  - first:
+      21: 2100000
+    second: mc_Foot_Boot
+  - first:
+      21: 2100002
+    second: mc_Skin-color
+  - first:
+      21: 2100004
+    second: mc_Foot_Shoe
+  - first:
+      21: 2100006
+    second: mc_Hand_Long-glove
+  - first:
+      21: 2100008
+    second: mc_Hand_Glove
+  - first:
+      21: 2100010
+    second: mc_LowerBody_Pants
+  - first:
+      21: 2100012
+    second: miniCharacters_StarterPalette
+  - first:
+      21: 2100014
+    second: mc_LowerBody_Shorts
+  - first:
+      21: 2100016
+    second: mc_Underwear
+  - first:
+      21: 2100018
+    second: mc_UpperBody_Tanktop
+  - first:
+      21: 2100020
+    second: mc_UpperBody_Long-sleeve
+  - first:
+      21: 2100022
+    second: mc_UpperBody_T-Shirt
+  - first:
+      21: 2100024
+    second: mc_Hair
+  - first:
+      21: 2100026
+    second: mc_Helmet_SuperHelmet
+  - first:
+      21: 2100028
+    second: mc_LowerBody_Underwear
+  - first:
+      43: 4300000
+    second: mc_Foot_Boot
+  - first:
+      43: 4300002
+    second: mc_Foot_Shoe
+  - first:
+      43: 4300004
+    second: mc_Foot_Base
+  - first:
+      43: 4300006
+    second: mc_Hand_Long-glove
+  - first:
+      43: 4300008
+    second: mc_Hand_Glove
+  - first:
+      43: 4300010
+    second: mc_Hand_Base
+  - first:
+      43: 4300012
+    second: mc_LowerBody_Pants
+  - first:
+      43: 4300014
+    second: mc_LowerBody_Shorts
+  - first:
+      43: 4300016
+    second: mc_LowerBody_Base
+  - first:
+      43: 4300018
+    second: mc_UpperBody_Tanktop
+  - first:
+      43: 4300020
+    second: mc_UpperBody_Long-sleeve
+  - first:
+      43: 4300022
+    second: mc_UpperBody_T-Shirt
+  - first:
+      43: 4300024
+    second: mc_UpperBody_Base
+  - first:
+      43: 4300026
+    second: mc_UpperBody_Base.004
+  - first:
+      43: 4300028
+    second: mc_UpperBody_Base.003
+  - first:
+      43: 4300030
+    second: mc_UpperBody_Base.002
+  - first:
+      43: 4300032
+    second: mr_BackPack_smallBackpack
+  - first:
+      43: 4300034
+    second: mr_parachute
+  - first:
+      43: 4300036
+    second: mr_BackPack_militaryBackpack
+  - first:
+      43: 4300038
+    second: smoothcharacter_BackPack_commonBackpack
+  - first:
+      43: 4300040
+    second: mr_helmet_miniSupaHelmet
+  - first:
+      43: 4300042
+    second: mr_helmet_militaryHelmet
+  - first:
+      43: 4300044
+    second: mr_helmet_commonHelmet
+  - first:
+      43: 4300046
+    second: hair.000
+  - first:
+      43: 4300048
+    second: hair.001
+  - first:
+      43: 4300050
+    second: hair.002
+  - first:
+      43: 4300052
+    second: hair.003
+  - first:
+      43: 4300054
+    second: hair.004
+  - first:
+      43: 4300056
+    second: hair.005
+  - first:
+      43: 4300058
+    second: hair.006
+  - first:
+      43: 4300060
+    second: hair.007
+  - first:
+      43: 4300062
+    second: hair.008
+  - first:
+      43: 4300064
+    second: hair.009
+  - first:
+      43: 4300066
+    second: mc_Vest_utility belt
+  - first:
+      43: 4300068
+    second: mc_Helmet_SuperHelmet
+  - first:
+      43: 4300070
+    second: mc_Vest_military
+  - first:
+      43: 4300072
+    second: mc_Vest_SpecialForces
+  - first:
+      43: 4300074
+    second: mc_Vest_CommonVest
+  - first:
+      43: 4300076
+    second: mc_Belt_Utility belt
+  - first:
+      43: 4300078
+    second: mc_BackPack_SmallBackPack
+  - first:
+      43: 4300080
+    second: mc_Parachute
+  - first:
+      43: 4300082
+    second: mc_BackPack_MilitaryBackPack
+  - first:
+      43: 4300084
+    second: mc_BackPack_CommonBackpack
+  - first:
+      43: 4300086
+    second: mc_Helmet_MilitaryHelmet
+  - first:
+      43: 4300088
+    second: mc_Helmet_CommonHelmet
+  - first:
+      43: 4300090
+    second: mc_UpperBody_athletic
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: hair.000
+  - first:
+      137: 13700002
+    second: hair.001
+  - first:
+      137: 13700004
+    second: hair.002
+  - first:
+      137: 13700006
+    second: hair.003
+  - first:
+      137: 13700008
+    second: hair.004
+  - first:
+      137: 13700010
+    second: hair.005
+  - first:
+      137: 13700012
+    second: hair.006
+  - first:
+      137: 13700014
+    second: hair.007
+  - first:
+      137: 13700016
+    second: hair.008
+  - first:
+      137: 13700018
+    second: hair.009
+  - first:
+      137: 13700020
+    second: mc_Foot_Base
+  - first:
+      137: 13700022
+    second: mc_Foot_Boot
+  - first:
+      137: 13700024
+    second: mc_Foot_Shoe
+  - first:
+      137: 13700026
+    second: mc_Hand_Base
+  - first:
+      137: 13700028
+    second: mc_Hand_Glove
+  - first:
+      137: 13700030
+    second: mc_Hand_Long-glove
+  - first:
+      137: 13700032
+    second: mc_LowerBody_Base
+  - first:
+      137: 13700034
+    second: mc_LowerBody_Pants
+  - first:
+      137: 13700036
+    second: mc_LowerBody_Shorts
+  - first:
+      137: 13700038
+    second: mc_UpperBody_Base
+  - first:
+      137: 13700040
+    second: mc_UpperBody_Base.002
+  - first:
+      137: 13700042
+    second: mc_UpperBody_Base.003
+  - first:
+      137: 13700044
+    second: mc_UpperBody_Base.004
+  - first:
+      137: 13700046
+    second: mc_UpperBody_Long-sleeve
+  - first:
+      137: 13700048
+    second: mc_UpperBody_T-Shirt
+  - first:
+      137: 13700050
+    second: mc_UpperBody_Tanktop
+  - first:
+      137: 13700052
+    second: mc_Vest_utility belt
+  - first:
+      137: 13700054
+    second: mr_BackPack_militaryBackpack
+  - first:
+      137: 13700056
+    second: mr_BackPack_smallBackpack
+  - first:
+      137: 13700058
+    second: mr_helmet_commonHelmet
+  - first:
+      137: 13700060
+    second: mr_helmet_militaryHelmet
+  - first:
+      137: 13700062
+    second: mr_helmet_miniSupaHelmet
+  - first:
+      137: 13700064
+    second: mr_parachute
+  - first:
+      137: 13700066
+    second: smoothcharacter_BackPack_commonBackpack
+  - first:
+      137: 13700068
+    second: mc_Helmet_SuperHelmet
+  - first:
+      137: 13700070
+    second: mc_BackPack_CommonBackpack
+  - first:
+      137: 13700072
+    second: mc_BackPack_MilitaryBackPack
+  - first:
+      137: 13700074
+    second: mc_BackPack_SmallBackPack
+  - first:
+      137: 13700076
+    second: mc_Belt_Utility belt
+  - first:
+      137: 13700078
+    second: mc_Helmet_CommonHelmet
+  - first:
+      137: 13700080
+    second: mc_Helmet_MilitaryHelmet
+  - first:
+      137: 13700082
+    second: mc_Parachute
+  - first:
+      137: 13700084
+    second: mc_Vest_CommonVest
+  - first:
+      137: 13700086
+    second: mc_Vest_military
+  - first:
+      137: 13700088
+    second: mc_Vest_SpecialForces
+  - first:
+      137: 13700090
+    second: mc_UpperBody_athletic
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -354,7 +912,7 @@ ModelImporter:
       name: miniCharacters_StarterPalette
     second: {fileID: 2100000, guid: 80aa7aaff78313845b3cb5112f4c10bb, type: 2}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -387,25 +945,32 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 0
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 0
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 15
     normalImportMode: 1
@@ -414,10 +979,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human:
     - boneName: Pelvis
       humanName: Hips
@@ -657,8 +1222,38 @@ ModelImporter:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
+    - name: BackPack
+      parentName: Character(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_BackPack_CommonBackpack
+      parentName: BackPack
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_BackPack_MilitaryBackPack
+      parentName: BackPack
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_BackPack_SmallBackPack
+      parentName: BackPack
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_Parachute
+      parentName: BackPack
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: Foot
       parentName: Character(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_Foot_Base
+      parentName: Foot
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -670,141 +1265,6 @@ ModelImporter:
     - name: mc_Foot_Shoe
       parentName: Foot
       position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mc_Foot_Base
-      parentName: Foot
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Hand
-      parentName: Character(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mc_Hand_Long-glove
-      parentName: Hand
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mc_Hand_Glove
-      parentName: Hand
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mc_Hand_Base
-      parentName: Hand
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Lower Body
-      parentName: Character(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mc_LowerBody_Pants
-      parentName: Lower Body
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mc_LowerBody_Shorts
-      parentName: Lower Body
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mc_LowerBody_Base
-      parentName: Lower Body
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Upper Body
-      parentName: Character(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mc_UpperBody_Tanktop
-      parentName: Upper Body
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mc_UpperBody_Long-sleeve
-      parentName: Upper Body
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mc_UpperBody_T-Shirt
-      parentName: Upper Body
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mc_UpperBody_Base
-      parentName: Upper Body
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Vest
-      parentName: Character(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mc_UpperBody_Base.004
-      parentName: Vest
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mc_UpperBody_Base.003
-      parentName: Vest
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mc_UpperBody_Base.002
-      parentName: Vest
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: BackPack
-      parentName: Character(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mr_BackPack_smallBackpack
-      parentName: BackPack
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mr_parachute
-      parentName: BackPack
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mr_BackPack_militaryBackpack
-      parentName: BackPack
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: smoothcharacter_BackPack_commonBackpack
-      parentName: BackPack
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Helmet
-      parentName: Character(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mr_helmet_miniSupaHelmet
-      parentName: Helmet
-      position: {x: 6.6807004e-11, y: 1.1220181, z: 0.00013056335}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mr_helmet_militaryHelmet
-      parentName: Helmet
-      position: {x: 6.6807004e-11, y: 1.1220181, z: 0.00013056335}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mr_helmet_commonHelmet
-      parentName: Helmet
-      position: {x: 6.6807004e-11, y: 1.1220181, z: 0.00013056335}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Hair
@@ -862,6 +1322,66 @@ ModelImporter:
       position: {x: 6.679583e-11, y: 1.1220181, z: 0.00013052237}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
+    - name: Hand
+      parentName: Character(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_Hand_Base
+      parentName: Hand
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_Hand_Glove
+      parentName: Hand
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_Hand_Long-glove
+      parentName: Hand
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Helmet
+      parentName: Character(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_Helmet_CommonHelmet
+      parentName: Helmet
+      position: {x: 6.6807004e-11, y: 1.1220181, z: 0.00013056335}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_Helmet_MilitaryHelmet
+      parentName: Helmet
+      position: {x: 6.6807004e-11, y: 1.1220181, z: 0.00013056335}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_Helmet_SuperHelmet
+      parentName: Helmet
+      position: {x: 6.6807004e-11, y: 1.1220181, z: 0.00013056335}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lower Body
+      parentName: Character(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_LowerBody_Base
+      parentName: Lower Body
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_LowerBody_Pants
+      parentName: Lower Body
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_LowerBody_Shorts
+      parentName: Lower Body
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: miniCharacters_RIG
       parentName: Character(Clone)
       position: {x: -0, y: 0, z: 0}
@@ -870,150 +1390,200 @@ ModelImporter:
     - name: Pelvis
       parentName: miniCharacters_RIG
       position: {x: 6.4163186e-10, y: 0.0021041993, z: 0.4551989}
-      rotation: {x: 0.69093406, y: 3.7217268e-17, z: 0.000000002563997, w: 0.7229178}
-      scale: {x: 1, y: 1, z: 1}
+      rotation: {x: 0.6909341, y: -1.110223e-16, z: 0.0000000025639966, w: 0.72291774}
+      scale: {x: 1, y: 1.0000033, z: 1.0000033}
     - name: Spine
       parentName: Pelvis
       position: {x: 3.323406e-10, y: 0.22326282, z: 0.010106353}
-      rotation: {x: 0.025019415, y: -0.0000000010842575, z: -0.0000000010416035, w: 0.99968696}
-      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+      rotation: {x: 0.025019377, y: -0.000000001084257, z: -0.0000000010416028, w: 0.99968696}
+      scale: {x: 1, y: 1.0000006, z: 1.0000006}
     - name: Spine2
       parentName: Spine
       position: {x: 1.9515639e-16, y: 0.12166789, z: -3.4924597e-10}
-      rotation: {x: -0.041838784, y: -3.8163145e-10, z: -4.4243145e-10, w: 0.9991244}
-      scale: {x: 1, y: 1, z: 1}
+      rotation: {x: -0.04183884, y: -3.8163164e-10, z: -4.4243173e-10, w: 0.9991244}
+      scale: {x: 1, y: 0.99999744, z: 0.99999744}
     - name: Clavicle_r
       parentName: Spine2
       position: {x: 0.022856457, y: 0.08758199, z: 0.008314418}
-      rotation: {x: -0.39919084, y: -0.4226737, z: -0.45740822, w: 0.67288285}
-      scale: {x: 1, y: 1, z: 1}
+      rotation: {x: -0.3991908, y: -0.42267355, z: -0.45740825, w: 0.6728829}
+      scale: {x: 1.0000005, y: 1.0000011, z: 1.0000018}
     - name: Upperarm_r
       parentName: Clavicle_r
       position: {x: 0.000000018626451, y: 0.13071802, z: 0.000000039115548}
-      rotation: {x: -0.5242572, y: -0.43564525, z: 0.05045839, w: 0.72994626}
-      scale: {x: 1, y: 0.99999994, z: 1}
+      rotation: {x: 0.17007656, y: 0.5315097, z: 0.03473377, w: -0.82907486}
+      scale: {x: 1, y: 1.0000063, z: 1.0000002}
     - name: Lowerarm_r
       parentName: Upperarm_r
       position: {x: -0.00000001071021, y: 0.17050318, z: 0.000000009778887}
-      rotation: {x: -0.110547766, y: 0.01724881, z: -0.06340668, w: 0.9916962}
-      scale: {x: 0.99999994, y: 1, z: 1}
+      rotation: {x: -0.018135948, y: 0.015313743, z: -0.028946836, w: 0.9992991}
+      scale: {x: 1.0000002, y: 1.0000128, z: 1.0000091}
     - name: hand_r
       parentName: Lowerarm_r
       position: {x: -0.000000029802322, y: 0.19097245, z: 0.000000007450581}
-      rotation: {x: -0.03469286, y: -0.06233551, z: 0.003157664, w: 0.99744713}
-      scale: {x: 1, y: 1.0000002, z: 1.0000001}
+      rotation: {x: -0.034692876, y: -0.062335297, z: 0.0031576217, w: 0.99744713}
+      scale: {x: 1.0000064, y: 1.00002, z: 1.0000169}
     - name: thumb_r
       parentName: hand_r
       position: {x: 0.022867374, y: 0.026219182, z: -0.05021488}
-      rotation: {x: -0.27196056, y: -0.058321662, z: -0.19715059, w: 0.94008917}
-      scale: {x: 1, y: 1, z: 0.99999994}
+      rotation: {x: -0.27196044, y: -0.05832176, z: -0.19715054, w: 0.9400892}
+      scale: {x: 0.9999831, y: 1.0000322, z: 0.9999786}
     - name: thumb2_r
       parentName: thumb_r
       position: {x: 0.000000014901161, y: 0.09020617, z: -0.000000007450581}
-      rotation: {x: 0.2196608, y: -0.18326844, z: 0.28415704, w: 0.9151047}
-      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+      rotation: {x: 0.2196608, y: -0.18326838, z: 0.2841572, w: 0.91510475}
+      scale: {x: 1.0001211, y: 0.9997947, z: 1.0001068}
     - name: middle_r
       parentName: hand_r
       position: {x: -0.010165375, y: 0.11318731, z: 0.008849196}
-      rotation: {x: -0.036452677, y: -0.1556483, z: 0.10336808, w: 0.9817127}
-      scale: {x: 0.99999994, y: 1, z: 1}
+      rotation: {x: -0.018804753, y: -0.15463182, z: 0.089369446, w: 0.9837421}
+      scale: {x: 0.9999998, y: 0.9999967, z: 1.0000049}
     - name: middle2_r
       parentName: middle_r
       position: {x: 0.000000033527613, y: 0.072915226, z: 0.000000007450581}
-      rotation: {x: -0.031935308, y: -0.09495687, z: 0.058868024, w: 0.99322605}
-      scale: {x: 0.99999994, y: 0.9999998, z: 0.99999994}
+      rotation: {x: -0.031935204, y: -0.09495683, z: 0.058867943, w: 0.99322605}
+      scale: {x: 0.9999331, y: 1.0000266, z: 1.0000608}
     - name: Neck
       parentName: Spine2
       position: {x: -2.9978235e-11, y: 0.24794367, z: -0.0036436971}
-      rotation: {x: 0.19838099, y: -0.000000002396842, z: -0.0000000024542255, w: 0.980125}
-      scale: {x: 1, y: 1, z: 1}
+      rotation: {x: 0.198381, y: -0.0000000023968423, z: -0.0000000024542255, w: 0.980125}
+      scale: {x: 1, y: 0.999999, z: 0.999999}
     - name: Head
       parentName: Neck
       position: {x: 1.0723383e-14, y: 0.078788586, z: 0.000000028172508}
-      rotation: {x: -0.14123341, y: 0.0000000023928615, z: 0.0000000022426654, w: 0.98997635}
-      scale: {x: 1, y: 0.99999994, z: 1}
+      rotation: {x: -0.14123347, y: 0.0000000023928621, z: 0.0000000022426654, w: 0.98997635}
+      scale: {x: 1, y: 1.0000005, z: 1.0000005}
     - name: Clavicle_l
       parentName: Spine2
       position: {x: -0.022856457, y: 0.08758199, z: 0.008314418}
-      rotation: {x: 0.011968333, y: -0.13943811, z: 0.6069862, w: 0.7822925}
-      scale: {x: 1, y: 1, z: 0.9999999}
+      rotation: {x: 0.011968364, y: -0.1394382, z: 0.6069862, w: 0.78229254}
+      scale: {x: 1.0000061, y: 1.0000075, z: 0.99999714}
     - name: Upperarm_l
       parentName: Clavicle_l
       position: {x: -0.00000010896474, y: 0.13071801, z: -0.0000000055879354}
-      rotation: {x: -0.52165884, y: 0.7524153, z: -0.07255069, w: -0.39557517}
-      scale: {x: 0.9999999, y: 0.99999976, z: 1}
+      rotation: {x: 0.17139216, y: -0.85657805, z: -0.02752177, w: 0.48594373}
+      scale: {x: 1.0000005, y: 1.0000077, z: 1.0000085}
     - name: Lowerarm_l
       parentName: Upperarm_l
       position: {x: 0.000000010244548, y: 0.17050317, z: -0.00000003585592}
-      rotation: {x: -0.037501216, y: 0.21305388, z: -0.12179848, w: 0.96869344}
-      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+      rotation: {x: -0.024241399, y: 0.2166982, z: -0.024066906, w: 0.9756409}
+      scale: {x: 1.000043, y: 1.0000455, z: 0.99994445}
     - name: hand_l
       parentName: Lowerarm_l
       position: {x: 0.000000011175871, y: 0.1909725, z: -0.0000000121071935}
-      rotation: {x: 0.015035921, y: -0.037993655, z: -0.03142428, w: 0.9986706}
-      scale: {x: 1, y: 1, z: 1}
+      rotation: {x: 0.015035996, y: -0.037993625, z: -0.03142429, w: 0.9986706}
+      scale: {x: 0.9999897, y: 1.0000141, z: 1.000004}
     - name: thumb_l
       parentName: hand_l
       position: {x: 0.05436001, y: 0.026219226, z: -0.009457275}
-      rotation: {x: -0.05832073, y: 0.24180743, z: -0.33080137, w: 0.9103287}
-      scale: {x: 1, y: 0.9999999, z: 1.0000001}
+      rotation: {x: -0.058320563, y: 0.24180743, z: -0.33080146, w: 0.9103287}
+      scale: {x: 0.9998962, y: 1.0000659, z: 1.00006}
     - name: thumb2_l
       parentName: thumb_l
       position: {x: -0.000000059604645, y: 0.09020622, z: -0.000000052154064}
-      rotation: {x: 0.27536574, y: -0.3751941, z: 0.23058574, w: 0.8545369}
-      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+      rotation: {x: 0.27536574, y: -0.37519413, z: 0.23058577, w: 0.85453695}
+      scale: {x: 0.9997098, y: 0.999807, z: 1.000503}
     - name: middle_l
       parentName: hand_l
       position: {x: -0.011127807, y: 0.1131874, z: 0.0076036286}
-      rotation: {x: 0.09902641, y: -0.19924079, z: -0.046984352, w: 0.97380155}
-      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+      rotation: {x: 0.086939864, y: -0.20090474, z: -0.027985528, w: 0.9753439}
+      scale: {x: 1.0000296, y: 1.0000185, z: 0.9999568}
     - name: middle2_l
       parentName: middle_l
       position: {x: 0.000000014901161, y: 0.07291525, z: 0.000000007450581}
-      rotation: {x: 0.027414301, y: -0.0933164, z: -0.061104562, w: 0.9933815}
-      scale: {x: 1, y: 1, z: 0.99999994}
+      rotation: {x: 0.027414273, y: -0.09331638, z: -0.06110456, w: 0.9933815}
+      scale: {x: 1.0000507, y: 1.000094, z: 0.9998657}
     - name: UpperLeg_l
       parentName: Pelvis
       position: {x: -0.069382615, y: 0.06939459, z: 0.008468353}
-      rotation: {x: 0.99683523, y: -0.049554557, z: -0.051983483, w: -0.034083}
-      scale: {x: 0.999986, y: 0.99999964, z: 0.9999946}
+      rotation: {x: 0.9968303, y: -0.049677785, z: -0.051969618, w: -0.034068823}
+      scale: {x: 0.9999846, y: 1.0000074, z: 1.0000014}
     - name: LowerLeg_l
       parentName: UpperLeg_l
       position: {x: 0.0000000041800376, y: 0.19621243, z: -0.0000000021827873}
-      rotation: {x: 0.052004803, y: 0.020825395, z: -0.026676334, w: 0.9980733}
-      scale: {x: 0.99999994, y: 0.9999998, z: 1}
+      rotation: {x: 0.052004457, y: 0.020825569, z: -0.02667663, w: 0.99807334}
+      scale: {x: 1.0000038, y: 1.0000328, z: 1.0000372}
     - name: foot_l
       parentName: LowerLeg_l
       position: {x: 9.313226e-10, y: 0.27239233, z: 0.0000000055879354}
-      rotation: {x: -0.5581643, y: -0.2751949, z: 0.25962812, w: 0.73845357}
-      scale: {x: 0.9999999, y: 0.99999994, z: 0.9999998}
+      rotation: {x: -0.5581623, y: -0.27519783, z: 0.25963172, w: 0.7384527}
+      scale: {x: 1.0000358, y: 0.9999978, z: 0.9999779}
     - name: foot2_l
       parentName: foot_l
       position: {x: 0.0000000037252903, y: 0.12598222, z: 0.000000004656613}
-      rotation: {x: -0.03083645, y: 0.8969336, z: -0.18703565, w: -0.39947087}
-      scale: {x: 1.0000001, y: 0.9999999, z: 0.99999976}
+      rotation: {x: -0.03083613, y: 0.89693135, z: -0.18703617, w: -0.39947572}
+      scale: {x: 1.0006155, y: 0.9999419, z: 0.99945587}
     - name: UpperLeg_r
       parentName: Pelvis
       position: {x: 0.069382615, y: 0.06939459, z: 0.008468351}
-      rotation: {x: 0.99683523, y: 0.04955527, z: 0.051983207, w: -0.03408255}
-      scale: {x: 0.9999862, y: 0.9999997, z: 0.99999475}
+      rotation: {x: 0.9968303, y: 0.049677804, z: 0.051969703, w: -0.034068823}
+      scale: {x: 0.9999849, y: 1.0000085, z: 1.0000007}
     - name: LowerLeg_r
       parentName: UpperLeg_r
       position: {x: 0.0000000029867806, y: 0.19621253, z: 3.4924597e-10}
-      rotation: {x: 0.052004803, y: -0.020825496, z: 0.026676396, w: 0.9980733}
-      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+      rotation: {x: 0.052004457, y: -0.02082567, z: 0.026676683, w: 0.99807334}
+      scale: {x: 1.0000035, y: 1.0000408, z: 1.0000465}
     - name: foot_r
       parentName: LowerLeg_r
       position: {x: 0.000000003958121, y: 0.2723924, z: 0.0000000027939677}
-      rotation: {x: -0.54820734, y: 0.26335493, z: -0.27831918, w: 0.7434052}
-      scale: {x: 1, y: 0.9999999, z: 1}
+      rotation: {x: -0.5482055, y: 0.2633581, z: -0.2783229, w: 0.74340415}
+      scale: {x: 1.0000316, y: 0.9999849, z: 0.9999725}
     - name: foot2_r
       parentName: foot_r
       position: {x: -0.0000000027939677, y: 0.12642998, z: -0.0000000037252903}
-      rotation: {x: 0.060187384, y: 0.89058906, z: -0.1733591, w: 0.4161434}
-      scale: {x: 1.0000001, y: 1, z: 1}
-    - name: mc_Vest_utility belt
+      rotation: {x: 0.06018732, y: 0.89058685, z: -0.17335862, w: 0.41614828}
+      scale: {x: 1.0006808, y: 0.99995, z: 0.9993918}
+    - name: Upper Body
       parentName: Character(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_UpperBody_athletic
+      parentName: Upper Body
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_UpperBody_Base
+      parentName: Upper Body
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_UpperBody_Long-sleeve
+      parentName: Upper Body
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_UpperBody_T-Shirt
+      parentName: Upper Body
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_UpperBody_Tanktop
+      parentName: Upper Body
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vest
+      parentName: Character(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_Belt_Utility belt
+      parentName: Vest
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_Vest_CommonVest
+      parentName: Vest
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_Vest_military
+      parentName: Vest
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mc_Vest_SpecialForces
+      parentName: Vest
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -1021,16 +1591,20 @@ ModelImporter:
     foreArmTwist: 0.5
     upperLegTwist: 0.5
     legTwist: 0.5
-    armStretch: 0.05
+    armStretch: 0.126
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
