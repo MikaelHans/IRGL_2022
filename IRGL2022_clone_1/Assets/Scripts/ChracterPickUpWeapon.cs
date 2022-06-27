@@ -121,6 +121,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                 gun_system.crosshair = crosshair;
                 gun_system.ammunitionDisplay = ammunitionDisplay;
                 gun_system.currentPlayer = currentPlayer;
+                gun_system.GunInit();
                 gunScript.PickUp();
                 moveToSlot(gun);
                 updateSlot();
@@ -190,11 +191,16 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
             if(i == gunEquiped && weapon[i] != null)
             {
                 weapon[i].SetActive(true);
+                if (weapon[i].GetComponent<GunSystem>())
+                {
+                    weapon[i].GetComponent<GunSystem>().GunInit();
+                }
             }
             else if(weapon[i])
             {
                 weapon[i].SetActive(false);
             }
+            
         }
     }
 

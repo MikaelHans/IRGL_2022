@@ -109,6 +109,7 @@ MonoBehaviour:
   amount: 1
   itemObject: {fileID: 0}
   prefab: {fileID: 6860850774082911116}
+  id: 0
 --- !u!54 &-975450035389823119
 Rigidbody:
   m_ObjectHideFlags: 0

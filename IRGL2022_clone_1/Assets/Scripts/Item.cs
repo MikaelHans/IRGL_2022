@@ -9,6 +9,7 @@ public class Item : MonoBehaviourPun
     public int amount;
     public GameObject itemObject;
     public GameObject prefab;
+    public int id;
 
     public virtual void Use(Player user)
     {

@@ -22,6 +22,8 @@ namespace Unity.FPS.UI
         public Vector3 Initial_Location;
         public Button button;
         public string SceneName = "";
+        public TMP_InputField teamname;
+        public Cloud cloud;
 
         private void Start()
         {          
@@ -36,7 +38,7 @@ namespace Unity.FPS.UI
         private void Awake()
         {
             max_player_in_room = 20;
-            max_dc_time = 300 * 1000;
+            max_dc_time = 0;
             default_room_name = "IRGLROOM2";
             DefaultRoomOptions = new RoomOptions();
         }        
@@ -46,12 +48,14 @@ namespace Unity.FPS.UI
             if (EventSystem.current.currentSelectedGameObject == gameObject
                 && Input.GetButtonDown(GameConstants.k_ButtonNameSubmit))
             {
-                LoadTargetScene();
+                LoadTargetScene();               
             }
         }
 
         public void LoadTargetScene()
         {
+            PhotonNetwork.NickName = teamname.text;
+            Debug.Log(teamname.text);
             JoinRoom();
         }
 

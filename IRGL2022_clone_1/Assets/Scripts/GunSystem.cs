@@ -7,7 +7,7 @@ public class GunSystem : Item
     //Gun stats
     public int damage;
     public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
-    public int magazineSize, bulletsPerTap;
+    public int magazineSize, bulletsPerTap, ammoCount;
     public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
     float finalSpread;
@@ -41,14 +41,28 @@ public class GunSystem : Item
         bulletsLeft = magazineSize;
         readyToShoot = true;
     }
+
+    private void Start()
+    {
+        
+    }
     private void Update()
-    {       
+    {     
 
         MyInput();
-        int ammoCount = 0;
+
+        float x = Random.Range(-finalSpread * 1.6f, finalSpread * 1.6f);
+        float y = Random.Range(-finalSpread * 0.6f, finalSpread * 0.6f);
+        Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
+        Debug.DrawLine(fpsCam.transform.position, fpsCam.transform.position + direction*5, Color.red);
+    }
+
+    public void GunInit()
+    {
+        ammoCount = 0;
         foreach (ItemData item in inventory.items)
         {
-            if (item.prefab.GetType().Name == "Ammo")
+            if (item.prefab.GetComponent<Ammo>())
             {
                 if (item.prefab.GetComponent<Ammo>().getAmmoType() == ammoType)
                 {
@@ -161,9 +175,10 @@ public class GunSystem : Item
         Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
 
         //RayCast
-        if (Physics.Raycast(fpsCam.transform.position + (direction * 0.5f), direction, out rayHit, range, whatIsEnemy))        {
+        //if (Physics.Raycast(fpsCam.transform.position + (direction * 0.5f), direction, out rayHit, range, whatIsEnemy)) 
+        if (Physics.Raycast(fpsCam.transform.position + (direction * 0.5f), direction, out rayHit, range))        {
             
-            if (rayHit.collider.CompareTag("Enemy"))
+            if (rayHit.collider.GetComponent<Player>())
             {
                 //damage enemy here
                 Debug.DrawLine(fpsCam.transform.position, rayHit.point, Color.red, 20.0f, false);
@@ -205,6 +220,8 @@ public class GunSystem : Item
 
         bulletsLeft--;
         bulletsShot--;
+        if (ammunitionDisplay != null)
+            ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + ammoCount);
 
         Invoke("ResetShot", timeBetweenShooting);
 
@@ -231,33 +248,39 @@ public class GunSystem : Item
         Invoke("ReloadFinished", reloadTime);
     }
     private void ReloadFinished()
-    {
-        int ammoCount = 0;
+    {          
+        //int bulletreload = Mathf.Min(ammoCount * bulletsPerTap, magazineSize);
+        //bulletsLeft = bulletreload;
         int missingBullet = (magazineSize - bulletsLeft) / bulletsPerTap;
-        foreach(ItemData item in inventory.items)
+        foreach (ItemData item in inventory.items)
         {
-            if(item.GetType().Name == "Ammo")
-            {
-                if(item.prefab.GetComponent<Ammo>().getAmmoType() == ammoType)
-                {
-                    ammoCount += item.amount;
-                }
-            }
-        }
-        int bulletreload = Mathf.Min(ammoCount * bulletsPerTap, magazineSize);
-        bulletsLeft = bulletreload;
-        foreach(ItemData item in inventory.items)
-        {
-            if(item.GetType().Name == "Ammo")
+            if(item.prefab.GetComponent<Ammo>())
             {
                 if(item.prefab.GetComponent<Ammo>().getAmmoType() == ammoType)
                 {
                     int bulletremove = Mathf.Min(missingBullet, item.amount);
                     missingBullet -= bulletremove;
                     item.amount -= bulletremove;
+                    bulletsLeft += bulletremove;
                 }
             }
         }
+
+        ammoCount = 0;
+        
+        foreach (ItemData item in inventory.items)
+        {
+            if (item.prefab.GetComponent<Ammo>())
+            {
+                if (item.prefab.GetComponent<Ammo>().getAmmoType() == ammoType)
+                {
+                    ammoCount += item.amount;
+                }
+            }
+        }
+
+        if (ammunitionDisplay != null)
+            ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + ammoCount);
         inventory.removeAllZeroItem();
         reloading = false;
     }

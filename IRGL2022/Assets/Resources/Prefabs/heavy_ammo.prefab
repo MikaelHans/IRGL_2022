@@ -125,6 +125,7 @@ MonoBehaviour:
   amount: 30
   itemObject: {fileID: 0}
   prefab: {fileID: 639184523396694923, guid: 77864ceabc0df4849a497f5c4c469961, type: 3}
+  id: 0
   ammoType: Heavy
 --- !u!114 &6830843089347746295
 MonoBehaviour:

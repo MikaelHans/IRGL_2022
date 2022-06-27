@@ -7,6 +7,7 @@ public class InventoryUI : MonoBehaviour
     public Transform itemParent;
 
     public InventorySlotUI[] slots;
+
     // Start is called before the first frame update
     void Awake()
     {

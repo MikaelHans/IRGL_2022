@@ -29,7 +29,12 @@ public class PlayerMovement : MonoBehaviourPun
     public Camera fpsCam;    
     public RaycastHit rayHit;
     public LayerMask whatIsObstacle;
+    Animator animator;
 
+    private void Awake()
+    {
+        animator = GetComponent<Player>().animator;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -66,8 +71,25 @@ public class PlayerMovement : MonoBehaviourPun
 
             Vector3 move = transform.right * x + transform.forward * z;
 
+            if(x != 0 || z != 0)
+            {
+                animator.SetBool("Idle", false);
+            }
+            else
+            {
+                animator.SetBool("Idle", true);
+            }
+
             if (isSprinting)
+            {
                 move *= sprintModifier;
+                animator.SetBool("IsRunning", true);
+            }
+            else
+            {
+                animator.SetBool("IsRunning", false);
+            }
+                
 
             if (isCrouching)
             {
@@ -78,9 +100,9 @@ public class PlayerMovement : MonoBehaviourPun
             }
             else
             {
-                controller.height = walkingHeight;
+                //controller.height = walkingHeight;
                 body.transform.localScale = new Vector3(body.transform.localScale.x, 1, body.transform.localScale.z);
-                fpsCam.transform.localPosition = new Vector3(fpsCam.transform.localPosition.x, walkCamera, fpsCam.transform.localPosition.z);
+                //fpsCam.transform.localPosition = new Vector3(fpsCam.transform.localPosition.x, walkCamera, fpsCam.transform.localPosition.z);
             }
 
             controller.Move(move * speed * Time.deltaTime);

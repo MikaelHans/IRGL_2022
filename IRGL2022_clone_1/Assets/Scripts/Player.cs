@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
-using UnityEngine;
 using System.Collections.Generic;
 
 public class Player : MonoBehaviourPun
@@ -17,8 +16,12 @@ public class Player : MonoBehaviourPun
     public Camera MinimapCamera;
     public InventoryUI inventoryUI;
     public ChracterPickUpWeapon weapons;
+    public Animator animator;
+    int team_id;
 
     public GameObject chest;
+
+    public int Team_id { get => team_id; set => team_id = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +31,13 @@ public class Player : MonoBehaviourPun
         //inventoryUI = GetComponentInChildren<InventoryUI>();
         if (!photonView.IsMine)
         {
-            playerCam.enabled = false;
+            //playerCam.enabled = false;
             //playerCam.gameObject.SetActive(false);
+            gameObject.GetComponent<PlayerMovement>().fpsCam.gameObject.SetActive(false);
             MinimapCamera.enabled = false;
             playerCanvas.enabled = false;
         }
+        gameObject.name = photonView.Owner.NickName;
     }
 
     // Update is called once per frame
@@ -45,6 +50,8 @@ public class Player : MonoBehaviourPun
             Death();
         }
     }
+
+
 
     public float TakeDamage(float damage, string damagerName)
     {
