@@ -2371,8 +2371,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters: []
-  m_SynchronizeLayers: []
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: IsRunning
+  - Type: 4
+    SynchronizeType: 1
+    Name: IsCarryingAWeapon
+  - Type: 3
+    SynchronizeType: 1
+    Name: WeaponType
+  - Type: 4
+    SynchronizeType: 1
+    Name: Idle
+  - Type: 4
+    SynchronizeType: 1
+    Name: IsFiring
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!1 &145486441644144856
 GameObject:
   m_ObjectHideFlags: 0
@@ -9830,6 +9847,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5525811132520201371}
   - {fileID: 6293097149466544827}
+  - {fileID: 1956088895687626542}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
