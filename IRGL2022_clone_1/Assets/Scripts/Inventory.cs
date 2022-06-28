@@ -7,12 +7,18 @@ public class Inventory : MonoBehaviourPun
     public InventoryUI UI;
 
 	
-    public int spaceLimit = 20;
+    public int spaceLimit;
     public Player currentPlayer;
     Item containerForRpc;
 
 
     public List<ItemData> items = new List<ItemData>();
+
+    public void InitInventory(int level)
+    {
+        spaceLimit *= (level+1);
+        UI.InitUI();
+    }
 
     public void AddItem(Item item)
     {

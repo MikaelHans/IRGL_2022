@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -6,15 +8,26 @@ public class InventoryUI : MonoBehaviour
 
     public Transform itemParent;
 
-    public InventorySlotUI[] slots;
+    public List<InventorySlotUI> slots;
+
+    //public InventorySlotUI[] slots;
 
     // Start is called before the first frame update
     void Awake()
     {
-        slots = itemParent.GetComponentsInChildren<InventorySlotUI>();
-        for(int i = 0; i < slots.Length; i++)
+        slots.AddRange(itemParent.GetComponentsInChildren<InventorySlotUI>());
+        for (int i = 0; i < inventory.spaceLimit; i++)
         {
             slots[i].inventory = inventory;
+            slots[i].gameObject.GetComponent<Image>().enabled = true;
+        }
+    }
+
+    public void InitUI()
+    {
+        for (int i = 0; i < inventory.spaceLimit; i++)  
+        {
+            slots[i].gameObject.GetComponent<Image>().enabled = true;
         }
     }
 
@@ -26,7 +39,7 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateUI()
     {
-        for(int i = 0; i < slots.Length; i++)
+        for(int i = 0; i < slots.Count; i++)
         {
             if(i < inventory.items.Count)
             {
@@ -41,7 +54,7 @@ public class InventoryUI : MonoBehaviour
 
     public void removeAll()
     {
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < slots.Count; i++)
         {
             if(slots[i].item != null)
             {

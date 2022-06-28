@@ -261,7 +261,7 @@ public class GunSystem : Item
                     int bulletremove = Mathf.Min(missingBullet, item.amount);
                     missingBullet -= bulletremove;
                     item.amount -= bulletremove;
-                    bulletsLeft += bulletremove;
+                    bulletsLeft += bulletremove * bulletsPerTap;
                 }
             }
         }

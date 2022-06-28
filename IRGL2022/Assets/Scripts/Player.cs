@@ -15,6 +15,7 @@ public class Player : MonoBehaviourPun
     Canvas playerCanvas;
     public Camera MinimapCamera;
     public InventoryUI inventoryUI;
+    public Inventory inventory;
     public ChracterPickUpWeapon weapons;
     public Animator animator;
     int team_id;
@@ -23,6 +24,7 @@ public class Player : MonoBehaviourPun
 
     public GameObject[] armor_model = new GameObject[3];
     public GameObject[] helmet_model = new GameObject[3];
+    public GameObject[] bag_model = new GameObject[3];
 
     public GameObject chest;
 
@@ -31,6 +33,10 @@ public class Player : MonoBehaviourPun
     public Armor Armor { get => armor; set => armor = value; }
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        inventory = gameObject.GetComponent<Inventory>();
+    }
     void Start()
     {
         playerCam = gameObject.GetComponentInChildren<Camera>();

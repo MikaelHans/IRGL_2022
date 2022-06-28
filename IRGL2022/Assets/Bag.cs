@@ -6,18 +6,8 @@ public class Bag : Equipable
 {
     public override void equip()
     {
-        
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        base.equip();
+        owner.bag_model[level].gameObject.SetActive(true);
+        owner.inventory.InitInventory(level);
+    }  
 }
