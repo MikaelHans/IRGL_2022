@@ -456,6 +456,7 @@ MonoBehaviour:
   itemObject: {fileID: 0}
   prefab: {fileID: 5799863969867974142, guid: 9149fcf3dc004184d975cf1c21772505, type: 3}
   id: 0
+  owner: {fileID: 0}
   ammoType: Small
 --- !u!54 &695777634
 Rigidbody:
@@ -1180,6 +1181,7 @@ MonoBehaviour:
   itemObject: {fileID: 0}
   prefab: {fileID: 5799863969867974142, guid: 9149fcf3dc004184d975cf1c21772505, type: 3}
   id: 0
+  owner: {fileID: 0}
   ammoType: Small
 --- !u!54 &818343563
 Rigidbody:
@@ -3574,6 +3576,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Armor
       objectReference: {fileID: 0}
+    - target: {fileID: 5629525553412970465, guid: 199e23bb06e1e4c4399b59adb4d8576e,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 199e23bb06e1e4c4399b59adb4d8576e, type: 3}
 --- !u!199 &2611884118473083462
@@ -3700,6 +3707,7 @@ MonoBehaviour:
   itemObject: {fileID: 0}
   prefab: {fileID: 4705280805442977878, guid: cb8939859b7e53047a158e16ec8a8999, type: 3}
   id: 0
+  owner: {fileID: 0}
   damage: 10
   timeBetweenShooting: 0.1
   spread: 0.05
@@ -8500,6 +8508,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 217982526309689710, guid: 966ae47ab0387e8478e98afb50ec5b39,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5208825522104442610, guid: 966ae47ab0387e8478e98afb50ec5b39,
         type: 3}
       propertyPath: m_RootOrder
@@ -8635,6 +8648,7 @@ MonoBehaviour:
   itemObject: {fileID: 0}
   prefab: {fileID: 5799863969867974142, guid: 9149fcf3dc004184d975cf1c21772505, type: 3}
   id: 0
+  owner: {fileID: 0}
   ammoType: Small
 --- !u!4 &5799863969732639799
 Transform:

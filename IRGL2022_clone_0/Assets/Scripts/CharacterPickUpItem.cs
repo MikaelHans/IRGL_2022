@@ -28,9 +28,17 @@ public class CharacterPickUpItem : MonoBehaviourPun
             //RayCast
             if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, pickUpRange, whatIsItem))
             {
-                GameObject item = rayHit.collider.gameObject;                
-                pickUpItem(item.GetComponent<Item>());
-                photonView.RPC("rpc_destroy", RpcTarget.All, item.GetPhotonView().ViewID);
+                GameObject item = rayHit.collider.gameObject;
+                item.GetComponent<Item>().PickUp(gameObject.GetComponent<Player>());
+                if(item.GetComponent<IStoreable>() != null)
+                {
+                    pickUpItem(item.GetComponent<Item>());
+                    photonView.RPC("rpc_destroy", RpcTarget.All, item.GetPhotonView().ViewID);
+                }    
+                else if(item.GetComponent<Equipable>())
+                {
+                    item.GetComponent<Equipable>().equip();
+                }
             }
         }
     }

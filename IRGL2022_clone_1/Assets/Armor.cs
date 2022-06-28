@@ -1,9 +1,17 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Armor : MonoBehaviour
+public class Armor : Equipable
 {
+    public override void equip()
+    {
+       base.equip();
+       owner.Armor = this;
+       owner.armor_model[level].gameObject.SetActive(true);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

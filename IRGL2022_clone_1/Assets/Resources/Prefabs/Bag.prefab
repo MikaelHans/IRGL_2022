@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 320282284166192237}
   - component: {fileID: 320282284166192238}
-  m_Layer: 0
+  - component: {fileID: 1789275131}
+  m_Layer: 6
   m_Name: Bag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,6 +54,22 @@ MonoBehaviour:
   itemObject: {fileID: 0}
   prefab: {fileID: 320282284166192239}
   id: 0
+  owner: {fileID: 0}
+  level: 1
+  duralibility: 100
+--- !u!65 &1789275131
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320282284166192239}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.28718883, y: 0.15925199, z: 0.4222188}
+  m_Center: {x: -0.0031270087, y: 0.061618328, z: 0.0013382435}
 --- !u!1 &1892173957080343338
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,8 +81,7 @@ GameObject:
   - component: {fileID: 1895825641878442388}
   - component: {fileID: 1888754126984291662}
   - component: {fileID: 1879317163472552222}
-  - component: {fileID: 1920018286422571074}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_PickUp_Bag_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,20 +151,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1920018286422571074
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1892173957080343338}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43125532322137652, guid: 51718190f35463344803899ed9128fce, type: 2}
 --- !u!1 &8022258394340538700
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,8 +162,7 @@ GameObject:
   - component: {fileID: 8024410198501271792}
   - component: {fileID: 8008784638012328896}
   - component: {fileID: 8000239555136056674}
-  - component: {fileID: 8049726929535843058}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_PickUp_Bag_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,20 +232,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8049726929535843058
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8022258394340538700}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43050971252254564, guid: 51630df60c725e34e8c35e987f5fe743, type: 2}
 --- !u!1 &8840439847926619454
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,8 +243,7 @@ GameObject:
   - component: {fileID: 8843827910552330764}
   - component: {fileID: 8853296772829828638}
   - component: {fileID: 8861254262484400754}
-  - component: {fileID: 8812762592775434052}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_PickUp_Bag_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,17 +313,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8812762592775434052
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8840439847926619454}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43550002741843690, guid: 726675c62c850144aa2f5d953c71a38a, type: 2}

@@ -1,6 +1,6 @@
 
 
-public class HealthPotion : Item
+public class HealthPotion : Item, IStoreable
 {
     float healthRestored = 25.0f;
     // Start is called before the first frame update

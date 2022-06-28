@@ -50,6 +50,7 @@ MonoBehaviour:
   - sync_item_in_chest
   - sync_chest_RPC
   - destroyChestRPC
+  - equip_RPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0

@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Helmet : MonoBehaviour
+using Photon.Pun;
+public class Helmet : Equipable
 {
     // Start is called before the first frame update
-    void Start()
+    public override void equip()
     {
-        
+        base.equip();   
+        owner.Helmet = this;
+        owner.helmet_model[level].gameObject.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
