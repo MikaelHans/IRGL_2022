@@ -17,7 +17,7 @@ password = **dummy**
 
 **200, POST - Successfully logged in**
 
-```
+```json
 {
 	"success": true
 	"message": "Successfully logged in"
@@ -26,7 +26,7 @@ password = **dummy**
 
 **400, POST - Missing credentials**
 
-```
+```json
 {
 	"success": false
 	"message": "Missing credentials"
@@ -35,7 +35,7 @@ password = **dummy**
 
 **400, POST - Already logged in**
 
-```
+```json
 {
 	"success": false
 	"message": "Already logged in"
@@ -44,32 +44,9 @@ password = **dummy**
 
 **401, POST - Wrong credentials**
 
-```
+```json
 {
 	"success": false
 	"message": "Wrong credentials"
 }
 ```
-
-1. Import sql e sek ke database
-2. Hit API login e nang
-
-**http://localhost/<jenenge_folder_iki>/api/login.php**
-
-**Request body gae testing:**
-name = **dummy**
-password = **dummy**
-
-**Response:**
-
-```
-{
-	"success": false / true
-	"message": "..."
-}
-```
-
-**Status Code:**
-**200** nek success
-**400** nek missing fields (name / password)
-**401** nek wrong credentials
