@@ -15,7 +15,7 @@ password = **dummy**
 
 **200, POST - Successfully logged in**
 
-```
+```json
 {
 	"success": true
 	"message": "Successfully logged in"
@@ -24,7 +24,7 @@ password = **dummy**
 
 **400, POST - Missing credentials**
 
-```
+```json
 {
 	"success": false
 	"message": "Missing credentials"
@@ -33,7 +33,7 @@ password = **dummy**
 
 **400, POST - Already logged in**
 
-```
+```json
 {
 	"success": false
 	"message": "Already logged in"
@@ -42,7 +42,7 @@ password = **dummy**
 
 **401, POST - Wrong credentials**
 
-```
+```json
 {
 	"success": false
 	"message": "Wrong credentials"
