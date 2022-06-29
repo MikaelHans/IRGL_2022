@@ -59,11 +59,11 @@ public class CharacterPickUpItem : MonoBehaviourPun
         if(item.GetComponent<Ammo>())
         {
             ChracterPickUpWeapon weaponInventory = gameObject.GetComponent<ChracterPickUpWeapon>();
-            foreach (GameObject gun in weaponInventory.weapon)
+            foreach (WeaponData gun in weaponInventory.weapon)
             {
-                if (gun != null && gun.GetComponent<GunSystem>())
+                if (gun != null && gun._gunsystem)
                 {
-                    gun.GetComponent<GunSystem>().GunInit();
+                    gun._gunsystem.GunInit();
                 }                
             }
         }

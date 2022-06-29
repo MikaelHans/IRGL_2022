@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using Photon.Pun;
 
-public class GunSystem : Item
+public class GunSystem : MonoBehaviourPun
 {
     //Gun stats
     public int damage;
@@ -27,12 +27,12 @@ public class GunSystem : Item
     public LayerMask whatIsEnemy;
     public CharacterController controller;
     public Inventory inventory;
-    public PickUpController weaponPickUpController;
+    //public PickUpController weaponPickUpController;
     public Player currentPlayer;
 
     //graphics
     public ParticleSystem muzzleFlash;
-    public GameObject bulletHoleGraphic;
+    public GameObject bulletHoleGraphic, adsContainer, gunContainer;
     public TextMeshProUGUI ammunitionDisplay;
     public GameObject crosshair;
 
@@ -40,18 +40,17 @@ public class GunSystem : Item
     {
         bulletsLeft = magazineSize;
         readyToShoot = true;
-        owner = GetComponentInParent<Player>();
         //PickUpController gunScript = GetComponentInParent<PickUpController>();
         GunSystem gun_system = GetComponent<GunSystem>();
 
         //gunScript.gunContainer = owner.GetComponent<ChracterPickUpWeapon>().gunContainer.transform;
-        gun_system.fpsCam = owner.GetComponent<ChracterPickUpWeapon>().fpsCam;
-        gun_system.gunCam = owner.GetComponent<ChracterPickUpWeapon>().gunCam;
-        gun_system.inventory = owner.GetComponent<ChracterPickUpWeapon>().inventory;
-        gun_system.controller = owner.GetComponent<ChracterPickUpWeapon>().controller;
-        gun_system.crosshair = owner.GetComponent<ChracterPickUpWeapon>().crosshair;
-        gun_system.ammunitionDisplay = owner.GetComponent<ChracterPickUpWeapon>().ammunitionDisplay;
-        gun_system.currentPlayer = owner.GetComponent<ChracterPickUpWeapon>().currentPlayer;
+        //gun_system.fpsCam = owner.GetComponent<ChracterPickUpWeapon>().fpsCam;
+        //gun_system.gunCam = owner.GetComponent<ChracterPickUpWeapon>().gunCam;
+        //gun_system.inventory = owner.GetComponent<ChracterPickUpWeapon>().inventory;
+        //gun_system.controller = owner.GetComponent<ChracterPickUpWeapon>().controller;
+        //gun_system.crosshair = owner.GetComponent<ChracterPickUpWeapon>().crosshair;
+        //gun_system.ammunitionDisplay = owner.GetComponent<ChracterPickUpWeapon>().ammunitionDisplay;
+        //gun_system.currentPlayer = owner;
         GunInit();
     }
 
@@ -87,6 +86,7 @@ public class GunSystem : Item
         if (ammunitionDisplay != null)
         {
             ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + ammoCount);
+            ammunitionDisplay.enabled = true;
         }
            
        
@@ -130,14 +130,14 @@ public class GunSystem : Item
             }
             if (isADS)
             {
-                transform.position = Vector3.MoveTowards(transform.position, weaponPickUpController.adsContainer.position, aimAnimationSpeed * Time.deltaTime);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, weaponPickUpController.adsContainer.transform.rotation, aimAnimationSpeed * Time.deltaTime);
+                //transform.position = Vector3.MoveTowards(transform.position, adsContainer.transform.position, aimAnimationSpeed * Time.deltaTime);
+                //transform.rotation = Quaternion.RotateTowards(transform.rotation, adsContainer.transform.rotation, aimAnimationSpeed * Time.deltaTime);
                 SetFieldOfView(Mathf.Lerp(fpsCam.fieldOfView, defaultFOV * zoomRatio, aimAnimationSpeed * Time.deltaTime * 2));
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, weaponPickUpController.gunContainer.position, aimAnimationSpeed * Time.deltaTime);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, weaponPickUpController.gunContainer.transform.rotation, aimAnimationSpeed * Time.deltaTime);
+                //transform.position = Vector3.MoveTowards(transform.position, gunContainer.transform.position, aimAnimationSpeed * Time.deltaTime);
+                //transform.rotation = Quaternion.RotateTowards(transform.rotation, gunContainer.transform.rotation, aimAnimationSpeed * Time.deltaTime);
                 SetFieldOfView(Mathf.Lerp(fpsCam.fieldOfView, defaultFOV, aimAnimationSpeed * Time.deltaTime * 2));
             }
         }       
@@ -158,8 +158,8 @@ public class GunSystem : Item
     {
         isADS = false;
         crosshair.SetActive(true);
-        transform.position = weaponPickUpController.gunContainer.position;
-        transform.rotation = weaponPickUpController.gunContainer.transform.rotation;
+        transform.position = gunContainer.transform.position;
+        transform.rotation = gunContainer.transform.rotation;
         SetFieldOfView(defaultFOV);
     }
     private void SetFieldOfView(float fov)

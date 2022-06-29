@@ -29,7 +29,7 @@ public class MeleeSystem : MonoBehaviour
     }
     private void Update()
     {
-        ammunitionDisplay.text = "";
+        //ammunitionDisplay.text = "";
         MyInput();
     }
 

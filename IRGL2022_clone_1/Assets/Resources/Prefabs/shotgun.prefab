@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4705280805442977877}
-  - component: {fileID: 4705280805442977873}
   - component: {fileID: 4705280805442977874}
+  - component: {fileID: -2209398097879129488}
   - component: {fileID: 4705280805442977875}
   - component: {fileID: 4705280805442977876}
   - component: {fileID: -1616418185176962328}
@@ -39,56 +39,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4705280805442977873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4705280805442977878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8584e4bb22a6d4fbc5f16d09fbebda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: shotgun
-  icon: {fileID: 0}
-  maxStack: 0
-  amount: 0
-  itemObject: {fileID: 0}
-  prefab: {fileID: 4705280805442977878}
-  id: 0
-  owner: {fileID: 0}
-  damage: 10
-  timeBetweenShooting: 0.1
-  spread: 0.05
-  range: 100
-  reloadTime: 1
-  timeBetweenShots: 0
-  magazineSize: 30
-  bulletsPerTap: 6
-  ammoCount: 0
-  allowButtonHold: 0
-  aimAnimationSpeed: 3.5
-  zoomRatio: 0.8
-  defaultFOV: 60
-  ammoType: Shotgun
-  adsSpread: 0.8
-  isADS: 0
-  fpsCam: {fileID: 0}
-  gunCam: {fileID: 0}
-  whatIsEnemy:
-    serializedVersion: 2
-    m_Bits: 4104
-  controller: {fileID: 0}
-  inventory: {fileID: 0}
-  weaponPickUpController: {fileID: 4705280805442977874}
-  currentPlayer: {fileID: 0}
-  muzzleFlash: {fileID: 4705280806256446763}
-  bulletHoleGraphic: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980,
-    type: 3}
-  ammunitionDisplay: {fileID: 0}
-  crosshair: {fileID: 0}
 --- !u!114 &4705280805442977874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,12 +46,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4705280805442977878}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e48caa091f1ec2e44810258d4f049416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunScript: {fileID: 4705280805442977873}
+  gunScript: {fileID: 0}
   rb: {fileID: 4705280805442977875}
   coll: {fileID: 4705280805442977876}
   player: {fileID: 0}
@@ -112,6 +62,28 @@ MonoBehaviour:
   dropForwardForce: 1
   dropUpwardForce: 1
   equipped: 0
+--- !u!114 &-2209398097879129488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4705280805442977878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252e107f92aba624e91e78009152c0d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: shotgun
+  icon: {fileID: 0}
+  maxStack: 0
+  amount: 0
+  itemObject: {fileID: 0}
+  prefab: {fileID: 4705280805442977878}
+  id: 8
+  owner: {fileID: 0}
+  gun_system: {fileID: 0}
+  WeaponID: 2
 --- !u!54 &4705280805442977875
 Rigidbody:
   m_ObjectHideFlags: 0

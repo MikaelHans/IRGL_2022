@@ -4847,8 +4847,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4311835750542008008}
-  - component: {fileID: 4311835750542008012}
   - component: {fileID: 4311835750542008015}
+  - component: {fileID: -6525657752479497431}
   - component: {fileID: 4311835750542008014}
   - component: {fileID: 4311835750542008009}
   - component: {fileID: -3801858973642321950}
@@ -4877,56 +4877,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4311835750542008012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4311835750542008011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8584e4bb22a6d4fbc5f16d09fbebda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: dmr
-  icon: {fileID: 0}
-  maxStack: 0
-  amount: 0
-  itemObject: {fileID: 0}
-  prefab: {fileID: 4311835750542008011}
-  id: 0
-  owner: {fileID: 0}
-  damage: 15
-  timeBetweenShooting: 0.3
-  spread: 0.01
-  range: 100
-  reloadTime: 1
-  timeBetweenShots: 0
-  magazineSize: 10
-  bulletsPerTap: 1
-  ammoCount: 0
-  allowButtonHold: 0
-  aimAnimationSpeed: 3
-  zoomRatio: 0.5
-  defaultFOV: 60
-  ammoType: Heavy
-  adsSpread: 0.8
-  isADS: 0
-  fpsCam: {fileID: 0}
-  gunCam: {fileID: 0}
-  whatIsEnemy:
-    serializedVersion: 2
-    m_Bits: 4104
-  controller: {fileID: 0}
-  inventory: {fileID: 0}
-  weaponPickUpController: {fileID: 4311835750542008015}
-  currentPlayer: {fileID: 0}
-  muzzleFlash: {fileID: 4311835750282253238}
-  bulletHoleGraphic: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980,
-    type: 3}
-  ammunitionDisplay: {fileID: 0}
-  crosshair: {fileID: 0}
 --- !u!114 &4311835750542008015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4934,12 +4884,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4311835750542008011}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e48caa091f1ec2e44810258d4f049416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunScript: {fileID: 4311835750542008012}
+  gunScript: {fileID: 0}
   rb: {fileID: 4311835750542008014}
   coll: {fileID: 4311835750542008009}
   player: {fileID: 0}
@@ -4950,6 +4900,28 @@ MonoBehaviour:
   dropForwardForce: 1
   dropUpwardForce: 1
   equipped: 0
+--- !u!114 &-6525657752479497431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4311835750542008011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252e107f92aba624e91e78009152c0d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: dmr
+  icon: {fileID: 0}
+  maxStack: 0
+  amount: 0
+  itemObject: {fileID: 0}
+  prefab: {fileID: 4311835750542008011}
+  id: 0
+  owner: {fileID: 0}
+  gun_system: {fileID: 0}
+  WeaponID: 1
 --- !u!54 &4311835750542008014
 Rigidbody:
   m_ObjectHideFlags: 0

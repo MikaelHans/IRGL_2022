@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4360725702067032089}
-  - component: {fileID: 4360725702067032090}
   - component: {fileID: 4360725702067032091}
+  - component: {fileID: 2545838776343311174}
   - component: {fileID: 4360725702067032092}
   - component: {fileID: 4360725702067032093}
   - component: {fileID: 614051214344700773}
@@ -38,56 +38,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4360725702067032090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4360725702067032094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8584e4bb22a6d4fbc5f16d09fbebda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: assault rifle
-  icon: {fileID: 0}
-  maxStack: 0
-  amount: 0
-  itemObject: {fileID: 0}
-  prefab: {fileID: 4360725702067032094}
-  id: 0
-  owner: {fileID: 0}
-  damage: 10
-  timeBetweenShooting: 0.1
-  spread: 0.01
-  range: 100
-  reloadTime: 1
-  timeBetweenShots: 0
-  magazineSize: 30
-  bulletsPerTap: 1
-  ammoCount: 0
-  allowButtonHold: 1
-  aimAnimationSpeed: 3
-  zoomRatio: 0.5
-  defaultFOV: 60
-  ammoType: Heavy
-  adsSpread: 0.8
-  isADS: 0
-  fpsCam: {fileID: 0}
-  gunCam: {fileID: 0}
-  whatIsEnemy:
-    serializedVersion: 2
-    m_Bits: 4104
-  controller: {fileID: 0}
-  inventory: {fileID: 0}
-  weaponPickUpController: {fileID: 4360725702067032091}
-  currentPlayer: {fileID: 0}
-  muzzleFlash: {fileID: 4484185663457856711}
-  bulletHoleGraphic: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980,
-    type: 3}
-  ammunitionDisplay: {fileID: 0}
-  crosshair: {fileID: 0}
 --- !u!114 &4360725702067032091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,12 +45,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4360725702067032094}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e48caa091f1ec2e44810258d4f049416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunScript: {fileID: 4360725702067032090}
+  gunScript: {fileID: 0}
   rb: {fileID: 4360725702067032092}
   coll: {fileID: 4360725702067032093}
   player: {fileID: 0}
@@ -111,6 +61,28 @@ MonoBehaviour:
   dropForwardForce: 1
   dropUpwardForce: 1
   equipped: 0
+--- !u!114 &2545838776343311174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4360725702067032094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252e107f92aba624e91e78009152c0d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: assault rifle
+  icon: {fileID: 0}
+  maxStack: 0
+  amount: 0
+  itemObject: {fileID: 0}
+  prefab: {fileID: 4360725702067032094}
+  id: 1
+  owner: {fileID: 0}
+  gun_system: {fileID: 0}
+  WeaponID: 0
 --- !u!54 &4360725702067032092
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -328,12 +300,6 @@ PrefabInstance:
 --- !u!4 &4362401516860366285 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000011227296186, guid: 9defeac88977c0d448aa4541073ee9e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 4360725703035628663}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &4484185663457856711 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198000012944515248, guid: 9defeac88977c0d448aa4541073ee9e4,
     type: 3}
   m_PrefabInstance: {fileID: 4360725703035628663}
   m_PrefabAsset: {fileID: 0}

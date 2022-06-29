@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using Photon.Pun;
+using System.Collections.Generic;
 
 public class ChracterPickUpWeapon : MonoBehaviourPun
 {
@@ -8,9 +9,10 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
     public RaycastHit rayHit;
     public LayerMask whatIsgun;
     public float pickUpRange;
-    public GameObject[] weapon = new GameObject[3];
+    public List<WeaponData> weapon = new List<WeaponData>(3);
     public GameObject gunContainer;
     public GameObject adsContainer;
+    public List<GunSystem> GunList = new List<GunSystem>();
     public Transform player;
     public Camera fpsCam;
     public int gunEquiped;
@@ -32,21 +34,21 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
     {
         if(photonView.IsMine)
         {
-            if (gunEquiped < 0 || gunEquiped >= 2)
-            {
-                ammunitionDisplay.enabled = false;
-            }
-            else
-            {
-                if (weapon[gunEquiped] == null)
-                {
-                    ammunitionDisplay.enabled = false;
-                }
-                else
-                {
-                    ammunitionDisplay.enabled = true;
-                }
-            }
+            //if (gunEquiped < 0 || gunEquiped >= 2)
+            //{
+            //    ammunitionDisplay.enabled = false;
+            //}
+            //else
+            //{
+            //    if (weapon[gunEquiped] == null)
+            //    {
+            //        ammunitionDisplay.enabled = false;
+            //    }
+            //    else
+            //    {
+            //        ammunitionDisplay.enabled = true;
+            //    }
+            //}
 
 
             //Check if player is in range and "E" is pressed
@@ -54,16 +56,30 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
             {
                 Vector3 direction = fpsCam.transform.forward;
                 //RayCast
-                if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, pickUpRange, whatIsgun))
+                if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, pickUpRange))
                 {
                     GameObject gun = rayHit.collider.gameObject;
+                    if(gun.GetComponentInParent<Weapon>())
+                    {
+                        Weapon wpn = gun.GetComponentInParent<Weapon>();
+                        WeaponData weapondata = new WeaponData();
+                        weapondata.prefab = wpn.prefab;
+                        weapondata.name = wpn.itemName;
+                        weapondata.amount = wpn.amount;
+                        weapondata._gunsystem = GunList[wpn.WeaponID];
+
+                        wpn.photonView.RequestOwnership();
+                        PhotonNetwork.Destroy(wpn.gameObject);
+                        moveToSlot(weapondata);
+                        updateSlot();
+                    }
                     #region old codes
-                    //PickUpController gunScript = GetComponentInParent<PickUpController>();
+                    //PickUpController gunScript = GetComponent<PickUpController>();
                     //GunSystem gun_system = GetComponent<GunSystem>();
 
                     //if (!gunScript.equipped && !slotFull)
                     //{
-                    //    gunScript.gunContainer = GetComponent
+                    //    gunScript.gunContainer = gunContainer.transform;
                     //    gunScript.adsContainer = adsContainer.transform;
                     //    gunScript.fpsCam = fpsCam.transform;
                     //    gunScript.player = gameObject.transform;
@@ -80,8 +96,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                     //    updateSlot();
                     //}
                     #endregion
-                    moveToSlot(gun);
-                    updateSlot();
+                    
                 }
 
                 //photonView.RPC("rpc_pickup", RpcTarget.All, direction);
@@ -97,34 +112,36 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
             if (Input.mouseScrollDelta.y > 0.0f)
             {
                 int i = getPrevWeapon();
-                if (i >= 0 && i < weapon.Length)
+                if (i >= 0 && i < weapon.Count)
                 {
                     if (weapon[gunEquiped] != null)
                     {
-                        if (weapon[gunEquiped].GetComponent<GunSystem>() != null)
-                            weapon[gunEquiped].GetComponent<GunSystem>().stopADS();
-                        weapon[gunEquiped].transform.position = gunContainer.transform.position;
+                        if (weapon[gunEquiped]._gunsystem != null)
+                            weapon[gunEquiped]._gunsystem.stopADS();
+                        //weapon[gunEquiped].transform.position = gunContainer.transform.position;
+                        weapon[gunEquiped]._gunsystem.gameObject.SetActive(true);
                     }
                     gunEquiped = i;
                     setActiveGun();
                 }
-                photonView.RPC("rpc_pickup", RpcTarget.All, weapon[gunEquiped]);
+                //photonView.RPC("rpc_pickup", RpcTarget.All, weapon[gunEquiped]);
             }
             if (Input.mouseScrollDelta.y < 0.0f)
             {
                 int i = getNextWeapon();
-                if (i >= 0 && i < weapon.Length)
+                if (i >= 0 && i < weapon.Count)
                 {
                     if (weapon[gunEquiped] != null)
                     {
-                        if (weapon[gunEquiped].GetComponent<GunSystem>() != null)
-                            weapon[gunEquiped].GetComponent<GunSystem>().stopADS();
-                        weapon[gunEquiped].transform.position = gunContainer.transform.position;
+                        if (weapon[gunEquiped]._gunsystem != null)
+                            weapon[gunEquiped]._gunsystem.stopADS();
+                        //weapon[gunEquiped].transform.position = gunContainer.transform.position;
+                        weapon[gunEquiped]._gunsystem.gameObject.SetActive(true);
                     }
                     gunEquiped = i;
                     setActiveGun();
                 }
-                photonView.RPC("rpc_pickup", RpcTarget.All, weapon[gunEquiped]);
+                //photonView.RPC("rpc_pickup", RpcTarget.All, weapon[gunEquiped]);
             }
         }        
     }
@@ -146,7 +163,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
 
     private int getNextWeapon()
     {
-        for(int i = (gunEquiped + 1) % weapon.Length; i != gunEquiped; i = (i + 1) % weapon.Length)
+        for(int i = (gunEquiped + 1) % weapon.Count; i != gunEquiped; i = (i + 1) % weapon.Count)
         {
             if(weapon[i] != null)
             {
@@ -162,7 +179,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
         {
             if(i < 0)
             {
-                i = weapon.Length - 1;
+                i = weapon.Count - 1;
             }
             if (weapon[i] != null)
             {
@@ -174,9 +191,9 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
 
     private void updateSlot()
     {
-        for(int i = 0;i< weapon.Length;i++)
+        for(int i = 0;i< weapon.Count; i++)
         {
-            if(weapon[i] == null)
+            if(weapon[i]._gunsystem == null)
             {
                 slotFull = false;
                 return;
@@ -185,11 +202,12 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
         slotFull = true;
     }
 
-    private void moveToSlot(GameObject gun)
+    private void moveToSlot(WeaponData gun)
     {
-        for(int i = 0; i < weapon.Length; i++)
+        //weapon[gunEquiped]._gunsystem.gameObject.SetActive(false);
+        for(int i = 0; i < weapon.Count; i++)
         {
-            if(weapon[i] == null)
+            if(weapon[i]._gunsystem == null)
             {
                 weapon[i] = gun;
                 gunEquiped = i;
@@ -201,21 +219,23 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
 
     private void setActiveGun()
     {
-        for(int i = 0; i < weapon.Length; i++)
+        for(int i = 0; i < weapon.Count; i++)
         {
-            if(i == gunEquiped && weapon[i] != null)
+            if(i == gunEquiped && weapon[i]._gunsystem != null)
             {
-                weapon[i].SetActive(true);
-                if (weapon[i].GetComponent<GunSystem>())
+                weapon[i]._gunsystem.gameObject.SetActive(true);
+                weapon[i]._gunsystem.gameObject.transform.localPosition = new Vector3(0, 0, 0);
+                if (weapon[i]._gunsystem.gameObject.GetComponent<GunSystem>())
                 {
-                    weapon[i].GetComponent<GunSystem>().GunInit();  
+                    weapon[i]._gunsystem.gameObject.GetComponent<GunSystem>().GunInit();  
                 }
             }
-            else if(weapon[i])
+            else if (weapon[i]._gunsystem)
             {
-                weapon[i].SetActive(false);
+                weapon[i]._gunsystem.ammunitionDisplay.enabled = false;
+                weapon[i]._gunsystem.gameObject.SetActive(false);
             }
-            
+
         }
     }
 
@@ -224,22 +244,23 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
         photonView.RPC("rpc_drop", RpcTarget.All, index);
     }
 
-    public GameObject[] dropgunAllGun()
+    public WeaponData[] dropgunAllGun()
     {
-        return weapon;
+        return weapon.ToArray();
     }
 
     [PunRPC]
     public void rpc_drop(int index)
     {
-        if (index >= 0 && index < weapon.Length)
+        if (index >= 0 && index < weapon.Count)
         {
-            if (weapon[index] != null)
+            if (weapon[index]._gunsystem != null)
             {
-                weapon[index].SetActive(true);
-                weapon[index].GetComponent<GunSystem>().cancelADS();
-                weapon[index].GetComponent<PickUpController>().Drop();
-                weapon[index] = null;
+                weapon[index]._gunsystem.gameObject.SetActive(false);
+                weapon[index]._gunsystem.cancelADS();
+                weapon[index]._gunsystem.ammunitionDisplay.enabled = false;
+                PhotonNetwork.Instantiate("Prefabs/" + weapon[index].name, transform.position,transform.rotation);
+                weapon[index] = new WeaponData();
                 updateSlot();
             }
         }

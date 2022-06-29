@@ -104,21 +104,10 @@ public class Player : MonoBehaviourPun
                 allitems.Add(item);
             }
             //export weapon data to itemdata
-            GameObject[] allweapons = weapons.weapon;//get weapons array
-            foreach(GameObject weapon in allweapons)
+            WeaponData[] allweapons = weapons.weapon.ToArray();//get weapons array
+            foreach(WeaponData weapon in allweapons)
             {
-                if (weapon != null)
-                {                    
-                    Item weapon_item = weapon.GetComponent<Item>();
-                    if (!weapon.GetComponent<MeleeSystem>())
-                    {
-                        ItemData itemData = new ItemData();
-                        itemData.prefab = weapon_item.prefab;
-                        itemData.name = weapon_item.name;
-                        itemData.amount = 1;
-                        allitems.Add(itemData);
-                    }                    
-                }              
+                allitems.Add(weapon);
             }
 
             //export allitem to json
