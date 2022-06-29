@@ -10,7 +10,12 @@ public class Cloud : MonoBehaviour
     void Start()
     {
         //for editor only
+        int _id = 0;
         cloud.AddRange(Resources.LoadAll<Item>("Prefabs"));
+        foreach (Item item in cloud)
+        {
+            item.id = _id++;
+        }
         DontDestroyOnLoad(gameObject);
     }
 }

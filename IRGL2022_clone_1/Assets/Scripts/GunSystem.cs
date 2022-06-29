@@ -40,6 +40,19 @@ public class GunSystem : Item
     {
         bulletsLeft = magazineSize;
         readyToShoot = true;
+        owner = GetComponentInParent<Player>();
+        //PickUpController gunScript = GetComponentInParent<PickUpController>();
+        GunSystem gun_system = GetComponent<GunSystem>();
+
+        //gunScript.gunContainer = owner.GetComponent<ChracterPickUpWeapon>().gunContainer.transform;
+        gun_system.fpsCam = owner.GetComponent<ChracterPickUpWeapon>().fpsCam;
+        gun_system.gunCam = owner.GetComponent<ChracterPickUpWeapon>().gunCam;
+        gun_system.inventory = owner.GetComponent<ChracterPickUpWeapon>().inventory;
+        gun_system.controller = owner.GetComponent<ChracterPickUpWeapon>().controller;
+        gun_system.crosshair = owner.GetComponent<ChracterPickUpWeapon>().crosshair;
+        gun_system.ammunitionDisplay = owner.GetComponent<ChracterPickUpWeapon>().ammunitionDisplay;
+        gun_system.currentPlayer = owner.GetComponent<ChracterPickUpWeapon>().currentPlayer;
+        GunInit();
     }
 
     private void Start()
@@ -72,7 +85,11 @@ public class GunSystem : Item
         }
         //Set ammo display if it exist
         if (ammunitionDisplay != null)
+        {
             ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + ammoCount);
+        }
+           
+       
     }
 
     private void MyInput()
@@ -176,8 +193,8 @@ public class GunSystem : Item
 
         //RayCast
         //if (Physics.Raycast(fpsCam.transform.position + (direction * 0.5f), direction, out rayHit, range, whatIsEnemy)) 
-        if (Physics.Raycast(fpsCam.transform.position + (direction * 0.5f), direction, out rayHit, range))        {
-            
+        if (Physics.Raycast(fpsCam.transform.position + (direction * 0.5f), direction, out rayHit, range))
+        {            
             if (rayHit.collider.GetComponent<Player>())
             {
                 //damage enemy here

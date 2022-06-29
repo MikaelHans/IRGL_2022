@@ -53,8 +53,38 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Vector3 direction = fpsCam.transform.forward;
+                //RayCast
+                if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, pickUpRange, whatIsgun))
+                {
+                    GameObject gun = rayHit.collider.gameObject;
+                    #region old codes
+                    //PickUpController gunScript = GetComponentInParent<PickUpController>();
+                    //GunSystem gun_system = GetComponent<GunSystem>();
 
-                photonView.RPC("rpc_pickup", RpcTarget.All, direction);
+                    //if (!gunScript.equipped && !slotFull)
+                    //{
+                    //    gunScript.gunContainer = GetComponent
+                    //    gunScript.adsContainer = adsContainer.transform;
+                    //    gunScript.fpsCam = fpsCam.transform;
+                    //    gunScript.player = gameObject.transform;
+                    //    gun_system.fpsCam = fpsCam;
+                    //    gun_system.gunCam = gunCam;
+                    //    gun_system.inventory = inventory;
+                    //    gun_system.controller = controller;
+                    //    gun_system.crosshair = crosshair;
+                    //    gun_system.ammunitionDisplay = ammunitionDisplay;
+                    //    gun_system.currentPlayer = currentPlayer;
+                    //    gun_system.GunInit();
+                    //    gunScript.PickUp();
+                    //    moveToSlot(gun);
+                    //    updateSlot();
+                    //}
+                    #endregion
+                    moveToSlot(gun);
+                    updateSlot();
+                }
+
+                //photonView.RPC("rpc_pickup", RpcTarget.All, direction);
             }
 
             //Drop if equipped and "Q" is pressed
@@ -78,6 +108,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                     gunEquiped = i;
                     setActiveGun();
                 }
+                photonView.RPC("rpc_pickup", RpcTarget.All, weapon[gunEquiped]);
             }
             if (Input.mouseScrollDelta.y < 0.0f)
             {
@@ -93,40 +124,24 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                     gunEquiped = i;
                     setActiveGun();
                 }
+                photonView.RPC("rpc_pickup", RpcTarget.All, weapon[gunEquiped]);
             }
         }        
     }
 
     [PunRPC]
+    public void rpc_changeWeapon(int weaponID)
+    {
+        if(!photonView.IsMine)
+        {
+            
+        }
+    }
+
+    [PunRPC]
     public void rpc_pickup(Vector3 direction)
     {
-        //RayCast
-        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, pickUpRange, whatIsgun))
-        {
-            GameObject gun = rayHit.collider.gameObject;
-
-            PickUpController gunScript = gun.GetComponent<PickUpController>();
-            GunSystem gun_system = gun.GetComponent<GunSystem>();
-
-            if (!gunScript.equipped && !slotFull)
-            {
-                gunScript.gunContainer = gunContainer.transform;
-                gunScript.adsContainer = adsContainer.transform;
-                gunScript.fpsCam = fpsCam.transform;
-                gunScript.player = gameObject.transform;
-                gun_system.fpsCam = fpsCam;
-                gun_system.gunCam = gunCam;
-                gun_system.inventory = inventory;
-                gun_system.controller = controller;
-                gun_system.crosshair = crosshair;
-                gun_system.ammunitionDisplay = ammunitionDisplay;
-                gun_system.currentPlayer = currentPlayer;
-                gun_system.GunInit();
-                gunScript.PickUp();
-                moveToSlot(gun);
-                updateSlot();
-            }
-        }
+        
     }
 
     private int getNextWeapon()
@@ -193,7 +208,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                 weapon[i].SetActive(true);
                 if (weapon[i].GetComponent<GunSystem>())
                 {
-                    weapon[i].GetComponent<GunSystem>().GunInit();
+                    weapon[i].GetComponent<GunSystem>().GunInit();  
                 }
             }
             else if(weapon[i])

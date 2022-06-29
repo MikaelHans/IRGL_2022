@@ -5124,10 +5124,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -244.45999
       objectReference: {fileID: 0}
+    - target: {fileID: 1406129567970093884, guid: c3cd90f8a5399b842a8ea27d428074ee,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628365209308740785, guid: c3cd90f8a5399b842a8ea27d428074ee,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2114925153598477862, guid: c3cd90f8a5399b842a8ea27d428074ee,
         type: 3}
       propertyPath: sceneViewId
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796870652153974250, guid: c3cd90f8a5399b842a8ea27d428074ee,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839738246533653674, guid: c3cd90f8a5399b842a8ea27d428074ee,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4373194737267951398, guid: c3cd90f8a5399b842a8ea27d428074ee,
         type: 3}
