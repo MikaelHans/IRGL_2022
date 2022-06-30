@@ -33,7 +33,7 @@ public class CharacterPickUpItem : MonoBehaviourPun
                 if(item.GetComponent<IStoreable>() != null)
                 {
                     pickUpItem(item.GetComponent<Item>());
-                    photonView.RPC("rpc_destroy", RpcTarget.All, item.GetPhotonView().ViewID);
+                    //photonView.RPC("rpc_destroy", RpcTarget.All, item.GetPhotonView().ViewID);
                 }    
                 else if(item.GetComponent<Equipable>())
                 {

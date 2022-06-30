@@ -26,7 +26,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
     // Start is called before the first frame update
     void Start()
     {
-        gunEquiped = 2;
+        gunEquiped = -1;
     }
 
     // Update is called once per frame
@@ -34,6 +34,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
     {
         if(photonView.IsMine)
         {
+            #region old codes
             //if (gunEquiped < 0 || gunEquiped >= 2)
             //{
             //    ammunitionDisplay.enabled = false;
@@ -49,8 +50,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
             //        ammunitionDisplay.enabled = true;
             //    }
             //}
-
-
+            #endregion
             //Check if player is in range and "E" is pressed
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -67,9 +67,10 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                         weapondata.name = wpn.itemName;
                         weapondata.amount = wpn.amount;
                         weapondata._gunsystem = GunList[wpn.WeaponID];
+                        weapondata._weaponID = wpn.WeaponID;
 
-                        wpn.photonView.RequestOwnership();
-                        PhotonNetwork.Destroy(wpn.gameObject);
+                        //wpn.photonView.RequestOwnership();
+                        wpn.PickUp(currentPlayer);
                         moveToSlot(weapondata);
                         updateSlot();
                     }
@@ -95,8 +96,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                     //    moveToSlot(gun);
                     //    updateSlot();
                     //}
-                    #endregion
-                    
+                    #endregion 
                 }
 
                 //photonView.RPC("rpc_pickup", RpcTarget.All, direction);
@@ -122,7 +122,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                         weapon[gunEquiped]._gunsystem.gameObject.SetActive(true);
                     }
                     gunEquiped = i;
-                    setActiveGun();
+                    setActiveGun(gunEquiped);
                 }
                 //photonView.RPC("rpc_pickup", RpcTarget.All, weapon[gunEquiped]);
             }
@@ -139,7 +139,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                         weapon[gunEquiped]._gunsystem.gameObject.SetActive(true);
                     }
                     gunEquiped = i;
-                    setActiveGun();
+                    setActiveGun(gunEquiped);
                 }
                 //photonView.RPC("rpc_pickup", RpcTarget.All, weapon[gunEquiped]);
             }
@@ -147,11 +147,11 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
     }
 
     [PunRPC]
-    public void rpc_changeWeapon(int weaponID)
+    public void rpc_equip_weapon(int weaponID)
     {
         if(!photonView.IsMine)
         {
-            
+            GunList[weaponID].gameObject.SetActive(true);
         }
     }
 
@@ -211,17 +211,17 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
             {
                 weapon[i] = gun;
                 gunEquiped = i;
-                setActiveGun();
+                setActiveGun(gunEquiped);
                 break;
             }
         }
     }
 
-    private void setActiveGun()
+    private void setActiveGun(int _gunEquiped)
     {
         for(int i = 0; i < weapon.Count; i++)
         {
-            if(i == gunEquiped && weapon[i]._gunsystem != null)
+            if(i == _gunEquiped && weapon[i]._gunsystem != null)
             {
                 weapon[i]._gunsystem.gameObject.SetActive(true);
                 weapon[i]._gunsystem.gameObject.transform.localPosition = new Vector3(0, 0, 0);
@@ -232,7 +232,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
             }
             else if (weapon[i]._gunsystem)
             {
-                weapon[i]._gunsystem.ammunitionDisplay.enabled = false;
+                //weapon[i]._gunsystem.ammunitionDisplay.enabled = false;
                 weapon[i]._gunsystem.gameObject.SetActive(false);
             }
 

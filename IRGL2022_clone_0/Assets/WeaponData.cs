@@ -6,5 +6,5 @@ using UnityEngine;
 public class WeaponData : ItemData
 {
     public GunSystem _gunsystem;
-
+    public int _weaponID;
 }

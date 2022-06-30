@@ -19806,6 +19806,7 @@ GameObject:
   - component: {fileID: 4373194738681279152}
   - component: {fileID: 4373194738681279154}
   - component: {fileID: 4373194738681279165}
+  - component: {fileID: 4825115396597309977}
   - component: {fileID: 4373194738681279167}
   - component: {fileID: 4373194738681279164}
   - component: {fileID: 2114925153598477862}
@@ -19952,10 +19953,12 @@ MonoBehaviour:
     amount: 0
     name: 
     _gunsystem: {fileID: 0}
+    _weaponID: 0
   - prefab: {fileID: 0}
     amount: 0
     name: 
     _gunsystem: {fileID: 0}
+    _weaponID: 0
   gunContainer: {fileID: 4373194738514154625}
   adsContainer: {fileID: 4373194738367521763}
   GunList:
@@ -19972,6 +19975,21 @@ MonoBehaviour:
   ammunitionDisplay: {fileID: 4373194737945927880}
   crosshair: {fileID: 4373194739183003924}
   currentPlayer: {fileID: 4373194738681279166}
+--- !u!114 &4825115396597309977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4373194738681279153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c1478568f68ac4788736d209ed43d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons_controller: {fileID: 4373194738681279165}
+  curr_weapon_in_network: -1
+  incoming_weapon: -1
 --- !u!114 &4373194738681279167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20025,6 +20043,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 4825115396597309977}
   - {fileID: 5525811132520201371}
   - {fileID: 6293097149466544827}
   - {fileID: 1956088895687626542}
@@ -27965,15 +27984,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
---- !u!4 &91950873569212930 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4000011227296186, guid: 9defeac88977c0d448aa4541073ee9e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 92492190037429176}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &285968536159480584 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198000012944515248, guid: 9defeac88977c0d448aa4541073ee9e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 92492190037429176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &91950873569212930 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000011227296186, guid: 9defeac88977c0d448aa4541073ee9e4,
     type: 3}
   m_PrefabInstance: {fileID: 92492190037429176}
   m_PrefabAsset: {fileID: 0}
@@ -28249,15 +28268,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ac765b7dd91b9649a916f0d711c4573, type: 3}
---- !u!1 &4373194739143662997 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 0ac765b7dd91b9649a916f0d711c4573,
-    type: 3}
-  m_PrefabInstance: {fileID: 4373194739143564085}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4373194739143688629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 0ac765b7dd91b9649a916f0d711c4573,
+    type: 3}
+  m_PrefabInstance: {fileID: 4373194739143564085}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4373194739143662997 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 0ac765b7dd91b9649a916f0d711c4573,
     type: 3}
   m_PrefabInstance: {fileID: 4373194739143564085}
   m_PrefabAsset: {fileID: 0}

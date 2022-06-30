@@ -1,7 +1,7 @@
 using UnityEngine;
 using Photon.Pun;
 
-public class Item : MonoBehaviourPun
+public abstract class Item : MonoBehaviourPun
 {
     public string itemName = "item";
     public Sprite icon = null;
@@ -20,6 +20,7 @@ public class Item : MonoBehaviourPun
     public virtual void PickUp(Player player)
     {
         owner = player;
+        OnPickup();
     }
 
     public virtual void removeFromInventory()
@@ -30,5 +31,19 @@ public class Item : MonoBehaviourPun
     public virtual string getAmmoType()
     {
         return "";
+    }
+
+    public virtual void OnPickup()
+    {
+        photonView.RPC("rpc_destroy", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void rpc_destroy()
+    {
+        if(photonView.IsMine)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
     }
 }

@@ -52,6 +52,7 @@ MonoBehaviour:
   - destroyChestRPC
   - equip_RPC
   - rpc_changeWeapon
+  - rpc_equip_weapon
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0
