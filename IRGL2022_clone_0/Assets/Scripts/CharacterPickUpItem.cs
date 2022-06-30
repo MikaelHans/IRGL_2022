@@ -29,6 +29,10 @@ public class CharacterPickUpItem : MonoBehaviourPun
             if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, pickUpRange, whatIsItem))
             {
                 GameObject item = rayHit.collider.gameObject;
+                if(item.gameObject.transform.parent != null)
+                {
+                    item = item.transform.parent.gameObject;
+                }                
                 item.GetComponent<Item>().PickUp(gameObject.GetComponent<Player>());
                 if(item.GetComponent<IStoreable>() != null)
                 {

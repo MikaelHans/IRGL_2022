@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1221871856015469884}
-  - component: {fileID: 3916886121599121494}
-  - component: {fileID: 7191761454111474825}
   - component: {fileID: 3963588662314868829}
   - component: {fileID: -975450035389823119}
   - component: {fileID: -3424842817916701242}
@@ -33,64 +31,10 @@ Transform:
   m_LocalPosition: {x: 1.9251649, y: 1.2500795, z: -1.4621756}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1015111712310887693}
+  - {fileID: 7131373791535241105}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &3916886121599121494
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6860850774082911116}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 1a696e70182cdf9438666ce2cd58175b, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7191761454111474825
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6860850774082911116}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.4, y: 1.5, z: 5}
-  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!114 &3963588662314868829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +53,7 @@ MonoBehaviour:
   amount: 1
   itemObject: {fileID: 0}
   prefab: {fileID: 6860850774082911116}
-  id: 0
+  id: 7
   owner: {fileID: 0}
 --- !u!54 &-975450035389823119
 Rigidbody:
@@ -166,7 +110,7 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!1001 &1010711172361787749
+--- !u!1001 &7126691751241747449
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -175,7 +119,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1435410842068634, guid: 9efa848c9a423b04493ee1b7772154b2, type: 3}
       propertyPath: m_Name
-      value: SM_Prop_MedicalBox_01
+      value: SM_Prop_MedicalBox_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435410842068634, guid: 9efa848c9a423b04493ee1b7772154b2, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4682603471150184, guid: 9efa848c9a423b04493ee1b7772154b2, type: 3}
       propertyPath: m_RootOrder
@@ -223,9 +171,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9efa848c9a423b04493ee1b7772154b2, type: 3}
---- !u!4 &1015111712310887693 stripped
+--- !u!4 &7131373791535241105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4682603471150184, guid: 9efa848c9a423b04493ee1b7772154b2,
     type: 3}
-  m_PrefabInstance: {fileID: 1010711172361787749}
+  m_PrefabInstance: {fileID: 7126691751241747449}
   m_PrefabAsset: {fileID: 0}
