@@ -8,7 +8,7 @@ public class Armor : Equipable
     public override void equip()
     {
        base.equip();
-       owner.Armor = this;
+       owner.Armor = to_data();
        owner.armor_model[level].gameObject.SetActive(true);
     }
 

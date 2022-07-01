@@ -19,8 +19,8 @@ public class Player : MonoBehaviourPun
     public ChracterPickUpWeapon weapons;
     public Animator animator;
     int team_id;
-    Helmet helmet;
-    Armor armor;
+    [SerializeField]
+    ItemData helmet, armor;
 
     public GameObject[] armor_model = new GameObject[3];
     public GameObject[] helmet_model = new GameObject[3];
@@ -29,8 +29,8 @@ public class Player : MonoBehaviourPun
     public GameObject chest;
 
     public int Team_id { get => team_id; set => team_id = value; }
-    public Helmet Helmet { get => helmet; set => helmet = value; }
-    public Armor Armor { get => armor; set => armor = value; }
+    public ItemData Helmet { get => helmet; set => helmet = value; }
+    public ItemData Armor { get => armor; set => armor = value; }
 
     // Start is called before the first frame update
     private void Awake()
@@ -110,6 +110,8 @@ public class Player : MonoBehaviourPun
                 allitems.Add(weapon);
             }
 
+            allitems.Add(Helmet);
+            allitems.Add(Armor);  
             //export allitem to json
             string json = JsonHelper.ToJson<ItemData>(allitems.ToArray());
             //rpc call

@@ -19865,6 +19865,14 @@ MonoBehaviour:
   inventory: {fileID: 0}
   weapons: {fileID: 4373194738681279165}
   animator: {fileID: 239600504254376344}
+  helmet:
+    prefab: {fileID: 0}
+    amount: 0
+    name: 
+  armor:
+    prefab: {fileID: 0}
+    amount: 0
+    name: 
   armor_model:
   - {fileID: 144837393786238128}
   - {fileID: 144787415774142830}

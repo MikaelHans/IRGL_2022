@@ -8,7 +8,7 @@ public class Helmet : Equipable
     public override void equip()
     {
         base.equip();   
-        owner.Helmet = this;
+        owner.Helmet = to_data();
         owner.helmet_model[level].gameObject.SetActive(true);
     }
 

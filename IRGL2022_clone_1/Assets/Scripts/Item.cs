@@ -46,4 +46,14 @@ public abstract class Item : MonoBehaviourPun
             PhotonNetwork.Destroy(gameObject);
         }
     }
+
+    public virtual ItemData to_data()
+    {
+        ItemData data = new ItemData();
+        data.prefab = prefab;
+        data.amount = amount;
+        data.name = name;
+
+        return data;
+    }
 }

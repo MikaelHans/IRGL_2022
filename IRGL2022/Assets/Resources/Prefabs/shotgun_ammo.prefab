@@ -68,7 +68,7 @@ MonoBehaviour:
   maxStack: 40
   amount: 10
   itemObject: {fileID: 0}
-  prefab: {fileID: 4715026634015107693, guid: 5025613058203ca40b1a8abe03eb05fa, type: 3}
+  prefab: {fileID: 4096903830080551914}
   id: 9
   owner: {fileID: 0}
   ammoType: Shotgun
@@ -121,6 +121,10 @@ PrefabInstance:
     - target: {fileID: 1274483442161292, guid: 9a343161ba13ade44bfd75098cc0605e, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Shotgun_Ammo_Box_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274483442161292, guid: 9a343161ba13ade44bfd75098cc0605e, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4624545706533084, guid: 9a343161ba13ade44bfd75098cc0605e, type: 3}
       propertyPath: m_RootOrder

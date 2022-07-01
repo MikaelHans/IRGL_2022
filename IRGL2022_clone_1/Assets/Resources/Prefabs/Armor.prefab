@@ -217,7 +217,7 @@ MonoBehaviour:
   maxStack: 0
   amount: 0
   itemObject: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 1014500906975857655}
   id: 0
   owner: {fileID: 0}
   level: 1
