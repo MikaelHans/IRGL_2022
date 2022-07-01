@@ -866,12 +866,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: IsFiring
-<<<<<<< Updated upstream
-=======
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: IsRunning
->>>>>>> Stashed changes
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 782057674365330272}
@@ -1043,9 +1040,6 @@ AnimatorStateMachine:
     m_Position: {x: 250, y: 320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 782057674365330272}
-<<<<<<< Updated upstream
-    m_Position: {x: 260, y: 390, z: 0}
-=======
     m_Position: {x: 410, y: -50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6047994902766552355}
@@ -1056,7 +1050,6 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -606561142051104901}
     m_Position: {x: 740, y: 330, z: 0}
->>>>>>> Stashed changes
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
