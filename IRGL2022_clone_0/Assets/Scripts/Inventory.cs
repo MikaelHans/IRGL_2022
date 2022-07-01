@@ -41,11 +41,19 @@ public class Inventory : MonoBehaviourPun
         }
         if(item.amount > 0)
         {
-            ItemData newitem = new ItemData();
-            newitem.prefab = item.prefab;
-            newitem.amount = item.amount;
-            newitem.name = item.name;
-            items.Add(newitem);
+            if(item is IUsable)
+            {
+                UsableItemData newitem = new UsableItemData();
+                newitem.prefab = item.prefab;
+                newitem.amount = item.amount;
+                newitem.Name = item.name;
+                items.Add(newitem);
+            }
+            else
+            {
+                ItemData newitem = item.to_data();
+                items.Add(newitem);
+            }            
         }
 
         UI.UpdateUI();
@@ -92,13 +100,13 @@ public class Inventory : MonoBehaviourPun
         UI.UpdateUI();
     }
 
-    public void UseItemInInventory(ItemData item)
+    public void UseItemInInventory(UsableItemData item)
     {
-        foreach (ItemData i in items)
+        foreach (UsableItemData i in items)
         {
             if (item == i)
             {
-                //i.Use(currentPlayer);
+                i.Use(currentPlayer);
             }
         }
         removeAllZeroItem();

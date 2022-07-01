@@ -9,10 +9,12 @@ public class ItemData
     public GameObject prefab;
     [SerializeField]
     public int amount;
-    public string name;
+    private string ItemName;
 
     public ItemData()
     {
         amount = 0;
     }
+
+    public string Name { get => ItemName; set => ItemName = value; }
 }

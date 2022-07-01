@@ -49,6 +49,9 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler
 
     public void onUseItem()
     {
-        inventory.UseItemInInventory(item);
+        if (item is UsableItemData)
+        {
+            inventory.UseItemInInventory((UsableItemData)item);
+        }        
     }
 }

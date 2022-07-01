@@ -52,7 +52,7 @@ public abstract class Item : MonoBehaviourPun
         ItemData data = new ItemData();
         data.prefab = prefab;
         data.amount = amount;
-        data.name = name;
+        data.Name = name;
 
         return data;
     }

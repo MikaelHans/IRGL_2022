@@ -26,10 +26,10 @@ public class UnlockableChest : MonoBehaviourPun
         isOpened = true;
         for(int i = 0; i < items.Length; i++)
         {
-            GameObject tmp = PhotonNetwork.Instantiate("Prefabs/" + items[i].name, transform.position + (transform.forward * 2), transform.rotation);
+            GameObject tmp = PhotonNetwork.Instantiate("Prefabs/" + items[i].Name, transform.position + (transform.forward * 2), transform.rotation);
             tmp.GetComponent<Item>().prefab = items[i].prefab;
             tmp.GetComponent<Item>().amount = items[i].amount;
-            tmp.GetComponent<Item>().name = items[i].name;
+            tmp.GetComponent<Item>().name = items[i].Name;
         }
         game.closeWindow();
         destroyChest();
@@ -68,7 +68,7 @@ public class UnlockableChest : MonoBehaviourPun
         items = incomingItemData;
         for (int i = 0; i < incomingItemData.Length; i++)
         {
-            string itemname = incomingItemData[i].name;
+            string itemname = incomingItemData[i].Name;
             Cloud cloud = FindObjectOfType<Cloud>();
             foreach (Item prefab in cloud.cloud)
             {

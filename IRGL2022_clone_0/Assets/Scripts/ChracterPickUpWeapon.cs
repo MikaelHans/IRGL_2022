@@ -64,12 +64,10 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                         Weapon wpn = gun.GetComponentInParent<Weapon>();
                         WeaponData weapondata = new WeaponData();
                         weapondata.prefab = wpn.prefab;
-                        weapondata.name = wpn.itemName;
+                        weapondata.Name = wpn.itemName;
                         weapondata.amount = wpn.amount;
                         weapondata._gunsystem = GunList[wpn.WeaponID];
                         weapondata._weaponID = wpn.WeaponID;
-
-                        //wpn.photonView.RequestOwnership();
                         wpn.PickUp(currentPlayer);
                         moveToSlot(weapondata);
                         updateSlot();
@@ -98,8 +96,6 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                     //}
                     #endregion 
                 }
-
-                //photonView.RPC("rpc_pickup", RpcTarget.All, direction);
             }
 
             //Drop if equipped and "Q" is pressed
@@ -207,7 +203,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
         //weapon[gunEquiped]._gunsystem.gameObject.SetActive(false);
         for(int i = 0; i < weapon.Count; i++)
         {
-            if(weapon[i]._gunsystem == null)
+            if(weapon[i] == null)
             {
                 weapon[i] = gun;
                 gunEquiped = i;
@@ -259,7 +255,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                 weapon[index]._gunsystem.gameObject.SetActive(false);
                 weapon[index]._gunsystem.cancelADS();
                 weapon[index]._gunsystem.ammunitionDisplay.enabled = false;
-                PhotonNetwork.Instantiate("Prefabs/" + weapon[index].name, transform.position,transform.rotation);
+                PhotonNetwork.Instantiate("Prefabs/" + weapon[index].Name, transform.position,transform.rotation);
                 weapon[index] = new WeaponData();
                 updateSlot();
             }
