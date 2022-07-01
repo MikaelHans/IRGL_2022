@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class Spawn : MonoBehaviour
@@ -19,6 +20,9 @@ public class Spawn : MonoBehaviour
 
     public void spawn()
     {
-        
+        //random
+        int randomIndex = Random.Range(0, cloud.cloud.Count);
+        GameObject gobj = PhotonNetwork.Instantiate("Prefabs/" + cloud.cloud[randomIndex].itemName, transform.position, transform.rotation);
+        gobj.transform.parent = gameObject.transform;
     }
 }

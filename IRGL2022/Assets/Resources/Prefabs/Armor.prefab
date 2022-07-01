@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f64700b52ad1a438098c5cf36b2f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: item
+  itemName: Armor
   icon: {fileID: 0}
   maxStack: 0
   amount: 0

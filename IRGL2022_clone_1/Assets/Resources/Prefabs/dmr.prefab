@@ -4918,7 +4918,7 @@ MonoBehaviour:
   amount: 0
   itemObject: {fileID: 0}
   prefab: {fileID: 4311835750542008011}
-  id: 0
+  id: 3
   owner: {fileID: 0}
   gun_system: {fileID: 0}
   WeaponID: 1

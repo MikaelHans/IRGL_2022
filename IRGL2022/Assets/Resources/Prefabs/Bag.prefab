@@ -56,7 +56,7 @@ MonoBehaviour:
   amount: 1
   itemObject: {fileID: 0}
   prefab: {fileID: 320282284166192239}
-  id: 0
+  id: 2
   owner: {fileID: 0}
   level: 1
   duralibility: 100
