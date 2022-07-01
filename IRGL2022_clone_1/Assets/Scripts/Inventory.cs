@@ -92,15 +92,15 @@ public class Inventory : MonoBehaviourPun
         UI.UpdateUI();
     }
 
-    public void UseItemInInventory(Item item)
+    public void UseItemInInventory(ItemData item)
     {
-        // foreach (Item i in items)
-        // {
-        //     if (item == i)
-        //     {
-        //         i.Use(currentPlayer);
-        //     }
-        // }
-        // removeAllZeroItem();
+        foreach (ItemData i in items)
+        {
+            if (item == i)
+            {
+                //i.Use(currentPlayer);
+            }
+        }
+        removeAllZeroItem();
     }
 }

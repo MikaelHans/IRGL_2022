@@ -49,6 +49,6 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler
 
     public void onUseItem()
     {
-        // inventory.UseItemInInventory(item);
+        inventory.UseItemInInventory(item);
     }
 }
