@@ -20040,6 +20040,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4825115396597309977}
   - {fileID: 5525811132520201371}
+  - {fileID: 1962413361040042009}
   - {fileID: 6293097149466544827}
   - {fileID: 1956088895687626542}
   sceneViewId: 0
@@ -20135,6 +20136,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4acc367aedf54d4fb6183a0a2d0292d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 4373194738681279166}
+  curr_helmet_in_network: -1
+  incoming_helmet: 0
+  curr_armor_in_network: -1
+  incoming_armor: 0
 --- !u!1 &4373194738706000451
 GameObject:
   m_ObjectHideFlags: 0
