@@ -127,17 +127,19 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                 int i = getNextWeapon();
                 if (i >= 0 && i < weapon.Count)
                 {
-                    if (weapon[gunEquiped] != null)
+                    if(gunEquiped != -1)
                     {
-                        if (weapon[gunEquiped]._gunsystem != null)
-                            weapon[gunEquiped]._gunsystem.stopADS();
-                        //weapon[gunEquiped].transform.position = gunContainer.transform.position;
-                        weapon[gunEquiped]._gunsystem.gameObject.SetActive(true);
-                    }
-                    gunEquiped = i;
-                    setActiveGun(gunEquiped);
+                        if (weapon[gunEquiped] != null)
+                        {
+                            if (weapon[gunEquiped]._gunsystem != null)
+                                weapon[gunEquiped]._gunsystem.stopADS();
+                            //weapon[gunEquiped].transform.position = gunContainer.transform.position;
+                            weapon[gunEquiped]._gunsystem.gameObject.SetActive(true);
+                        }
+                        gunEquiped = i;
+                        setActiveGun(gunEquiped);
+                    }                    
                 }
-                //photonView.RPC("rpc_pickup", RpcTarget.All, weapon[gunEquiped]);
             }
         }        
     }

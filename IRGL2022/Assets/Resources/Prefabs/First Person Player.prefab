@@ -19862,6 +19862,9 @@ MonoBehaviour:
   armor:
     prefab: {fileID: 0}
     amount: 0
+  bag:
+    prefab: {fileID: 0}
+    amount: 0
   armor_model:
   - {fileID: 144837393786238128}
   - {fileID: 144787415774142830}
@@ -20139,6 +20142,8 @@ MonoBehaviour:
   player: {fileID: 4373194738681279166}
   curr_helmet_in_network: -1
   incoming_helmet: -1
+  curr_bag_in_network: -1
+  incoming_bag: 0
   curr_armor_in_network: -1
   incoming_armor: -1
 --- !u!1 &4373194738706000451
