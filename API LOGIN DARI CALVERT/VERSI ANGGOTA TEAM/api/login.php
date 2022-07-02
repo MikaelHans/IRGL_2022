@@ -25,7 +25,7 @@
 
     if ($member) {
         if (password_verify($_POST['password'], $member['team_password'])) {
-            $sql = "SELECT logged_in
+            $sql = "SELECT id_team, logged_in
                     FROM 2022_semifinal_teams
                     WHERE id_team_member = ?";
             $stmt = $pdo->prepare($sql);
@@ -36,7 +36,8 @@
                 http_response_code(400);
                 echo json_encode(array(
                     "success" => false,
-                    "message" => "Already logged in"
+                    "message" => "Already logged in",
+                    "id_team" => $member_logged_in['id_team']
                 ));
                 exit();
             }
@@ -50,7 +51,8 @@
             http_response_code(200);
             echo json_encode(array(
                 "success" => true,
-                "message" => "Successfully logged in"
+                "message" => "Successfully logged in",
+                "id_team" => $member_logged_in['id_team']
             ));
             exit();
         }
