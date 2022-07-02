@@ -41,8 +41,9 @@ public class CharacterPickUpItem : MonoBehaviourPun
                 }    
                 else if(item.GetComponent<Equipable>())
                 {
-                    item.GetComponent<Equipable>().equip();
+                    item.GetComponent<Equipable>().equip();                    
                 }
+                inventory.UI.UpdateUI();
             }
         }
     }

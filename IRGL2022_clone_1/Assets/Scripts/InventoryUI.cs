@@ -10,6 +10,14 @@ public class InventoryUI : MonoBehaviour
 
     public List<InventorySlotUI> slots;
 
+    public Player player;
+
+    public ChracterPickUpWeapon weapon_controller;
+
+    public InventorySlotUI helmet, armor;
+
+    public List<InventorySlotUI> weapon;
+
     //public InventorySlotUI[] slots;
 
     // Start is called before the first frame update
@@ -50,6 +58,25 @@ public class InventoryUI : MonoBehaviour
                 slots[i].ClearSlot();
             }
         }
+
+        for(int i = 0; i < weapon.Count; i++)
+        {
+            //if (weapon_controller.weapon[i]._gunsystem)
+            
+            if (weapon_controller.weapon[i]._gunsystem != null)
+            {
+                weapon[i].AddItem(weapon_controller.weapon[i]);
+            }            
+        }
+
+        if(player.Helmet.prefab != null)
+        {
+            helmet.AddItem(player.Helmet);
+        }
+        if(player.Armor.prefab != null)
+        {
+            armor.AddItem(player.Armor);
+        }       
     }
 
     public void removeAll()

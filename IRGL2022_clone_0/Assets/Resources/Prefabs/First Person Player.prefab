@@ -16486,6 +16486,13 @@ MonoBehaviour:
   inventory: {fileID: 4373194738681279167}
   itemParent: {fileID: 4373194737620167224}
   slots: []
+  player: {fileID: 4373194738681279166}
+  weapon_controller: {fileID: 4373194738681279165}
+  helmet: {fileID: 4440592984921294147}
+  armor: {fileID: 7454820410624890373}
+  weapon:
+  - {fileID: 7302591914145633696}
+  - {fileID: 5043703435360165122}
 --- !u!1 &4373194738016125492
 GameObject:
   m_ObjectHideFlags: 0

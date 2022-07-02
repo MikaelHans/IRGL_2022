@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Bag
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 618d50558f4b2e04cb68924af611ba27, type: 3}
   maxStack: 1
   amount: 1
   itemObject: {fileID: 0}

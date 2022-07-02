@@ -234,6 +234,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
             }
 
         }
+        inventory.UI.UpdateUI();
     }
 
     public void dropgunFromSlot(int index)
