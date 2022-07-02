@@ -20,7 +20,7 @@ public class Player : MonoBehaviourPun
     public Animator animator;
     int team_id;
     [SerializeField]
-    ItemData helmet, armor;
+    ItemData helmet, armor, bag;
 
     public GameObject[] armor_model = new GameObject[3];
     public GameObject[] helmet_model = new GameObject[3];
@@ -31,6 +31,7 @@ public class Player : MonoBehaviourPun
     public int Team_id { get => team_id; set => team_id = value; }
     public ItemData Helmet { get => helmet; set => helmet = value; }
     public ItemData Armor { get => armor; set => armor = value; }
+    public ItemData Bag { get => bag; set => bag = value; }
 
     // Start is called before the first frame update
     private void Awake()
