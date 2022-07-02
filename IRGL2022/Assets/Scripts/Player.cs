@@ -100,7 +100,7 @@ public class Player : MonoBehaviourPun
             // {
             //     allitems.Add(weapon);
             // }
-            foreach (ItemData item in inventoryUI.inventory.getAllItem())
+            foreach (ItemData item in inventory.getAllItem())
             {
                 allitems.Add(item);
             }
@@ -112,7 +112,8 @@ public class Player : MonoBehaviourPun
             }
 
             allitems.Add(Helmet);
-            allitems.Add(Armor);  
+            allitems.Add(Armor);
+            allitems.Add(Bag);
             //export allitem to json
             string json = JsonHelper.ToJson<ItemData>(allitems.ToArray());
             //rpc call
@@ -132,12 +133,15 @@ public class Player : MonoBehaviourPun
     [PunRPC]
     public void sync_item_in_chest(string json)
     {
-        if (photonView.IsMine)
-        {
-            GameObject chest = PhotonNetwork.Instantiate("Prefabs/Chest",transform.position, transform.rotation, 0);
-            chest.GetComponent<UnlockableChest>().sync_chest(json);
-            PhotonNetwork.Destroy(gameObject);
-        }     
+        GameObject chest = PhotonNetwork.Instantiate("Prefabs/Chest", transform.position, transform.rotation, 0);
+        chest.GetComponent<UnlockableChest>().sync_chest(json);
+        PhotonNetwork.Destroy(gameObject);
+        //if (photonView.IsMine)
+        //{
+        //    GameObject chest = PhotonNetwork.Instantiate("Prefabs/Chest",transform.position, transform.rotation, 0);
+        //    chest.GetComponent<UnlockableChest>().sync_chest(json);
+        //    PhotonNetwork.Destroy(gameObject);
+        //}     
     }
 
     public void OnDisconnectedFromPhoton()
