@@ -20138,9 +20138,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4373194738681279166}
   curr_helmet_in_network: -1
-  incoming_helmet: 0
+  incoming_helmet: -1
   curr_armor_in_network: -1
-  incoming_armor: 0
+  incoming_armor: -1
 --- !u!1 &4373194738706000451
 GameObject:
   m_ObjectHideFlags: 0

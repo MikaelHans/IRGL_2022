@@ -18,17 +18,22 @@ public class EquippedNetworkSync : MonoBehaviourPun, IPunObservable
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         int curr_armor, curr_helmet;
-        if (player.Helmet.prefab != null)
+        if (player.Armor.prefab != null)
         {
-            curr_armor = player.Helmet.prefab.GetComponent<Equipable>().level;
-            curr_helmet = player.Armor.prefab.GetComponent<Equipable>().level;
+            curr_armor = player.Armor.prefab.GetComponent<Equipable>().level;
         }
         else
         {
             curr_armor = -1;
+        }
+        if (player.Helmet.prefab != null)
+        {
+            curr_helmet = player.Helmet.prefab.GetComponent<Equipable>().level;
+        }
+        else
+        {
             curr_helmet = -1;
         }
-        //Debug.Log("Equipped: " + weapons_controller.gunEquiped+"'\n'Curr:"+curr_weapon);
 
         if (stream.IsWriting)
         {
@@ -38,8 +43,8 @@ public class EquippedNetworkSync : MonoBehaviourPun, IPunObservable
         }
         else
         {
-            incoming_helmet = (int)stream.ReceiveNext();
-            incoming_armor = (int)stream.ReceiveNext(); 
+            incoming_armor = (int)stream.ReceiveNext();
+            incoming_helmet = (int)stream.ReceiveNext(); 
         }
     }
     private void Update()
@@ -54,19 +59,20 @@ public class EquippedNetworkSync : MonoBehaviourPun, IPunObservable
                     {
                         helmet.SetActive(false);
                     }
-                    player.helmet_model[player.Helmet.prefab.GetComponent<Equipable>().level].gameObject.SetActive(true);
+                    player.helmet_model[incoming_helmet].gameObject.SetActive(true);
                     curr_helmet_in_network = incoming_helmet;
                 }
             }
+
             if (curr_armor_in_network != incoming_armor)
             {
                 if (incoming_armor != -1)
                 {
-                    foreach (GameObject helmet in player.armor_model)
+                    foreach (GameObject armor in player.armor_model)
                     {
-                        helmet.SetActive(false);
+                        armor.SetActive(false);
                     }
-                    player.helmet_model[player.Armor.prefab.GetComponent<Equipable>().level].gameObject.SetActive(true);
+                    player.armor_model[incoming_armor].gameObject.SetActive(true);
                     curr_armor_in_network = incoming_armor;
                 }
             }
