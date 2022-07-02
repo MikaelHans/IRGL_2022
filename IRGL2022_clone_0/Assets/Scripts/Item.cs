@@ -12,11 +12,6 @@ public abstract class Item : MonoBehaviourPun
     public int id;
     public Player owner;
 
-    public virtual void Use(Player user)
-    {
-
-    }
-
     public virtual void PickUp(Player player)
     {
         owner = player;

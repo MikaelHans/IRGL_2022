@@ -16,5 +16,10 @@ public class ItemData
         amount = 0;
     }
 
+    public void Use()
+    {
+
+    }
+
     public string Name { get => ItemName; set => ItemName = value; }
 }

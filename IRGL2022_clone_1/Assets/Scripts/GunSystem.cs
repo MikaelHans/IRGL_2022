@@ -42,7 +42,8 @@ public class GunSystem : MonoBehaviourPun
         readyToShoot = true;
         //PickUpController gunScript = GetComponentInParent<PickUpController>();
         GunSystem gun_system = GetComponent<GunSystem>();
-
+        GunInit();
+        #region old codes
         //gunScript.gunContainer = owner.GetComponent<ChracterPickUpWeapon>().gunContainer.transform;
         //gun_system.fpsCam = owner.GetComponent<ChracterPickUpWeapon>().fpsCam;
         //gun_system.gunCam = owner.GetComponent<ChracterPickUpWeapon>().gunCam;
@@ -51,13 +52,9 @@ public class GunSystem : MonoBehaviourPun
         //gun_system.crosshair = owner.GetComponent<ChracterPickUpWeapon>().crosshair;
         //gun_system.ammunitionDisplay = owner.GetComponent<ChracterPickUpWeapon>().ammunitionDisplay;
         //gun_system.currentPlayer = owner;
-        GunInit();
+        #endregion
     }
 
-    private void Start()
-    {
-        
-    }
     private void Update()
     {     
 
@@ -246,7 +243,7 @@ public class GunSystem : MonoBehaviourPun
         {
             Invoke("Shoot", timeBetweenShots);
         }
-
+        currentPlayer.animator.SetBool("IsFiring", true);
     }
 
     [PunRPC]

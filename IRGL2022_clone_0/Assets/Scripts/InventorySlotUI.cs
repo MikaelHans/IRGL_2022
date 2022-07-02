@@ -49,7 +49,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler
 
     public void onUseItem()
     {
-        if (item is UsableItemData)
+        if (item.prefab.GetComponent<IUsable>() != null)
         {
             inventory.UseItemInInventory((UsableItemData)item);
         }        

@@ -59,7 +59,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                 if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, pickUpRange))
                 {
                     GameObject gun = rayHit.collider.gameObject;
-                    if(gun.GetComponentInParent<Weapon>())
+                    if(gun.GetComponentInParent<Weapon>() && !slotFull)
                     {
                         Weapon wpn = gun.GetComponentInParent<Weapon>();
                         WeaponData weapondata = new WeaponData();
@@ -201,9 +201,10 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
     private void moveToSlot(WeaponData gun)
     {
         //weapon[gunEquiped]._gunsystem.gameObject.SetActive(false);
+        currentPlayer.animator.SetBool("IsCarryingAWeapon", true);
         for(int i = 0; i < weapon.Count; i++)
         {
-            if(weapon[i] == null)
+            if(weapon[i]._gunsystem == null)
             {
                 weapon[i] = gun;
                 gunEquiped = i;
