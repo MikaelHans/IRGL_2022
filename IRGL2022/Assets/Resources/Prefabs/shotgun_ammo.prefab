@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: shotgun_ammo
-  icon: {fileID: 21300000, guid: a7347a692589fdd4796e8bb6001e7613, type: 3}
+  icon: {fileID: 21300000, guid: c194fc296969c084d957f8faed365a87, type: 3}
   maxStack: 40
   amount: 10
   itemObject: {fileID: 0}

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Potion
-  icon: {fileID: 21300000, guid: 4fe92bd9bd4fb2749959e244224c047b, type: 3}
+  icon: {fileID: 21300000, guid: 1398a5887d3971444ac9daa2e5d92274, type: 3}
   maxStack: 2
   amount: 1
   itemObject: {fileID: 0}
