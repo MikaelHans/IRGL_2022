@@ -9,6 +9,10 @@ public class Helmet : Equipable
     {
         base.equip();   
         owner.Helmet = to_data();
+        foreach (GameObject helmet in owner.helmet_model)
+        {
+            helmet.SetActive(false);
+        }
         owner.helmet_model[level].gameObject.SetActive(true);
     }
 

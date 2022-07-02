@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: small_ammo
-  icon: {fileID: 21300000, guid: 26dae69d97022a94cb29aabb34faa44a, type: 3}
+  icon: {fileID: 21300000, guid: f60dcbe523984724284caafa8727ca02, type: 3}
   maxStack: 25
   amount: 10
   itemObject: {fileID: 0}
