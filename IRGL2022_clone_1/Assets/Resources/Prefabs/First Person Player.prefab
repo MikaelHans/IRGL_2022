@@ -19805,6 +19805,7 @@ GameObject:
   - component: {fileID: -3326449840249529244}
   - component: {fileID: 1825639164926609676}
   - component: {fileID: 5418614721694033894}
+  - component: {fileID: 1962413361040042009}
   m_Layer: 3
   m_Name: First Person Player
   m_TagString: Enemy
@@ -20122,6 +20123,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldborder: {fileID: 0}
+--- !u!114 &1962413361040042009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4373194738681279153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4acc367aedf54d4fb6183a0a2d0292d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4373194738706000451
 GameObject:
   m_ObjectHideFlags: 0
@@ -28332,15 +28345,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1d1fb0324ed9084a9665dda8094a654, type: 3}
---- !u!4 &4921368277045655807 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4847948605840156, guid: d1d1fb0324ed9084a9665dda8094a654,
-    type: 3}
-  m_PrefabInstance: {fileID: 4926110547107439587}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4926625212133239603 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1104967478511824, guid: d1d1fb0324ed9084a9665dda8094a654,
+    type: 3}
+  m_PrefabInstance: {fileID: 4926110547107439587}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4921368277045655807 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4847948605840156, guid: d1d1fb0324ed9084a9665dda8094a654,
     type: 3}
   m_PrefabInstance: {fileID: 4926110547107439587}
   m_PrefabAsset: {fileID: 0}
