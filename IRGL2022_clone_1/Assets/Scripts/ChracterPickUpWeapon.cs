@@ -112,7 +112,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                 {
                     if (gunEquiped != -1)
                     {
-                        if (weapon[gunEquiped] != null)
+                        if (weapon[gunEquiped]._gunsystem != null)
                         {
                             if (weapon[gunEquiped]._gunsystem != null)
                                 weapon[gunEquiped]._gunsystem.stopADS();
@@ -132,7 +132,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                 {
                     if(gunEquiped != -1)
                     {
-                        if (weapon[gunEquiped] != null)
+                        if (weapon[gunEquiped]._gunsystem != null)
                         {
                             if (weapon[gunEquiped]._gunsystem != null)
                                 weapon[gunEquiped]._gunsystem.stopADS();

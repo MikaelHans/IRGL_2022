@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
@@ -12,7 +13,7 @@ public class Player : MonoBehaviourPun
     public Image healthBar;
     public string playerName = "";
     Camera playerCam;
-    Canvas playerCanvas;
+    public Canvas playerCanvas;
     public Camera MinimapCamera;
     public InventoryUI inventoryUI;
     public Inventory inventory;
@@ -27,6 +28,8 @@ public class Player : MonoBehaviourPun
     public GameObject[] bag_model = new GameObject[3];
 
     public GameObject chest;
+    public bool is_same_team;
+    public TextMeshProUGUI playername_ui;
 
     public int Team_id { get => team_id; set => team_id = value; }
     public ItemData Helmet { get => helmet; set => helmet = value; }
@@ -37,21 +40,44 @@ public class Player : MonoBehaviourPun
     private void Awake()
     {
         inventory = gameObject.GetComponent<Inventory>();
+
     }
     void Start()
     {
-        playerCam = gameObject.GetComponentInChildren<Camera>();
-        playerCanvas = gameObject.GetComponentInChildren<Canvas>();
         //inventoryUI = GetComponentInChildren<InventoryUI>();
-        if (!photonView.IsMine)
+        playerName = photonView.Owner.NickName;
+        if (photonView.IsMine)//if is this client player
+        {
+            playerCam = gameObject.GetComponentInChildren<Camera>();
+            playerCanvas = gameObject.GetComponentInChildren<Canvas>();
+        }
+        else
         {
             //playerCam.enabled = false;
             //playerCam.gameObject.SetActive(false);
             gameObject.GetComponent<PlayerMovement>().fpsCam.gameObject.SetActive(false);
             MinimapCamera.enabled = false;
             playerCanvas.enabled = false;
+
+            List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
+            Player myPlayer = allPlayers.Find(player => player.photonView.IsMine);
+            if (myPlayer.photonView.Owner.NickName == playerName)
+            {
+                //same team codes
+                is_same_team = true;
+                playername_ui.gameObject.GetComponent<UI_Follow>().maincamera = myPlayer.playerCam;
+            }
+            else
+            {
+                is_same_team = false;
+            }
+            playername_ui.gameObject.SetActive(true);
+            playername_ui.text = playerName;
+            
         }
+        
         gameObject.name = photonView.Owner.NickName;
+        
     }
 
     // Update is called once per frame
@@ -64,8 +90,6 @@ public class Player : MonoBehaviourPun
             Death();
         }
     }
-
-
 
     public float TakeDamage(float damage, string damagerName)
     {
@@ -87,7 +111,6 @@ public class Player : MonoBehaviourPun
         currentHealth = Mathf.Min(maxHealth, currentHealth + healthRestored);
     }
 
-
     public void Death()
     {
         //Death function        
@@ -106,7 +129,7 @@ public class Player : MonoBehaviourPun
             }
             //export weapon data to itemdata
             WeaponData[] allweapons = weapons.weapon.ToArray();//get weapons array
-            foreach(WeaponData weapon in allweapons)
+            foreach (WeaponData weapon in allweapons)
             {
                 allitems.Add(weapon);
             }
@@ -126,7 +149,6 @@ public class Player : MonoBehaviourPun
             //Destroy(gameObject);
         }
         //chest.GetComponent<UnlockableChest>().fillChest();
-
 
     }
 
