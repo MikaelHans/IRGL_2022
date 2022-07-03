@@ -65,14 +65,14 @@ public class Player : MonoBehaviourPun
             {
                 //same team codes
                 is_same_team = true;
+                playername_ui.gameObject.SetActive(true);
+                playername_ui.text = playerName;
                 playername_ui.gameObject.GetComponent<UI_Follow>().maincamera = myPlayer.playerCam;
             }
             else
             {
                 is_same_team = false;
-            }
-            playername_ui.gameObject.SetActive(true);
-            playername_ui.text = playerName;
+            }          
             
         }
         
