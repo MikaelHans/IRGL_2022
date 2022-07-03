@@ -105,10 +105,18 @@ public class GunSystem : MonoBehaviourPun
                 Reload();
 
             //shoot
-            if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+            if ((readyToShoot && shooting && !reloading && bulletsLeft > 0) || (allowButtonHold && shooting && !reloading && bulletsLeft > 0))
             {
-                bulletsShot = bulletsPerTap;
-                Shoot();
+                if(readyToShoot)
+                {
+                    bulletsShot = bulletsPerTap;
+                    Shoot();
+                }             
+            }
+            else
+            {
+                Debug.Log("tes");
+                currentPlayer.animator.SetBool("IsFiring", false);
             }
 
             if (Input.GetMouseButtonDown(1))
@@ -167,7 +175,7 @@ public class GunSystem : MonoBehaviourPun
     private void Shoot()
     {
         readyToShoot = false;
-
+        currentPlayer.animator.SetBool("IsFiring", true);
         //increase spread when moving
         if (controller.velocity.magnitude > 0)
         {
@@ -243,7 +251,6 @@ public class GunSystem : MonoBehaviourPun
         {
             Invoke("Shoot", timeBetweenShots);
         }
-        currentPlayer.animator.SetBool("IsFiring", true);
     }
 
     [PunRPC]

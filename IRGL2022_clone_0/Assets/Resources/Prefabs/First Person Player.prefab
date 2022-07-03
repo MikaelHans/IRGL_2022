@@ -20075,10 +20075,6 @@ MonoBehaviour:
     amount: 0
     _gunsystem: {fileID: 0}
     _weaponID: 0
-  - prefab: {fileID: 0}
-    amount: 0
-    _gunsystem: {fileID: 5610428634429431641}
-    _weaponID: -1
   gunContainer: {fileID: 4373194738514154625}
   adsContainer: {fileID: 4373194738367521763}
   GunList:
