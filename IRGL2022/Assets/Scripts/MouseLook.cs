@@ -8,6 +8,7 @@ public class MouseLook : MonoBehaviourPun
     public Transform playerBody;
     float xRotation = 0f;
     public GameObject inventoryUI;
+    public Transform bone;
 
     public bool isInventoryOpened;
     // Start is called before the first frame update
@@ -17,7 +18,11 @@ public class MouseLook : MonoBehaviourPun
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
+    {
+        
+    }
+    void LateUpdate()
     {
         if(photonView.IsMine)
         {
@@ -29,7 +34,9 @@ public class MouseLook : MonoBehaviourPun
                 xRotation -= mouseY;
                 xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-                transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+                transform.parent.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+                //transform.rot
+                bone.localRotation = Quaternion.Euler(-180f, 0f, -xRotation);
                 playerBody.Rotate(Vector3.up * mouseX);
             }
 
