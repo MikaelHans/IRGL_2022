@@ -11,6 +11,21 @@ public abstract class Item : MonoBehaviourPun
     public GameObject prefab;
     public int id;
     public Player owner;
+    public Cloud cloud;
+
+    private void Start()
+    {
+        cloud = FindObjectOfType<Cloud>();
+        //prefab = cloud.cloud.Find(item => item.itemName == itemName).GetComponent<GameObject>();
+        foreach (Item item in cloud.cloud)
+        {
+            if(item.itemName == itemName)
+            {
+                prefab = item.gameObject;
+                break;
+            }
+        }
+    }
 
     public virtual void PickUp(Player player)
     {

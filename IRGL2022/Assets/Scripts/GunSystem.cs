@@ -115,7 +115,6 @@ public class GunSystem : MonoBehaviourPun
             }
             else
             {
-                Debug.Log("tes");
                 currentPlayer.animator.SetBool("IsFiring", false);
             }
 

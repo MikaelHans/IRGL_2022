@@ -7,7 +7,8 @@ public class Cloud : MonoBehaviour
     // Start is called before the first frame update
     public List<Item> cloud = new List<Item>();
     public string teamName;
-    void Start()
+
+    private void Awake()
     {
         //for editor only
         int _id = 0;
@@ -17,5 +18,10 @@ public class Cloud : MonoBehaviour
             item.id = _id++;
         }
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Start()
+    {
+        
     }
 }

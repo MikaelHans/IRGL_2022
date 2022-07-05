@@ -71,6 +71,7 @@ MonoBehaviour:
   prefab: {fileID: 4096903830080551914}
   id: 9
   owner: {fileID: 0}
+  cloud: {fileID: 0}
   ammoType: Shotgun
 --- !u!114 &-4798915643416927844
 MonoBehaviour:

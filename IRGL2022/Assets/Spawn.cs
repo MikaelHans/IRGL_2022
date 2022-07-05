@@ -12,17 +12,11 @@ public class Spawn : MonoBehaviour
         cloud = FindObjectOfType<Cloud>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void spawn()
     {
         //random
         int randomIndex = Random.Range(0, cloud.cloud.Count);
         GameObject gobj = PhotonNetwork.Instantiate("Prefabs/" + cloud.cloud[randomIndex].itemName, transform.position, transform.rotation);
-        gobj.transform.parent = gameObject.transform;
+        
     }
 }

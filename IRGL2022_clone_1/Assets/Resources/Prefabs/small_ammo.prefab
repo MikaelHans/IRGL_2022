@@ -113,6 +113,7 @@ MonoBehaviour:
   prefab: {fileID: 5799863969867974142}
   id: 10
   owner: {fileID: 0}
+  cloud: {fileID: 0}
   ammoType: Small
 --- !u!114 &5799863969867974140
 MonoBehaviour:

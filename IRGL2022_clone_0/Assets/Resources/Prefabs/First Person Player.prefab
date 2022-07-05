@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &190486137
 Transform:
   m_ObjectHideFlags: 0
@@ -254,7 +254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &855622155
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18972,8 +18972,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4373194738514154625}
-  m_LocalRotation: {x: -0.5301963, y: 0.5180569, z: -0.40083313, w: 0.53836954}
-  m_LocalPosition: {x: 0.054, y: 0.036, z: 0.001}
+  m_LocalRotation: {x: -0.45589694, y: 0.4259697, z: -0.49457395, w: 0.60506564}
+  m_LocalPosition: {x: 0.09199294, y: 0.04139013, z: -0.026854582}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 92492189932222422}
@@ -18984,7 +18984,7 @@ Transform:
   - {fileID: 4373194738367521762}
   m_Father: {fileID: 150703761099318770}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -171.05, y: -444.249, z: 456.77}
+  m_LocalEulerAnglesHint: {x: -172.51, y: -462.904, z: 455.505}
 --- !u!1 &4373194738516375462
 GameObject:
   m_ObjectHideFlags: 0
@@ -21415,7 +21415,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4373194739213354708}
   m_LocalRotation: {x: -0.023467198, y: -0, z: -0, w: 0.9997246}
-  m_LocalPosition: {x: 0, y: 0.649233, z: 0.077870905}
+  m_LocalPosition: {x: 0, y: 0.568, z: 0.131}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4373194737334398405}
@@ -22454,7 +22454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1872301150267659206
 Transform:
   m_ObjectHideFlags: 0
@@ -27882,7 +27882,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2569889784769442321}
-  - component: {fileID: 5610428634429431641}
+  - component: {fileID: 1676746293851627121}
   m_Layer: 0
   m_Name: Fist
   m_TagString: Untagged
@@ -27904,7 +27904,7 @@ Transform:
   m_Father: {fileID: 150703761099318770}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5610428634429431641
+--- !u!114 &1676746293851627121
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27913,37 +27913,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 6620438326533030576}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8584e4bb22a6d4fbc5f16d09fbebda, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f3c0d04c6b7cfe4d8e039c1fbf2fb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
   timeBetweenShooting: 0
-  spread: 0
   range: 0
-  reloadTime: 0
   timeBetweenShots: 0
-  magazineSize: 0
   bulletsPerTap: 0
-  ammoCount: 0
-  allowButtonHold: 0
-  aimAnimationSpeed: 0
-  zoomRatio: 0
-  defaultFOV: 0
-  ammoType: 
-  adsSpread: 0
-  isADS: 0
-  fpsCam: {fileID: 0}
-  gunCam: {fileID: 0}
+  fpsCam: {fileID: 4373194739213354710}
+  gunCam: {fileID: 4373194737334398404}
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 0
-  controller: {fileID: 0}
-  inventory: {fileID: 0}
-  currentPlayer: {fileID: 0}
-  muzzleFlash: {fileID: 0}
-  bulletHoleGraphic: {fileID: 0}
-  adsContainer: {fileID: 0}
-  gunContainer: {fileID: 0}
+    m_Bits: 8
+  controller: {fileID: 4373194738681279152}
+  currentPlayer: {fileID: 4373194738681279166}
   ammunitionDisplay: {fileID: 0}
   crosshair: {fileID: 0}
 --- !u!1 &6856681339245190505

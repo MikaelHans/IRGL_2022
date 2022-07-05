@@ -66,11 +66,13 @@ namespace Unity.FPS.UI
         {
             //base.OnConnectedToMaster();
             Debug.Log("connection established");
+            button.interactable = true;
         }
 
         #region Join room functions
         public void JoinRoom(string roomName = "IRGLROOM2")//called when user press to join room
         {
+            //PhotonNetwork.JoinOrCreateRoom();
             PhotonNetwork.JoinRoom(roomName);//join room
         }
 

@@ -36,7 +36,7 @@ public class MouseLook : MonoBehaviourPun
 
                 transform.parent.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
                 //transform.rot
-                bone.localRotation = Quaternion.Euler(-180f, 0f, -xRotation);
+                bone.localRotation = Quaternion.Euler(-180f, 0f, xRotation);
                 playerBody.Rotate(Vector3.up * mouseX);
             }
 

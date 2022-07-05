@@ -4920,6 +4920,7 @@ MonoBehaviour:
   prefab: {fileID: 4311835750542008011}
   id: 3
   owner: {fileID: 0}
+  cloud: {fileID: 0}
   gun_system: {fileID: 0}
   WeaponID: 1
 --- !u!54 &4311835750542008014

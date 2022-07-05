@@ -139,6 +139,7 @@ MonoBehaviour:
   prefab: {fileID: 5208825522104442613}
   id: 5
   owner: {fileID: 0}
+  cloud: {fileID: 0}
   level: 1
   duralibility: 100
 --- !u!114 &217982526309689710

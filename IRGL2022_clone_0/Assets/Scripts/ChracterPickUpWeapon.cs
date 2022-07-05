@@ -107,41 +107,55 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
 
             if (Input.mouseScrollDelta.y > 0.0f)
             {
+                ammunitionDisplay.text = "";
                 int i = getPrevWeapon();
                 if (i >= 0 && i < weapon.Count)
                 {
+                    if (weapon[i]._gunsystem != null)
+                    {
+                        if (weapon[i]._gunsystem != null)
+                            weapon[i]._gunsystem.stopADS();
+                        //weapon[gunEquiped].transform.position = gunContainer.transform.position;
+                        weapon[i]._gunsystem.gameObject.SetActive(true);
+                    }
+                    gunEquiped = i;
+                    setActiveGun(gunEquiped);
+                }
+                else if(i == -1)
+                {                    
+                    currentPlayer.animator.SetBool("IsCarryingAWeapon", false);
                     if (gunEquiped != -1)
                     {
-                        if (weapon[gunEquiped]._gunsystem != null)
-                        {
-                            if (weapon[gunEquiped]._gunsystem != null)
-                                weapon[gunEquiped]._gunsystem.stopADS();
-                            //weapon[gunEquiped].transform.position = gunContainer.transform.position;
-                            weapon[gunEquiped]._gunsystem.gameObject.SetActive(true);
-                        }
-                        gunEquiped = i;
-                        setActiveGun(gunEquiped);
+                        weapon[gunEquiped]._gunsystem.gameObject.SetActive(false);
                     }
+                    gunEquiped = i;
                 }
                 //photonView.RPC("rpc_pickup", RpcTarget.All, weapon[gunEquiped]);
             }
             if (Input.mouseScrollDelta.y < 0.0f)
             {
+                ammunitionDisplay.text = "";
                 int i = getNextWeapon();
                 if (i >= 0 && i < weapon.Count)
                 {
+                    if (weapon[i]._gunsystem != null)
+                    {
+                        if (weapon[i]._gunsystem != null)
+                            weapon[i]._gunsystem.stopADS();
+                        //weapon[gunEquiped].transform.position = gunContainer.transform.position;
+                        weapon[i]._gunsystem.gameObject.SetActive(true);
+                    }
+                    gunEquiped = i;
+                    setActiveGun(gunEquiped);
+                }
+                else if (i == -1)
+                {                    
+                    currentPlayer.animator.SetBool("IsCarryingAWeapon", false);
                     if(gunEquiped != -1)
                     {
-                        if (weapon[gunEquiped]._gunsystem != null)
-                        {
-                            if (weapon[gunEquiped]._gunsystem != null)
-                                weapon[gunEquiped]._gunsystem.stopADS();
-                            //weapon[gunEquiped].transform.position = gunContainer.transform.position;
-                            weapon[gunEquiped]._gunsystem.gameObject.SetActive(true);
-                        }
-                        gunEquiped = i;
-                        setActiveGun(gunEquiped);
-                    }                    
+                        weapon[gunEquiped]._gunsystem.gameObject.SetActive(false);
+                    }
+                    gunEquiped = i;
                 }
             }
         }        
@@ -164,30 +178,58 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
 
     private int getNextWeapon()
     {
-        for(int i = (gunEquiped + 1) % weapon.Count; i != gunEquiped; i = (i + 1) % weapon.Count)
+        if (gunEquiped == -1)
         {
-            if(weapon[i] != null)
+            for (int i = 0; i < weapon.Count; i++)
             {
-                return i;
+                if (weapon[i]._gunsystem != null)
+                {
+                    return i;
+                }
             }
+            return -1;
         }
-        return -1;
+        else
+        {
+            for (int i = (gunEquiped + 1) % weapon.Count; i != gunEquiped; i = (i + 1) % weapon.Count)
+            {
+                if (weapon[i]._gunsystem != null)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }        
     }
 
     private int getPrevWeapon()
     {
-        for (int i = (gunEquiped - 1); i != gunEquiped; i--)
-        {
-            if(i < 0)
+        if(gunEquiped == -1)
+        {            
+            for(int i= 0; i<weapon.Count;i++)
             {
-                i = weapon.Count - 1;
+                if (weapon[i]._gunsystem != null)
+                {
+                    return i;
+                }
             }
-            if (weapon[i] != null)
-            {
-                return i;
-            }
+            return -1;
         }
-        return -1;
+        else
+        {
+            for (int i = (gunEquiped - 1); i != gunEquiped; i--)
+            {
+                if (i < 0)
+                {
+                    i = weapon.Count - 1;
+                }
+                if (weapon[i]._gunsystem != null)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }        
     }
 
     private void updateSlot()
@@ -221,7 +263,8 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
 
     private void setActiveGun(int _gunEquiped)
     {
-        for(int i = 0; i < weapon.Count; i++)
+        currentPlayer.animator.SetBool("IsCarryingAWeapon", true);
+        for (int i = 0; i < weapon.Count; i++)
         {
             if(i == _gunEquiped && weapon[i]._gunsystem != null)
             {

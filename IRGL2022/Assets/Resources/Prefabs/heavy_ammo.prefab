@@ -113,6 +113,7 @@ MonoBehaviour:
   prefab: {fileID: 2737699300689847269}
   id: 4
   owner: {fileID: 0}
+  cloud: {fileID: 0}
   ammoType: Heavy
 --- !u!114 &6830843089347746295
 MonoBehaviour:

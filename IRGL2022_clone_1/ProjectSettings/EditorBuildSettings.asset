@@ -18,14 +18,14 @@ EditorBuildSettings:
     path: Assets/Assets/FPS/Scenes/MainScene.unity
     guid: d794a2ef8ba31d847ad3c19d03e2ddb9
   - enabled: 1
+    path: Assets/Scenes/LoginMenu.unity
+    guid: 029d31f8129922d46a8ab0eafc5f175e
+  - enabled: 1
     path: Assets/Scenes/lobby.unity
     guid: 919cb559e816aff4f8feec7f7c2e8df4
   - enabled: 1
     path: Assets/Scenes/main.unity
     guid: 5a463281e6e238742a45430f11e82829
-  - enabled: 1
-    path: Assets/Scenes/LoginMenu.unity
-    guid: 029d31f8129922d46a8ab0eafc5f175e
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: f5ba1018d00886e429bf4dcd62ba1e7e
