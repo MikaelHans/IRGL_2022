@@ -223,6 +223,15 @@ MonoBehaviour:
   cloud: {fileID: 0}
   level: 1
   duralibility: 100
+  rarity:
+  - 50
+  - 35
+  - 15
+  multiplier:
+  - 1
+  - 2
+  - 3
+  model: []
 --- !u!114 &7875581333274177072
 MonoBehaviour:
   m_ObjectHideFlags: 0
