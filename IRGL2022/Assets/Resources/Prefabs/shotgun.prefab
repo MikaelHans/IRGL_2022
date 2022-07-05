@@ -80,7 +80,7 @@ MonoBehaviour:
   amount: 0
   itemObject: {fileID: 0}
   prefab: {fileID: 4705280805442977878}
-  id: 8
+  id: 7
   owner: {fileID: 0}
   cloud: {fileID: 0}
   gun_system: {fileID: 0}
