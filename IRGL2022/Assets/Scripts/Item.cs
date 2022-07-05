@@ -13,7 +13,7 @@ public abstract class Item : MonoBehaviourPun
     public Player owner;
     public Cloud cloud;
 
-    private void Start()
+    protected virtual void Start()
     {
         cloud = FindObjectOfType<Cloud>();
         //prefab = cloud.cloud.Find(item => item.itemName == itemName).GetComponent<GameObject>();
