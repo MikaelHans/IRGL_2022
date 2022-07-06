@@ -157,9 +157,12 @@ public class Player : MonoBehaviourPun
     [PunRPC]
     public void sync_item_in_chest(string json)
     {
-        GameObject chest = PhotonNetwork.Instantiate("Prefabs/Chest", transform.position, transform.rotation, 0);
-        chest.GetComponent<UnlockableChest>().sync_chest(json);
-        PhotonNetwork.Destroy(gameObject);
+        if (photonView.IsMine)
+        {
+            GameObject chest = PhotonNetwork.Instantiate("Prefabs/Chest", transform.position, transform.rotation, 0);
+            chest.GetComponent<UnlockableChest>().sync_chest(json);
+            PhotonNetwork.Destroy(gameObject);
+        }  
         //if (photonView.IsMine)
         //{
         //    GameObject chest = PhotonNetwork.Instantiate("Prefabs/Chest",transform.position, transform.rotation, 0);
