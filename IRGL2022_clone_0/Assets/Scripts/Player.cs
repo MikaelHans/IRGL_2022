@@ -87,7 +87,7 @@ public class Player : MonoBehaviourPun
     {
         healthBar.fillAmount = currentHealth / maxHealth;
         //check player health
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && photonView.IsMine)
         {
             Death();
         }
