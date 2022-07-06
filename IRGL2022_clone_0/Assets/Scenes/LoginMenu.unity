@@ -657,7 +657,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c897f186d479871479f9b7b329718d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloud: []
+  cloud:
+  - {fileID: 2544449639372287106, guid: 199e23bb06e1e4c4399b59adb4d8576e, type: 3}
+  - {fileID: 2545838776343311174, guid: b06feed0683fc474c818baa135b60a30, type: 3}
+  - {fileID: 320282284166192238, guid: 4f4404568ee52924f8f5239f64fe258a, type: 3}
+  - {fileID: -6525657752479497431, guid: 1511c92c006446a4795ec560d9970ccf, type: 3}
+  - {fileID: 2737699300689847268, guid: f75c9506eaaf9b1429ea2a3f28cef172, type: 3}
+  - {fileID: 8798546865561723785, guid: 966ae47ab0387e8478e98afb50ec5b39, type: 3}
+  - {fileID: 3963588662314868829, guid: 46ef64a8b24505444b5548086a6fd85b, type: 3}
+  - {fileID: -2209398097879129488, guid: cb8939859b7e53047a158e16ec8a8999, type: 3}
+  - {fileID: 4096903830080551917, guid: d4f220212ae3a124d9ac92a1372d547a, type: 3}
+  - {fileID: 5799863969867974019, guid: 9149fcf3dc004184d975cf1c21772505, type: 3}
+  - {fileID: 8303890975397164984, guid: 27730902975058f4bbfe623ca60c4601, type: 3}
   teamName: 
 --- !u!4 &288033882
 Transform:

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class SpawnSystem : MonoBehaviour
 {
@@ -8,8 +9,11 @@ public class SpawnSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnPoints.AddRange(GetComponentsInChildren<SpawnPoint>());
-        spawnAll();
+        if(PhotonNetwork.IsMasterClient)
+        {
+            spawnPoints.AddRange(GetComponentsInChildren<SpawnPoint>());
+            spawnAll();
+        }       
     }
 
     public void spawnAll()
