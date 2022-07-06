@@ -10,7 +10,7 @@ public class ItemData
     [SerializeField]
     public int amount;
     [SerializeField]
-    private string ItemName;
+    public string ItemName;
 
     public ItemData()
     {
