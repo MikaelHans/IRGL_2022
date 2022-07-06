@@ -20031,7 +20031,7 @@ MonoBehaviour:
   sprintModifier: 1.5
   gravity: -29.4
   crouchModifier: 0.5
-  walkingHeight: 1
+  walkingHeight: 0.8
   crouchingHeight: 0.5
   walkCamera: 0.8
   crouchCamera: 0.6
