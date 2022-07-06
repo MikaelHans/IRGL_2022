@@ -46,7 +46,7 @@ public class Inventory : MonoBehaviourPun
                 UsableItemData newitem = new UsableItemData();
                 newitem.prefab = item.prefab;
                 newitem.amount = item.amount;
-                newitem.Name = item.name;
+                newitem.Name = item.itemName;
                 items.Add(newitem);
             }
             else

@@ -133,12 +133,26 @@ public class Player : MonoBehaviourPun
             WeaponData[] allweapons = weapons.weapon.ToArray();//get weapons array
             foreach (WeaponData weapon in allweapons)
             {
-                allitems.Add(weapon);
+                if(weapon._gunsystem != null)
+                {
+                    allitems.Add(weapon);
+                }                
             }
 
-            allitems.Add(Helmet);
-            allitems.Add(Armor);
-            allitems.Add(Bag);
+            if(Helmet.prefab != null)
+            {
+                allitems.Add(Helmet);
+            }
+            if (Armor.prefab != null)
+            {
+                allitems.Add(Armor);
+            }
+            if (Bag.prefab != null)
+            {
+                allitems.Add(Bag);
+            }
+            
+            
             //export allitem to json
             string json = JsonHelper.ToJson<ItemData>(allitems.ToArray());
             //rpc call
