@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviourPun
             else
             {
                 //controller.height = walkingHeight;
-                body.transform.localScale = new Vector3(body.transform.localScale.x, 1, body.transform.localScale.z);
+                body.transform.localScale = new Vector3(body.transform.localScale.x, body.transform.localScale.y, body.transform.localScale.z);
                 //fpsCam.transform.localPosition = new Vector3(fpsCam.transform.localPosition.x, walkCamera, fpsCam.transform.localPosition.z);
             }
 
