@@ -61,19 +61,21 @@ public class Player : MonoBehaviourPun
 
             List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
             Player myPlayer = allPlayers.Find(player => player.photonView.IsMine);
-            if (myPlayer.photonView.Owner.NickName == playerName)
+            if(myPlayer != null)
             {
-                //same team codes
-                is_same_team = true;
-                playername_ui.gameObject.SetActive(true);
-                playername_ui.text = playerName;
-                playername_ui.gameObject.GetComponent<UI_Follow>().maincamera = myPlayer.playerCam;
-            }
-            else
-            {
-                is_same_team = false;
-            }          
-            
+                if (myPlayer.photonView.Owner.NickName == playerName)
+                {
+                    //same team codes
+                    is_same_team = true;
+                    playername_ui.gameObject.SetActive(true);
+                    playername_ui.text = playerName;
+                    playername_ui.gameObject.GetComponent<UI_Follow>().maincamera = myPlayer.playerCam;
+                }
+                else
+                {
+                    is_same_team = false;
+                }
+            }                       
         }
         
         gameObject.name = photonView.Owner.NickName;
