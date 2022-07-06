@@ -9,6 +9,7 @@ public class ItemData
     public GameObject prefab;
     [SerializeField]
     public int amount;
+    [SerializeField]
     private string ItemName;
 
     public ItemData()
