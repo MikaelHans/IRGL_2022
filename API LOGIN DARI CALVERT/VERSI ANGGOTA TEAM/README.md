@@ -23,6 +23,7 @@
 {
 	"success": true
 	"message": "Successfully logged in"
+	"id_team": 123
 }
 ```
 
