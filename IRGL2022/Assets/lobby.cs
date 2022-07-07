@@ -9,9 +9,13 @@ public class lobby : MonoBehaviourPun
     public float countdownTime;
     // Start is called before the first frame update
     bool startGame = true;
+    Cloud cloud;
     void Start()
     {
-        PhotonNetwork.Instantiate("Prefabs/First Person Player", new Vector3(0, 2, 0), Quaternion.identity, 0);//instantiate player prefab
+        cloud = FindObjectOfType<Cloud>();  
+        object [] data = new object[1];
+        data[0] = cloud.teamID;
+        PhotonNetwork.Instantiate("Prefabs/First Person Player", new Vector3(0, 2, 0), Quaternion.identity, 0, data);//instantiate player prefab
 
 
         if (PhotonNetwork.IsMasterClient)

@@ -58,7 +58,8 @@ public class Player : MonoBehaviourPun
             gameObject.GetComponent<PlayerMovement>().fpsCam.gameObject.SetActive(false);
             MinimapCamera.enabled = false;
             playerCanvas.enabled = false;
-
+            team_id = (int)photonView.InstantiationData[0];
+            #region old multiplayer codes
             List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
             Player myPlayer = allPlayers.Find(player => player.photonView.IsMine);
             if(myPlayer != null)
@@ -75,9 +76,14 @@ public class Player : MonoBehaviourPun
                 {
                     is_same_team = false;
                 }
-            }                       
+            }
+            #endregion
+            if(!photonView.IsMine)
+            {
+
+            }
         }
-        
+
         gameObject.name = photonView.Owner.NickName;
         
     }

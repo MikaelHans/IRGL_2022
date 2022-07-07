@@ -3089,6 +3089,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!1 &2048265311191394132
 GameObject:
   m_ObjectHideFlags: 0
@@ -13472,6 +13473,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!1 &4373194737299225236
 GameObject:
   m_ObjectHideFlags: 0
@@ -14781,6 +14783,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194737561791294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15099,6 +15102,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194737709802615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15253,6 +15257,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194737740279900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16093,6 +16098,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194737930387291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16786,6 +16792,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194738070792243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17149,6 +17156,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194738125245182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17930,6 +17938,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194738343355544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18293,6 +18302,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194738412814231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18523,6 +18533,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194738432224676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18677,6 +18688,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194738437450335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18831,6 +18843,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194738477280280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19096,6 +19109,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194738516375457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19400,6 +19414,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194738594279658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19629,6 +19644,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194738629594572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19858,6 +19874,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194738675796942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19993,14 +20010,17 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
   armor:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
   bag:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
   armor_model:
   - {fileID: 144837393786238128}
   - {fileID: 144787415774142830}
@@ -20090,11 +20110,13 @@ MonoBehaviour:
   - prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
     _gunsystem: {fileID: 0}
     _weaponID: 0
   - prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
     _gunsystem: {fileID: 0}
     _weaponID: 0
   gunContainer: {fileID: 4373194738514154625}
@@ -20861,6 +20883,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194738958488227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21149,6 +21172,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194739049696845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21928,6 +21952,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194739282327382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22082,6 +22107,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194739295896872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22311,6 +22337,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!114 &4373194739379147877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22789,6 +22816,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!1 &5900774091191077213
 GameObject:
   m_ObjectHideFlags: 0
@@ -22886,6 +22914,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
     ItemName: 
+    level: -1
 --- !u!1 &5910940156683631992
 GameObject:
   m_ObjectHideFlags: 0

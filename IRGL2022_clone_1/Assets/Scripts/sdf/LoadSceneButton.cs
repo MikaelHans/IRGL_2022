@@ -21,12 +21,11 @@ namespace Unity.FPS.UI
         private string default_room_name;
         public Vector3 Initial_Location;
         public Button button;
-        public string SceneName = "";
-        public TMP_InputField teamname;
+        public string SceneName;
         public Cloud cloud;
 
         private void Start()
-        {          
+        {
 
             DefaultRoomOptions.MaxPlayers = max_player_in_room;//max player in room
             DefaultRoomOptions.PlayerTtl = max_dc_time;//max time for a player to dc
@@ -41,21 +40,22 @@ namespace Unity.FPS.UI
             max_dc_time = 0;
             default_room_name = "IRGLROOM2";
             DefaultRoomOptions = new RoomOptions();
-        }        
+        }
 
         void Update()
         {
-            if (EventSystem.current.currentSelectedGameObject == gameObject
-                && Input.GetButtonDown(GameConstants.k_ButtonNameSubmit))
-            {
-                LoadTargetScene();               
-            }
+            // if (EventSystem.current.currentSelectedGameObject == gameObject
+            //     && Input.GetButtonDown(GameConstants.k_ButtonNameSubmit))
+            // {
+            //     LoadTargetScene();
+            // }
         }
 
         public void LoadTargetScene()
         {
-            PhotonNetwork.NickName = teamname.text;
-            Debug.Log(teamname.text);
+            PhotonNetwork.NickName = cloud.email;
+            Debug.Log(cloud.email);
+            Debug.Log(cloud.teamID);
             JoinRoom();
         }
 
@@ -93,6 +93,7 @@ namespace Unity.FPS.UI
             //player.name = "Team: " + GameObject.FindGameObjectWithTag("Player Name").GetComponent<InputField>().text;
             //PhotonNetwork.NickName = "Team: " + GameObject.FindGameObjectWithTag("Player Name").GetComponent<InputField>().text;
             PhotonNetwork.LoadLevel(SceneName);
+            
             //}        
         }
 

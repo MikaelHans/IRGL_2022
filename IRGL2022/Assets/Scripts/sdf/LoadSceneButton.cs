@@ -21,7 +21,7 @@ namespace Unity.FPS.UI
         private string default_room_name;
         public Vector3 Initial_Location;
         public Button button;
-        public string SceneName = "";
+        public string SceneName;
         public Cloud cloud;
 
         private void Start()
@@ -93,6 +93,7 @@ namespace Unity.FPS.UI
             //player.name = "Team: " + GameObject.FindGameObjectWithTag("Player Name").GetComponent<InputField>().text;
             //PhotonNetwork.NickName = "Team: " + GameObject.FindGameObjectWithTag("Player Name").GetComponent<InputField>().text;
             PhotonNetwork.LoadLevel(SceneName);
+            
             //}        
         }
 
