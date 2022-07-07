@@ -18,8 +18,7 @@ public abstract class Equipable : Item
         model = new Transform[transforms.Length-1];
         for (int i = 0; i < model.Length; i++)
         {
-            model[i] = transforms[i+1];
-            defense *= multiplier[level];
+            model[i] = transforms[i+1];            
         }
 
     }
@@ -40,8 +39,8 @@ public abstract class Equipable : Item
             start += rarity[i];
         }
         duralibility *= multiplier[level];
-        
-        foreach(Transform obj in model)
+        defense *= multiplier[level];
+        foreach (Transform obj in model)
         {
             obj.gameObject.SetActive(false);
         }

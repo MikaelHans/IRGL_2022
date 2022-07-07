@@ -150,6 +150,7 @@ MonoBehaviour:
   - 1
   - 2
   - 3
+  defense: 20
   model: []
 --- !u!114 &217982526309689710
 MonoBehaviour:
