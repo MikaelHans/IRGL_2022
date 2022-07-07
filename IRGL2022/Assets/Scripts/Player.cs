@@ -104,7 +104,7 @@ public class Player : MonoBehaviourPun
     {
         //if (damagerName != playerName)
         float defense = Armor.prefab.GetComponent<Equipable>().defense;
-        currentHealth -= damage*(defense/100);
+        currentHealth -= damage - damage*(defense/100);
         if (currentHealth <= 0)
         {
             //Player [] players = FindObjectsOfType<Player>();
