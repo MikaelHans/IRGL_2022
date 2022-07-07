@@ -67,9 +67,18 @@ public class Player : MonoBehaviourPun
             MinimapCamera.enabled = false;
             playerCanvas.enabled = false;
             team_id = int.Parse((string)photonView.InstantiationData[0]);
-
             playername_ui.gameObject.SetActive(true);
             playername_ui.text = playerName;
+            List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
+            foreach (Player player in allPlayers)
+            {
+                if (player.photonView.IsMine)
+                {
+                    playername_ui.GetComponent<UI_Follow>().maincamera = player.playerCam;
+                }
+            }
+
+
             #region old multiplayer codes
             //List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
             //Player myPlayer = allPlayers.Find(player => player.photonView.IsMine);
@@ -89,10 +98,6 @@ public class Player : MonoBehaviourPun
             //    }
             //}
             #endregion
-            if (!photonView.IsMine)
-            {
-
-            }
         }
 
         gameObject.name = photonView.Owner.NickName;
