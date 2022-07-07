@@ -6,8 +6,12 @@
 **http://localhost/<jenenge_folder_iki>/api/login.php**
 
 **Request body gae testing:**
-email = **a@irgl.com**
-password = **dummy**
+```json
+{
+	"email": "a@irgl.com"
+	"password": "dummy"
+}
+```
 
 ---
 
@@ -31,14 +35,6 @@ password = **dummy**
 }
 ```
 
-**400, POST - Already logged in**
-
-```json
-{
-	"success": false
-	"message": "Already logged in"
-}
-```
 
 **401, POST - Wrong credentials**
 
