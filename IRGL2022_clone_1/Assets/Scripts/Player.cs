@@ -103,17 +103,19 @@ public class Player : MonoBehaviourPun
     public void rpc_TakeDamage(float damage, int teamID)
     {
         //if (damagerName != playerName)
-        float defense = Armor.prefab.GetComponent<Equipable>().defense;
-        currentHealth -= damage - damage*(defense/100);
-        if (currentHealth <= 0)
+        if(photonView.IsMine)
         {
-            //Player [] players = FindObjectsOfType<Player>();
-            #region Update Team Score Data
+            float defense = Armor.prefab.GetComponent<Equipable>().defense;
+            currentHealth -= damage - damage * (defense / 100);
+            if (currentHealth <= 0)
+            {
+                //Player [] players = FindObjectsOfType<Player>();
+                #region Update Team Score Data
 
-            #endregion
-            Death();
-        }
-            
+                #endregion
+                Death();
+            }
+        }            
     }
 
     public void RecoverHealth(float healthRestored)
