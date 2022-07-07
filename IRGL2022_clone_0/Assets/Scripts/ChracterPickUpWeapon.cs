@@ -308,6 +308,8 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                 PhotonNetwork.Instantiate("Prefabs/" + weapon[index].Name, transform.position,transform.rotation);
                 weapon[index] = new WeaponData();
                 updateSlot();
+                gunEquiped = -1;
+                currentPlayer.animator.SetBool("IsCarryingAWeapon", false);
             }
         }
     }
