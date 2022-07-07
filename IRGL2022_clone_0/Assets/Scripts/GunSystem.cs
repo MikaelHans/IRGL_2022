@@ -210,15 +210,15 @@ public class GunSystem : MonoBehaviourPun
                 float enemyhealth;
                 if(yHitLocation > 0.5)
                 {
-                    enemyhealth = rayHit.collider.GetComponent<Player>().TakeDamage(damage + damage * 50 / 100, currentPlayer.playerName);
+                    enemyhealth = rayHit.collider.GetComponent<Player>().TakeDamage(damage + damage * 50 / 100, currentPlayer.Team_id);
                 }
                 else if(yHitLocation > 0.2)
                 {
-                    enemyhealth = rayHit.collider.GetComponent<Player>().TakeDamage(damage + damage * 100 / 100, currentPlayer.playerName);
+                    enemyhealth = rayHit.collider.GetComponent<Player>().TakeDamage(damage + damage * 100 / 100, currentPlayer.Team_id);
                 }
                 else
                 {
-                    enemyhealth = rayHit.collider.GetComponent<Player>().TakeDamage(damage - damage * 20 / 100, currentPlayer.playerName);
+                    enemyhealth = rayHit.collider.GetComponent<Player>().TakeDamage(damage - damage * 20 / 100, currentPlayer.Team_id);
                 }  
                 if(enemyhealth <= 0)
                 {

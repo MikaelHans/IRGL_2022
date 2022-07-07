@@ -11,7 +11,11 @@ public class SpawnPoint : MonoBehaviour
     {
         foreach(Spawn spawn in spawnPoints)
         {
-            spawn.spawn();
+            int randomIndex = Random.Range(0, 100);
+            if(randomIndex <= 50)
+            {
+                spawn.spawn();
+            }            
         }
     }
 }

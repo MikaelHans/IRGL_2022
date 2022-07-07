@@ -62,7 +62,7 @@ public class MeleeSystem : MonoBehaviour
             if (rayHit.collider.CompareTag("Enemy"))
             {
                 //damage enemy here
-                enemyhealth = rayHit.collider.GetComponent<Player>().TakeDamage(damage, currentPlayer.playerName);
+                enemyhealth = rayHit.collider.GetComponent<Player>().TakeDamage(damage, currentPlayer.Team_id);
                 if (enemyhealth <= 0)
                 {
                     //killed an enemy then add points
