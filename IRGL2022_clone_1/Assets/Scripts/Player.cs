@@ -106,7 +106,9 @@ public class Player : MonoBehaviourPun
         if(photonView.IsMine)
         {
             float defense = Armor.prefab.GetComponent<Equipable>().defense;
-            currentHealth -= damage - damage * (defense / 100);
+            float adjustedDamage = damage - damage * (defense / 100);
+            currentHealth -= adjustedDamage;
+            Debug.Log(adjustedDamage);
             if (currentHealth <= 0)
             {
                 //Player [] players = FindObjectsOfType<Player>();
