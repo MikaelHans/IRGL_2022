@@ -53,7 +53,7 @@ MonoBehaviour:
   amount: 1
   itemObject: {fileID: 0}
   prefab: {fileID: 6860850774082911116}
-  id: 6
+  id: 17
   owner: {fileID: 0}
   cloud: {fileID: 0}
 --- !u!54 &-975450035389823119
