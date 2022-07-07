@@ -92,9 +92,20 @@ namespace Unity.FPS.UI
             //GameObject player = GameObject.FindGameObjectWithTag("Player");
             //player.name = "Team: " + GameObject.FindGameObjectWithTag("Player Name").GetComponent<InputField>().text;
             //PhotonNetwork.NickName = "Team: " + GameObject.FindGameObjectWithTag("Player Name").GetComponent<InputField>().text;
-            PhotonNetwork.LoadLevel(SceneName);
-            
-            //}        
+            Photon.Realtime.Player[] allplayers = PhotonNetwork.PlayerList;
+            bool flag = true;
+            for(int i=0;i<allplayers.Length; i++)
+            {
+                if (allplayers[i].NickName == PhotonNetwork.NickName)
+                {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag)
+            {
+                PhotonNetwork.LoadLevel(SceneName);
+            }                 
         }
 
         #endregion

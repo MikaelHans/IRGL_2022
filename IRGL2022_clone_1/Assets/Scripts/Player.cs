@@ -77,8 +77,6 @@ public class Player : MonoBehaviourPun
                     playername_ui.GetComponent<UI_Follow>().maincamera = player.playerCam;
                 }
             }
-
-
             #region old multiplayer codes
             //List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
             //Player myPlayer = allPlayers.Find(player => player.photonView.IsMine);

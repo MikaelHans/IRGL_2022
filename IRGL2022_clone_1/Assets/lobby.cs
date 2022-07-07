@@ -15,8 +15,7 @@ public class lobby : MonoBehaviourPun
         cloud = FindObjectOfType<Cloud>();  
         object [] data = new object[1];
         data[0] = cloud.teamID;
-        PhotonNetwork.Instantiate("Prefabs/First Person Player", new Vector3(0, 2, 0), Quaternion.identity, 0, data);//instantiate player prefab
-
+        PhotonNetwork.Instantiate("Prefabs/First Person Player", new Vector3(0, 2, 0), Quaternion.identity, 0, data);//instantiate player prefab            
 
         if (PhotonNetwork.IsMasterClient)
         {
