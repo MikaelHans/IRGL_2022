@@ -50,6 +50,14 @@ public class Player : MonoBehaviourPun
         {
             playerCam = gameObject.GetComponentInChildren<Camera>();
             playerCanvas = gameObject.GetComponentInChildren<Canvas>();
+            List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
+            foreach (Player player in allPlayers)
+            {
+                if (!player.photonView.IsMine)
+                {
+                    player.playername_ui.GetComponent<UI_Follow>().maincamera = playerCam;
+                }
+            }
         }
         else
         {
@@ -58,27 +66,30 @@ public class Player : MonoBehaviourPun
             gameObject.GetComponent<PlayerMovement>().fpsCam.gameObject.SetActive(false);
             MinimapCamera.enabled = false;
             playerCanvas.enabled = false;
-            team_id = (int)photonView.InstantiationData[0];
+            team_id = int.Parse((string)photonView.InstantiationData[0]);
+
+            playername_ui.gameObject.SetActive(true);
+            playername_ui.text = playerName;
             #region old multiplayer codes
-            List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
-            Player myPlayer = allPlayers.Find(player => player.photonView.IsMine);
-            if(myPlayer != null)
-            {
-                if (myPlayer.photonView.Owner.NickName == playerName)
-                {
-                    //same team codes
-                    is_same_team = true;
-                    playername_ui.gameObject.SetActive(true);
-                    playername_ui.text = playerName;
-                    playername_ui.gameObject.GetComponent<UI_Follow>().maincamera = myPlayer.playerCam;
-                }
-                else
-                {
-                    is_same_team = false;
-                }
-            }
+            //List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
+            //Player myPlayer = allPlayers.Find(player => player.photonView.IsMine);
+            //if(myPlayer != null)
+            //{
+            //    if (myPlayer.photonView.Owner.NickName == playerName)
+            //    {
+            //        //same team codes
+            //        is_same_team = true;
+            //        playername_ui.gameObject.SetActive(true);
+            //        playername_ui.text = playerName;
+            //        playername_ui.gameObject.GetComponent<UI_Follow>().maincamera = myPlayer.playerCam;
+            //    }
+            //    else
+            //    {
+            //        is_same_team = false;
+            //    }
+            //}
             #endregion
-            if(!photonView.IsMine)
+            if (!photonView.IsMine)
             {
 
             }
