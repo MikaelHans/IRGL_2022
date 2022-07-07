@@ -33,18 +33,17 @@ CREATE TABLE `2022_semifinal_teams` (
   `id_team_member` int(11) NOT NULL,
   `point` int(11) NOT NULL DEFAULT 0,
   `data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{}',
-  `logged_in` tinyint(1) NOT NULL DEFAULT 0,
-  `last_disconnected` datetime DEFAULT NULL
+  `last_connected` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `2022_semifinal_teams`
 --
 
-INSERT INTO `2022_semifinal_teams` (`id`, `id_team`, `id_team_member`, `point`, `data`, `logged_in`, `last_disconnected`) VALUES
-(1, 50, 117, 0, '{}', 0, NULL),
-(2, 50, 118, 0, '{}', 0, NULL),
-(3, 50, 119, 0, '{}', 0, NULL);
+INSERT INTO `2022_semifinal_teams` (`id`, `id_team`, `id_team_member`, `point`, `data`, `last_connected`) VALUES
+(1, 50, 117, 0, '{}', NULL),
+(2, 50, 118, 0, '{}', NULL),
+(3, 50, 119, 0, '{}', NULL);
 
 --
 -- Indexes for dumped tables
