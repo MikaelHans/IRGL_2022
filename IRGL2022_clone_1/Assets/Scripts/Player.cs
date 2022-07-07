@@ -93,19 +93,27 @@ public class Player : MonoBehaviourPun
         }
     }
 
-    public float TakeDamage(float damage, string damagerName)
+    public float TakeDamage(float damage, int teamID)
     {
-        photonView.RPC("rpc_TakeDamage", RpcTarget.All, damage, damagerName);
+        photonView.RPC("rpc_TakeDamage", RpcTarget.All, damage, teamID);
         return currentHealth - damage;
     }
 
     [PunRPC]
-    public void rpc_TakeDamage(float damage, string damagerName)
+    public void rpc_TakeDamage(float damage, int teamID)
     {
         //if (damagerName != playerName)
-        currentHealth -= damage;
+        float defense = Armor.prefab.GetComponent<Equipable>().defense;
+        currentHealth -= damage*(defense/100);
         if (currentHealth <= 0)
+        {
+            //Player [] players = FindObjectsOfType<Player>();
+            #region Update Team Score Data
+
+            #endregion
             Death();
+        }
+            
     }
 
     public void RecoverHealth(float healthRestored)

@@ -35,7 +35,7 @@ namespace Unity.FPS.Game
                 {
                     if (!IsInside(worldBorder.GetComponent<MeshCollider>(), transform.position))
                     {
-                        player.TakeDamage(DPS, "WorldBorder");
+                        player.TakeDamage(DPS, -999);
                         totalTime = 0;
                     }
                 }                

@@ -10,6 +10,7 @@ public abstract class Equipable : Item
     public float duralibility = 100;
     public float[] rarity = { 50, 35, 15 };
     public float[] multiplier = { 1, 2, 3 };
+    public float defense = 20;
     public Transform[] model;
     private void Awake()
     {
@@ -18,6 +19,7 @@ public abstract class Equipable : Item
         for (int i = 0; i < model.Length; i++)
         {
             model[i] = transforms[i+1];
+            defense *= multiplier[level];
         }
 
     }
