@@ -2790,6 +2790,7 @@ MonoBehaviour:
   items:
   - prefab: {fileID: 0}
     amount: 2
+    ItemName: 
   game: {fileID: 7300111515750872665}
 --- !u!114 &7300111515750872665
 MonoBehaviour:

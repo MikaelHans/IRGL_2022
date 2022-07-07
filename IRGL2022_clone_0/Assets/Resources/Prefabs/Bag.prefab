@@ -56,11 +56,20 @@ MonoBehaviour:
   amount: 1
   itemObject: {fileID: 0}
   prefab: {fileID: 320282284166192239}
-  id: 2
+  id: 13
   owner: {fileID: 0}
   cloud: {fileID: 0}
   level: 1
   duralibility: 100
+  rarity:
+  - 50
+  - 35
+  - 15
+  multiplier:
+  - 1
+  - 2
+  - 3
+  model: []
 --- !u!65 &1789275131
 BoxCollider:
   m_ObjectHideFlags: 0
