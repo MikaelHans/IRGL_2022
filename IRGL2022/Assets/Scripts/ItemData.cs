@@ -11,10 +11,13 @@ public class ItemData
     public int amount;
     [SerializeField]
     public string ItemName;
+    [SerializeField]
+    public int level;
 
     public ItemData()
     {
         amount = 0;
+        level = -1;
     }
 
     public void Use()

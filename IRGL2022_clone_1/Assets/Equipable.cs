@@ -10,6 +10,7 @@ public abstract class Equipable : Item
     public float duralibility = 100;
     public float[] rarity = { 50, 35, 15 };
     public float[] multiplier = { 1, 2, 3 };
+    public float defense = 20;
     public Transform[] model;
     private void Awake()
     {
@@ -17,7 +18,7 @@ public abstract class Equipable : Item
         model = new Transform[transforms.Length-1];
         for (int i = 0; i < model.Length; i++)
         {
-            model[i] = transforms[i+1];
+            model[i] = transforms[i+1];            
         }
 
     }
@@ -38,8 +39,8 @@ public abstract class Equipable : Item
             start += rarity[i];
         }
         duralibility *= multiplier[level];
-        
-        foreach(Transform obj in model)
+        defense *= multiplier[level];
+        foreach (Transform obj in model)
         {
             obj.gameObject.SetActive(false);
         }
@@ -64,5 +65,15 @@ public abstract class Equipable : Item
         {
             PhotonNetwork.Destroy(gameObject);
         }
+    }
+
+    public override ItemData to_data()
+    {
+        ItemData data = new ItemData();
+        data.prefab = prefab;
+        data.amount = amount;
+        data.Name = name;
+        data.level = level;
+        return data;
     }
 }

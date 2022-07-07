@@ -218,10 +218,10 @@ MonoBehaviour:
   amount: 0
   itemObject: {fileID: 0}
   prefab: {fileID: 1014500906975857655}
-  id: 0
+  id: 11
   owner: {fileID: 0}
   cloud: {fileID: 0}
-  level: 1
+  level: 0
   duralibility: 100
   rarity:
   - 50
@@ -231,6 +231,7 @@ MonoBehaviour:
   - 1
   - 2
   - 3
+  defense: 20
   model: []
 --- !u!114 &7875581333274177072
 MonoBehaviour:

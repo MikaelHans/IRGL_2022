@@ -111,7 +111,7 @@ MonoBehaviour:
   amount: 30
   itemObject: {fileID: 0}
   prefab: {fileID: 2737699300689847269}
-  id: 4
+  id: 15
   owner: {fileID: 0}
   cloud: {fileID: 0}
   ammoType: Heavy
