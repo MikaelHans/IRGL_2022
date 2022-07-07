@@ -86,6 +86,8 @@ public class LoginFunctions : MonoBehaviour
                 warningDisplay.text = "Login Success!";
 
                 loginButton.GetComponent<LoadSceneButton>().LoadTargetScene();
+
+                yield break;
             }
             else
             {

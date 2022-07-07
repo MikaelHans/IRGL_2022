@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 725322313}
   - component: {fileID: 725322312}
   - component: {fileID: 725322315}
+  - component: {fileID: 725322316}
   m_Layer: 5
   m_Name: Login Button
   m_TagString: Untagged
@@ -439,7 +440,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 725322313}
   m_OnClick:
     m_PersistentCalls:
@@ -508,9 +509,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emailInput: {fileID: 848367079}
   passInput: {fileID: 1869657818}
-  prefabCloud: {fileID: 288033880}
+  cloud: {fileID: 288033881}
   warningDisplay: {fileID: 1551493021}
-  loginAPI: http://localhost:8000/login
+  loginButton: {fileID: 725322312}
+  loginAPI: http://nicsv.xyz:8000/login
+--- !u!114 &725322316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725322310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d73053268a2ae48bb9e7d4bf6419fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Initial_Location: {x: 0, y: 0, z: 0}
+  button: {fileID: 725322312}
+  SceneName: Lobby
+  cloud: {fileID: 288033881}
 --- !u!1 &836118092
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,7 +2845,6 @@ MonoBehaviour:
   Initial_Location: {x: 0, y: 0, z: 0}
   button: {fileID: 725322312}
   SceneName: lobby
-  teamname: {fileID: 848367079}
   cloud: {fileID: 0}
 --- !u!1 &1961701450
 GameObject:
