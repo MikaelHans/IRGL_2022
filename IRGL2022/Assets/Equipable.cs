@@ -66,4 +66,14 @@ public abstract class Equipable : Item
             PhotonNetwork.Destroy(gameObject);
         }
     }
+
+    public override ItemData to_data()
+    {
+        ItemData data = new ItemData();
+        data.prefab = prefab;
+        data.amount = amount;
+        data.Name = name;
+        data.level = level;
+        return data;
+    }
 }

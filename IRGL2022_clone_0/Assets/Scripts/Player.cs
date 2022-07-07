@@ -105,7 +105,7 @@ public class Player : MonoBehaviourPun
         //if (damagerName != playerName)
         if(photonView.IsMine)
         {
-            float defense = Armor.prefab.GetComponent<Equipable>().defense;
+            float defense = calculateDefense(Armor);
             float adjustedDamage = damage - damage * (defense / 100);
             currentHealth -= adjustedDamage;
             Debug.Log(adjustedDamage);
@@ -118,6 +118,16 @@ public class Player : MonoBehaviourPun
                 Death();
             }
         }            
+    }
+
+    public float calculateDefense(ItemData DefenseItem)
+    {
+        float defense = DefenseItem.prefab.GetComponent<Equipable>().defense;
+        float []multiplier = DefenseItem.prefab.GetComponent<Equipable>().multiplier;
+        int level = DefenseItem.level;
+        defense *= multiplier[level];
+
+        return defense;
     }
 
     public void RecoverHealth(float healthRestored)

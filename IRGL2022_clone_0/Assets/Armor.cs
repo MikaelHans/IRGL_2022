@@ -9,6 +9,7 @@ public class Armor : Equipable
     {
         base.equip();
         owner.Armor = to_data();
+        
         foreach (GameObject armor in owner.armor_model)
         {
             armor.SetActive(false);
