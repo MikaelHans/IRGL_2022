@@ -53,6 +53,7 @@ MonoBehaviour:
   - equip_RPC
   - rpc_changeWeapon
   - rpc_equip_weapon
+  - update_score
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0
