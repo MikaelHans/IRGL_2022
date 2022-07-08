@@ -50,7 +50,7 @@ public class LoginFunctions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cloud.teamID = "";
+        cloud.teamID = -1;
         cloud.email = "";
     }
 
@@ -80,7 +80,7 @@ public class LoginFunctions : MonoBehaviour
 
             if (json_obj.success)
             {
-                string teamID = json_obj.id_team.ToString();
+                int teamID = json_obj.id_team;
                 cloud.email = email;
                 cloud.teamID = teamID;
                 warningDisplay.text = "Login Success!";

@@ -58,6 +58,11 @@ public class GunSystem : MonoBehaviourPun
         #endregion
     }
 
+    private void Start()
+    {
+        currentPlayer.Team_id = FindObjectOfType<Cloud>().teamID;
+    }
+
     private void Update()
     {     
 

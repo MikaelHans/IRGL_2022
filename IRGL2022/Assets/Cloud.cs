@@ -6,7 +6,7 @@ public class Cloud : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<Item> cloud = new List<Item>();
-    public string teamID;
+    public int teamID;
     public string email;
 
     private void Awake()
