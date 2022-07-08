@@ -5,16 +5,15 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public AudioSource source;
-    public AudioClip foot;
+    //public AudioClip foot;
 
-    public void walk(){
-        source.clip=foot;
+    public void walk(AudioClip sound){
+        source.clip=sound;
         source.Play();
     }
 
     public void stop()
     {
-        source.clip = foot;
         source.Stop();
     }
     // // Start is called before the first frame update
