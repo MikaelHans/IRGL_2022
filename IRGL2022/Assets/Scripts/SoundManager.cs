@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource source;
     public AudioClip foot;
 
-    void walk(){
+    public void walk(){
         source.clip=foot;
         source.Play();
     }

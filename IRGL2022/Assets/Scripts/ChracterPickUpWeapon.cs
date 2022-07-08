@@ -305,8 +305,9 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                 //weapon[index]._gunsystem.gameObject.SetActive(false);
                 for(int i = 0; i < weapon.Count; i++)
                 {
-                    weapon[i]._gunsystem.gameObject.SetActive(false);
+                    GunList[i].gameObject.SetActive(false);
                 }
+                weapon[index]._gunsystem.gameObject.SetActive(false);
                 weapon[index]._gunsystem.cancelADS();
                 weapon[index]._gunsystem.ammunitionDisplay.enabled = false;
                 PhotonNetwork.Instantiate("Prefabs/" + weapon[index].Name, transform.position,transform.rotation);
