@@ -11,6 +11,12 @@ public class SoundManager : MonoBehaviour
         source.clip=foot;
         source.Play();
     }
+
+    public void stop()
+    {
+        source.clip = foot;
+        source.Stop();
+    }
     // // Start is called before the first frame update
     // void Start()
     // {
