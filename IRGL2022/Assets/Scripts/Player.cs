@@ -201,9 +201,8 @@ public class Player : MonoBehaviourPun
             
             //export allitem to json
             string json = JsonHelper.ToJson<ItemData>(allitems.ToArray());
-            //rpc call
-            photonView.RPC("sync_item_in_chest", RpcTarget.All, json);
-            photonView.RPC("update_score", RpcTarget.All, killer_team_id, 100);
+            //rpc call            
+            photonView.RPC("sync_item_in_chest", RpcTarget.All, json);            
             Debug.Log(json);
 
         }
@@ -211,6 +210,8 @@ public class Player : MonoBehaviourPun
         {
             //Destroy(gameObject);
         }
+        ScoreKeeper scorekeeper = FindObjectOfType<ScoreKeeper>();
+        scorekeeper.update_team_score(team_id, 100);
         //chest.GetComponent<UnlockableChest>().fillChest();
 
     }
