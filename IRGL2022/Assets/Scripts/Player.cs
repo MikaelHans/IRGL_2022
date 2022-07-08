@@ -234,6 +234,8 @@ public class Player : MonoBehaviourPun
             GameObject chest = PhotonNetwork.InstantiateRoomObject("Prefabs/Chest", transform.position, transform.rotation, 0);
             chest.GetComponent<UnlockableChest>().sync_chest(json);
             PhotonNetwork.Destroy(gameObject);
+            PhotonNetwork.Disconnect();
+            Application.Quit();
         }  
         //if (photonView.IsMine)
         //{
