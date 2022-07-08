@@ -36,6 +36,9 @@ public class GunSystem : MonoBehaviourPun
     public TextMeshProUGUI ammunitionDisplay;
     public GameObject crosshair;
 
+    //Sound
+    public AudioSource shootsound;
+
     private void Awake()
     {
         bulletsLeft = magazineSize;
@@ -256,6 +259,8 @@ public class GunSystem : MonoBehaviourPun
     public void rpz_muzzle_flash()
     {
         muzzleFlash.Play();
+        //sound
+        shootsound.Play();
     }
 
     private void ResetShot()
