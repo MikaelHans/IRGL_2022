@@ -69,6 +69,7 @@ MonoBehaviour:
   - 1
   - 2
   - 3
+  defense: 20
   model: []
 --- !u!65 &1789275131
 BoxCollider:

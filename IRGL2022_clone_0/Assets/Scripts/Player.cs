@@ -109,7 +109,7 @@ public class Player : MonoBehaviourPun
         //check player health
         if (currentHealth <= 0 && photonView.IsMine)
         {
-            Death();
+            //Death();
         }
     }
 
@@ -125,8 +125,8 @@ public class Player : MonoBehaviourPun
         //if (damagerName != playerName)
         if(photonView.IsMine)
         {
-            float defense = calculateDefense(Armor);
-            float adjustedDamage = damage - damage * (defense / 100);
+            float defense = calculateDefense(Armor) + calculateDefense(Helmet);
+            float adjustedDamage = damage - damage * defense;
             currentHealth -= adjustedDamage;
             Debug.Log(adjustedDamage);
             if (currentHealth <= 0)
@@ -135,19 +135,23 @@ public class Player : MonoBehaviourPun
                 #region Update Team Score Data
 
                 #endregion
-                Death();
+                Death(teamID);
             }
         }            
     }
 
     public float calculateDefense(ItemData DefenseItem)
     {
+        if(DefenseItem.prefab == null)
+        {
+            return 0;
+        }
         float defense = DefenseItem.prefab.GetComponent<Equipable>().defense;
         float []multiplier = DefenseItem.prefab.GetComponent<Equipable>().multiplier;
         int level = DefenseItem.level;
         defense *= multiplier[level];
 
-        return defense;
+        return defense/100;
     }
 
     public void RecoverHealth(float healthRestored)
@@ -155,7 +159,7 @@ public class Player : MonoBehaviourPun
         currentHealth = Mathf.Min(maxHealth, currentHealth + healthRestored);
     }
 
-    public void Death()
+    public void Death(int killer_team_id)
     {
         //Death function        
         if (photonView.IsMine)
@@ -199,6 +203,7 @@ public class Player : MonoBehaviourPun
             string json = JsonHelper.ToJson<ItemData>(allitems.ToArray());
             //rpc call
             photonView.RPC("sync_item_in_chest", RpcTarget.All, json);
+            photonView.RPC("update_score", RpcTarget.All, killer_team_id, 100);
             Debug.Log(json);
 
         }
@@ -208,6 +213,16 @@ public class Player : MonoBehaviourPun
         }
         //chest.GetComponent<UnlockableChest>().fillChest();
 
+    }
+
+    [PunRPC]
+    public void update_score(int team_id, int score = 100)
+    {
+        if(PhotonNetwork.IsMasterClient)
+        {
+            ScoreKeeper scorekeeper = FindObjectOfType<ScoreKeeper>();
+            scorekeeper.update_team_score(team_id, score);
+        }
     }
 
     [PunRPC]

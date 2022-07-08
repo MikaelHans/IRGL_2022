@@ -32,6 +32,7 @@ namespace Unity.FPS.UI
             DefaultRoomOptions.IsVisible = true;
             DefaultRoomOptions.IsOpen = true;
             PhotonNetwork.AutomaticallySyncScene = true;
+            
         }
 
         private void Awake()

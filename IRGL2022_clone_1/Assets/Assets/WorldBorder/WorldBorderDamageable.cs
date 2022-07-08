@@ -9,6 +9,7 @@ namespace Unity.FPS.Game
         public GameObject worldBorder;
         public float DPS = 5;
         public float tickTime = 1;
+        [SerializeField]
         private float totalTime = 0;
         private Player player;
         // Start is called before the first frame update
