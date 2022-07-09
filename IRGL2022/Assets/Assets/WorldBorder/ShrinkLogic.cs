@@ -5,10 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class WorldBorderState
 {
-    public Vector3 position;
+    public Transform position;
     public float ratio;
 
-    WorldBorderState(Vector3 position, float ratio)
+    WorldBorderState(Transform position, float ratio)
     {
         this.position = position;
         this.ratio = ratio;
@@ -44,7 +44,7 @@ public class ShrinkLogic : MonoBehaviour
         {
             if (totalTime <= shrinkDelay + shrinkDuration)
             {
-                transform.position = currentPosition - ((currentPosition - shrinkTape[tapeCounter].position) * ((totalTime - shrinkDelay) / shrinkDuration));
+                transform.position = currentPosition - ((currentPosition - shrinkTape[tapeCounter].position.localPosition) * ((totalTime - shrinkDelay) / (shrinkDuration)));
 
                 float scaler = (1 - (shrinkTape[tapeCounter].ratio * ((totalTime - shrinkDelay) / shrinkDuration)));
 
