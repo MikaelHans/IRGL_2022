@@ -141,7 +141,7 @@ Material:
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _baseColor: {r: 1, g: 0, b: 0, a: 1}
     - _fillOffset: {r: 0, g: 0, b: 0, a: 0}
-    - _fillTiling: {r: 100, g: 75000, b: 0, a: 0}
+    - _fillTiling: {r: 250, g: 75000, b: 0, a: 0}
     - _impactPoint: {r: 0, g: 0, b: 0, a: 0}
     - _impactRippleDirection: {r: 0, g: 0, b: 1, a: 0}
     - _rimColor: {r: 1, g: 0, b: 0, a: 1}
