@@ -15,25 +15,52 @@ public class MouseLook : MonoBehaviourPun
     public bool isInventoryOpened;
     public bool isSettingsOpened;
     // Start is called before the first frame update
+
+    bool inventoryKeyPressed = false;
+    bool settingsKeyPressed = false;
+
+    float xRotationValue = 0;
+    float yRotationValue = 0;
+
     void Start()
     {
         closeInventory();
         closeSettings();
     }
 
+    public void Inventory()
+    {
+        inventoryKeyPressed = true;
+    }
+
+    public void Settings()
+    {
+        settingsKeyPressed = true;
+    }
+
+    public void MouseMove(float x, float y)
+    {
+        xRotationValue = x;
+        yRotationValue = y;
+    }
+
+    public void ResetKeys()
+    {
+        inventoryKeyPressed = false;
+        settingsKeyPressed = false;
+        xRotationValue = 0;
+        yRotationValue = 0;
+    }
+
     // Update is called once per frame
     private void Update()
-    {
-
-    }
-    void LateUpdate()
     {
         if (photonView.IsMine)
         {
             if (!isInventoryOpened && !isSettingsOpened)
             {
-                float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * mouseSensitivityMultiplier * Time.deltaTime;
-                float mouseY = -Input.GetAxis("Mouse Y") * mouseSensitivity * mouseSensitivityMultiplier * Time.deltaTime;
+                float mouseX = xRotationValue * mouseSensitivity * mouseSensitivityMultiplier * Time.deltaTime;
+                float mouseY = -yRotationValue * mouseSensitivity * mouseSensitivityMultiplier * Time.deltaTime;
 
                 xRotation -= mouseY;
                 xRotation = Mathf.Clamp(xRotation, -90f, 90f);
@@ -44,7 +71,7 @@ public class MouseLook : MonoBehaviourPun
                 playerBody.Rotate(Vector3.up * mouseX);
             }
 
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (inventoryKeyPressed)
             {
                 if (isSettingsOpened)
                 {
@@ -60,7 +87,7 @@ public class MouseLook : MonoBehaviourPun
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (settingsKeyPressed)
             {
                 if (isInventoryOpened)
                 {
@@ -75,7 +102,13 @@ public class MouseLook : MonoBehaviourPun
                     openSettings();
                 }
             }
+
+            ResetKeys();
         }
+    }
+    void LateUpdate()
+    {
+
     }
 
     void openInventory()

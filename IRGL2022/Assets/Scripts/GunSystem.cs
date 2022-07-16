@@ -39,6 +39,32 @@ public class GunSystem : MonoBehaviourPun
     //Sound
     public AudioSource shootsound;
 
+    bool fireKeyPressed = false;
+    bool reloadKeyPressed = false;
+    bool adsKeyPressed = false;
+
+    public void Fire()
+    {
+        fireKeyPressed = true;
+    }
+
+    public void Reloads()
+    {
+        reloadKeyPressed = true;
+    }
+
+    public void ADSs()
+    {
+        adsKeyPressed = true;
+    }
+
+    public void ResetKeys()
+    {
+        fireKeyPressed = false;
+        reloadKeyPressed = false;
+        adsKeyPressed = false;
+    }
+
     private void Awake()
     {
         bulletsLeft = magazineSize;
@@ -64,14 +90,19 @@ public class GunSystem : MonoBehaviourPun
     }
 
     private void Update()
-    {     
+    {
 
         MyInput();
 
         float x = Random.Range(-finalSpread * 1.6f, finalSpread * 1.6f);
         float y = Random.Range(-finalSpread * 0.6f, finalSpread * 0.6f);
         Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
-        Debug.DrawLine(fpsCam.transform.position, fpsCam.transform.position + direction*5, Color.red);
+        Debug.DrawLine(fpsCam.transform.position, fpsCam.transform.position + direction * 5, Color.red);
+
+        if (currentPlayer.photonView.IsMine)
+        {
+            ResetKeys();
+        }
     }
 
     public void GunInit()
@@ -93,20 +124,20 @@ public class GunSystem : MonoBehaviourPun
             ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + ammoCount);
             ammunitionDisplay.enabled = true;
         }
-           
-       
+
+
     }
 
     private void MyInput()
     {
-        if(currentPlayer.photonView.IsMine)
+        if (currentPlayer.photonView.IsMine)
         {
             //if player can hold mouse to shoot or not(spray opo tapping)
-            if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
-            else shooting = Input.GetKeyDown(KeyCode.Mouse0);
+            if (allowButtonHold) shooting = fireKeyPressed;
+            else shooting = fireKeyPressed;
 
             //reload
-            if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
+            if (reloadKeyPressed && bulletsLeft < magazineSize && !reloading) Reload();
 
             //reload if magazine is empty and player try to shoot
             if (readyToShoot && shooting && !reloading && bulletsLeft <= 0)
@@ -115,18 +146,18 @@ public class GunSystem : MonoBehaviourPun
             //shoot
             if ((readyToShoot && shooting && !reloading && bulletsLeft > 0) || (allowButtonHold && shooting && !reloading && bulletsLeft > 0))
             {
-                if(readyToShoot)
+                if (readyToShoot)
                 {
                     bulletsShot = bulletsPerTap;
                     Shoot();
-                }             
+                }
             }
             else
             {
                 currentPlayer.animator.SetBool("IsFiring", false);
             }
 
-            if (Input.GetMouseButtonDown(1))
+            if (adsKeyPressed)
             {
                 if (!fpsCam.GetComponent<MouseLook>().isInventoryOpened)
                 {
@@ -152,7 +183,7 @@ public class GunSystem : MonoBehaviourPun
                 //transform.rotation = Quaternion.RotateTowards(transform.rotation, gunContainer.transform.rotation, aimAnimationSpeed * Time.deltaTime);
                 SetFieldOfView(Mathf.Lerp(fpsCam.fieldOfView, defaultFOV, aimAnimationSpeed * Time.deltaTime * 2));
             }
-        }       
+        }
     }
 
     public void ADS()
@@ -192,7 +223,7 @@ public class GunSystem : MonoBehaviourPun
         {
             finalSpread = spread;
         }
-        if(isADS)
+        if (isADS)
         {
             finalSpread *= adsSpread;
         }
@@ -206,7 +237,7 @@ public class GunSystem : MonoBehaviourPun
         //RayCast
         //if (Physics.Raycast(fpsCam.transform.position + (direction * 0.5f), direction, out rayHit, range, whatIsEnemy)) 
         if (Physics.Raycast(fpsCam.transform.position + (direction * 0.5f), direction, out rayHit, range))
-        {            
+        {
             if (rayHit.collider.GetComponent<Player>())
             {
                 //damage enemy here
@@ -216,19 +247,19 @@ public class GunSystem : MonoBehaviourPun
                 float yHitLocation = rayHit.point.y - rayHit.collider.gameObject.transform.position.y;
                 Debug.Log(yHitLocation);
                 float enemyhealth;
-                if(yHitLocation > 0.5)
+                if (yHitLocation > 0.5)
                 {
                     enemyhealth = rayHit.collider.GetComponent<Player>().TakeDamage(damage + damage * 50 / 100, currentPlayer.Team_id);
                 }
-                else if(yHitLocation > 0.2)
+                else if (yHitLocation > 0.2)
                 {
                     enemyhealth = rayHit.collider.GetComponent<Player>().TakeDamage(damage + damage * 100 / 100, currentPlayer.Team_id);
                 }
                 else
                 {
                     enemyhealth = rayHit.collider.GetComponent<Player>().TakeDamage(damage - damage * 20 / 100, currentPlayer.Team_id);
-                }  
-                if(enemyhealth <= 0)
+                }
+                if (enemyhealth <= 0)
                 {
                     //killed an enemy then add points
                     currentPlayer.points += 100;
@@ -254,7 +285,7 @@ public class GunSystem : MonoBehaviourPun
 
         Invoke("ResetShot", timeBetweenShooting);
 
-        if(bulletsShot > 0 && bulletsLeft > 0)
+        if (bulletsShot > 0 && bulletsLeft > 0)
         {
             Invoke("Shoot", timeBetweenShots);
         }
@@ -278,15 +309,15 @@ public class GunSystem : MonoBehaviourPun
         Invoke("ReloadFinished", reloadTime);
     }
     private void ReloadFinished()
-    {          
+    {
         //int bulletreload = Mathf.Min(ammoCount * bulletsPerTap, magazineSize);
         //bulletsLeft = bulletreload;
         int missingBullet = (magazineSize - bulletsLeft) / bulletsPerTap;
         foreach (ItemData item in inventory.items)
         {
-            if(item.prefab.GetComponent<Ammo>())
+            if (item.prefab.GetComponent<Ammo>())
             {
-                if(item.prefab.GetComponent<Ammo>().getAmmoType() == ammoType)
+                if (item.prefab.GetComponent<Ammo>().getAmmoType() == ammoType)
                 {
                     int bulletremove = Mathf.Min(missingBullet, item.amount);
                     missingBullet -= bulletremove;
@@ -297,7 +328,7 @@ public class GunSystem : MonoBehaviourPun
         }
 
         ammoCount = 0;
-        
+
         foreach (ItemData item in inventory.items)
         {
             if (item.prefab.GetComponent<Ammo>())
