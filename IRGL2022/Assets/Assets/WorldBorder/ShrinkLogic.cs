@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 [System.Serializable]
 public class WorldBorderState
@@ -26,14 +27,26 @@ public class ShrinkLogic : MonoBehaviour
     private Vector3 currentPosition;
     private Vector3 currentScale;
 
+    public GameLogic gamelogic;
+
+    public airplane airplane;
+    public Transform airplane_spawn_point;
+
     [SerializeField]
     public List<WorldBorderState> shrinkTape;
+
+    public bool can_respawn;
+
+    public int TapeCounter { get => tapeCounter; set => tapeCounter = value; }
 
     // Start is called before the first frame updates
     void Start()
     {
         currentPosition = transform.position;
         currentScale = transform.localScale;
+        GameObject airplane = PhotonNetwork.InstantiateRoomObject("Prefabs/Airplane", airplane_spawn_point.position, airplane_spawn_point.rotation);
+        airplane.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
+        change_airplane_spawn_point();
     }
 
     // Update is called once per frame
@@ -60,7 +73,26 @@ public class ShrinkLogic : MonoBehaviour
                 currentPosition = transform.position;
                 currentScale = transform.localScale;
                 totalTime = 0;
+                if(tapeCounter < shrinkTape.Count-1)
+                {
+                    spawn_airplane();
+                }                
             }
         }
+    }
+
+    public void spawn_airplane()
+    {
+        if (PhotonNetwork.IsMasterClient && can_respawn)
+        {
+            GameObject airplane =  PhotonNetwork.InstantiateRoomObject("Prefabs/Airplane", airplane_spawn_point.position, airplane_spawn_point.rotation);
+            airplane.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
+            change_airplane_spawn_point();
+        }
+    }
+
+    void change_airplane_spawn_point()
+    {
+
     }
 }

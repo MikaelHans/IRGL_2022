@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Wall
   - WorldBorder
+  - cloud
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - Character
   - OtherMinimap
   - MyMinimap
-  - 
+  - asd
   - 
   - 
   - 

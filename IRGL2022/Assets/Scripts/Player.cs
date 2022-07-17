@@ -66,7 +66,7 @@ public class Player : MonoBehaviourPun
             gameObject.GetComponent<PlayerMovement>().fpsCam.gameObject.SetActive(false);
             MinimapCamera.enabled = false;
             playerCanvas.enabled = false;
-            team_id = int.Parse((string)photonView.InstantiationData[0]);
+            team_id = (int)photonView.InstantiationData[0];
             playername_ui.gameObject.SetActive(true);
             playername_ui.text = playerName;
             List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
@@ -229,13 +229,21 @@ public class Player : MonoBehaviourPun
     [PunRPC]
     public void sync_item_in_chest(string json)
     {
+        if(PhotonNetwork.IsMasterClient)
+        {
+            
+        }
         if (photonView.IsMine)
         {
-            GameObject chest = PhotonNetwork.InstantiateRoomObject("Prefabs/Chest", transform.position, transform.rotation, 0);
-            chest.GetComponent<UnlockableChest>().sync_chest(json);
+            GameObject chest = PhotonNetwork.Instantiate("Prefabs/Chest", transform.position, transform.rotation, 0);
+            if(chest != null)
+            {
+                chest.GetComponent<UnlockableChest>().sync_chest(json);
+            }
+            
             PhotonNetwork.Destroy(gameObject);
-            PhotonNetwork.Disconnect();
-            Application.Quit();
+            //PhotonNetwork.Disconnect();
+            //Application.Quit();
         }  
         //if (photonView.IsMine)
         //{

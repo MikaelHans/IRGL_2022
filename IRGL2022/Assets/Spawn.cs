@@ -9,14 +9,27 @@ public class Spawn : MonoBehaviour
     Cloud cloud;
     void Start()
     {
-        cloud = FindObjectOfType<Cloud>();
+        cloud = GameObject.FindGameObjectWithTag("cloud").GetComponent<Cloud>();
+    }
+
+    private void Update()
+    {
+        if(cloud == null)
+        {
+            cloud = GameObject.FindGameObjectWithTag("cloud").GetComponent<Cloud>();
+        }
     }
 
     public void spawn()
     {
         //random
+        if(cloud == null)
+        {
+            cloud = GameObject.FindGameObjectWithTag("cloud").GetComponent<Cloud>();
+        }
         int randomIndex = Random.Range(0, cloud.cloud.Count);
         GameObject gobj = PhotonNetwork.Instantiate("Prefabs/" + cloud.cloud[randomIndex].itemName, transform.position, transform.rotation);
         
     }
+    
 }

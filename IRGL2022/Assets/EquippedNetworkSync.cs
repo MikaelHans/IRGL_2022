@@ -103,7 +103,7 @@ public class EquippedNetworkSync : MonoBehaviourPun, IPunObservable
                     {
                         bag.SetActive(false);
                     }
-                    player.bag_model[incoming_armor].gameObject.SetActive(true);
+                    player.bag_model[incoming_bag].gameObject.SetActive(true);
                     curr_bag_in_network = incoming_bag;
                 }
             }

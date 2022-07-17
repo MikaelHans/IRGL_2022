@@ -22,6 +22,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
     public TextMeshProUGUI ammunitionDisplay;
     public GameObject crosshair;
     public Player currentPlayer;
+    public GameObject meleesystem;
 
     bool pickupKeyPressed = false;
     bool dropKeyPressed = false;
@@ -151,6 +152,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                 else if (i == -1)
                 {
                     currentPlayer.animator.SetBool("IsCarryingAWeapon", false);
+                    meleesystem.SetActive(true);
                     if (gunEquiped != -1)
                     {
                         weapon[gunEquiped]._gunsystem.gameObject.SetActive(false);
@@ -178,6 +180,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                 else if (i == -1)
                 {
                     currentPlayer.animator.SetBool("IsCarryingAWeapon", false);
+                    meleesystem.SetActive(true);
                     if (gunEquiped != -1)
                     {
                         weapon[gunEquiped]._gunsystem.gameObject.SetActive(false);
@@ -278,6 +281,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
     {
         //weapon[gunEquiped]._gunsystem.gameObject.SetActive(false);
         currentPlayer.animator.SetBool("IsCarryingAWeapon", true);
+        meleesystem.SetActive(false);
         for (int i = 0; i < weapon.Count; i++)
         {
             if (weapon[i]._gunsystem == null)
@@ -293,6 +297,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
     private void setActiveGun(int _gunEquiped)
     {
         currentPlayer.animator.SetBool("IsCarryingAWeapon", true);
+        meleesystem.SetActive(false);
         for (int i = 0; i < weapon.Count; i++)
         {
             if (i == _gunEquiped && weapon[i]._gunsystem != null)
@@ -344,6 +349,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                 updateSlot();
                 gunEquiped = -1;
                 currentPlayer.animator.SetBool("IsCarryingAWeapon", false);
+                meleesystem.SetActive(true);
             }
         }
     }

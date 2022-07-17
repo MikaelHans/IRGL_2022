@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : MonoBehaviourPun
 {
     public AudioSource source;
     //public AudioClip foot;
 
     public void walk(AudioClip sound){
-        source.clip=sound;
+        source.clip = sound;
         source.Play();
     }
 

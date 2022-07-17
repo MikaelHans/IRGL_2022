@@ -22,10 +22,16 @@ public class airplane : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
+        if(cloud == null)
+        {
+            cloud = FindObjectOfType<Cloud>();
+        }
         if (Input.GetKeyDown(KeyCode.Space) && GameStart == false)
         {
             //player drop from airplane
-            GameObject obj =  PhotonNetwork.Instantiate("Prefabs/First Person Player", spawnPos.transform.position, Quaternion.identity, 0);//instantiate player prefab
+            object[] data = new object[1];
+            data[0] = cloud.teamID;
+            GameObject obj = PhotonNetwork.Instantiate("Prefabs/First Person Player", spawnPos.transform.position, Quaternion.identity, 0, data);//instantiate player prefab            
             obj.name = name;
             GameStart = true;
             airplaneCam.enabled = false;

@@ -19,10 +19,17 @@ public class Cloud : MonoBehaviour
             item.id = _id++;
         }
         DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this);
     }
 
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this);
+    }
 
+    private void Update()
+    {
+        //Debug.Log("alive");
     }
 }
