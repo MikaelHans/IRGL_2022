@@ -12,10 +12,16 @@ public class MapEvent : MonoBehaviour
     public bool isMapOpened = false;
     public bool isMapEnabledScene = false;
 
+    public float sceneFog = 0.0f;
+    public float sceneFogMax = 5000f;
+    public float fogLerp = 0.0f;
+
     void Start()
     {
         mainCamera = GameObject.Find("Main Camera");
         mapCamera = GameObject.Find("Map Camera");
+
+        sceneFog = RenderSettings.fogEndDistance;
 
         if (mapCamera == null)
         {
@@ -62,6 +68,18 @@ public class MapEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isMapOpened)
+        {
+            fogLerp += Time.deltaTime;
+        }
+        else
+        {
+            fogLerp -= Time.deltaTime;
+        }
 
+        fogLerp = Mathf.Clamp(fogLerp, 0.0f, 1.0f);
+
+        RenderSettings.fogStartDistance = Mathf.Lerp(0.0f, sceneFogMax / 10f, fogLerp);
+        RenderSettings.fogEndDistance = Mathf.Lerp(sceneFog, sceneFogMax, fogLerp);
     }
 }

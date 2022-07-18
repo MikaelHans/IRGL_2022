@@ -20525,6 +20525,9 @@ MonoBehaviour:
   mapCamera: {fileID: 0}
   isMapOpened: 0
   isMapEnabledScene: 0
+  sceneFog: 0
+  sceneFogMax: 5000
+  fogLerp: 0
 --- !u!1 &4373194738706000451
 GameObject:
   m_ObjectHideFlags: 0
