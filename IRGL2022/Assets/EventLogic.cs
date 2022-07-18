@@ -28,6 +28,9 @@ public class EventLogic : MonoBehaviourPun
     public KeyCode playerMouseLookInventoryKey = KeyCode.Tab;
     public KeyCode playerMouseLookSettingsKey = KeyCode.Escape;
 
+    public MapEvent playerMapEvent;
+    public KeyCode playerMapEventOpenMapKey = KeyCode.M;
+
     void Start()
     {
 
@@ -58,7 +61,22 @@ public class EventLogic : MonoBehaviourPun
             playerMouseLook.Settings();
         }
 
-        if (!playerMouseLook.isInventoryOpened && !playerMouseLook.isSettingsOpened)
+        if (Input.GetKeyDown(playerMapEventOpenMapKey))
+        {
+            if (playerMouseLook.isInventoryOpened)
+            {
+                playerMouseLook.Inventory();
+            }
+
+            if (playerMouseLook.isSettingsOpened)
+            {
+                playerMouseLook.Settings();
+            }
+
+            playerMapEvent.Map();
+        }
+
+        if (!playerMouseLook.isInventoryOpened && !playerMouseLook.isSettingsOpened && !playerMapEvent.isMapOpened)
         {
             if (Input.GetKey(playerWeaponFireKey))
             {

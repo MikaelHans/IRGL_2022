@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Cinemachine;
 
 
 public class airplane : MonoBehaviourPun
@@ -10,19 +11,21 @@ public class airplane : MonoBehaviourPun
     public Vector3 movespeed;
     public bool GameStart;
     Camera airplaneCam;
+    CinemachineVirtualCamera airplaneVCam;
     Cloud cloud;
     // Start is called before the first frame update
     void Start()
     {
         GameStart = false;
         airplaneCam = GetComponentInChildren<Camera>();
+        airplaneVCam = GetComponentInChildren<CinemachineVirtualCamera>();
         cloud = FindObjectOfType<Cloud>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(cloud == null)
+        if (cloud == null)
         {
             cloud = FindObjectOfType<Cloud>();
         }
@@ -36,12 +39,18 @@ public class airplane : MonoBehaviourPun
             GameStart = true;
             airplaneCam.enabled = false;
 
+
+            // change priority camera
+            airplaneVCam.Priority = -100;
+
+            // enable airplane
+            // airplaneVCam.Priority = 100;
         }
 
     }
 
     private void FixedUpdate()
     {
-        gameObject.transform.position += movespeed * Time.deltaTime;        
+        gameObject.transform.position += movespeed * Time.deltaTime;
     }
 }
