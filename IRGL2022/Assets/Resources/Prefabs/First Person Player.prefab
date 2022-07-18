@@ -20504,7 +20504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8224fbdc72d84d2448ae80ae9cb545f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropspot: {fileID: 0}
+  dropspot: {fileID: 6421567036342459262}
+  dropForce: 300
 --- !u!1 &4373194738706000451
 GameObject:
   m_ObjectHideFlags: 0
