@@ -44,14 +44,14 @@ public class ShrinkLogic : MonoBehaviour
     {
         currentPosition = transform.position;
         currentScale = transform.localScale;
-        float x = Random.Range(-(transform.localScale.x / 100) + transform.position.x, transform.localScale.x/100 + transform.position.y);
-        float y = Mathf.Sqrt(Mathf.Pow(transform.localScale.x/100, 2) - Mathf.Pow(x, 2));
-        Debug.Log("X: " + x + "; Y: " + y);
-        Vector3 spawnPos = new Vector3(x, y, airplane_spawn_point.position.z);
-        GameObject airplane = PhotonNetwork.InstantiateRoomObject("Prefabs/Airplane", spawnPos, airplane_spawn_point.rotation);
+
+        Vector3 spawnPos = GetRandomPointInEdge();
+        Vector3 destinationPos = GetRandomPointInEdge();
+        Vector3 headingAngle = spawnPos - destinationPos;
+        GameObject airplane = PhotonNetwork.InstantiateRoomObject("Prefabs/Airplane", spawnPos, Quaternion.Euler(headingAngle));
         //Vector3 airplanePos = airplane.transform.position;
 
-        airplane.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
+        //airplane.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
 
         change_airplane_spawn_point();
     }
@@ -86,6 +86,18 @@ public class ShrinkLogic : MonoBehaviour
                 }                
             }
         }
+    }
+
+    public Vector3 GetRandomPointInEdge()
+    {
+        Vector3 pos = new Vector3();
+        float x = Random.Range(-(transform.localScale.x / 100) + transform.position.x, transform.localScale.x / 100 + transform.position.y);
+        float z = Mathf.Sqrt(Mathf.Pow(transform.localScale.x / 100, 2) - Mathf.Pow(x, 2));
+        pos.x = x;
+        pos.z = z;
+        pos.y = airplane_spawn_point.transform.position.y;
+        Debug.Log("X: " + x + "; Y: " + z);
+        return pos;
     }
 
     public void spawn_airplane()
