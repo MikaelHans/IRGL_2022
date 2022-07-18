@@ -44,10 +44,10 @@ public class ShrinkLogic : MonoBehaviour
     {
         currentPosition = transform.position;
         currentScale = transform.localScale;
-        float angle = Random.Range(0,360) * Mathf.PI * 2;
-        float x = Mathf.Cos(angle) * transform.localScale.x;
-        float z = Mathf.Cos(angle) * transform.localScale.x;
-        Vector3 spawnPos = new Vector3(x, airplane_spawn_point.position.y, z);
+        float x = Random.Range(-(transform.localScale.x / 100) + transform.position.x, transform.localScale.x/100 + transform.position.y);
+        float y = Mathf.Sqrt(Mathf.Pow(transform.localScale.x/100, 2) - Mathf.Pow(x, 2));
+        Debug.Log("X: " + x + "; Y: " + y);
+        Vector3 spawnPos = new Vector3(x, y, airplane_spawn_point.position.z);
         GameObject airplane = PhotonNetwork.InstantiateRoomObject("Prefabs/Airplane", spawnPos, airplane_spawn_point.rotation);
         //Vector3 airplanePos = airplane.transform.position;
 
