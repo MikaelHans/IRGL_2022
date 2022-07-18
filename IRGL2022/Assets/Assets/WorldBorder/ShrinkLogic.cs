@@ -39,6 +39,8 @@ public class ShrinkLogic : MonoBehaviour
 
     public int TapeCounter { get => tapeCounter; set => tapeCounter = value; }
 
+    public float minimumDist;
+
     // Start is called before the first frame updates
     void Start()
     {
@@ -47,8 +49,16 @@ public class ShrinkLogic : MonoBehaviour
 
         Vector3 spawnPos = GetRandomPointInEdge();
         Vector3 destinationPos = GetRandomPointInEdge();
+        float distance = Vector3.Distance(spawnPos, destinationPos);
+        minimumDist = (transform.localScale.x / 100) - 75;
+        while(distance < minimumDist)
+        {
+            destinationPos = GetRandomPointInEdge();
+            distance = Vector3.Distance(spawnPos, destinationPos);
+        }
+
         Vector3 headingAngle = spawnPos - destinationPos;
-        GameObject airplane = PhotonNetwork.InstantiateRoomObject("Prefabs/Airplane", spawnPos, Quaternion.Euler(headingAngle));
+        GameObject airplane = PhotonNetwork.InstantiateRoomObject("Prefabs/Airplane", spawnPos, Quaternion.Euler(0, -180, 0));
         //Vector3 airplanePos = airplane.transform.position;
 
         //airplane.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
@@ -90,6 +100,7 @@ public class ShrinkLogic : MonoBehaviour
 
     public Vector3 GetRandomPointInEdge()
     {
+        Random.InitState(2022);
         Vector3 pos = new Vector3();
         float x = Random.Range(-(transform.localScale.x / 100) + transform.position.x, transform.localScale.x / 100 + transform.position.y);
         float z = Mathf.Sqrt(Mathf.Pow(transform.localScale.x / 100, 2) - Mathf.Pow(x, 2));
