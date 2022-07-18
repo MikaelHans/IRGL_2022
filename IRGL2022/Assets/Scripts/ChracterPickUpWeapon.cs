@@ -24,6 +24,8 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
     public Player currentPlayer;
     public GameObject meleesystem;
 
+    public Drop dropsystem;
+
     bool pickupKeyPressed = false;
     bool dropKeyPressed = false;
 
@@ -33,6 +35,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
     void Start()
     {
         gunEquiped = -1;
+        meleesystem = GetComponentInChildren<MeleeSystem>(true).gameObject;
     }
 
     public void Pickup()
@@ -337,18 +340,27 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
             if (weapon[index]._gunsystem != null)
             {
                 //weapon[index]._gunsystem.gameObject.SetActive(false);
+                //set all gameobject to false to hide gun model
                 for (int i = 0; i < weapon.Count; i++)
                 {
                     GunList[i].gameObject.SetActive(false);
                 }
+                //cancel ads
                 weapon[index]._gunsystem.gameObject.SetActive(false);
                 weapon[index]._gunsystem.cancelADS();
                 weapon[index]._gunsystem.ammunitionDisplay.enabled = false;
-                PhotonNetwork.Instantiate("Prefabs/" + weapon[index].Name, transform.position, transform.rotation);
+                //PhotonNetwork.Instantiate("Prefabs/" + weapon[index].Name, transform.position, transform.rotation);
+                //drop item
+                dropsystem.DropItem(weapon[index]);
+                //overwrite item data to null
                 weapon[index] = new WeaponData();
+                //update slot
                 updateSlot();
+                //set gun equipped status to -1
                 gunEquiped = -1;
+                //set animation
                 currentPlayer.animator.SetBool("IsCarryingAWeapon", false);
+                //enable melee system
                 meleesystem.SetActive(true);
             }
         }
