@@ -13,6 +13,7 @@ public class airplane : MonoBehaviourPun
     Camera airplaneCam;
     CinemachineVirtualCamera airplaneVCam;
     Cloud cloud;
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class airplane : MonoBehaviourPun
         airplaneCam = GetComponentInChildren<Camera>();
         airplaneVCam = GetComponentInChildren<CinemachineVirtualCamera>();
         cloud = FindObjectOfType<Cloud>();
+        movespeed = Vector3.back * speed;
     }
 
     // Update is called once per frame
