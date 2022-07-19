@@ -351,7 +351,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                 weapon[index]._gunsystem.ammunitionDisplay.enabled = false;
                 //PhotonNetwork.Instantiate("Prefabs/" + weapon[index].Name, transform.position, transform.rotation);
                 //drop item
-                dropsystem.DropItem(weapon[index]);
+                dropsystem.DropItem(weapon[index],1);
                 //overwrite item data to null
                 weapon[index] = new WeaponData();
                 //update slot

@@ -11,6 +11,12 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler
 
 
     public ItemData item;
+    Drop drop;
+
+    private void Start()
+    {
+        drop = GetComponentInParent<Player>().drop;
+    }
 
     public void AddItem(ItemData newItem)
     {
@@ -38,7 +44,10 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
+            item.amount -= 1;
             inventory.Remove(item);
+            drop.DropItem(item,1);
+            //Debug.Log(eventData.);
         }
     }
     

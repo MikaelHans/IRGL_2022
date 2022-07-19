@@ -31,6 +31,8 @@ public class Player : MonoBehaviourPun
     public bool is_same_team;
     public TextMeshProUGUI playername_ui;
 
+    public Drop drop;
+
     public int Team_id { get => team_id; set => team_id = value; }
     public ItemData Helmet { get => helmet; set => helmet = value; }
     public ItemData Armor { get => armor; set => armor = value; }

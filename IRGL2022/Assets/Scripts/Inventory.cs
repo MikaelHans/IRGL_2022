@@ -66,6 +66,8 @@ public class Inventory : MonoBehaviourPun
         // item.itemObject.GetPhotonView().TransferOwnership(PhotonNetwork.MasterClient);
         // containerForRpc = item;
         // photonView.RPC("rpc_configure_item", RpcTarget.All);
+        removeAllZeroItem();
+        UI.UpdateUI();
     }
 
     public ItemData[] getAllItem()

@@ -7,7 +7,7 @@ public class Drop : MonoBehaviourPun
 {
     public Transform dropspot;
     public float dropForce;
-    public void DropItem(ItemData item)
+    public void DropItem(ItemData item, int amount)
     {
         string itemname = item.ItemName;
 
@@ -16,7 +16,6 @@ public class Drop : MonoBehaviourPun
         Vector3 force = new Vector3(0, dropForce, dropForce);
 
         drop.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * dropForce);
+        drop.GetComponent<Item>().amount = amount;
     }
-
-
 }

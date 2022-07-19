@@ -20110,6 +20110,7 @@ MonoBehaviour:
   chest: {fileID: 7300111515750872659, guid: 8e24b3497bf45444994e738f75e48e4b, type: 3}
   is_same_team: 0
   playername_ui: {fileID: 7389838089595367635}
+  drop: {fileID: 362307915746746142}
 --- !u!143 &4373194738681279152
 CharacterController:
   m_ObjectHideFlags: 0
