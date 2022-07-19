@@ -21,7 +21,7 @@ public class airplane : MonoBehaviourPun
         airplaneCam = GetComponentInChildren<Camera>();
         airplaneVCam = GetComponentInChildren<CinemachineVirtualCamera>();
         cloud = FindObjectOfType<Cloud>();
-        movespeed = Vector3.back * speed;
+        movespeed = transform.forward * speed;
     }
 
     // Update is called once per frame
