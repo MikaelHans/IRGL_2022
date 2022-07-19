@@ -54,6 +54,7 @@ MonoBehaviour:
   - rpc_changeWeapon
   - rpc_equip_weapon
   - update_score
+  - destroy
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0

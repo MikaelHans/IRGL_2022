@@ -14,6 +14,7 @@ public class airplane : MonoBehaviourPun
     CinemachineVirtualCamera airplaneVCam;
     Cloud cloud;
     public float speed;
+    public Vector3 destination;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +49,19 @@ public class airplane : MonoBehaviourPun
             // enable airplane
             // airplaneVCam.Priority = 100;
         }
+        if (Vector3.Distance(transform.position, destination) <= 1f)
+        {
+            if(PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.Destroy(gameObject);
+            }
+        }
+
+    }
+
+    [PunRPC]
+    public void destroy()
+    {
 
     }
 

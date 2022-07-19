@@ -49,9 +49,13 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler
 
     public void onUseItem()
     {
-        if (item.prefab.GetComponent<IUsable>() != null)
+        if (item.prefab.GetComponent<IUsable>() != null && item.prefab != null)
         {
             inventory.UseItemInInventory((UsableItemData)item);
-        }        
+        }
+        else
+        {
+            Debug.Log("error, nullreference exception");
+        }
     }
 }

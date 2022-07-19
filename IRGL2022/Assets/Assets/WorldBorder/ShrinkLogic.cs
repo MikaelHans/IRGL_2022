@@ -44,27 +44,31 @@ public class ShrinkLogic : MonoBehaviour
 
     // Start is called before the first frame updates
     void Start()
-    {
-        currentPosition = transform.position;
-        currentScale = transform.localScale;
-
-        Vector3 spawnPos = GetRandomPointInEdge();
-        Vector3 destinationPos = GetRandomPointInEdge();
-        float distance = Vector3.Distance(spawnPos, destinationPos);
-        minimumDist = ((transform.localScale.x * 2) / 100) - 75;
-        while(distance < minimumDist)
+    {        
+        if(PhotonNetwork.IsMasterClient)
         {
-            destinationPos = GetRandomPointInEdge();
-            distance = Vector3.Distance(spawnPos, destinationPos);
-        }
+            currentPosition = transform.position;
+            currentScale = transform.localScale;
 
-        float headingAngle = Vector3.Angle(spawnPos, destinationPos);
-        GameObject airplane = PhotonNetwork.InstantiateRoomObject("Prefabs/Airplane", spawnPos, Quaternion.Euler(0, headingAngle, 0));
-        //Vector3 airplanePos = airplane.transform.position;
+            Vector3 spawnPos = GetRandomPointInEdge();
+            Vector3 destinationPos = GetRandomPointInEdge();
+            float distance = Vector3.Distance(spawnPos, destinationPos);
+            minimumDist = ((transform.localScale.x * 2) / 100) - 75;
+            while (distance < minimumDist)
+            {
+                destinationPos = GetRandomPointInEdge();
+                distance = Vector3.Distance(spawnPos, destinationPos);
+            }
 
-        //airplane.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
+            float headingAngle = Vector3.Angle(spawnPos, destinationPos);
 
-        change_airplane_spawn_point();
+            GameObject _airplane = PhotonNetwork.InstantiateRoomObject("Prefabs/Airplane", spawnPos, Quaternion.Euler(0, headingAngle, 0));
+            //Vector3 airplanePos = airplane.transform.position;
+            _airplane.GetComponent<airplane>().destination = destinationPos;
+            //airplane.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
+            change_airplane_spawn_point();
+        }      
+        
     }
 
     // Update is called once per frame
