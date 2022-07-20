@@ -144,8 +144,8 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                 {
                     if (weapon[i]._gunsystem != null)
                     {
-                        if (weapon[i]._gunsystem != null)
-                            weapon[i]._gunsystem.stopADS();
+                        // if (weapon[i]._gunsystem != null)
+                        //     weapon[i]._gunsystem.stopADS();
                         //weapon[gunEquiped].transform.position = gunContainer.transform.position;
                         weapon[i]._gunsystem.gameObject.SetActive(true);
                     }
@@ -172,8 +172,8 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                 {
                     if (weapon[i]._gunsystem != null)
                     {
-                        if (weapon[i]._gunsystem != null)
-                            weapon[i]._gunsystem.stopADS();
+                        // if (weapon[i]._gunsystem != null)
+                        //     weapon[i]._gunsystem.stopADS();
                         //weapon[gunEquiped].transform.position = gunContainer.transform.position;
                         weapon[i]._gunsystem.gameObject.SetActive(true);
                     }
@@ -351,7 +351,7 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
                 weapon[index]._gunsystem.ammunitionDisplay.enabled = false;
                 //PhotonNetwork.Instantiate("Prefabs/" + weapon[index].Name, transform.position, transform.rotation);
                 //drop item
-                dropsystem.DropItem(weapon[index],1);
+                dropsystem.DropItem(weapon[index], 1);
                 //overwrite item data to null
                 weapon[index] = new WeaponData();
                 //update slot

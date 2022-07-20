@@ -10,7 +10,8 @@ public class MouseLook : MonoBehaviourPun
     float xRotation = 0f;
     public GameObject inventoryUI;
     public GameObject SettingsUI;
-    public Transform bone;
+
+    public GameObject fpsCamera;
 
     public bool isInventoryOpened;
     public bool isSettingsOpened;
@@ -63,11 +64,9 @@ public class MouseLook : MonoBehaviourPun
                 float mouseY = -yRotationValue * mouseSensitivity * mouseSensitivityMultiplier * Time.deltaTime;
 
                 xRotation -= mouseY;
-                xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+                xRotation = Mathf.Clamp(xRotation, -80f, 80f);
 
-                transform.parent.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-                //transform.rot
-                bone.localRotation = Quaternion.Euler(-180f, 0f, xRotation);
+                fpsCamera.transform.parent.transform.localRotation = Quaternion.Euler(xRotation, 0, 0f);
                 playerBody.Rotate(Vector3.up * mouseX);
             }
 

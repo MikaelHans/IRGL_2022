@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
-
+using Cinemachine;
 public class GunSystem : MonoBehaviourPun
 {
     //Gun stats
@@ -23,6 +23,9 @@ public class GunSystem : MonoBehaviourPun
 
     //Reference
     public Camera fpsCam, gunCam;
+    public CinemachineVirtualCamera virtualTPSCam;
+    public CinemachineVirtualCamera virtualFPSCam;
+
     public RaycastHit rayHit;
     public LayerMask whatIsEnemy;
     public CharacterController controller;
@@ -157,21 +160,21 @@ public class GunSystem : MonoBehaviourPun
                 currentPlayer.animator.SetBool("IsFiring", false);
             }
 
+            // if (adsKeyPressed)
+            // {
+            //     if (!fpsCam.GetComponent<MouseLook>().isInventoryOpened)
+            //     {
+            //         if (!isADS)
+            //         {
+            //             ADS();
+            //         }
+            //         else
+            //         {
+            //             stopADS();
+            //         }
+            //     }
+            // }
             if (adsKeyPressed)
-            {
-                if (!fpsCam.GetComponent<MouseLook>().isInventoryOpened)
-                {
-                    if (!isADS)
-                    {
-                        ADS();
-                    }
-                    else
-                    {
-                        stopADS();
-                    }
-                }
-            }
-            if (isADS)
             {
                 //transform.position = Vector3.MoveTowards(transform.position, adsContainer.transform.position, aimAnimationSpeed * Time.deltaTime);
                 //transform.rotation = Quaternion.RotateTowards(transform.rotation, adsContainer.transform.rotation, aimAnimationSpeed * Time.deltaTime);
@@ -192,11 +195,11 @@ public class GunSystem : MonoBehaviourPun
         crosshair.SetActive(false);
     }
 
-    public void stopADS()
-    {
-        isADS = false;
-        crosshair.SetActive(true);
-    }
+    // public void stopADS()
+    // {
+    //     isADS = false;
+    //     crosshair.SetActive(true);
+    // }
     public void cancelADS()
     {
         isADS = false;
@@ -209,6 +212,8 @@ public class GunSystem : MonoBehaviourPun
     {
         fpsCam.fieldOfView = fov;
         gunCam.fieldOfView = fov;
+        virtualTPSCam.m_Lens.FieldOfView = fov;
+        virtualFPSCam.m_Lens.FieldOfView = fov;
     }
     private void Shoot()
     {

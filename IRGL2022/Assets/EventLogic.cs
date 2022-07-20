@@ -31,6 +31,13 @@ public class EventLogic : MonoBehaviourPun
     public MapEvent playerMapEvent;
     public KeyCode playerMapEventOpenMapKey = KeyCode.M;
 
+    public FPSTPSToggle playerFPSTPSToggle;
+    public KeyCode playerFPSTPSToggleKey = KeyCode.V;
+
+    public TPSPositionToggle playerTPSPositionToggle;
+    public KeyCode playerTPSPositionToggleKey = KeyCode.T;
+
+
     void Start()
     {
 
@@ -94,7 +101,7 @@ public class EventLogic : MonoBehaviourPun
                 }
             }
 
-            if (Input.GetKeyDown(playerWeaponADSKey))
+            if (Input.GetKey(playerWeaponADSKey))
             {
                 if (playerPickUpWeapon.gunEquiped != -1)
                 {
@@ -130,6 +137,16 @@ public class EventLogic : MonoBehaviourPun
             if (Input.GetKey(playerPickUpItemPickupKey))
             {
                 playerPickUpItem.Pickup();
+            }
+
+            if (Input.GetKeyDown(playerFPSTPSToggleKey))
+            {
+                playerFPSTPSToggle.ToggleMode();
+            }
+
+            if (Input.GetKeyDown(playerTPSPositionToggleKey))
+            {
+                playerTPSPositionToggle.TogglePosition();
             }
         }
 
