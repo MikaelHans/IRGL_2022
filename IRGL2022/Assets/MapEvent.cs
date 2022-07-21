@@ -6,7 +6,6 @@ using Cinemachine;
 public class MapEvent : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject mainCamera;
     public GameObject mapCamera;
 
     public bool isMapOpened = false;
@@ -18,7 +17,6 @@ public class MapEvent : MonoBehaviour
 
     void Start()
     {
-        mainCamera = GameObject.Find("Main Camera");
         mapCamera = GameObject.Find("Map Camera");
 
         sceneFog = RenderSettings.fogEndDistance;
@@ -32,9 +30,6 @@ public class MapEvent : MonoBehaviour
         {
             isMapEnabledScene = true;
         }
-
-        mainCamera.GetComponent<Camera>().enabled = false;
-        mainCamera.GetComponent<Camera>().enabled = true;
     }
 
     public void Map()
