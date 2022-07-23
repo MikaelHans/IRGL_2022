@@ -22,7 +22,7 @@ public class ShrinkLogic : MonoBehaviour
     public float shrinkDelay = 120f;
 
     private int tapeCounter = 0;
-    private float totalTime = 0;
+    public float totalTime = 0;
 
     private Vector3 currentPosition;
     private Vector3 currentScale;
@@ -31,44 +31,31 @@ public class ShrinkLogic : MonoBehaviour
 
     public airplane airplane;
     public Transform airplane_spawn_point;
+    public Transform airplane_destination_point;
+
+    public List<Transform> spawnPoints = new List<Transform>();
 
     [SerializeField]
     public List<WorldBorderState> shrinkTape;
 
     public bool can_respawn;
+    bool initSpawn;
 
     public int TapeCounter { get => tapeCounter; set => tapeCounter = value; }
 
     public float minimumDist;
     int seed = 2022;
 
+
     // Start is called before the first frame updates
     void Start()
-    {        
-        if(PhotonNetwork.IsMasterClient)
+    {
+        initSpawn = true;
+        if (PhotonNetwork.IsMasterClient)
         {
-            currentPosition = transform.position;
-            currentScale = transform.localScale;
-
-            Vector3 spawnPos = GetRandomPointInEdge();
-            Vector3 destinationPos = GetRandomPointInEdge();
-            float distance = Vector3.Distance(spawnPos, destinationPos);
-            minimumDist = ((transform.localScale.x * 2) / 100) - 75;
-            while (distance < minimumDist)
-            {
-                destinationPos = GetRandomPointInEdge();
-                distance = Vector3.Distance(spawnPos, destinationPos);
-            }
-
-            float headingAngle = Vector3.Angle(spawnPos, destinationPos);
-
-            GameObject _airplane = PhotonNetwork.InstantiateRoomObject("Prefabs/Airplane", spawnPos, Quaternion.Euler(0, headingAngle, 0));
-            //Vector3 airplanePos = airplane.transform.position;
-            _airplane.GetComponent<airplane>().destination = destinationPos;
-            //airplane.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
-            change_airplane_spawn_point();
+            spawn_airplane();
         }      
-        
+        initSpawn = false;
     }
 
     // Update is called once per frame
@@ -106,23 +93,36 @@ public class ShrinkLogic : MonoBehaviour
     public Vector3 GetRandomPointInEdge()
     {
         Random.InitState(seed++);
+        Debug.Log("Diameter: " + transform.localScale.x / 100);
         Vector3 pos = new Vector3();
-        float x = Random.Range(-(transform.localScale.x / 100) + transform.position.x, transform.localScale.x / 100 + transform.position.y);
-        float z = Mathf.Sqrt(Mathf.Pow(transform.localScale.x / 100, 2) - Mathf.Pow(x, 2));
-        pos.x = x;
-        pos.z = z;
-        pos.y = airplane_spawn_point.transform.position.y;
-        Debug.Log("X: " + x + "; Y: " + z);
+        int i = Random.Range(0, spawnPoints.Count);
+        pos = spawnPoints[i].position;
         return pos;
     }
 
     public void spawn_airplane()
     {
-        if (PhotonNetwork.IsMasterClient && can_respawn)
+        if (PhotonNetwork.IsMasterClient && (initSpawn || (can_respawn && TapeCounter < shrinkTape.Count - 1)))
         {
-            GameObject airplane =  PhotonNetwork.InstantiateRoomObject("Prefabs/Airplane", airplane_spawn_point.position, airplane_spawn_point.rotation);
-            airplane.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
-            change_airplane_spawn_point();
+            currentPosition = transform.position;
+            currentScale = transform.localScale;
+
+            Vector3 spawnPos = GetRandomPointInEdge();
+            Vector3 destinationPos = GetRandomPointInEdge();
+            float distance = Vector3.Distance(spawnPos, destinationPos);
+            minimumDist = ((transform.localScale.x * 2) / 100) - 75;
+            while (distance < minimumDist)
+            {
+                destinationPos = GetRandomPointInEdge();
+                distance = Vector3.Distance(spawnPos, destinationPos);
+            }
+
+            airplane_destination_point.position = destinationPos;
+            GameObject _airplane = PhotonNetwork.InstantiateRoomObject("Prefabs/Airplane", spawnPos, Quaternion.Euler(0, 0, 0));
+            _airplane.transform.LookAt(airplane_destination_point);            
+            //Vector3 airplanePos = airplane.transform.position;
+            _airplane.GetComponent<airplane>().destination = new Vector3(destinationPos.x, destinationPos.y, destinationPos.z);
+            //airplane.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
         }
     }
 

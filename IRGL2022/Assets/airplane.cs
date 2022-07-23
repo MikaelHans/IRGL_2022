@@ -49,6 +49,7 @@ public class airplane : MonoBehaviourPun
             // enable airplane
             // airplaneVCam.Priority = 100;
         }
+        //Debug.Log(Vector3.Distance(transform.position, destination));
         if (Vector3.Distance(transform.position, destination) <= 1f)
         {
             if(PhotonNetwork.IsMasterClient)
@@ -56,7 +57,6 @@ public class airplane : MonoBehaviourPun
                 PhotonNetwork.Destroy(gameObject);
             }
         }
-
     }
 
     [PunRPC]
@@ -67,6 +67,6 @@ public class airplane : MonoBehaviourPun
 
     private void FixedUpdate()
     {
-        gameObject.transform.position += movespeed * Time.deltaTime;
+        gameObject.transform.position += transform.forward * speed * Time.deltaTime;
     }
 }
