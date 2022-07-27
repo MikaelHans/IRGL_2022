@@ -10,6 +10,8 @@ TagManager:
   - Wall
   - WorldBorder
   - cloud
+  - respawnUI
+  - UI
   layers:
   - Default
   - TransparentFX

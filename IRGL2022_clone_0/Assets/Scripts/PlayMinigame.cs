@@ -10,14 +10,24 @@ public class PlayMinigame : MonoBehaviour
     public float pickUpRange;
     public Player player;
     // Start is called before the first frame update
+
+    bool minigameKeyPressed = false;
+    public void Minigame()
+    {
+        minigameKeyPressed = true;
+    }
+    public void ResetKeys()
+    {
+        minigameKeyPressed = false;
+    }
     void Start()
     {
-        
+
     }
     void Update()
     {
         //Check if player is in range and "E" is pressed
-        if (Input.GetKeyDown(KeyCode.E))
+        if (minigameKeyPressed)
         {
             Vector3 direction = fpsCam.transform.forward;
             //RayCast
@@ -27,5 +37,7 @@ public class PlayMinigame : MonoBehaviour
                 chest.GetComponent<UnlockableChest>().Open(player);
             }
         }
+
+        ResetKeys();
     }
 }

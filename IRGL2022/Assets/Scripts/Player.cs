@@ -12,7 +12,9 @@ public class Player : MonoBehaviourPun
     public float points = 0;
     public Image healthBar;
     public string playerName = "";
-    Camera playerCam;
+    public GameObject playerCam;
+    public GameObject crosshair;
+    public Camera maincam;
     public Canvas playerCanvas;
     public Camera MinimapCamera;
     public InventoryUI inventoryUI;
@@ -50,21 +52,25 @@ public class Player : MonoBehaviourPun
         playerName = photonView.Owner.NickName;
         if (photonView.IsMine)//if is this client player
         {
-            playerCam = gameObject.GetComponentInChildren<Camera>();
+            //playerCam = gameObject.GetComponentInChildren<Camera>();
             playerCanvas = gameObject.GetComponentInChildren<Canvas>();
             List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
             foreach (Player player in allPlayers)
             {
                 if (!player.photonView.IsMine)
                 {
-                    player.playername_ui.GetComponent<UI_Follow>().maincamera = playerCam;
+                    player.playername_ui.GetComponent<UI_Follow>().maincamera = playerCam.GetComponentInChildren<Camera>(false);
                 }
             }
+            GameObject UI = GameObject.FindGameObjectWithTag("respawnUI");
+
+            UI.SetActive(false);
         }
         else
         {
             //playerCam.enabled = false;
-            //playerCam.gameObject.SetActive(false);
+            crosshair.SetActive(false);
+            playerCam.gameObject.SetActive(false);
             gameObject.GetComponent<PlayerMovement>().fpsCam.gameObject.SetActive(false);
             MinimapCamera.enabled = false;
             playerCanvas.enabled = false;
@@ -76,7 +82,7 @@ public class Player : MonoBehaviourPun
             {
                 if (player.photonView.IsMine)
                 {
-                    playername_ui.GetComponent<UI_Follow>().maincamera = player.playerCam;
+                    playername_ui.GetComponent<UI_Follow>().maincamera = player.playerCam.GetComponentInChildren<Camera>(false); ;
                 }
             }
             #region old multiplayer codes
@@ -209,6 +215,9 @@ public class Player : MonoBehaviourPun
             
             Debug.Log(json);
 
+            GameObject UI = GameObject.FindGameObjectWithTag("respawnUI");
+
+            UI.SetActive(true);
         }
         else
         {

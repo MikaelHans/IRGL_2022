@@ -73,6 +73,7 @@ public class LoginFunctions : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post(loginAPI, json_data);
         www.SetRequestHeader("Content-Type", "application/json");
         yield return www.SendWebRequest();
+        loginButton.GetComponent<LoadSceneButton>().LoadTargetScene();
         if (www.responseCode != 500)
         {
             string json_response = www.downloadHandler.text;
@@ -91,7 +92,7 @@ public class LoginFunctions : MonoBehaviour
             }
             else
             {
-                warningDisplay.text = "Invalid email or password!";
+                warningDisplay.text = "Invalid email or password!";                
             }
         }
         else

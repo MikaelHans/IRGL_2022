@@ -8,6 +8,7 @@ public class ScoreKeeper : MonoBehaviour
 
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
         for(int i = 0; i < Teams.Length; i++)
         {
             Teams[i] = new Team(i);

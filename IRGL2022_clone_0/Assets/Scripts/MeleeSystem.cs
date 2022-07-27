@@ -54,10 +54,11 @@ public class MeleeSystem : MonoBehaviour
 
         //Calculate Direction with Spread
         Vector3 direction = fpsCam.transform.forward;
-
+        currentPlayer.animator.SetBool("IsFiring", true);
         //RayCast
         if (Physics.Raycast(fpsCam.transform.position + (direction * 0.5f), direction, out rayHit, range, whatIsEnemy))
         {
+            
             float enemyhealth;
             if (rayHit.collider.CompareTag("Enemy"))
             {
@@ -84,6 +85,7 @@ public class MeleeSystem : MonoBehaviour
     private void ResetShot()
     {
         readyToShoot = true;
+        currentPlayer.animator.SetBool("IsFiring", false);
     }
     
 }

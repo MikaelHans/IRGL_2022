@@ -26,7 +26,7 @@ public class UnlockableChest : MonoBehaviourPun
         isOpened = true;
         for(int i = 0; i < items.Length; i++)
         {
-            GameObject tmp = PhotonNetwork.Instantiate("Prefabs/" + items[i].Name, transform.position + (transform.forward * 2), transform.rotation);
+            GameObject tmp = PhotonNetwork.Instantiate("Prefabs/" + items[i].prefab.GetComponent<Item>().itemName, transform.position + (transform.forward * 2), transform.rotation);
             tmp.GetComponent<Item>().prefab = items[i].prefab;
             tmp.GetComponent<Item>().amount = items[i].amount;
             tmp.GetComponent<Item>().name = items[i].Name;

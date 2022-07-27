@@ -23,7 +23,7 @@ public class InventoryUI : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        slots.AddRange(itemParent.GetComponentsInChildren<InventorySlotUI>());
+        slots.AddRange(itemParent.GetComponentsInChildren<InventorySlotUI>(true));
         for (int i = 0; i < inventory.spaceLimit; i++)
         {
             slots[i].inventory = inventory;

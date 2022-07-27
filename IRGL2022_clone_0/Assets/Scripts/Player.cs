@@ -12,7 +12,9 @@ public class Player : MonoBehaviourPun
     public float points = 0;
     public Image healthBar;
     public string playerName = "";
-    Camera playerCam;
+    public GameObject playerCam;
+    public GameObject crosshair;
+    public Camera maincam;
     public Canvas playerCanvas;
     public Camera MinimapCamera;
     public InventoryUI inventoryUI;
@@ -31,6 +33,8 @@ public class Player : MonoBehaviourPun
     public bool is_same_team;
     public TextMeshProUGUI playername_ui;
 
+    public Drop drop;
+
     public int Team_id { get => team_id; set => team_id = value; }
     public ItemData Helmet { get => helmet; set => helmet = value; }
     public ItemData Armor { get => armor; set => armor = value; }
@@ -48,25 +52,29 @@ public class Player : MonoBehaviourPun
         playerName = photonView.Owner.NickName;
         if (photonView.IsMine)//if is this client player
         {
-            playerCam = gameObject.GetComponentInChildren<Camera>();
+            //playerCam = gameObject.GetComponentInChildren<Camera>();
             playerCanvas = gameObject.GetComponentInChildren<Canvas>();
             List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
             foreach (Player player in allPlayers)
             {
                 if (!player.photonView.IsMine)
                 {
-                    player.playername_ui.GetComponent<UI_Follow>().maincamera = playerCam;
+                    player.playername_ui.GetComponent<UI_Follow>().maincamera = playerCam.GetComponentInChildren<Camera>(false);
                 }
             }
+            GameObject UI = GameObject.FindGameObjectWithTag("respawnUI");
+
+            UI.SetActive(false);
         }
         else
         {
             //playerCam.enabled = false;
-            //playerCam.gameObject.SetActive(false);
+            crosshair.SetActive(false);
+            playerCam.gameObject.SetActive(false);
             gameObject.GetComponent<PlayerMovement>().fpsCam.gameObject.SetActive(false);
             MinimapCamera.enabled = false;
             playerCanvas.enabled = false;
-            team_id = int.Parse((string)photonView.InstantiationData[0]);
+            team_id = (int)photonView.InstantiationData[0];
             playername_ui.gameObject.SetActive(true);
             playername_ui.text = playerName;
             List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
@@ -74,7 +82,7 @@ public class Player : MonoBehaviourPun
             {
                 if (player.photonView.IsMine)
                 {
-                    playername_ui.GetComponent<UI_Follow>().maincamera = player.playerCam;
+                    playername_ui.GetComponent<UI_Follow>().maincamera = player.playerCam.GetComponentInChildren<Camera>(false); ;
                 }
             }
             #region old multiplayer codes
@@ -166,6 +174,7 @@ public class Player : MonoBehaviourPun
         {
             // inventoryUI.removeAll();
             //weapons.dropgunFromSlot();
+            photonView.RPC("update_score", RpcTarget.All, killer_team_id, 100);
             List<ItemData> allitems = new List<ItemData>();
             // foreach (GameObject weapon in weapons.dropgunAllGun())
             // {
@@ -201,11 +210,14 @@ public class Player : MonoBehaviourPun
             
             //export allitem to json
             string json = JsonHelper.ToJson<ItemData>(allitems.ToArray());
-            //rpc call
+            //rpc call            
             photonView.RPC("sync_item_in_chest", RpcTarget.All, json);
-            photonView.RPC("update_score", RpcTarget.All, killer_team_id, 100);
+            
             Debug.Log(json);
 
+            GameObject UI = GameObject.FindGameObjectWithTag("respawnUI");
+
+            UI.SetActive(true);
         }
         else
         {
@@ -228,11 +240,21 @@ public class Player : MonoBehaviourPun
     [PunRPC]
     public void sync_item_in_chest(string json)
     {
+        if(PhotonNetwork.IsMasterClient)
+        {
+            
+        }
         if (photonView.IsMine)
         {
             GameObject chest = PhotonNetwork.Instantiate("Prefabs/Chest", transform.position, transform.rotation, 0);
-            chest.GetComponent<UnlockableChest>().sync_chest(json);
+            if(chest != null)
+            {
+                chest.GetComponent<UnlockableChest>().sync_chest(json);
+            }
+            
             PhotonNetwork.Destroy(gameObject);
+            //PhotonNetwork.Disconnect();
+            //Application.Quit();
         }  
         //if (photonView.IsMine)
         //{

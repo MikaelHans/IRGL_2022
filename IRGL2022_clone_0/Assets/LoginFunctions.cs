@@ -50,7 +50,7 @@ public class LoginFunctions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cloud.teamID = "";
+        cloud.teamID = -1;
         cloud.email = "";
     }
 
@@ -73,6 +73,7 @@ public class LoginFunctions : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post(loginAPI, json_data);
         www.SetRequestHeader("Content-Type", "application/json");
         yield return www.SendWebRequest();
+        loginButton.GetComponent<LoadSceneButton>().LoadTargetScene();
         if (www.responseCode != 500)
         {
             string json_response = www.downloadHandler.text;
@@ -80,7 +81,7 @@ public class LoginFunctions : MonoBehaviour
 
             if (json_obj.success)
             {
-                string teamID = json_obj.id_team.ToString();
+                int teamID = json_obj.id_team;
                 cloud.email = email;
                 cloud.teamID = teamID;
                 warningDisplay.text = "Login Success!";
@@ -91,7 +92,7 @@ public class LoginFunctions : MonoBehaviour
             }
             else
             {
-                warningDisplay.text = "Invalid email or password!";
+                warningDisplay.text = "Invalid email or password!";                
             }
         }
         else
