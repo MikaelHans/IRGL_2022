@@ -62,9 +62,10 @@ public class Player : MonoBehaviourPun
                     player.playername_ui.GetComponent<UI_Follow>().maincamera = playerCam.GetComponentInChildren<Camera>(false);
                 }
             }
-            GameObject UI = GameObject.FindGameObjectWithTag("respawnUI");
+            GameObject UI = FindObjectOfType<RespawnUI>(true).gameObject;
 
-            UI.SetActive(false);
+            if(UI != null)
+                UI.SetActive(false);
         }
         else
         {
@@ -72,7 +73,7 @@ public class Player : MonoBehaviourPun
             crosshair.SetActive(false);
             playerCam.gameObject.SetActive(false);
             gameObject.GetComponent<PlayerMovement>().fpsCam.gameObject.SetActive(false);
-            MinimapCamera.enabled = false;
+            //MinimapCamera.enabled = false;
             playerCanvas.enabled = false;
             team_id = (int)photonView.InstantiationData[0];
             playername_ui.gameObject.SetActive(true);
