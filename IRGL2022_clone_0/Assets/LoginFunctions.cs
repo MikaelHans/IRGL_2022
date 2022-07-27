@@ -73,7 +73,16 @@ public class LoginFunctions : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post(loginAPI, json_data);
         www.SetRequestHeader("Content-Type", "application/json");
         yield return www.SendWebRequest();
+
+        #region delete when server is up and running
+        int teamID2 = 0;
+        cloud.email = email;
+        cloud.teamID = teamID2;
+        warningDisplay.text = "Login Success!";
         loginButton.GetComponent<LoadSceneButton>().LoadTargetScene();
+        #endregion
+
+
         if (www.responseCode != 500)
         {
             string json_response = www.downloadHandler.text;

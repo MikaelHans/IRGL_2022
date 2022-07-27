@@ -61,10 +61,7 @@ public class Player : MonoBehaviourPun
                 {
                     player.playername_ui.GetComponent<UI_Follow>().maincamera = playerCam.GetComponentInChildren<Camera>(false);
                 }
-            }
-            GameObject UI = GameObject.FindGameObjectWithTag("respawnUI");
-
-            UI.SetActive(false);
+            }            
         }
         else
         {
@@ -72,7 +69,7 @@ public class Player : MonoBehaviourPun
             crosshair.SetActive(false);
             playerCam.gameObject.SetActive(false);
             gameObject.GetComponent<PlayerMovement>().fpsCam.gameObject.SetActive(false);
-            MinimapCamera.enabled = false;
+            //MinimapCamera.enabled = false;
             playerCanvas.enabled = false;
             team_id = (int)photonView.InstantiationData[0];
             playername_ui.gameObject.SetActive(true);
@@ -215,9 +212,10 @@ public class Player : MonoBehaviourPun
             
             Debug.Log(json);
 
-            GameObject UI = GameObject.FindGameObjectWithTag("respawnUI");
+            RespawnUI UI = FindObjectOfType<RespawnUI>(true);
 
-            UI.SetActive(true);
+            if (UI != null)
+                UI.gameObject.SetActive(true);
         }
         else
         {
@@ -232,8 +230,8 @@ public class Player : MonoBehaviourPun
     {
         if(PhotonNetwork.IsMasterClient)
         {
-            ScoreKeeper scorekeeper = FindObjectOfType<ScoreKeeper>();
-            scorekeeper.update_team_score(team_id, score);
+            //ScoreKeeper scorekeeper = FindObjectOfType<ScoreKeeper>();
+            //scorekeeper.update_team_score(team_id, score);
         }
     }
 
