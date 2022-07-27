@@ -25,6 +25,11 @@ public class airplane : MonoBehaviourPun
         airplaneVCam = GetComponentInChildren<CinemachineVirtualCamera>();
         cloud = FindObjectOfType<Cloud>();
         movespeed = transform.forward * speed;
+
+        RespawnUI UI = FindObjectOfType<RespawnUI>(true);
+
+        if (UI != null)
+            UI.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

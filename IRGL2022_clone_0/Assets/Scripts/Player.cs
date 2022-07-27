@@ -61,11 +61,7 @@ public class Player : MonoBehaviourPun
                 {
                     player.playername_ui.GetComponent<UI_Follow>().maincamera = playerCam.GetComponentInChildren<Camera>(false);
                 }
-            }
-            GameObject UI = FindObjectOfType<RespawnUI>(true).gameObject;
-
-            if(UI != null)
-                UI.SetActive(false);
+            }            
         }
         else
         {
@@ -216,9 +212,10 @@ public class Player : MonoBehaviourPun
             
             Debug.Log(json);
 
-            GameObject UI = GameObject.FindGameObjectWithTag("respawnUI");
+            RespawnUI UI = FindObjectOfType<RespawnUI>(true);
 
-            UI.SetActive(true);
+            if (UI != null)
+                UI.gameObject.SetActive(true);
         }
         else
         {
@@ -233,8 +230,8 @@ public class Player : MonoBehaviourPun
     {
         if(PhotonNetwork.IsMasterClient)
         {
-            ScoreKeeper scorekeeper = FindObjectOfType<ScoreKeeper>();
-            scorekeeper.update_team_score(team_id, score);
+            //ScoreKeeper scorekeeper = FindObjectOfType<ScoreKeeper>();
+            //scorekeeper.update_team_score(team_id, score);
         }
     }
 
