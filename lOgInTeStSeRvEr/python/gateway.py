@@ -3,9 +3,9 @@ from werkzeug.wrappers import Request, Response
 import json
 from urllib.parse import unquote
 
-user_pass = {f'player{x}@sexy.com': f'player{x}' for x in range(10)}
+user_pass = {f'player{x}@sexy.com': f'player{x}' for x in range(100)}
 
-user_team = {f'player{x}@sexy.com': x//2 for x in range(10)}
+user_team = {f'player{x}@sexy.com': x//2 for x in range(100)}
 
 print(*user_team.items(), sep='\n')
 print()
@@ -32,3 +32,12 @@ class GatewayService:
             return Response(status=401, mimetype='application/json', response=generate_return_json(False, 'Wrong password'))
 
         return Response(status=200, mimetype='application/json', response=generate_return_json(True, 'Login successful', user_team[data['email']]))
+
+    @http("GET", "/playerlist")
+    def playerlist(self, request):
+        retstr = "PlayerEmail, PlayerPassword:<br>"
+        retstr += "<br>".join([str(x) for x in user_pass.items()])
+        retstr += "<br><br>PlayerEmail, TeamID:<br>"
+        retstr += "<br>".join([str(x) for x in user_team.items()])
+        return Response(status=200, mimetype='text/html', response=retstr)
+
