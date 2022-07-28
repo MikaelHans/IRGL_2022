@@ -69,39 +69,44 @@ public class LoginFunctions : MonoBehaviour
 
     IEnumerator APILogin(string email, string pass)
     {
-        string json_data = JsonUtility.ToJson(new LoginData(email, pass), true);
-        UnityWebRequest www = UnityWebRequest.Post(loginAPI, json_data);
+        string json_data = JsonUtility.ToJson(new LoginData(email, pass));
+
+        UnityWebRequest www = new UnityWebRequest(loginAPI, "POST");
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(json_data);
+        www.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
+        www.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
         www.SetRequestHeader("Content-Type", "application/json");
+
         yield return www.SendWebRequest();
 
-        #region delete when server is up and running
-        int teamID2 = 0;
-        cloud.email = email;
-        cloud.teamID = teamID2;
-        warningDisplay.text = "Login Success!";
-        loginButton.GetComponent<LoadSceneButton>().LoadTargetScene();
-        #endregion
-
-
+        Debug.Log(json_data);
+        Debug.Log(www.downloadHandler.text);
+        // loginButton.GetComponent<LoadSceneButton>().LoadTargetScene();
         if (www.responseCode != 500)
         {
             string json_response = www.downloadHandler.text;
-            LoginReplyData json_obj = JsonUtility.FromJson<LoginReplyData>(json_response);
-
-            if (json_obj.success)
+            try
             {
-                int teamID = json_obj.id_team;
-                cloud.email = email;
-                cloud.teamID = teamID;
-                warningDisplay.text = "Login Success!";
+                LoginReplyData json_obj = JsonUtility.FromJson<LoginReplyData>(json_response);
+                if (json_obj.success)
+                {
+                    int teamID = json_obj.id_team;
+                    cloud.email = email;
+                    cloud.teamID = teamID;
+                    warningDisplay.text = "Login Success!";
 
-                loginButton.GetComponent<LoadSceneButton>().LoadTargetScene();
+                    loginButton.GetComponent<LoadSceneButton>().LoadTargetScene();
 
-                yield break;
+                    yield break;
+                }
+                else
+                {
+                    warningDisplay.text = "Invalid email or password!";
+                }
             }
-            else
+            catch (System.Exception)
             {
-                warningDisplay.text = "Invalid email or password!";                
+                warningDisplay.text = "Server error, please contact Mikael Hans!";
             }
         }
         else

@@ -208,8 +208,8 @@ public class Player : MonoBehaviourPun
             //export allitem to json
             string json = JsonHelper.ToJson<ItemData>(allitems.ToArray());
             //rpc call            
-            photonView.RPC("sync_item_in_chest", RpcTarget.All, json);
-            
+            photonView.RPC("sync_item_in_chest", RpcTarget.MasterClient, json);
+            PhotonNetwork.Destroy(gameObject);
             Debug.Log(json);
 
             RespawnUI UI = FindObjectOfType<RespawnUI>(true);
@@ -240,17 +240,16 @@ public class Player : MonoBehaviourPun
     {
         if(PhotonNetwork.IsMasterClient)
         {
-            
-        }
-        if (photonView.IsMine)
-        {
-            GameObject chest = PhotonNetwork.Instantiate("Prefabs/Chest", transform.position, transform.rotation, 0);
-            if(chest != null)
+            GameObject chest = PhotonNetwork.InstantiateRoomObject("Prefabs/Chest", transform.position, transform.rotation, 0);
+            if (chest != null)
             {
                 chest.GetComponent<UnlockableChest>().sync_chest(json);
             }
+            //photonView.RPC("killPlayer", RpcTarget.All);
+        }
+        if (photonView.IsMine)
+        {
             
-            PhotonNetwork.Destroy(gameObject);
             //PhotonNetwork.Disconnect();
             //Application.Quit();
         }  
@@ -260,6 +259,15 @@ public class Player : MonoBehaviourPun
         //    chest.GetComponent<UnlockableChest>().sync_chest(json);
         //    PhotonNetwork.Destroy(gameObject);
         //}     
+    }
+
+    [PunRPC]
+    public void killPlayer()
+    {
+        if(photonView.IsMine)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }        
     }
 
     public void OnDisconnectedFromPhoton()
