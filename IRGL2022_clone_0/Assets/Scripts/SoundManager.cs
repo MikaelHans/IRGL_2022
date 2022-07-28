@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviourPun
     {
         source.clip = sound;
         source.spatialBlend = 1;
+        
         source.Play();
 
     }

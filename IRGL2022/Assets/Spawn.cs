@@ -20,15 +20,27 @@ public class Spawn : MonoBehaviour
         }
     }
 
-    public void spawn()
+    //public void spawn()
+    //{
+    //    //random
+    //    if(cloud == null)
+    //    {
+    //        cloud = GameObject.FindGameObjectWithTag("cloud").GetComponent<Cloud>();
+    //    }
+    //    int randomIndex = Random.Range(0, cloud.cloud.Count);
+    //    GameObject gobj = PhotonNetwork.Instantiate("Prefabs/" + cloud.cloud[randomIndex].itemName, transform.position, transform.rotation);
+    //}
+    public Item spawn()
     {
         //random
-        if(cloud == null)
+        if (cloud == null)
         {
             cloud = GameObject.FindGameObjectWithTag("cloud").GetComponent<Cloud>();
         }
         int randomIndex = Random.Range(0, cloud.cloud.Count);
-        GameObject gobj = PhotonNetwork.Instantiate("Prefabs/" + cloud.cloud[randomIndex].itemName, transform.position, transform.rotation);
+        //GameObject gobj = PhotonNetwork.Instantiate("Prefabs/" + cloud.cloud[randomIndex].itemName, transform.position, transform.rotation);
+        Item item = cloud.cloud[randomIndex];
+
+        return item;
     }
-    
 }
