@@ -11,14 +11,10 @@ public class SoundManager : MonoBehaviourPun
 
     public void walk(AudioClip sound)
     {
-        foreach (AudioSource audio in soundlist)
-        {
-            if(sound.name == audio.clip.name)
-            {
-                source.clip = audio.clip;
-            }
-        }
+        source.clip = sound;
+        source.spatialBlend = 1;
         source.Play();
+
     }
 
     public void stop()
