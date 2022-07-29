@@ -50,6 +50,7 @@ public class Player : MonoBehaviourPun
     {
         //inventoryUI = GetComponentInChildren<InventoryUI>();
         playerName = photonView.Owner.NickName;
+        team_id = (int)photonView.InstantiationData[0];
         if (photonView.IsMine)//if is this client player
         {
             //playerCam = gameObject.GetComponentInChildren<Camera>();
@@ -93,8 +94,7 @@ public class Player : MonoBehaviourPun
             //    }
             //}
             #endregion
-        }
-        team_id = (int)photonView.InstantiationData[0];
+        }        
         gameObject.name = photonView.Owner.NickName;
         
     }
@@ -106,7 +106,7 @@ public class Player : MonoBehaviourPun
         List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
         foreach (Player player in allPlayers)
         {
-            if (player.team_id == team_id) 
+            if (player.team_id == team_id && player != this) 
             {
                 player.playername_ui.GetComponent<UI_Follow>().maincamera = playerCam.GetComponentInChildren<Camera>(false);
             }

@@ -20188,6 +20188,7 @@ MonoBehaviour:
   inventory: {fileID: 4373194738681279167}
   weapons: {fileID: 4373194738681279165}
   animator: {fileID: 239600504254376344}
+  team_id: 0
   helmet:
     prefab: {fileID: 0}
     amount: 0
@@ -29051,7 +29052,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -347.75, y: -210.992}
+  m_AnchoredPosition: {x: -297.681, y: -160.91}
   m_SizeDelta: {x: 510.71, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3118927656812547760
