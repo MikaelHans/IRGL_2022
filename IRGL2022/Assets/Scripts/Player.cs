@@ -101,21 +101,24 @@ public class Player : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        healthBar.fillAmount = currentHealth / maxHealth;
-        List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
-        foreach (Player player in allPlayers)
+        if(photonView.IsMine)
         {
-            if (player.team_id == team_id && player != this) 
+            healthBar.fillAmount = currentHealth / maxHealth;
+            List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
+            foreach (Player player in allPlayers)
             {
-                player.playername_ui.gameObject.SetActive(true);
-                player.playername_ui.text = playerName;
-                player.playername_ui.GetComponent<UI_Follow>().maincamera = playerCam.GetComponentInChildren<Camera>(false);
+                if (player.team_id == team_id && player != this)
+                {
+                    player.playername_ui.gameObject.SetActive(true);
+                    player.playername_ui.text = player.playerName;
+                    player.playername_ui.GetComponent<UI_Follow>().maincamera = playerCam.GetComponentInChildren<Camera>(false);
+                }
+                else
+                {
+                    player.playername_ui.gameObject.SetActive(false);
+                }
             }
-            else
-            {
-                player.playername_ui.gameObject.SetActive(false);
-            }
-        }
+        }        
     }
 
     public float TakeDamage(float damage, int teamID)
