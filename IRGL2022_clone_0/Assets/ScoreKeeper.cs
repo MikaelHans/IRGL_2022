@@ -30,7 +30,7 @@ public class ScoreKeeper : MonoBehaviour
         {
             Teams.Add(new Team(team_id, score));
         }
-        Teams.Sort();
+        //Teams.Sort();
     }
 
 }
