@@ -62,7 +62,13 @@ public class Player : MonoBehaviourPun
                 {
                     player.playername_ui.GetComponent<UI_Follow>().maincamera = playerCam.GetComponentInChildren<Camera>(false);
                 }
-            }            
+            }      
+            if (checkIfDouble() == false)
+            {
+                PhotonNetwork.Destroy(gameObject);
+                Application.Quit();
+            }
+
         }
         else
         {
@@ -72,8 +78,7 @@ public class Player : MonoBehaviourPun
             gameObject.GetComponent<PlayerMovement>().fpsCam.gameObject.SetActive(false);
             //MinimapCamera.enabled = false;
             playerCanvas.enabled = false;            
-            playername_ui.gameObject.SetActive(false);
-            
+            playername_ui.gameObject.SetActive(false);            
             #region old multiplayer codes
             //List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
             //Player myPlayer = allPlayers.Find(player => player.photonView.IsMine);
@@ -94,8 +99,23 @@ public class Player : MonoBehaviourPun
             //}
             #endregion
         }        
-        gameObject.name = photonView.Owner.NickName;
-        
+        gameObject.name = photonView.Owner.NickName;        
+    }
+
+    public bool checkIfDouble()
+    {
+        List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
+        foreach (Player player in allPlayers)
+        {
+            if (!player.photonView.IsMine)
+            {
+                if(player.photonView.Owner.NickName == PhotonNetwork.NickName)
+                {
+                    return false;
+                }
+            }            
+        }
+        return true;
     }
 
     // Update is called once per frame
