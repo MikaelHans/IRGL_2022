@@ -20176,6 +20176,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   points: 0
+  reward: 100
   healthBar: {fileID: 4373194738414222610}
   playerName: 
   playerCam: {fileID: 6856681339245190505}

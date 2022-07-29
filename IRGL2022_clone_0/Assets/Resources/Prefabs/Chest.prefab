@@ -2793,6 +2793,7 @@ MonoBehaviour:
     ItemName: 
     level: -1
   game: {fileID: 7300111515750872665}
+  reward: 20
 --- !u!114 &7300111515750872665
 MonoBehaviour:
   m_ObjectHideFlags: 0

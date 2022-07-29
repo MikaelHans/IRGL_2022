@@ -4,23 +4,32 @@ using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
 {
-    public Team[] Teams = new Team[20];
+    public List<Team> Teams;
+
+    [SerializeField]
+    public Dictionary<int, int> scores = new Dictionary<int, int>();
 
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
-        for(int i = 0; i < Teams.Length; i++)
-        {
-            Teams[i] = new Team(i);
-        }
     }
 
     public void update_team_score(int team_id, int score = 100)
     {
-        if(team_id < Teams.Length)
+        bool flag = true;
+        foreach(Team team in Teams)
         {
-            Teams[team_id].score += score;
+            if(team.Team_id == team_id)
+            {
+                team.score += score;
+                flag = false;
+            }
         }
+        if(flag)
+        {
+            Teams.Add(new Team(team_id, score));
+        }
+        Teams.Sort();
     }
 
 }

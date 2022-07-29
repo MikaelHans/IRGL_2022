@@ -10,9 +10,12 @@ public class UnlockableChest : MonoBehaviourPun
 
     public ItemData[] items;
     public Minigame game;
+    Player player;
+    public int reward;
 
-    public void Open(Player player)
+    public void Open(Player _player)
     {
+        player = _player;
         if(!isPlayed && !isOpened)
         {
             isPlayed = true;
@@ -23,6 +26,7 @@ public class UnlockableChest : MonoBehaviourPun
 
     public void dropContent()
     {
+        photonView.RPC("update_score_chest", RpcTarget.MasterClient, player.Team_id, reward);
         isOpened = true;
         for(int i = 0; i < items.Length; i++)
         {
@@ -52,6 +56,16 @@ public class UnlockableChest : MonoBehaviourPun
         if (item.GetPhotonView().IsMine)
         {
             PhotonNetwork.Destroy(PhotonView.Find(viewID));
+        }
+    }
+
+    [PunRPC]
+    public void update_score_chest(int team_id, int score = 100)
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            ScoreKeeper scorekeeper = FindObjectOfType<ScoreKeeper>();
+            scorekeeper.update_team_score(team_id, score);
         }
     }
 

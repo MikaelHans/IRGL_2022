@@ -56,6 +56,8 @@ MonoBehaviour:
   - update_score
   - destroy
   - killPlayer
+  - update_score_chest
+  - update_score_death
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -10,6 +10,7 @@ public class Player : MonoBehaviourPun
     public float maxHealth = 100f;
     public float currentHealth = 100.0f;
     public float points = 0;
+    public int reward;
     public Image healthBar;
     public string playerName = "";
     public GameObject playerCam;
@@ -194,7 +195,7 @@ public class Player : MonoBehaviourPun
         {
             // inventoryUI.removeAll();
             //weapons.dropgunFromSlot();
-            photonView.RPC("update_score", RpcTarget.All, killer_team_id, 100);
+            photonView.RPC("update_score_death", RpcTarget.MasterClient, killer_team_id, reward);
             List<ItemData> allitems = new List<ItemData>();
             // foreach (GameObject weapon in weapons.dropgunAllGun())
             // {
@@ -249,12 +250,12 @@ public class Player : MonoBehaviourPun
     }
 
     [PunRPC]
-    public void update_score(int team_id, int score = 100)
+    public void update_score_death(int team_id, int score = 100)
     {
         if(PhotonNetwork.IsMasterClient)
         {
-            //ScoreKeeper scorekeeper = FindObjectOfType<ScoreKeeper>();
-            //scorekeeper.update_team_score(team_id, score);
+            ScoreKeeper scorekeeper = FindObjectOfType<ScoreKeeper>();
+            scorekeeper.update_team_score(team_id, score);
         }
     }
 
