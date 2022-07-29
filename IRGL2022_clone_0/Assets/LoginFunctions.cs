@@ -65,8 +65,6 @@ public class LoginFunctions : MonoBehaviour
         warningDisplay.text = "";
     }
 
-
-
     IEnumerator APILogin(string email, string pass)
     {
         string json_data = JsonUtility.ToJson(new LoginData(email, pass));
@@ -91,18 +89,25 @@ public class LoginFunctions : MonoBehaviour
                 if (json_obj.success)
                 {
                     int teamID = json_obj.id_team;
-                    cloud.email = email;
-                    cloud.teamID = teamID;
-                    warningDisplay.text = "Login Success!";
+                    warningDisplay.text = json_obj.message;
+                    if (teamID == -1)
+                    {
+                        // logged as admin
+                        yield break;
+                    }
+                    else
+                    {
+                        cloud.email = email;
+                        cloud.teamID = teamID;
+                        warningDisplay.text = json_obj.message;
 
-                    loginButton.GetComponent<LoadSceneButton>().LoadTargetScene();
+                        loginButton.GetComponent<LoadSceneButton>().LoadTargetScene();
+                        yield break;
 
-                    yield break;
+                    }
                 }
-                else
-                {
-                    warningDisplay.text = "Invalid email or password!";
-                }
+
+                warningDisplay.text = json_obj.message;
             }
             catch (System.Exception)
             {
