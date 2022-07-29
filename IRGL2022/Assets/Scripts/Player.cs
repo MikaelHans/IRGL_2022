@@ -21,6 +21,7 @@ public class Player : MonoBehaviourPun
     public Inventory inventory;
     public ChracterPickUpWeapon weapons;
     public Animator animator;
+    [SerializeField]
     int team_id;
     [SerializeField]
     ItemData helmet, armor, bag;
@@ -44,7 +45,6 @@ public class Player : MonoBehaviourPun
     private void Awake()
     {
         inventory = gameObject.GetComponent<Inventory>();
-
     }
     void Start()
     {
@@ -70,8 +70,7 @@ public class Player : MonoBehaviourPun
             playerCam.gameObject.SetActive(false);
             gameObject.GetComponent<PlayerMovement>().fpsCam.gameObject.SetActive(false);
             //MinimapCamera.enabled = false;
-            playerCanvas.enabled = false;
-            team_id = (int)photonView.InstantiationData[0];
+            playerCanvas.enabled = false;            
             playername_ui.gameObject.SetActive(true);
             playername_ui.text = playerName;
             
@@ -95,7 +94,7 @@ public class Player : MonoBehaviourPun
             //}
             #endregion
         }
-
+        team_id = (int)photonView.InstantiationData[0];
         gameObject.name = photonView.Owner.NickName;
         
     }
