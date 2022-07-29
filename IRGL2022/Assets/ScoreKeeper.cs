@@ -24,6 +24,7 @@ public class ScoreKeeper : MonoBehaviour
                 team.score += score;
                 flag = false;
             }
+            
         }
         if(flag)
         {

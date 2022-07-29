@@ -69,7 +69,7 @@ public class Player : MonoBehaviourPun
                 PhotonNetwork.Destroy(gameObject);
                 Application.Quit();
             }
-
+            
         }
         else
         {
