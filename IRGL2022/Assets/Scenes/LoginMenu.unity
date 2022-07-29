@@ -514,7 +514,7 @@ MonoBehaviour:
   cloud: {fileID: 288033881}
   warningDisplay: {fileID: 1551493021}
   loginButton: {fileID: 725322312}
-  loginAPI: https://irgl.petra.ac.id/unity_playertest/login/index.php
+  loginAPI: https://irgl.petra.ac.id/2022/backend/semifinal_apis/login/index.php
 --- !u!114 &725322316
 MonoBehaviour:
   m_ObjectHideFlags: 0
