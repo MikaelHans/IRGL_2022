@@ -72,8 +72,7 @@ public class Player : MonoBehaviourPun
             gameObject.GetComponent<PlayerMovement>().fpsCam.gameObject.SetActive(false);
             //MinimapCamera.enabled = false;
             playerCanvas.enabled = false;            
-            playername_ui.gameObject.SetActive(true);
-            playername_ui.text = playerName;
+            playername_ui.gameObject.SetActive(false);
             
             #region old multiplayer codes
             //List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
@@ -108,7 +107,13 @@ public class Player : MonoBehaviourPun
         {
             if (player.team_id == team_id && player != this) 
             {
+                player.playername_ui.gameObject.SetActive(true);
+                player.playername_ui.text = playerName;
                 player.playername_ui.GetComponent<UI_Follow>().maincamera = playerCam.GetComponentInChildren<Camera>(false);
+            }
+            else
+            {
+                player.playername_ui.gameObject.SetActive(false);
             }
         }
     }

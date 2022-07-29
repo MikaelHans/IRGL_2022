@@ -6,16 +6,20 @@ using Photon.Pun;
 public class SoundManager : MonoBehaviourPun
 {
     public AudioSource source;
-    //public AudioClip foot;
-    public List<AudioSource>soundlist =  new List<AudioSource>();
+
+
+    private void Start()
+    {
+        //source.rolloffMode = AudioRolloffMode.Logarithmic;
+        //source.maxDistance = 100;
+        //source.minDistance = 100;
+        //source.spatialBlend = 1;
+    }
 
     public void walk(AudioClip sound)
     {
-        source.clip = sound;
-        source.spatialBlend = 1;
-        
+        source.clip = sound;        
         source.Play();
-
     }
 
     public void stop()
