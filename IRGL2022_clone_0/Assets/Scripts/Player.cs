@@ -74,14 +74,7 @@ public class Player : MonoBehaviourPun
             team_id = (int)photonView.InstantiationData[0];
             playername_ui.gameObject.SetActive(true);
             playername_ui.text = playerName;
-            List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
-            foreach (Player player in allPlayers)
-            {
-                if (player.photonView.IsMine)
-                {
-                    playername_ui.GetComponent<UI_Follow>().maincamera = player.playerCam.GetComponentInChildren<Camera>(false); ;
-                }
-            }
+            
             #region old multiplayer codes
             //List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
             //Player myPlayer = allPlayers.Find(player => player.photonView.IsMine);
@@ -111,10 +104,13 @@ public class Player : MonoBehaviourPun
     void Update()
     {
         healthBar.fillAmount = currentHealth / maxHealth;
-        //check player health
-        if (currentHealth <= 0 && photonView.IsMine)
+        List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
+        foreach (Player player in allPlayers)
         {
-            //Death();
+            if (player.team_id == team_id) 
+            {
+                player.playername_ui.GetComponent<UI_Follow>().maincamera = playerCam.GetComponentInChildren<Camera>(false);
+            }
         }
     }
 
