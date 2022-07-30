@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.44992167, g: 0.49997765, b: 0.5755568, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2054,6 +2054,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1961701451}
   - component: {fileID: 1961701452}
+  - component: {fileID: 1961701453}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2129,6 +2130,20 @@ MonoBehaviour:
     score: 0
   - team_id: 0
     score: 0
+  scoreupdater: {fileID: 1961701453}
+--- !u!114 &1961701453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961701450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5f32073428f774393b6153234ea19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreAPI: https://irgl.petra.ac.id/2022/backend/semifinal_apis/score/index.php
 --- !u!1 &1969156291
 GameObject:
   m_ObjectHideFlags: 0

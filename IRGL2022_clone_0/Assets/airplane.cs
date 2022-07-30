@@ -39,6 +39,10 @@ public class airplane : MonoBehaviourPun
         {
             cloud = FindObjectOfType<Cloud>();
         }
+        if(!has_dropped)
+        {
+            airplaneVCam.Priority = 100;
+        }
         if (Input.GetKeyDown(KeyCode.Space) && GameStart == false)
         {
             //player drop from airplane

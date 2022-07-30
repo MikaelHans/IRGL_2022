@@ -26,7 +26,7 @@ public class UnlockableChest : MonoBehaviourPun
 
     public void dropContent()
     {
-        photonView.RPC("update_score_chest", RpcTarget.MasterClient, player.Team_id, reward);
+        photonView.RPC("update_score_chest", RpcTarget.All, player.Team_id, reward);
         isOpened = true;
         for(int i = 0; i < items.Length; i++)
         {

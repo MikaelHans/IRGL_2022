@@ -14,7 +14,7 @@ public class SpawnPoint : MonoBehaviourPun
         foreach (Spawn spawn in spawnPoints)
         {
             int randomIndex = Random.Range(0, 100);
-            if(randomIndex <= 50)
+            if(randomIndex <= 100)
             {
                 allitems.Add(spawn.spawn().to_data());
             }            
