@@ -28,8 +28,27 @@ public class airplane : MonoBehaviourPun
 
         RespawnUI UI = FindObjectOfType<RespawnUI>(true);
 
+        if (checkIfPlayerHasSpawned())
+        {
+            airplaneVCam.Priority = -100;
+        }
+
         if (UI != null)
             UI.gameObject.SetActive(false);
+    }
+
+    public bool checkIfPlayerHasSpawned()
+    {
+        List<Player> allplayer = new List<Player>(FindObjectsOfType<Player>());
+
+        foreach (Player player in allplayer)
+        {
+            if(player.photonView.IsMine)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     // Update is called once per frame
@@ -39,10 +58,10 @@ public class airplane : MonoBehaviourPun
         {
             cloud = FindObjectOfType<Cloud>();
         }
-        if(!has_dropped)
-        {
-            airplaneVCam.Priority = 100;
-        }
+        //if(!checkIfPlayerHasSpawned())
+        //{
+        //    airplaneVCam.Priority = 100;
+        //}
         if (Input.GetKeyDown(KeyCode.Space) && GameStart == false)
         {
             //player drop from airplane
