@@ -19,7 +19,6 @@ struct ScoreUpdateData
 public class ScoreUpdater : MonoBehaviourPun
 {
     public string scoreAPI = "https://irgl.petra.ac.id/2022/backend/semifinal_apis/score/index.php";
-    
     IEnumerator APIScore(string email, int delta)
     {
         string json_data = JsonUtility.ToJson(new ScoreUpdateData(email, delta));
@@ -36,13 +35,9 @@ public class ScoreUpdater : MonoBehaviourPun
 
     public void UpdateScoreBy(int delta)
     {
-        //if (PhotonNetwork.IsConnected && photonView.IsMine)
-        //{
-        //    StartCoroutine(APIScore(PhotonNetwork.NickName, delta));
-        //}
-        if (PhotonNetwork.IsConnected)
+        if (PhotonNetwork.IsConnected && photonView.IsMine)
         {
-            StartCoroutine(APIScore(FindObjectOfType<Cloud>().email, delta));
+            StartCoroutine(APIScore(PhotonNetwork.NickName, delta));
         }
     }
 
