@@ -30,6 +30,7 @@ public class Spawn : MonoBehaviour
     //    int randomIndex = Random.Range(0, cloud.cloud.Count);
     //    GameObject gobj = PhotonNetwork.Instantiate("Prefabs/" + cloud.cloud[randomIndex].itemName, transform.position, transform.rotation);
     //}
+
     public Item spawn()
     {
         //random
