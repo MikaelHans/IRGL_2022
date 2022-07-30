@@ -140,6 +140,7 @@ MonoBehaviour:
   id: 16
   owner: {fileID: 0}
   cloud: {fileID: 0}
+  ItemRarity: 60
   level: 1
   duralibility: 100
   rarity:

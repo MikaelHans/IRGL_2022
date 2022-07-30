@@ -36,9 +36,13 @@ public class ScoreUpdater : MonoBehaviourPun
 
     public void UpdateScoreBy(int delta)
     {
-        if (PhotonNetwork.IsConnected && photonView.IsMine)
+        //if (PhotonNetwork.IsConnected && photonView.IsMine)
+        //{
+        //    StartCoroutine(APIScore(PhotonNetwork.NickName, delta));
+        //}
+        if (PhotonNetwork.IsConnected)
         {
-            StartCoroutine(APIScore(PhotonNetwork.NickName, delta));
+            StartCoroutine(APIScore(FindObjectOfType<Cloud>().email, delta));
         }
     }
 
