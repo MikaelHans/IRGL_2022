@@ -45,12 +45,12 @@ public class LoginFunctions : MonoBehaviour
 
     public Button loginButton;
 
-    public string loginAPI;
+    public string loginAPI = "https://irgl.petra.ac.id/2022/backend/semifinal_apis/login/index.php";
 
     // Start is called before the first frame update
     void Start()
     {
-        cloud.teamID = -1;
+        cloud.teamID = -999;
         cloud.email = "";
     }
 

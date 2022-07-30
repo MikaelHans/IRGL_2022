@@ -12,6 +12,7 @@ public abstract class Item : MonoBehaviourPun
     public int id;
     public Player owner;
     public Cloud cloud;
+    public float ItemRarity = 60;
 
     protected virtual void Start()
     {

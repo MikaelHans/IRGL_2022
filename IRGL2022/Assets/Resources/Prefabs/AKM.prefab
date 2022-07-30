@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 614051214344700773}
   - component: {fileID: 6098512157245754764}
   m_Layer: 7
-  m_Name: assault rifle
+  m_Name: AKM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252e107f92aba624e91e78009152c0d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: assault rifle
+  itemName: AKM
   icon: {fileID: 21300000, guid: e0c8ce629a7527f43a551831f5b63a7a, type: 3}
   maxStack: 0
   amount: 0
@@ -82,6 +82,7 @@ MonoBehaviour:
   id: 12
   owner: {fileID: 0}
   cloud: {fileID: 0}
+  ItemRarity: 40
   gun_system: {fileID: 0}
   WeaponID: 0
 --- !u!54 &4360725702067032092

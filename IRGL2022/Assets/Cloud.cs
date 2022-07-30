@@ -17,6 +17,7 @@ public class Cloud : MonoBehaviour
         foreach (Item item in cloud)
         {
             item.id = _id++;
+            
         }
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(this);
