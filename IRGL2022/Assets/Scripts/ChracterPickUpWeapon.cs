@@ -36,6 +36,8 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
     {
         gunEquiped = -1;
         meleesystem = GetComponentInChildren<MeleeSystem>(true).gameObject;
+
+        GunList.AddRange(gunContainer.GetComponentsInChildren<GunSystem>());
     }
 
     public void Pickup()

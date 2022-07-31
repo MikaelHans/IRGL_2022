@@ -90,6 +90,7 @@ public class GunSystem : MonoBehaviourPun
     private void Start()
     {
         currentPlayer.Team_id = FindObjectOfType<Cloud>().teamID;
+        muzzleFlash = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Update()

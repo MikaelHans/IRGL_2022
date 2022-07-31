@@ -53,9 +53,10 @@ MonoBehaviour:
   amount: 1
   itemObject: {fileID: 0}
   prefab: {fileID: 6860850774082911116}
-  id: 17
+  id: 21
   owner: {fileID: 0}
   cloud: {fileID: 0}
+  ItemRarity: 60
 --- !u!54 &-975450035389823119
 Rigidbody:
   m_ObjectHideFlags: 0
