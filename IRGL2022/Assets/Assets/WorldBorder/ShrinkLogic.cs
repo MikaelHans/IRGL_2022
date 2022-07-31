@@ -62,32 +62,35 @@ public class ShrinkLogic : MonoBehaviour
     void Update()
     {
         totalTime += Time.deltaTime;
-        if (totalTime > shrinkDelay && tapeCounter < shrinkTape.Count)
+        if(PhotonNetwork.IsMasterClient)
         {
-            if (totalTime <= shrinkDelay + shrinkDuration)
+            if (totalTime > shrinkDelay && tapeCounter < shrinkTape.Count)
             {
-                transform.position = currentPosition - ((currentPosition - shrinkTape[tapeCounter].position.localPosition) * ((totalTime - shrinkDelay) / (shrinkDuration)));
-
-                float scaler = (1 - (shrinkTape[tapeCounter].ratio * ((totalTime - shrinkDelay) / shrinkDuration)));
-
-                Vector3 newScale = currentScale;
-                newScale.x = currentScale.x + ((currentScale.x * scaler) - currentScale.x);
-                newScale.y = currentScale.y + ((currentScale.y * scaler) - currentScale.y);
-                newScale.z = currentScale.z + ((currentScale.z * scaler) - currentScale.z);
-                transform.localScale = newScale;
-            }
-            else
-            {
-                tapeCounter++;
-                currentPosition = transform.position;
-                currentScale = transform.localScale;
-                totalTime = 0;
-                if(tapeCounter < shrinkTape.Count-1)
+                if (totalTime <= shrinkDelay + shrinkDuration)
                 {
-                    spawn_airplane();
-                }                
+                    transform.position = currentPosition - ((currentPosition - shrinkTape[tapeCounter].position.localPosition) * ((totalTime - shrinkDelay) / (shrinkDuration)));
+
+                    float scaler = (1 - (shrinkTape[tapeCounter].ratio * ((totalTime - shrinkDelay) / shrinkDuration)));
+
+                    Vector3 newScale = currentScale;
+                    newScale.x = currentScale.x + ((currentScale.x * scaler) - currentScale.x);
+                    newScale.y = currentScale.y + ((currentScale.y * scaler) - currentScale.y);
+                    newScale.z = currentScale.z + ((currentScale.z * scaler) - currentScale.z);
+                    transform.localScale = newScale;
+                }
+                else
+                {
+                    tapeCounter++;
+                    currentPosition = transform.position;
+                    currentScale = transform.localScale;
+                    totalTime = 0;
+                    if (tapeCounter < shrinkTape.Count - 1)
+                    {
+                        spawn_airplane();
+                    }
+                }
             }
-        }
+        }        
     }
 
     public Vector3 GetRandomPointInEdge()
