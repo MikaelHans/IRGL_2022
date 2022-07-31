@@ -51,7 +51,7 @@ public class ShrinkLogic : MonoBehaviourPun
     // Start is called before the first frame updates
     void Start()
     {
-        
+        photonView.ViewID = 999;
         initSpawn = true;
         if (PhotonNetwork.IsMasterClient)
         {
@@ -122,9 +122,9 @@ public class ShrinkLogic : MonoBehaviourPun
                 distance = Vector3.Distance(spawnPos, destinationPos);
             }
 
-            airplane_destination_point.position = destinationPos;
+            //airplane_destination_point.position = destinationPos;
             GameObject _airplane = PhotonNetwork.InstantiateRoomObject("Prefabs/Airplane", spawnPos, Quaternion.Euler(0, 0, 0));
-            _airplane.transform.LookAt(airplane_destination_point);            
+            _airplane.transform.LookAt(destinationPos);            
             //Vector3 airplanePos = airplane.transform.position;
             _airplane.GetComponent<airplane>().destination = new Vector3(destinationPos.x, destinationPos.y, destinationPos.z);
             //airplane.transform.rotation = Quaternion.Euler(0f, -90f, 0f);

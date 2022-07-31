@@ -166,6 +166,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_Bullet_Ammo_Box_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1364968598790260, guid: 18ec3f4f140dca44cad65132c8fcc35e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4534242721561244, guid: 18ec3f4f140dca44cad65132c8fcc35e, type: 3}
       propertyPath: m_RootOrder
       value: 0

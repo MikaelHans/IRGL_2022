@@ -26,15 +26,10 @@ public class airplane : MonoBehaviourPun
         cloud = FindObjectOfType<Cloud>();
         movespeed = transform.forward * speed;
 
-        RespawnUI UI = FindObjectOfType<RespawnUI>(true);
-
         if (checkIfPlayerHasSpawned())
         {
             airplaneVCam.Priority = -100;
         }
-
-        if (UI != null)
-            UI.gameObject.SetActive(false);
     }
 
     public bool checkIfPlayerHasSpawned()
@@ -83,20 +78,20 @@ public class airplane : MonoBehaviourPun
         //Debug.Log(Vector3.Distance(transform.position, destination));
         if (Vector3.Distance(transform.position, destination) <= 1f)
         {
-            if(PhotonNetwork.IsMasterClient)
+            if (!checkIfPlayerHasSpawned())
             {
-                if(has_dropped == false)
-                {
-                    has_dropped = true;
-                    object[] data = new object[1];
-                    data[0] = cloud.teamID;
-                    GameObject obj = PhotonNetwork.Instantiate("Prefabs/First Person Player", spawnPos.transform.position, Quaternion.identity, 0, data);//instantiate player prefab            
-                    obj.name = name;
-                    GameStart = true;
-                    airplaneCam.enabled = false;
-                    // change priority camera
-                    airplaneVCam.Priority = -100;
-                }
+                has_dropped = true;
+                object[] data = new object[1];
+                data[0] = cloud.teamID;
+                GameObject obj = PhotonNetwork.Instantiate("Prefabs/First Person Player", spawnPos.transform.position, Quaternion.identity, 0, data);//instantiate player prefab            
+                obj.name = name;
+                GameStart = true;
+                airplaneCam.enabled = false;
+                // change priority camera
+                airplaneVCam.Priority = -100;
+            }
+            if (PhotonNetwork.IsMasterClient)
+            {                
                 PhotonNetwork.Destroy(gameObject);
             }
         }
@@ -110,6 +105,7 @@ public class airplane : MonoBehaviourPun
 
     private void FixedUpdate()
     {
-        gameObject.transform.position += transform.forward * speed * Time.deltaTime;
+        if(photonView.IsMine)
+            gameObject.transform.position += transform.forward * speed * Time.deltaTime;
     }
 }

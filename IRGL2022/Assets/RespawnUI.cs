@@ -5,14 +5,25 @@ using UnityEngine;
 public class RespawnUI : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    public bool checkIfAirplaneHasSpawned()
     {
-        
+        airplane _airplane = FindObjectOfType<airplane>();
+        if(_airplane != null)
+        {
+            return true;
+        }
+        return false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if(checkIfAirplaneHasSpawned())
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+        }
     }
 }
