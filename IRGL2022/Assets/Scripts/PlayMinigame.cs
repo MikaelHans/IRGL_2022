@@ -8,14 +8,30 @@ public class PlayMinigame : MonoBehaviour
     public LayerMask whatIsItem;
     public Camera fpsCam;
     public float pickUpRange;
-    public Player player;
+    public GameObject player;
+
+    public Minigame currentMinigame;
+    public UnlockableChest currentChest;
     // Start is called before the first frame update
 
     bool minigameKeyPressed = false;
+    public bool isMinigameOpened = false;
+
     public void Minigame()
     {
         minigameKeyPressed = true;
     }
+
+    public void CloseMinigame()
+    {
+        if (currentMinigame != null)
+        {
+            currentMinigame.closeWindow();
+            currentChest.Cancel();
+        }
+        isMinigameOpened = false;
+    }
+
     public void ResetKeys()
     {
         minigameKeyPressed = false;
@@ -34,7 +50,13 @@ public class PlayMinigame : MonoBehaviour
             if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, pickUpRange, whatIsItem))
             {
                 GameObject chest = rayHit.collider.gameObject.transform.parent.gameObject;
-                chest.GetComponent<UnlockableChest>().Open(player);
+                currentChest = chest.GetComponent<UnlockableChest>();
+                currentMinigame = currentChest.game;
+                if (currentChest != null)
+                {
+                    currentChest.Open(player);
+                    isMinigameOpened = true;
+                }
             }
         }
 

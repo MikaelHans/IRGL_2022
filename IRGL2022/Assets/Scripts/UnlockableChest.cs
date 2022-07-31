@@ -10,13 +10,13 @@ public class UnlockableChest : MonoBehaviourPun
 
     public ItemData[] items;
     public Minigame game;
-    Player player;
+    Player playerHandle;
     public int reward;
 
-    public void Open(Player _player)
+    public void Open(GameObject player)
     {
-        player = _player;
-        if(!isPlayed && !isOpened)
+        playerHandle = player.GetComponent<Player>();
+        if (!isPlayed && !isOpened)
         {
             isPlayed = true;
             game.Init();
@@ -24,11 +24,17 @@ public class UnlockableChest : MonoBehaviourPun
         }
     }
 
+    public void Cancel()
+    {
+        isPlayed = false;
+        game.closeWindow();
+    }
+
     public void dropContent()
     {
-        photonView.RPC("update_score_chest", RpcTarget.All, player.Team_id, reward);
+        photonView.RPC("update_score_chest", RpcTarget.All, playerHandle.Team_id, reward);
         isOpened = true;
-        for(int i = 0; i < items.Length; i++)
+        for (int i = 0; i < items.Length; i++)
         {
             GameObject tmp = PhotonNetwork.Instantiate("Prefabs/" + items[i].prefab.GetComponent<Item>().itemName, transform.position + (transform.forward * 2), transform.rotation);
             tmp.GetComponent<Item>().prefab = items[i].prefab;
@@ -38,7 +44,7 @@ public class UnlockableChest : MonoBehaviourPun
         game.closeWindow();
         destroyChest();
     }
-    
+
     public void fillChest(ItemData[] _items)
     {
         items = _items;
