@@ -12,9 +12,8 @@ public class RespawnTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time = shrinklogic.shrinkDelay - shrinklogic.totalTime;
+        time = (shrinklogic.shrinkDelay - shrinklogic.totalTime) + shrinklogic.shrinkDuration;
         Display(time);
-
     }
     void Display(float timedisplay)
     {

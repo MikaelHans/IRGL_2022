@@ -4836,10 +4836,10 @@ MonoBehaviour:
   amount: 0
   itemObject: {fileID: 0}
   prefab: {fileID: 2996943484628457375}
-  id: 21
+  id: 27
   owner: {fileID: 0}
   cloud: {fileID: 0}
-  rarity: 60
+  ItemRarity: 60
   gun_system: {fileID: 0}
   WeaponID: 3
 --- !u!54 &2996943484628457373
