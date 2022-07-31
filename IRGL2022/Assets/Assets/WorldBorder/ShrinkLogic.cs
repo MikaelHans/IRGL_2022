@@ -16,8 +16,9 @@ public class WorldBorderState
     }
 }
 
-public class ShrinkLogic : MonoBehaviour
+public class ShrinkLogic : MonoBehaviourPun
 {
+    
     public float shrinkDuration = 60f;
     public float shrinkDelay = 120f;
 
@@ -50,6 +51,7 @@ public class ShrinkLogic : MonoBehaviour
     // Start is called before the first frame updates
     void Start()
     {
+        
         initSpawn = true;
         if (PhotonNetwork.IsMasterClient)
         {
@@ -109,7 +111,7 @@ public class ShrinkLogic : MonoBehaviour
         {
             currentPosition = transform.position;
             currentScale = transform.localScale;
-
+            
             Vector3 spawnPos = GetRandomPointInEdge();
             Vector3 destinationPos = GetRandomPointInEdge();
             float distance = Vector3.Distance(spawnPos, destinationPos);
