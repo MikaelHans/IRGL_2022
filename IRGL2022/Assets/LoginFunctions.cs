@@ -14,13 +14,15 @@ struct LoginReplyData
 {
     public bool success;
     public string message;
-    public int id_team;
+    public int team_id;
+    public int room_id;
 
-    public LoginReplyData(bool success, string message, int id_team)
+    public LoginReplyData(bool success, string message, int team_id, int room_id)
     {
         this.success = success;
         this.message = message;
-        this.id_team = id_team;
+        this.team_id = team_id;
+        this.room_id = room_id;
     }
 }
 
@@ -88,7 +90,8 @@ public class LoginFunctions : MonoBehaviour
                 LoginReplyData json_obj = JsonUtility.FromJson<LoginReplyData>(json_response);
                 if (json_obj.success)
                 {
-                    int teamID = json_obj.id_team;
+                    int teamID = json_obj.team_id;
+                    int roomID = json_obj.room_id; // rooom id as roomID
                     warningDisplay.text = json_obj.message;
                     if (teamID == -1)
                     {
