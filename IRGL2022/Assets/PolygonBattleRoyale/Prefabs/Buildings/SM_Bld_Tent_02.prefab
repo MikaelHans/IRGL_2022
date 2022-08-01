@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33585077249158644}
   - component: {fileID: 23791613900712262}
   - component: {fileID: 64702451533572480}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Bld_Tent_02
   m_TagString: Wall
   m_Icon: {fileID: 0}

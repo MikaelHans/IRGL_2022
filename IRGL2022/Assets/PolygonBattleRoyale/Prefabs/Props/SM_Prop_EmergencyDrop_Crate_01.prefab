@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33574118403364416}
   - component: {fileID: 23844289834852074}
   - component: {fileID: 64554883476177600}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_EmergencyDrop_Crate_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33048883335289866}
   - component: {fileID: 23052633184780064}
   - component: {fileID: 64356423324665694}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Env_Bridge_Support_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

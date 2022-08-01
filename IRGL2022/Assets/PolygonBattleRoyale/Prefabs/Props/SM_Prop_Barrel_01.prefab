@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33542222333211968}
   - component: {fileID: 23246842425573332}
   - component: {fileID: 64684915154422018}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_Barrel_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

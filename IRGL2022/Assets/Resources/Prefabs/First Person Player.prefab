@@ -507,25 +507,37 @@ MonoBehaviour:
   m_SynchronizeParameters:
   - Type: 4
     SynchronizeType: 0
-    Name: IsRunning
-  - Type: 4
-    SynchronizeType: 0
     Name: IsCarryingAWeapon
   - Type: 3
     SynchronizeType: 0
     Name: WeaponType
   - Type: 4
     SynchronizeType: 0
-    Name: Idle
-  - Type: 4
-    SynchronizeType: 0
     Name: IsFiring
   - Type: 4
     SynchronizeType: 0
-    Name: IsWalking
+    Name: IsCrouching
   - Type: 4
     SynchronizeType: 0
-    Name: IsCrouching
+    Name: IsJumping
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsFalling
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsGrounded
+  - Type: 1
+    SynchronizeType: 0
+    Name: Blend
+  - Type: 1
+    SynchronizeType: 0
+    Name: MoveX
+  - Type: 1
+    SynchronizeType: 0
+    Name: MoveZ
+  - Type: 1
+    SynchronizeType: 0
+    Name: VelocityY
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
@@ -28473,9 +28485,11 @@ MonoBehaviour:
   sprintModifier: 1.5
   gravity: -15
   crouchModifier: 0.5
-  backwardsModifier: 0.5
+  currentModifier: 1
+  maxModifier: 1
   walkingHeight: 0.8
   crouchingHeight: 0.5
+  terminalVelocity: 20
   walkCamera: 0.8
   crouchCamera: 0.6
   defaultCamera: 0
@@ -28492,7 +28506,6 @@ MonoBehaviour:
   isJumping: 0
   isSprinting: 0
   isCrouching: 0
-  isBackwards: 0
   fpsCam: {fileID: 4373194739213354710}
   whatIsObstacle:
     serializedVersion: 2

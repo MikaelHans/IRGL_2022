@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33804914603750788}
   - component: {fileID: 23866865480525612}
   - component: {fileID: 3251895409425690564}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Bld_SmallBuilding_02
   m_TagString: Wall
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23097362526852406}
   - component: {fileID: 64363405518949504}
   - component: {fileID: 64012218503865660}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Generic_Tree_04
   m_TagString: Wall
   m_Icon: {fileID: 0}

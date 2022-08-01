@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4718261509970000}
   - component: {fileID: 33842151397817726}
   - component: {fileID: 23374656968166086}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Generic_Cloud_03
   m_TagString: Wall
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33169034167316624}
   - component: {fileID: 23468823729795518}
   - component: {fileID: 64065546880724688}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Veh_Armored_Car_Destroyed_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

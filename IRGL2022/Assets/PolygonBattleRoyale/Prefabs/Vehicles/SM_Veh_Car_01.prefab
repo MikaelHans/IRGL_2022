@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4546980212513648}
   - component: {fileID: 33415639774112408}
   - component: {fileID: 23796944045010874}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Veh_Car_01_Wheel_rr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4624509857946648}
   - component: {fileID: 33052935182277352}
   - component: {fileID: 23502501558453966}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Veh_Car_01_Wheel_fr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 4405139340583768}
   - component: {fileID: 33791982029648640}
   - component: {fileID: 23780316502892104}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Veh_Car_01_SteeringW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 4599643899668986}
   - component: {fileID: 33113683261969142}
   - component: {fileID: 23167000087053424}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Veh_Car_01_Wheel_fl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 4335853142536164}
   - component: {fileID: 33535971377945958}
   - component: {fileID: 23816531068468528}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Veh_Car_01_Wheel_rl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 33895431280190370}
   - component: {fileID: 23065182090748536}
   - component: {fileID: 64543562869724498}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Veh_Car_01
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 4179484155986114}
   - component: {fileID: 33248493859167660}
   - component: {fileID: 23739588823333374}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Veh_Car_01_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}

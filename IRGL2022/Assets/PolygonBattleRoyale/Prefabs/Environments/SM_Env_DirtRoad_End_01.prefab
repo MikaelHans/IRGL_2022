@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33410742263655994}
   - component: {fileID: 23207033903992236}
   - component: {fileID: 64572262416601930}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Env_DirtRoad_End_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

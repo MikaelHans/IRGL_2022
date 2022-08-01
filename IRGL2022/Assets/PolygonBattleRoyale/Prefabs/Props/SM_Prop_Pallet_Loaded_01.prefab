@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33528922367963358}
   - component: {fileID: 23061327545420132}
   - component: {fileID: 64461948955625124}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_Pallet_Loaded_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

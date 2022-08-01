@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64295647667221534}
   - component: {fileID: 64036010701913930}
   - component: {fileID: 64486351379032606}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Veh_Truck_Destroyed_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

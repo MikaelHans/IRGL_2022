@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33487007916129812}
   - component: {fileID: 23036074874222148}
   - component: {fileID: 64280359585010818}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Veh_Buggy_Destroyed_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

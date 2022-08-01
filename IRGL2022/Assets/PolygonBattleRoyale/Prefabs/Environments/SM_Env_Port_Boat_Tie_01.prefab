@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33399546295476244}
   - component: {fileID: 23596427592305410}
   - component: {fileID: 64218557540081658}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Env_Port_Boat_Tie_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

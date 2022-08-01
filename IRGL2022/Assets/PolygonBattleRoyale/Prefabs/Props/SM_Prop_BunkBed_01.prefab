@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33739901858525564}
   - component: {fileID: 23204547830983174}
   - component: {fileID: 64290388754737756}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_BunkBed_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

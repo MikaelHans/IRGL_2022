@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33913251640760384}
   - component: {fileID: 23719266236786072}
   - component: {fileID: 64484435090825528}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Generic_TreeStump_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

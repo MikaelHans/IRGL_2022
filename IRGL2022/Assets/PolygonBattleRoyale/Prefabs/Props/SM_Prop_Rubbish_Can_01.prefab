@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4611275857172860}
   - component: {fileID: 33323896122894114}
   - component: {fileID: 23929266189330262}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_Rubbish_Can_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

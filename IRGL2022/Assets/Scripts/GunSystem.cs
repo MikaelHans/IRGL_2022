@@ -96,15 +96,16 @@ public class GunSystem : MonoBehaviourPun
     private void Update()
     {
 
-        MyInput();
-
-        float x = Random.Range(-finalSpread * 1.6f, finalSpread * 1.6f);
-        float y = Random.Range(-finalSpread * 0.6f, finalSpread * 0.6f);
-        Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
-        Debug.DrawLine(fpsCam.transform.position, fpsCam.transform.position + direction * 5, Color.red);
-
         if (currentPlayer.photonView.IsMine)
         {
+
+            MyInput();
+
+            float x = Random.Range(-finalSpread * 1.6f, finalSpread * 1.6f);
+            float y = Random.Range(-finalSpread * 0.6f, finalSpread * 0.6f);
+            Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
+            Debug.DrawLine(fpsCam.transform.position, fpsCam.transform.position + direction * 5, Color.red);
+
             ResetKeys();
         }
     }
@@ -136,9 +137,12 @@ public class GunSystem : MonoBehaviourPun
     {
         if (currentPlayer.photonView.IsMine)
         {
+
             //if player can hold mouse to shoot or not(spray opo tapping)
             if (allowButtonHold) shooting = fireKeyPressed;
             else shooting = fireKeyPressed;
+
+            currentPlayer.animator.SetBool("IsFiring", fireKeyPressed || adsKeyPressed);
 
             //reload
             if (reloadKeyPressed && bulletsLeft < magazineSize && !reloading) Reload();
@@ -155,10 +159,6 @@ public class GunSystem : MonoBehaviourPun
                     bulletsShot = bulletsPerTap;
                     Shoot();
                 }
-            }
-            else
-            {
-                currentPlayer.animator.SetBool("IsFiring", false);
             }
 
             // if (adsKeyPressed)
@@ -219,7 +219,6 @@ public class GunSystem : MonoBehaviourPun
     private void Shoot()
     {
         readyToShoot = false;
-        currentPlayer.animator.SetBool("IsFiring", true);
         //increase spread when moving
         if (controller.velocity.magnitude > 0)
         {

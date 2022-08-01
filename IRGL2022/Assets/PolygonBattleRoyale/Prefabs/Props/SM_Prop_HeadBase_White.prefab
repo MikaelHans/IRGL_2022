@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33497611013783262}
   - component: {fileID: 23804014117296328}
   - component: {fileID: 64538593798779930}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_HeadBase_White
   m_TagString: Wall
   m_Icon: {fileID: 0}

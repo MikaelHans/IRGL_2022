@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33241504236462138}
   - component: {fileID: 23956809027375556}
   - component: {fileID: 64116233200138000}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_CardboardBox_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

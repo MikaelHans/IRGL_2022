@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33298741262237120}
   - component: {fileID: 23975550313357894}
   - component: {fileID: 64963352751766746}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_Portaloo_01
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4808352411818786}
   - component: {fileID: 33202050441495188}
   - component: {fileID: 23323031373625554}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_Portaloo_01_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}

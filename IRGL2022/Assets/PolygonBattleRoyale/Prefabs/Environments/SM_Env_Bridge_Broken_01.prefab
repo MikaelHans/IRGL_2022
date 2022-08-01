@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64738941269095664}
   - component: {fileID: 64453769233946418}
   - component: {fileID: 64401626677858424}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Env_Bridge_Broken_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

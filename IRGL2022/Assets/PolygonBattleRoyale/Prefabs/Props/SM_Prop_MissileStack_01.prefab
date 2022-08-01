@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33967355892626484}
   - component: {fileID: 23343896017809704}
   - component: {fileID: 64549835906417544}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_MissileStack_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23270229889807122}
   - component: {fileID: 64318253453831134}
   - component: {fileID: 64750323919934616}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Generic_TreeDead_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

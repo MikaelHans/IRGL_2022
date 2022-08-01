@@ -8,9 +8,12 @@ public class PlayerMovement : MonoBehaviourPun
     public float sprintModifier = 1.5f;
     public float gravity = -9.81f;
     public float crouchModifier = 0.5f;
-    public float backwardsModifier = 0.5f;
+    public float currentModifier = 1f;
+    public float maxModifier = 1f;
+
     public float walkingHeight = 2f;
     public float crouchingHeight = 0.5f;
+    public float terminalVelocity = 20f;
     public float walkCamera = 0.4f;
     public float crouchCamera = -0.6f;
     public float defaultCamera = 0f;
@@ -30,7 +33,6 @@ public class PlayerMovement : MonoBehaviourPun
     public bool isJumping;
     public bool isSprinting;
     public bool isCrouching;
-    public bool isBackwards;
 
     public Camera fpsCam;
     public RaycastHit rayHit;
@@ -42,6 +44,9 @@ public class PlayerMovement : MonoBehaviourPun
     bool crouchKeyPressed = false;
     float moveHorizontal = 0;
     float moveVertical = 0;
+
+    Vector2 moveSmoothing = new Vector2(0, 0);
+
 
     private void Awake()
     {
@@ -94,22 +99,19 @@ public class PlayerMovement : MonoBehaviourPun
             isGrounded = Physics.Raycast(groundCheck.position, Vector3.down, groundDistance, groundMask);
             isFalling = !isGrounded;
 
-            float x = moveHorizontal * 0.5f;
+            float x = moveHorizontal;
             float z = moveVertical;
 
+            Vector3 move = transform.right.normalized * x + transform.forward.normalized * z;
 
+            currentModifier = 1f;
+            maxModifier = sprintModifier;
 
-            Vector3 move = transform.right * x + transform.forward * z;
-            isBackwards = moveVertical < 0;
-
-            if (sprintKeyPressed && !isBackwards)
+            if (sprintKeyPressed)
             {
-                move = move * sprintModifier;
-                isSprinting = true;
-            }
-            else
-            {
-                isSprinting = false;
+                move *= sprintModifier;
+                currentModifier = sprintModifier;
+
             }
 
             if (crouchKeyPressed && !sprintKeyPressed)
@@ -117,6 +119,8 @@ public class PlayerMovement : MonoBehaviourPun
                 isCrouching = true;
                 move *= crouchModifier;
                 applyCamera += (crouchCamera - applyCamera) * Time.deltaTime * 10;
+                currentModifier = crouchModifier;
+                maxModifier = crouchModifier;
             }
             else
             {
@@ -124,14 +128,10 @@ public class PlayerMovement : MonoBehaviourPun
                 applyCamera += (defaultCamera - applyCamera) * Time.deltaTime * 10;
             }
 
-            if (isBackwards && !isCrouching)
-            {
-                move *= backwardsModifier;
-            }
-
             if (isGrounded)
             {
                 isJumping = false;
+                velocity.y = 0;
             }
 
             if (jumpKeyPressed && isGrounded)
@@ -142,20 +142,27 @@ public class PlayerMovement : MonoBehaviourPun
 
             fpsCam.transform.localPosition = new Vector3(fpsCam.transform.localPosition.x, applyCamera, fpsCam.transform.localPosition.z);
 
-            animator.SetBool("IsWalking", move.magnitude > 0);
-            animator.SetBool("IsRightStrafe", x > 0);
-            animator.SetBool("IsLeftStrafe", x < 0);
-
             velocity.y += gravity * Time.deltaTime;
 
             move.y = velocity.y;
 
-            animator.SetBool("IsRunning", isSprinting);
+            float normalizedModifier = (currentModifier / maxModifier);
+
+            moveSmoothing.x += ((x * normalizedModifier) - moveSmoothing.x) * Time.deltaTime * 10;
+            moveSmoothing.y += ((z * normalizedModifier) - moveSmoothing.y) * Time.deltaTime * 10;
+
+            Debug.Log(moveSmoothing);
+            Debug.Log(-velocity.y / terminalVelocity);
+
             animator.SetBool("IsJumping", isJumping);
             animator.SetBool("IsFalling", isFalling);
             animator.SetBool("IsGrounded", isGrounded);
             animator.SetBool("IsCrouching", isCrouching);
-            animator.SetBool("IsBackwards", isBackwards);
+
+
+            animator.SetFloat("MoveX", moveSmoothing.x);
+            animator.SetFloat("MoveZ", moveSmoothing.y);
+            animator.SetFloat("VelocityY", -velocity.y / terminalVelocity);
 
             controller.Move(move * speed * Time.deltaTime);
 

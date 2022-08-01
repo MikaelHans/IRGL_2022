@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33365475876685768}
   - component: {fileID: 23051558441630950}
   - component: {fileID: 64988873074765054}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Env_Road_Straight_End_01_Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 33509801768183426}
   - component: {fileID: 23956088244861684}
   - component: {fileID: 64943788029632574}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Env_Road_Straight_End_01
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 4835501264784196}
   - component: {fileID: 33373765013685744}
   - component: {fileID: 23692714072413166}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Env_Road_Straight_End_01_Edge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
