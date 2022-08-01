@@ -58,6 +58,7 @@ MonoBehaviour:
   - killPlayer
   - update_score_chest
   - update_score_death
+  - DisconnectAllPlayers
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

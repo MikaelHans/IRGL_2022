@@ -296,7 +296,16 @@ public class Player : MonoBehaviourPun
 
     public void OnDisconnectedFromPhoton()
     {
-        Debug.Log("OnPhotonPlayerDisconnected");
-        SceneManager.LoadScene("GameOver");
+        if (PhotonNetwork.IsMasterClient)
+        {
+            //photonView.RPC("DisconnectAllPlayers", RpcTarget.All);
+        }
+       
+    }
+
+    [PunRPC]
+    public void DisconnectAllPlayers()
+    {
+        //PhotonNetwork.Disconnect();
     }
 }

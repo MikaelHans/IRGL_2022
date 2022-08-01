@@ -2808,6 +2808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chest: {fileID: 7300111515750872668}
   canvas: {fileID: 7300111514456481684}
+  attachedPlayer: {fileID: 0}
   numbers: 08000000030000000100000001000000
   expGUI: {fileID: 7300111514304266269}
   btnAngka:

@@ -65,7 +65,13 @@ public class EventLogic : MonoBehaviourPun
 
         if (Input.GetKeyDown(playerMouseLookSettingsKey))
         {
-            playerMouseLook.Settings();
+            if (!playerMapEvent.isMapOpened && !playerMinigame.isMinigameOpened)
+            {
+                playerMouseLook.Settings();
+            }
+
+            playerMapEvent.CloseMap();
+            playerMinigame.CloseMinigame();
         }
 
         if (Input.GetKeyDown(playerMapEventOpenMapKey))
@@ -83,7 +89,7 @@ public class EventLogic : MonoBehaviourPun
             playerMapEvent.Map();
         }
 
-        if (!playerMouseLook.isInventoryOpened && !playerMouseLook.isSettingsOpened && !playerMapEvent.isMapOpened)
+        if (!playerMouseLook.isInventoryOpened && !playerMouseLook.isSettingsOpened && !playerMapEvent.isMapOpened && !playerMinigame.isMinigameOpened)
         {
             if (Input.GetKey(playerWeaponFireKey))
             {
@@ -148,10 +154,7 @@ public class EventLogic : MonoBehaviourPun
             {
                 playerTPSPositionToggle.TogglePosition();
             }
-        }
 
-        if (true)
-        {
             playerMovement.MoveHorizontal(Input.GetAxis("Horizontal"));
             playerMovement.MoveVertical(Input.GetAxis("Vertical"));
             playerPickUpWeapon.Scroll(Input.mouseScrollDelta.y);
