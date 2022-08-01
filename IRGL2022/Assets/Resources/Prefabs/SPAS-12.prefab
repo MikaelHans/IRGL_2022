@@ -80,7 +80,7 @@ MonoBehaviour:
   amount: 0
   itemObject: {fileID: 0}
   prefab: {fileID: 4705280805442977878}
-  id: 26
+  id: 32
   owner: {fileID: 0}
   cloud: {fileID: 0}
   ItemRarity: 60

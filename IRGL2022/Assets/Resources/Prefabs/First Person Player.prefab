@@ -28441,9 +28441,9 @@ MonoBehaviour:
     ItemName: 
     level: -1
   armor_model:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8685049512567313494}
+  - {fileID: 8685049512567313480}
+  - {fileID: 8685049512567313482}
   helmet_model:
   - {fileID: 4054689290126200808}
   - {fileID: 4926625212133239603}
