@@ -5,6 +5,12 @@ using UnityEngine;
 public class RespawnUI : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject uiParent;
+
+    private void Start()
+    {
+        //canvas = GetComponentInChildren<Canvas>();
+    }
     public bool checkIfAirplaneHasSpawned()
     {
         airplane _airplane = FindObjectOfType<airplane>();
@@ -15,15 +21,32 @@ public class RespawnUI : MonoBehaviour
         return false;
     }
 
+    public bool checkIfPlayerHasSpawned()
+    {
+        List<Player> allplayer = new List<Player>(FindObjectsOfType<Player>());
+
+        foreach (Player player in allplayer)
+        {
+            if (player.photonView.IsMine)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void Update()
     {
         if(checkIfAirplaneHasSpawned())
         {
-            gameObject.SetActive(false);
+            uiParent.SetActive(false);
         }
         else
         {
-            gameObject.SetActive(true);
+            if(!checkIfPlayerHasSpawned() && uiParent != null)
+            {
+                uiParent.SetActive(true);
+            }                
         }
     }
 }

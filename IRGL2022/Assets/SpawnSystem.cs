@@ -23,10 +23,4 @@ public class SpawnSystem : MonoBehaviour
             spawn.spawnAll();
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -2129,7 +2129,7 @@ GameObject:
   - component: {fileID: 7300111515350657408}
   - component: {fileID: 7300111515350657415}
   m_Layer: 13
-  m_Name: Button (7)
+  m_Name: Submit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2787,11 +2787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayed: 0
   isOpened: 0
-  items:
-  - prefab: {fileID: 0}
-    amount: 2
-    ItemName: 
-    level: -1
+  items: []
   game: {fileID: 7300111515750872665}
   reward: 10
 --- !u!114 &7300111515750872665
@@ -2808,6 +2804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chest: {fileID: 7300111515750872668}
   canvas: {fileID: 7300111514456481684}
+  attachedPlayer: {fileID: 0}
   numbers: 08000000030000000100000001000000
   expGUI: {fileID: 7300111514304266269}
   btnAngka:

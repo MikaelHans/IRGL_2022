@@ -431,7 +431,7 @@ Transform:
   m_GameObject: {fileID: 145481453162833584}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.000015497208, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 8685049512567671248}
   - {fileID: 8685049512567671250}
@@ -28418,6 +28418,7 @@ MonoBehaviour:
   inventory: {fileID: 4373194738681279167}
   weapons: {fileID: 4373194738681279165}
   animator: {fileID: 239600504254376344}
+  manualDisconnect: 0
   team_id: 0
   helmet:
     prefab: {fileID: 0}
@@ -28435,9 +28436,9 @@ MonoBehaviour:
     ItemName: 
     level: -1
   armor_model:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8685049512567313494}
+  - {fileID: 8685049512567313480}
+  - {fileID: 8685049512567313482}
   helmet_model:
   - {fileID: 4054689290126200808}
   - {fileID: 4926625212133239603}
@@ -58930,7 +58931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1104967478511824, guid: d1d1fb0324ed9084a9665dda8094a654, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4847948605840156, guid: d1d1fb0324ed9084a9665dda8094a654, type: 3}
       propertyPath: m_RootOrder

@@ -22,6 +22,7 @@ public class Player : MonoBehaviourPun
     public Inventory inventory;
     public ChracterPickUpWeapon weapons;
     public Animator animator;
+    public bool manualDisconnect;
     [SerializeField]
     int team_id;
     [SerializeField]
@@ -139,7 +140,11 @@ public class Player : MonoBehaviourPun
                     player.playername_ui.gameObject.SetActive(false);
                 }
             }
-        }        
+        }   
+        if(manualDisconnect)
+        {
+            photonView.RPC("DisconnectManually", RpcTarget.All);
+        }
     }
 
     public float TakeDamage(float damage, int teamID)
@@ -167,6 +172,16 @@ public class Player : MonoBehaviourPun
                 Death(teamID);
             }
         }            
+    }
+
+    [PunRPC]
+    public void DisconnectManually()
+    {
+        if(photonView.IsMine)
+        {
+            PhotonNetwork.Disconnect();
+            SceneManager.LoadScene(0);
+        }
     }
 
     public float calculateDefense(ItemData DefenseItem)
@@ -296,7 +311,16 @@ public class Player : MonoBehaviourPun
 
     public void OnDisconnectedFromPhoton()
     {
-        Debug.Log("OnPhotonPlayerDisconnected");
-        SceneManager.LoadScene("GameOver");
+        if (PhotonNetwork.IsMasterClient)
+        {
+            //photonView.RPC("DisconnectAllPlayers", RpcTarget.All);
+        }
+       
+    }
+
+    [PunRPC]
+    public void DisconnectAllPlayers()
+    {
+        //PhotonNetwork.Disconnect();
     }
 }
