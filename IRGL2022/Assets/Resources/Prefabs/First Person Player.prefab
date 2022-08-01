@@ -468,7 +468,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0045ffb477e043a46950af7e617beb06, type: 3}
   m_Controller: {fileID: 9100000, guid: a783090ccb78b214ba2dd0fcc999579c, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -506,40 +506,40 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: IsCarryingAWeapon
   - Type: 3
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: WeaponType
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: IsFiring
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: IsCrouching
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: IsJumping
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: IsFalling
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: IsGrounded
   - Type: 1
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: Blend
   - Type: 1
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: MoveX
   - Type: 1
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: MoveZ
   - Type: 1
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: VelocityY
   m_SynchronizeLayers:
-  - SynchronizeType: 0
+  - SynchronizeType: 2
     LayerIndex: 0
 --- !u!114 &6310507300644429110
 MonoBehaviour:
