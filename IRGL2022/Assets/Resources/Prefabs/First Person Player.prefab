@@ -467,7 +467,7 @@ Animator:
   m_GameObject: {fileID: 145481453162833584}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0045ffb477e043a46950af7e617beb06, type: 3}
-  m_Controller: {fileID: 9100000, guid: 791941195ef5856408dc45cf6f242646, type: 2}
+  m_Controller: {fileID: 9100000, guid: a783090ccb78b214ba2dd0fcc999579c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -506,20 +506,26 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: IsRunning
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: IsCarryingAWeapon
   - Type: 3
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: WeaponType
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: Idle
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: IsFiring
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsWalking
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsCrouching
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
@@ -28465,22 +28471,28 @@ MonoBehaviour:
   controller: {fileID: 4373194738681279152}
   speed: 5
   sprintModifier: 1.5
-  gravity: -29.4
+  gravity: -15
   crouchModifier: 0.5
+  backwardsModifier: 0.5
   walkingHeight: 0.8
   crouchingHeight: 0.5
   walkCamera: 0.8
   crouchCamera: 0.6
+  defaultCamera: 0
+  applyCamera: 1
   body: {fileID: 4373194738681279153}
   groundCheck: {fileID: 4373194739148615589}
   groundDistance: 1
   groundMask:
     serializedVersion: 2
     m_Bits: 4096
-  jumpHeight: 1.5
+  jumpHeight: 0.6
   isGrounded: 0
+  isFalling: 0
+  isJumping: 0
   isSprinting: 0
   isCrouching: 0
+  isBackwards: 0
   fpsCam: {fileID: 4373194739213354710}
   whatIsObstacle:
     serializedVersion: 2
@@ -30131,6 +30143,7 @@ GameObject:
   - component: {fileID: 4373194739213354711}
   - component: {fileID: 6293097149466544827}
   - component: {fileID: 2432753066023790413}
+  - component: {fileID: 611689456255224945}
   m_Layer: 0
   m_Name: FPS Camera
   m_TagString: MainCamera
@@ -30254,6 +30267,18 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &611689456255224945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4373194739213354708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f24503b2e7f7754bab481fc73c4dd4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4373194739241394439
 GameObject:
   m_ObjectHideFlags: 0
@@ -58467,15 +58492,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
---- !u!198 &906969459309352676 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198000012944515248, guid: 9defeac88977c0d448aa4541073ee9e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1020448068209194580}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1019900258816837614 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000011227296186, guid: 9defeac88977c0d448aa4541073ee9e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1020448068209194580}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &906969459309352676 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198000012944515248, guid: 9defeac88977c0d448aa4541073ee9e4,
     type: 3}
   m_PrefabInstance: {fileID: 1020448068209194580}
   m_PrefabAsset: {fileID: 0}
@@ -58741,15 +58766,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5be55c6877df9394c8d5bce5d776af2a, type: 3}
---- !u!1 &4054689290126200808 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1983005140116300, guid: 5be55c6877df9394c8d5bce5d776af2a,
-    type: 3}
-  m_PrefabInstance: {fileID: 4053853077776329892}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4057052510330121956 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4404807614726720, guid: 5be55c6877df9394c8d5bce5d776af2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4053853077776329892}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4054689290126200808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1983005140116300, guid: 5be55c6877df9394c8d5bce5d776af2a,
     type: 3}
   m_PrefabInstance: {fileID: 4053853077776329892}
   m_PrefabAsset: {fileID: 0}
@@ -58940,15 +58965,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1d1fb0324ed9084a9665dda8094a654, type: 3}
---- !u!1 &4926625212133239603 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1104967478511824, guid: d1d1fb0324ed9084a9665dda8094a654,
-    type: 3}
-  m_PrefabInstance: {fileID: 4926110547107439587}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4921368277045655807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4847948605840156, guid: d1d1fb0324ed9084a9665dda8094a654,
+    type: 3}
+  m_PrefabInstance: {fileID: 4926110547107439587}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4926625212133239603 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1104967478511824, guid: d1d1fb0324ed9084a9665dda8094a654,
     type: 3}
   m_PrefabInstance: {fileID: 4926110547107439587}
   m_PrefabAsset: {fileID: 0}
