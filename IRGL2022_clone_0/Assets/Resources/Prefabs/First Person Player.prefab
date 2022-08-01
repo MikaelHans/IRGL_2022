@@ -28424,6 +28424,7 @@ MonoBehaviour:
   inventory: {fileID: 4373194738681279167}
   weapons: {fileID: 4373194738681279165}
   animator: {fileID: 239600504254376344}
+  manualDisconnect: 0
   team_id: 0
   helmet:
     prefab: {fileID: 0}
