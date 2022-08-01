@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class AdminMonitor : MonoBehaviourPunCallbacks
 {
@@ -9,6 +10,7 @@ public class AdminMonitor : MonoBehaviourPunCallbacks
     {
         //base.OnMasterClientSwitched(newMasterClient);
         PhotonNetwork.Disconnect();
-        Application.Quit();
+        SceneManager.LoadScene(0);
+        //Application.Quit();
     }
 }

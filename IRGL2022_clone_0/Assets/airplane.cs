@@ -78,7 +78,7 @@ public class airplane : MonoBehaviourPun
         //Debug.Log(Vector3.Distance(transform.position, destination));
         if (Vector3.Distance(transform.position, destination) <= 1f)
         {
-            if (!checkIfPlayerHasSpawned())
+            if (!checkIfPlayerHasSpawned() && !PhotonNetwork.IsMasterClient)
             {
                 has_dropped = true;
                 object[] data = new object[1];

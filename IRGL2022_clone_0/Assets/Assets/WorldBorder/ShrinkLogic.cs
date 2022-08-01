@@ -86,7 +86,7 @@ public class ShrinkLogic : MonoBehaviourPun
                     currentPosition = transform.position;
                     currentScale = transform.localScale;
                     totalTime = 0;
-                    if (tapeCounter < shrinkTape.Count - 1)
+                    if (tapeCounter <= shrinkTape.Count - 2)
                     {
                         spawn_airplane();
                     }
