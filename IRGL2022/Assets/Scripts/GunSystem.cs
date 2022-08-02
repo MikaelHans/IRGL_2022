@@ -137,13 +137,22 @@ public class GunSystem : MonoBehaviourPun
     {
         if (currentPlayer.photonView.IsMine)
         {
-
+            currentPlayer.crosshairGroup.SetActive(true);
             //if player can hold mouse to shoot or not(spray opo tapping)
             if (allowButtonHold) shooting = fireKeyPressed;
             else shooting = fireKeyPressed;
 
             currentPlayer.animator.SetBool("IsFiring", fireKeyPressed || adsKeyPressed);
             currentPlayer.weaponHandlingMode.SetAiming(fireKeyPressed || adsKeyPressed);
+            if (currentPlayer.fpstpsToggle.isFPSMode)
+            {
+                currentPlayer.crosshairGroup.SetActive(!(fireKeyPressed || adsKeyPressed));
+                currentPlayer.ADSVcam.Priority = (fireKeyPressed || adsKeyPressed) ? 2 : -1;
+            }
+            else
+            {
+                currentPlayer.ADSVcam.Priority = - -1;
+            }
 
             //reload
             if (reloadKeyPressed && bulletsLeft < magazineSize && !reloading) Reload();
@@ -213,7 +222,7 @@ public class GunSystem : MonoBehaviourPun
     private void SetFieldOfView(float fov)
     {
         fpsCam.fieldOfView = fov;
-        gunCam.fieldOfView = fov;
+        currentPlayer.ADSVcam.m_Lens.FieldOfView = fov;
         virtualTPSCam.m_Lens.FieldOfView = fov;
         virtualFPSCam.m_Lens.FieldOfView = fov;
     }
