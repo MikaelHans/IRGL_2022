@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33025199977780756}
   - component: {fileID: 23786032018661274}
   - component: {fileID: 64999895353415606}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Env_Dock_Poles_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

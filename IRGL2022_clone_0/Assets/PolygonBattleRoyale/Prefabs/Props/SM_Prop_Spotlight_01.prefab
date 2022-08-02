@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33220382924007766}
   - component: {fileID: 23554478071543390}
   - component: {fileID: 64068050932624444}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_Spotlight_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

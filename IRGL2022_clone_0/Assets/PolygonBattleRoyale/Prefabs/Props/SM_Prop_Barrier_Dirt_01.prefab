@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33889577271742464}
   - component: {fileID: 23694863037237086}
   - component: {fileID: 64072299490518542}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_Barrier_Dirt_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

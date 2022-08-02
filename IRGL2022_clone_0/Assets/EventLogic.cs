@@ -40,7 +40,6 @@ public class EventLogic : MonoBehaviourPun
 
     void Start()
     {
-
     }
 
     void Update()
@@ -49,7 +48,6 @@ public class EventLogic : MonoBehaviourPun
         {
             return;
         }
-
 
 
         if (Input.GetKey(playerMinigameKey))
@@ -109,6 +107,7 @@ public class EventLogic : MonoBehaviourPun
 
             if (Input.GetKey(playerWeaponADSKey))
             {
+
                 if (playerPickUpWeapon.gunEquiped != -1)
                 {
                     playerPickUpWeapon.weapon[playerPickUpWeapon.gunEquiped]._gunsystem.ADSs();

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33311721869740164}
   - component: {fileID: 23593486308547406}
   - component: {fileID: 64749194984892626}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_BaseWall_Broken_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

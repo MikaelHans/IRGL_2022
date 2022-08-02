@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33804848327682770}
   - component: {fileID: 23265310135862622}
   - component: {fileID: 64432329880454172}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Env_Port_Wall_Corner_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

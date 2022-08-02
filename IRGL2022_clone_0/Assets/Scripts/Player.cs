@@ -22,6 +22,13 @@ public class Player : MonoBehaviourPun
     public Inventory inventory;
     public ChracterPickUpWeapon weapons;
     public Animator animator;
+    public WeaponHandlingMode weaponHandlingMode;
+
+    public FPSTPSToggle fpstpsToggle;
+
+    public GameObject crosshairGroup;
+
+    public Cinemachine.CinemachineVirtualCamera ADSVcam;
     public bool manualDisconnect;
     [SerializeField]
     int team_id;
@@ -64,13 +71,13 @@ public class Player : MonoBehaviourPun
                 {
                     player.playername_ui.GetComponent<UI_Follow>().maincamera = playerCam.GetComponentInChildren<Camera>(false);
                 }
-            }      
+            }
             if (checkIfDouble() == false)
             {
                 PhotonNetwork.Destroy(gameObject);
                 Application.Quit();
             }
-            
+
         }
         else
         {
@@ -79,8 +86,8 @@ public class Player : MonoBehaviourPun
             playerCam.gameObject.SetActive(false);
             gameObject.GetComponent<PlayerMovement>().fpsCam.gameObject.SetActive(false);
             //MinimapCamera.enabled = false;
-            playerCanvas.enabled = false;            
-            playername_ui.gameObject.SetActive(false);            
+            playerCanvas.enabled = false;
+            playername_ui.gameObject.SetActive(false);
             #region old multiplayer codes
             //List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
             //Player myPlayer = allPlayers.Find(player => player.photonView.IsMine);
@@ -100,8 +107,8 @@ public class Player : MonoBehaviourPun
             //    }
             //}
             #endregion
-        }        
-        gameObject.name = photonView.Owner.NickName;        
+        }
+        gameObject.name = photonView.Owner.NickName;
     }
 
     public bool checkIfDouble()
@@ -111,11 +118,11 @@ public class Player : MonoBehaviourPun
         {
             if (!player.photonView.IsMine)
             {
-                if(player.photonView.Owner.NickName == PhotonNetwork.NickName)
+                if (player.photonView.Owner.NickName == PhotonNetwork.NickName)
                 {
                     return false;
                 }
-            }            
+            }
         }
         return true;
     }
@@ -123,8 +130,11 @@ public class Player : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        if(photonView.IsMine)
+        if (photonView.IsMine)
         {
+            ADSVcam.Priority = -1;
+            animator.SetBool("IsAiming", false);
+
             healthBar.fillAmount = currentHealth / maxHealth;
             List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
             foreach (Player player in allPlayers)
@@ -140,8 +150,8 @@ public class Player : MonoBehaviourPun
                     player.playername_ui.gameObject.SetActive(false);
                 }
             }
-        }   
-        if(manualDisconnect)
+        }
+        if (manualDisconnect)
         {
             photonView.RPC("DisconnectManually", RpcTarget.All);
         }
@@ -157,7 +167,7 @@ public class Player : MonoBehaviourPun
     public void rpc_TakeDamage(float damage, int teamID)
     {
         //if (damagerName != playerName)
-        if(photonView.IsMine)
+        if (photonView.IsMine)
         {
             float defense = calculateDefense(Armor) + calculateDefense(Helmet);
             float adjustedDamage = damage - damage * defense;
@@ -171,13 +181,13 @@ public class Player : MonoBehaviourPun
                 #endregion
                 Death(teamID);
             }
-        }            
+        }
     }
 
     [PunRPC]
     public void DisconnectManually()
     {
-        if(photonView.IsMine)
+        if (photonView.IsMine)
         {
             PhotonNetwork.Disconnect();
             SceneManager.LoadScene(0);
@@ -186,16 +196,16 @@ public class Player : MonoBehaviourPun
 
     public float calculateDefense(ItemData DefenseItem)
     {
-        if(DefenseItem.prefab == null)
+        if (DefenseItem.prefab == null)
         {
             return 0;
         }
         float defense = DefenseItem.prefab.GetComponent<Equipable>().defense;
-        float []multiplier = DefenseItem.prefab.GetComponent<Equipable>().multiplier;
+        float[] multiplier = DefenseItem.prefab.GetComponent<Equipable>().multiplier;
         int level = DefenseItem.level;
         defense *= multiplier[level];
 
-        return defense/100;
+        return defense / 100;
     }
 
     public void RecoverHealth(float healthRestored)
@@ -224,13 +234,13 @@ public class Player : MonoBehaviourPun
             WeaponData[] allweapons = weapons.weapon.ToArray();//get weapons array
             foreach (WeaponData weapon in allweapons)
             {
-                if(weapon._gunsystem != null)
+                if (weapon._gunsystem != null)
                 {
                     allitems.Add(weapon);
-                }                
+                }
             }
 
-            if(Helmet.prefab != null)
+            if (Helmet.prefab != null)
             {
                 allitems.Add(Helmet);
             }
@@ -242,8 +252,8 @@ public class Player : MonoBehaviourPun
             {
                 allitems.Add(Bag);
             }
-            
-            
+
+
             //export allitem to json
             string json = JsonHelper.ToJson<ItemData>(allitems.ToArray());
             //rpc call            
@@ -267,7 +277,7 @@ public class Player : MonoBehaviourPun
     [PunRPC]
     public void update_score_death(int team_id, int score = 100)
     {
-        if(PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient)
         {
             ScoreKeeper scorekeeper = FindObjectOfType<ScoreKeeper>();
             scorekeeper.update_team_score(team_id, score);
@@ -277,7 +287,7 @@ public class Player : MonoBehaviourPun
     [PunRPC]
     public void sync_item_in_chest(string json)
     {
-        if(PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient)
         {
             GameObject chest = PhotonNetwork.InstantiateRoomObject("Prefabs/Chest", transform.position, transform.rotation, 0);
             if (chest != null)
@@ -288,10 +298,10 @@ public class Player : MonoBehaviourPun
         }
         if (photonView.IsMine)
         {
-            
+
             //PhotonNetwork.Disconnect();
             //Application.Quit();
-        }  
+        }
         //if (photonView.IsMine)
         //{
         //    GameObject chest = PhotonNetwork.Instantiate("Prefabs/Chest",transform.position, transform.rotation, 0);
@@ -303,10 +313,10 @@ public class Player : MonoBehaviourPun
     [PunRPC]
     public void killPlayer()
     {
-        if(photonView.IsMine)
+        if (photonView.IsMine)
         {
             PhotonNetwork.Destroy(gameObject);
-        }        
+        }
     }
 
     public void OnDisconnectedFromPhoton()
@@ -315,7 +325,7 @@ public class Player : MonoBehaviourPun
         {
             //photonView.RPC("DisconnectAllPlayers", RpcTarget.All);
         }
-       
+
     }
 
     [PunRPC]

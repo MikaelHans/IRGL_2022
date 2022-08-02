@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33601903259563096}
   - component: {fileID: 23958793849482422}
   - component: {fileID: 64544285969695162}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Generic_Mountains_Snow_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

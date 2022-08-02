@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33109668655986656}
   - component: {fileID: 23185077990517356}
   - component: {fileID: 64830413427609394}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Generic_Mountains_Soft_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

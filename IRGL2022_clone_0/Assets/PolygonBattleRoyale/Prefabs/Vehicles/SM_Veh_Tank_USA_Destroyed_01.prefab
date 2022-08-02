@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64654145328627602}
   - component: {fileID: 64288957023732574}
   - component: {fileID: 64830528800331556}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Veh_Tank_USA_Destroyed_01
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 4773319171963102}
   - component: {fileID: 33221381216719946}
   - component: {fileID: 23262127046104122}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Veh_Tank_USA_Destroyed_Tracks_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

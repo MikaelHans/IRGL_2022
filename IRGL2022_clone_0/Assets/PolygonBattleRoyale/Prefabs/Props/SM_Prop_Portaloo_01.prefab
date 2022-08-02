@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33298741262237120}
   - component: {fileID: 23975550313357894}
   - component: {fileID: 64963352751766746}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_Portaloo_01
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1640034449780564}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children:
   - {fileID: 4808352411818786}
   m_Father: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4808352411818786}
   - component: {fileID: 33202050441495188}
   - component: {fileID: 23323031373625554}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_Portaloo_01_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}

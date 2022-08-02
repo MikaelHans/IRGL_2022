@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4951560897368880}
   - component: {fileID: 33599717512629126}
   - component: {fileID: 23215835607101268}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_WeaponCase_01_Lid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 33535045153384528}
   - component: {fileID: 23458106723572908}
   - component: {fileID: 64397721189937454}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_WeaponCase_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

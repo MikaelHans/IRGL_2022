@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33759146909370314}
   - component: {fileID: 23165845449160080}
   - component: {fileID: 64756856045050756}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_Crate_Small_01
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4111534036135910}
   - component: {fileID: 33615708061691526}
   - component: {fileID: 23160284167059780}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_Crate_Small_01_Lid
   m_TagString: Untagged
   m_Icon: {fileID: 0}

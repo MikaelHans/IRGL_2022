@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4821770561836462}
   - component: {fileID: 33800631544933284}
   - component: {fileID: 23597074433542448}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_Rubbish_Papers_03
   m_TagString: Wall
   m_Icon: {fileID: 0}

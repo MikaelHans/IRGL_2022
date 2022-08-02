@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4683125457129014}
   - component: {fileID: 33662317677363066}
   - component: {fileID: 23752643718720988}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Veh_Boat_SteeringW_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 33255735916804294}
   - component: {fileID: 23794815540997308}
   - component: {fileID: 64924225435145454}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Veh_Boat_01
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 4760043268672372}
   - component: {fileID: 33749074042657582}
   - component: {fileID: 23672002701967312}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Veh_Boat_Engine_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33708432487443042}
   - component: {fileID: 23114140559193868}
   - component: {fileID: 64447050851319728}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Env_Bush_03
   m_TagString: Wall
   m_Icon: {fileID: 0}

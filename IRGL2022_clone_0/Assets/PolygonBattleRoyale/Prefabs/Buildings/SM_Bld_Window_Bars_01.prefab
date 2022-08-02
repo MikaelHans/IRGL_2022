@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33357812995162566}
   - component: {fileID: 23024760883098926}
   - component: {fileID: 64049464333047936}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Bld_Window_Bars_01
   m_TagString: Wall
   m_Icon: {fileID: 0}

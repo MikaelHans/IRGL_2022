@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33932523928567660}
   - component: {fileID: 23131971278936762}
   - component: {fileID: 64389622144170834}
-  m_Layer: 19
+  m_Layer: 12
   m_Name: SM_Prop_Slatbox_01
   m_TagString: Wall
   m_Icon: {fileID: 0}
