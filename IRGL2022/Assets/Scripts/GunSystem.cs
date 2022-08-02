@@ -143,6 +143,7 @@ public class GunSystem : MonoBehaviourPun
             else shooting = fireKeyPressed;
 
             currentPlayer.animator.SetBool("IsFiring", fireKeyPressed || adsKeyPressed);
+            currentPlayer.weaponHandlingMode.SetAiming(fireKeyPressed || adsKeyPressed);
 
             //reload
             if (reloadKeyPressed && bulletsLeft < magazineSize && !reloading) Reload();

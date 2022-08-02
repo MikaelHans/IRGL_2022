@@ -22,6 +22,7 @@ public class Player : MonoBehaviourPun
     public Inventory inventory;
     public ChracterPickUpWeapon weapons;
     public Animator animator;
+    public WeaponHandlingMode weaponHandlingMode;
     public bool manualDisconnect;
     [SerializeField]
     int team_id;
