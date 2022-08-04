@@ -817,7 +817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8584e4bb22a6d4fbc5f16d09fbebda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 28
   timeBetweenShooting: 0.15
   spread: 0.08
   range: 90
@@ -1828,7 +1828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8584e4bb22a6d4fbc5f16d09fbebda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 15
   timeBetweenShooting: 0.07
   spread: 0.03
   range: 75
@@ -7162,7 +7162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8584e4bb22a6d4fbc5f16d09fbebda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 8
+  damage: 18
   timeBetweenShooting: 0.12
   spread: 0.03
   range: 120
@@ -22508,7 +22508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8584e4bb22a6d4fbc5f16d09fbebda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 44
   timeBetweenShooting: 0.3
   spread: 0.01
   range: 200
@@ -37292,7 +37292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8584e4bb22a6d4fbc5f16d09fbebda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 80
+  damage: 88
   timeBetweenShooting: 2
   spread: 0.01
   range: 250
@@ -37395,7 +37395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8584e4bb22a6d4fbc5f16d09fbebda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 12
   timeBetweenShooting: 0.09
   spread: 0.015
   range: 80
@@ -49185,7 +49185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8584e4bb22a6d4fbc5f16d09fbebda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 20
   timeBetweenShooting: 0.12
   spread: 0.02
   range: 130
@@ -54512,7 +54512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8584e4bb22a6d4fbc5f16d09fbebda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 12
+  damage: 24
   timeBetweenShooting: 0.15
   spread: 0.05
   range: 100
