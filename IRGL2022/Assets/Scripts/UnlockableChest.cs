@@ -67,7 +67,7 @@ public class UnlockableChest : MonoBehaviourPun
 
     [PunRPC]
     public void update_score_chest(int team_id, int score = 100)
-    {
+    {        
         if (playerHandle.photonView.IsMine)
         {
             ScoreKeeper scorekeeper = FindObjectOfType<ScoreKeeper>();
@@ -78,7 +78,7 @@ public class UnlockableChest : MonoBehaviourPun
     public void sync_chest(string json)
     {
         //rpc call
-        photonView.RPC("sync_chest_RPC", RpcTarget.All, json);
+        photonView.RPC("sync_chest_RPC", RpcTarget.AllBuffered, json);
     }
 
     [PunRPC]
