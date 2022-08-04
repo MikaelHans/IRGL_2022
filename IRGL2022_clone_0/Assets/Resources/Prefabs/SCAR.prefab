@@ -4831,7 +4831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: SCAR
-  icon: {fileID: 21300000, guid: 6a0eb086c78bd7242888358e7298f7ac, type: 3}
+  icon: {fileID: 21300000, guid: 88b524c67134c754f84b2d915425785e, type: 3}
   maxStack: 0
   amount: 0
   itemObject: {fileID: 0}

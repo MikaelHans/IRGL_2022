@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: assault_ammo
-  icon: {fileID: 21300000, guid: 7deb925b3965efe47a7f6ad21c55f695, type: 3}
+  icon: {fileID: 21300000, guid: 0c28648c72af948418eaba086acff47e, type: 3}
   maxStack: 100
   amount: 30
   itemObject: {fileID: 0}
