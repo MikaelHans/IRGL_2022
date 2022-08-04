@@ -151,8 +151,8 @@ public class PlayerMovement : MonoBehaviourPun
             moveSmoothing.x += ((x * normalizedModifier) - moveSmoothing.x) * Time.deltaTime * 10;
             moveSmoothing.y += ((z * normalizedModifier) - moveSmoothing.y) * Time.deltaTime * 10;
 
-            Debug.Log(moveSmoothing);
-            Debug.Log(-velocity.y / terminalVelocity);
+            //Debug.Log(moveSmoothing);
+            //Debug.Log(-velocity.y / terminalVelocity);
 
             animator.SetBool("IsJumping", isJumping);
             animator.SetBool("IsFalling", isFalling);

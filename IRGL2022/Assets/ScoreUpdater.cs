@@ -43,6 +43,7 @@ public class ScoreUpdater : MonoBehaviourPun
         //}
         if (PhotonNetwork.IsConnected)
         {
+            Debug.Log(cloud.email + cloud.teamID);
             StartCoroutine(APIScore(cloud.email, delta));
         }
     }

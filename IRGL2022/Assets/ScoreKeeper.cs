@@ -35,7 +35,6 @@ public class ScoreKeeper : MonoBehaviourPun
             {
                 Teams.Add(new Team(team_id, score));
             }
-
         }
     }
 

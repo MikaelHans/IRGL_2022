@@ -277,7 +277,7 @@ public class Player : MonoBehaviourPun
     [PunRPC]
     public void update_score_death(int team_id, int score = 100)
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (photonView.IsMine)
         {
             ScoreKeeper scorekeeper = FindObjectOfType<ScoreKeeper>();
             scorekeeper.update_team_score(team_id, score);
