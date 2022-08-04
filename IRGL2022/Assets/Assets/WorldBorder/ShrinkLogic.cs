@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class WorldBorderState
@@ -46,6 +47,7 @@ public class ShrinkLogic : MonoBehaviourPun
 
     public float minimumDist;
     int seed = 2022;
+    public int last_spawn;
 
 
     // Start is called before the first frame updates
@@ -107,7 +109,7 @@ public class ShrinkLogic : MonoBehaviourPun
 
     public void spawn_airplane()
     {
-        if (PhotonNetwork.IsMasterClient && (initSpawn || (can_respawn && TapeCounter < shrinkTape.Count - 1)))
+        if (PhotonNetwork.IsMasterClient && (initSpawn || (can_respawn && TapeCounter < shrinkTape.Count - last_spawn)))
         {
             currentPosition = transform.position;
             currentScale = transform.localScale;
@@ -129,10 +131,10 @@ public class ShrinkLogic : MonoBehaviourPun
             _airplane.GetComponent<airplane>().destination = new Vector3(destinationPos.x, destinationPos.y, destinationPos.z);
             //airplane.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
         }
-    }
-
-    void change_airplane_spawn_point()
-    {
-
+        else if(TapeCounter < shrinkTape.Count - last_spawn)
+        {
+            PhotonNetwork.Disconnect();
+            SceneManager.LoadScene(0);
+        }
     }
 }

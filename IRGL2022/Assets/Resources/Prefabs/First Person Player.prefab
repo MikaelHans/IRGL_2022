@@ -828,7 +828,7 @@ MonoBehaviour:
   ammoCount: 0
   allowButtonHold: 1
   aimAnimationSpeed: 3
-  zoomRatio: 0.5
+  zoomRatio: 0.85
   defaultFOV: 60
   ammoType: Assault
   adsSpread: 0.8
@@ -1839,7 +1839,7 @@ MonoBehaviour:
   ammoCount: 0
   allowButtonHold: 1
   aimAnimationSpeed: 3
-  zoomRatio: 0.5
+  zoomRatio: 0.9
   defaultFOV: 60
   ammoType: Small
   adsSpread: 0.8
@@ -22519,7 +22519,7 @@ MonoBehaviour:
   ammoCount: 0
   allowButtonHold: 0
   aimAnimationSpeed: 3
-  zoomRatio: 0.1
+  zoomRatio: 0.3
   defaultFOV: 60
   ammoType: Heavy
   adsSpread: 0.8
@@ -37303,7 +37303,7 @@ MonoBehaviour:
   ammoCount: 0
   allowButtonHold: 1
   aimAnimationSpeed: 3
-  zoomRatio: 0.9
+  zoomRatio: 0.1
   defaultFOV: 60
   ammoType: Heavy
   adsSpread: 0.8
@@ -37406,7 +37406,7 @@ MonoBehaviour:
   ammoCount: 0
   allowButtonHold: 1
   aimAnimationSpeed: 3
-  zoomRatio: 0.5
+  zoomRatio: 0.9
   defaultFOV: 60
   ammoType: Small
   adsSpread: 0.8

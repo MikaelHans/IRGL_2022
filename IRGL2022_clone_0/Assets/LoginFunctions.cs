@@ -46,6 +46,7 @@ public class LoginFunctions : MonoBehaviour
     public TextMeshProUGUI warningDisplay;
 
     public Button loginButton;
+    public int roomID;
 
     public string loginAPI = "https://irgl.petra.ac.id/2022/backend/semifinal_apis/login/index.php";
 
@@ -88,29 +89,37 @@ public class LoginFunctions : MonoBehaviour
             try
             {
                 LoginReplyData json_obj = JsonUtility.FromJson<LoginReplyData>(json_response);
+                warningDisplay.text = json_obj.message;
                 if (json_obj.success)
                 {
                     int teamID = json_obj.team_id;
-                    int roomID = json_obj.room_id; // rooom id as roomID
+                    int _roomID = json_obj.room_id; // rooom id as roomID
                     warningDisplay.text = json_obj.message;
-                    if (teamID == -1)
+                    if(roomID == _roomID)
                     {
-                        // logged as admin
-                        yield break;
+                        if (teamID == -1)
+                        {
+                            // logged as admin
+                            loginButton.GetComponent<LoadSceneButton>().LoadTargetScene(true);
+                            yield break;
+                        }
+                        else
+                        {
+                            cloud.email = email;
+                            cloud.teamID = teamID;
+                            warningDisplay.text = json_obj.message;
+
+                            loginButton.GetComponent<LoadSceneButton>().LoadTargetScene(false);
+                            yield break;
+
+                        }
                     }
                     else
                     {
-                        cloud.email = email;
-                        cloud.teamID = teamID;
-                        warningDisplay.text = json_obj.message;
-
-                        loginButton.GetComponent<LoadSceneButton>().LoadTargetScene();
-                        yield break;
-
+                        warningDisplay.text = "wrong room please contact IRGL CP";
                     }
-                }
-
-                warningDisplay.text = json_obj.message;
+                }   
+                
             }
             catch (System.Exception)
             {

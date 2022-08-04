@@ -23,6 +23,7 @@ namespace Unity.FPS.UI
         public Button button;
         public string SceneName;
         public Cloud cloud;
+        bool isAdmin;
 
         private void Start()
         {
@@ -52,11 +53,12 @@ namespace Unity.FPS.UI
             // }
         }
 
-        public void LoadTargetScene()
+        public void LoadTargetScene(bool _isAdmin)
         {
             PhotonNetwork.NickName = cloud.email;
             Debug.Log(cloud.email);
             Debug.Log(cloud.teamID);
+            isAdmin = _isAdmin;
             JoinRoom();
         }
 
@@ -80,7 +82,14 @@ namespace Unity.FPS.UI
         public override void OnJoinRoomFailed(short returnCode, string message)//on failed to join room
         {
             Debug.Log("Failed To Join Room," + "\n" + " Error Code: " + returnCode + "\n" + "Error Message: " + message);//if failed to join for any reason, create room
-            CreateNewRoom();
+            if(isAdmin)
+            {
+                CreateNewRoom();
+            }
+            else
+            {
+                Debug.Log("Not Admin");
+            }
         }
 
 
