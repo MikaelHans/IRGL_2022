@@ -12,6 +12,8 @@ public class FPSTPSToggle : MonoBehaviour
     public CinemachineVirtualCamera adsCamera;
     public CinemachineVirtualCamera tpsCamera;
 
+    public BulletTargetUpdater bulletTargetUpdater;
+
     void Start()
     {
 
@@ -25,11 +27,13 @@ public class FPSTPSToggle : MonoBehaviour
             fpsCamera.Priority = 1;
             adsCamera.Priority = -1;
             tpsCamera.Priority = -1;
+            bulletTargetUpdater.syncCrosshair = false;
         }
         else
         {
             fpsCamera.Priority = -1;
             tpsCamera.Priority = 3;
+            bulletTargetUpdater.syncCrosshair = true;
         }
     }
 

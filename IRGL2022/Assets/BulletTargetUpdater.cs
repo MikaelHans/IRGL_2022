@@ -14,6 +14,8 @@ public class BulletTargetUpdater : MonoBehaviour
 
     public Camera mainCamera;
 
+    public bool syncCrosshair = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,14 @@ public class BulletTargetUpdater : MonoBehaviour
             }
         }
 
-        crosshair.transform.position = mainCamera.WorldToScreenPoint(bulletTargetRender.transform.position);
+        if (syncCrosshair)
+        {
+            crosshair.transform.position = mainCamera.WorldToScreenPoint(bulletTargetRender.transform.position);
+        }
+        else
+        {
+            crosshair.transform.localPosition = Vector3.zero;
+        }
 
         // characterModel.transform.LookAt(bulletTargetRender.transform);
     }
