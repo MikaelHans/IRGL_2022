@@ -133,7 +133,7 @@ public class Player : MonoBehaviourPun
         if (photonView.IsMine)
         {
             ADSVcam.Priority = -1;
-            animator.SetBool("IsAiming", false);
+            animator.SetBool("IsFiring", false);
 
             healthBar.fillAmount = currentHealth / maxHealth;
             List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
