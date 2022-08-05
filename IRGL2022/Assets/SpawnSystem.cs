@@ -22,5 +22,6 @@ public class SpawnSystem : MonoBehaviour
         {
             spawn.spawnAll();
         }
+        Solve24Game.Generate24();
     }
 }
