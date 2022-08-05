@@ -7525,7 +7525,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &4260285238082952059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29570,6 +29570,7 @@ MonoBehaviour:
   sceneFog: 0
   sceneFogMax: 5000
   fogLerp: 0
+  crosshairGroup: {fileID: 939846642440087490}
 --- !u!114 &1788526045409940215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29586,6 +29587,7 @@ MonoBehaviour:
   fpsCamera: {fileID: 4373194739213354708}
   crosshair: {fileID: 4373194739183003924}
   mainCamera: {fileID: 0}
+  syncCrosshair: 1
 --- !u!114 &290867550169794656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29622,6 +29624,7 @@ MonoBehaviour:
   fpsCamera: {fileID: 2272637808868058736}
   adsCamera: {fileID: 7086914033271929078}
   tpsCamera: {fileID: 6274195049754100060}
+  bulletTargetUpdater: {fileID: 1788526045409940215}
 --- !u!114 &6896802922345851404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38068,7 +38071,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6363078580327199399}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7499876, y: 0.000004351139, z: -2}
+  m_LocalPosition: {x: 0.75000286, y: 0.000004351139, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4873835460280332238}
@@ -38137,7 +38140,7 @@ RectTransform:
   m_GameObject: {fileID: 6410590754227196295}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_LocalScale: {x: 0.17, y: 0.17, z: 0.17}
   m_Children: []
   m_Father: {fileID: 4689174524565175320}
   m_RootOrder: 0
@@ -38168,14 +38171,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.3882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 365187fdefb01d9469e1dfda75c43306, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b5b80f3ebc88174a8c662e280fdb09c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -59066,7 +59069,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8785358266459556962}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000012397766, y: -1.6620135, z: 0}
+  m_LocalPosition: {x: 0.000002861023, y: -1.6619983, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7939208807618767905}

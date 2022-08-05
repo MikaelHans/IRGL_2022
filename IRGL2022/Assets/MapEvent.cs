@@ -15,6 +15,8 @@ public class MapEvent : MonoBehaviour
     public float sceneFogMax = 5000f;
     public float fogLerp = 0.0f;
 
+    public GameObject crosshairGroup;
+
     void Start()
     {
         mapCamera = GameObject.Find("Map Camera");
@@ -53,11 +55,13 @@ public class MapEvent : MonoBehaviour
     public void OpenMap()
     {
         mapCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Priority = 100;
+        crosshairGroup.SetActive(false);
     }
 
     public void CloseMap()
     {
         mapCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Priority = -1;
+        crosshairGroup.SetActive(true);
     }
 
     // Update is called once per frame
