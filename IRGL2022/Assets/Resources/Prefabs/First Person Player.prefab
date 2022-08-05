@@ -29172,7 +29172,7 @@ MonoBehaviour:
   applyCamera: 1
   body: {fileID: 4373194738681279153}
   groundCheck: {fileID: 4373194739148615589}
-  groundDistance: 1
+  groundDistance: 0.1
   groundMask:
     serializedVersion: 2
     m_Bits: 4096

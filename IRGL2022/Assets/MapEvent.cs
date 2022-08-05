@@ -104,11 +104,11 @@ public class MapEvent : MonoBehaviour
 
                     if (player.playerName == thisPlayer.playerName)
                     {
-                        player.mapEvent.mapMarker.GetComponentInChildren<MeshRenderer>().materials[0] = selfMaterial;
+                        player.mapEvent.mapMarker.GetComponentInChildren<MeshRenderer>().material = selfMaterial;
                     }
                     else
                     {
-                        player.mapEvent.mapMarker.GetComponentInChildren<MeshRenderer>().materials[0] = teammateMaterial;
+                        player.mapEvent.mapMarker.GetComponentInChildren<MeshRenderer>().material = teammateMaterial;
                     }
                 }
             }
