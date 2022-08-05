@@ -128,21 +128,22 @@ public class PlayerMovement : MonoBehaviourPun
                 applyCamera += (defaultCamera - applyCamera) * Time.deltaTime * 10;
             }
 
-            if (isGrounded)
-            {
-                isJumping = false;
-                velocity.y = 0;
-            }
-
             if (jumpKeyPressed && isGrounded)
             {
                 isJumping = true;
+                isGrounded = false;
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
 
             fpsCam.transform.localPosition = new Vector3(fpsCam.transform.localPosition.x, applyCamera, fpsCam.transform.localPosition.z);
 
             velocity.y += gravity * Time.deltaTime;
+
+            if (isGrounded)
+            {
+                isJumping = false;
+                velocity.y = 0;
+            }
 
             move.y = velocity.y;
 

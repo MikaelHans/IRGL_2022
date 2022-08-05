@@ -39,6 +39,8 @@ public class Player : MonoBehaviourPun
     public GameObject[] helmet_model = new GameObject[3];
     public GameObject[] bag_model = new GameObject[3];
 
+    public MapEvent mapEvent;
+
     public GameObject chest;
     public bool is_same_team;
     public TextMeshProUGUI playername_ui;
