@@ -8,7 +8,7 @@ using System;
 public class Game24 : Minigame
 {
     private string expresion = "";
-    public int[] numbers = new int[4];    
+    public List<int> problems = new List<int>();   
     public TextMeshProUGUI expGUI;
     public Text[] btnAngka = new Text[4];
     public Button[] buttons = new Button[4];
@@ -16,7 +16,7 @@ public class Game24 : Minigame
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -31,14 +31,15 @@ public class Game24 : Minigame
         Debug.Log("init");
         expresion = "";
         expGUI.text = expresion;
-        for(int i = 0; i < 4; i++)
+        int start = UnityEngine.Random.Range(0, 1999);
+        start /= 4;
+        for (int i = start; i < start + 4; i++) 
         {
             int x = i;
-            btnAngka[i].text = numbers[i].ToString();
+            btnAngka[i].text = problems[i].ToString();
             buttons[i].onClick.RemoveAllListeners();
             buttons[i].interactable = true;
-            buttons[i].onClick.AddListener(delegate { addoperand(numbers[x].ToString(), buttons[x]);});
-            
+            buttons[i].onClick.AddListener(delegate { addoperand(problems[x].ToString(), buttons[x]);});
         }
     }
 

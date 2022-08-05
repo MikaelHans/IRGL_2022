@@ -1,32 +1,48 @@
 using System;
 using System.Collections.Generic;
 using static System.Linq.Enumerable;
+using UnityEngine;
 
 public static class Solve24Game
 {
-    public static void Main2()
+    public static List<int> Generate24()
     {
-        var testCases = new[] {
-            new [] { 1,1,2,7 },
-            new [] { 1,2,3,4 },
-            new [] { 1,2,4,5 },
-            new [] { 1,2,7,7 },
-            new [] { 1,4,5,6 },
-            new [] { 3,3,8,8 },
-            new [] { 4,4,5,9 },
-            new [] { 5,5,5,5 },
-            new [] { 5,6,7,8 },
-            new [] { 6,6,6,6 },
-            new [] { 6,7,8,9 },
-        };
-        foreach (var t in testCases) Test(24, t);
-        Test(100, 9, 9, 9, 9, 9, 9);
+        List<int> result = new List<int>();
 
-        static void Test(int target, params int[] numbers)
+        for(int i=0;i< 500;i++)
         {
-            foreach (var eq in GenerateEquations(target, numbers)) Console.WriteLine(eq);
-            Console.WriteLine();
+            int[] problem = new[] { UnityEngine.Random.Range(1, 9), UnityEngine.Random.Range(1, 9), UnityEngine.Random.Range(1, 9), UnityEngine.Random.Range(1, 9) };
+            while(GenerateEquations(24, problem) == null)
+            {
+                UnityEngine.Random.InitState(i);
+                problem = new[] { UnityEngine.Random.Range(1, 9), UnityEngine.Random.Range(1, 9), UnityEngine.Random.Range(1, 9), UnityEngine.Random.Range(1, 9) };
+            }
+            for(int j =0;j<problem.Length;j++)
+            {
+                result.Add(problem[j]);
+            }            
         }
+        //var testCases = new[] {
+        //    new [] { 1,1,2,7 },
+        //    new [] { 1,2,3,4 },
+        //    new [] { 1,2,4,5 },
+        //    new [] { 1,2,7,7 },
+        //    new [] { 1,4,5,6 },
+        //    new [] { 3,3,8,8 },
+        //    new [] { 4,4,5,9 },
+        //    new [] { 5,5,5,5 },
+        //    new [] { 5,6,7,8 },
+        //    new [] { 6,6,6,6 },
+        //    new [] { 6,7,8,9 },
+        //};
+        //foreach (var t in testCases) Test(24, t);
+
+        //static void Test(int target, params int[] numbers)
+        //{
+        //    foreach (var eq in GenerateEquations(target, numbers)) Debug.Log(eq);
+        //}
+
+        return result;
     }
 
     static readonly char[] ops = { '*', '/', '+', '-' };
@@ -43,7 +59,7 @@ public static class Solve24Game
             where expr.Value == target && expr.HasPreferredValues()
             select $"{expr.ToString()} = {target}")
             .Distinct()
-            .DefaultIfEmpty($"Cannot make {target} with {string.Join(", ", numbers)}");
+            .DefaultIfEmpty(null);
     }
 
     ///<summary>Generates postfix expression trees where 1's represent operators and 0's represent numbers.</summary>
