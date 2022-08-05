@@ -15,7 +15,12 @@ public class MapEvent : MonoBehaviour
     public float sceneFogMax = 5000f;
     public float fogLerp = 0.0f;
 
+    float diff = 0;
+
     public GameObject crosshairGroup;
+    public GameObject mapMarker;
+
+    public Player thisPlayer;
 
     void Start()
     {
@@ -42,12 +47,10 @@ public class MapEvent : MonoBehaviour
         }
         if (!isMapOpened)
         {
-            isMapOpened = true;
             OpenMap();
         }
         else
         {
-            isMapOpened = false;
             CloseMap();
         }
     }
@@ -56,25 +59,44 @@ public class MapEvent : MonoBehaviour
     {
         mapCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Priority = 100;
         crosshairGroup.SetActive(false);
+        isMapOpened = true;
     }
 
     public void CloseMap()
     {
         mapCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Priority = -1;
         crosshairGroup.SetActive(true);
+        isMapOpened = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        float target = 0;
         if (isMapOpened)
         {
             fogLerp += Time.deltaTime;
+            target = 1;
         }
         else
         {
             fogLerp -= Time.deltaTime;
         }
+
+
+        diff += (target - diff) * Time.deltaTime * 10f;
+        if (Mathf.Abs(diff) > 0.001)
+        {
+            List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
+            foreach (var player in allPlayers)
+            {
+                if (player.Team_id == thisPlayer.Team_id)
+                {
+                    player.mapEvent.mapMarker.transform.localScale = new Vector3(diff, diff, diff);
+                }
+            }
+        }
+
 
         fogLerp = Mathf.Clamp(fogLerp, 0.0f, 1.0f);
 
