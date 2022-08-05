@@ -42,7 +42,6 @@ public class Player : MonoBehaviourPun
     public MapEvent mapEvent;
 
     public GameObject chest;
-    public bool is_same_team;
     public TextMeshProUGUI playername_ui;
 
     public Drop drop;
@@ -79,7 +78,6 @@ public class Player : MonoBehaviourPun
                 PhotonNetwork.Destroy(gameObject);
                 Application.Quit();
             }
-
         }
         else
         {
@@ -141,7 +139,7 @@ public class Player : MonoBehaviourPun
             List<Player> allPlayers = new List<Player>(FindObjectsOfType<Player>());
             foreach (Player player in allPlayers)
             {
-                if (player.team_id == team_id && player != this)
+                if (player.team_id == team_id && player.playerName != playerName)
                 {
                     player.playername_ui.gameObject.SetActive(true);
                     player.playername_ui.text = player.playerName;
