@@ -39,21 +39,15 @@ public class Game24 : Minigame
             btnAngka[i].text = problems[start + i].ToString();
             buttons[i].onClick.RemoveAllListeners();
             buttons[i].interactable = true;
-            buttons[i].onClick.AddListener(delegate { addoperand(problems[start + i].ToString(), buttons[x]);});
+            buttons[i].onClick.AddListener(delegate { addoperand(problems[start + x].ToString(), buttons[x]);});
         }
     }
 
     public void addExpression(string op)
     {
-        if (expresion.Length > 0)
-        {
-            string substr = expresion.Substring(expresion.Length - 1);
-            if (substr != "(" && substr != "+" && substr != "-" && substr != "*" && substr != "/" && substr != ")")
-            {
-                expresion += op;
-                expGUI.text = expresion;
-            }
-        }
+        string substr = expresion.Substring(expresion.Length - 1);
+        expresion += op;
+        expGUI.text = expresion;
     }
 
     public void addoperand(string op, Button button)

@@ -154,9 +154,13 @@ public class EventLogic : MonoBehaviourPun
                 playerTPSPositionToggle.TogglePosition();
             }
 
+            playerPickUpWeapon.Scroll(Input.mouseScrollDelta.y);
+
+        }
+        if (!playerMouseLook.isInventoryOpened && !playerMouseLook.isSettingsOpened && !playerMinigame.isMinigameOpened)
+        {
             playerMovement.MoveHorizontal(Input.GetAxis("Horizontal"));
             playerMovement.MoveVertical(Input.GetAxis("Vertical"));
-            playerPickUpWeapon.Scroll(Input.mouseScrollDelta.y);
             playerMouseLook.MouseMove(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         }
 
