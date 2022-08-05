@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviourPun
     public GameObject body;
 
     public Transform groundCheck;
-    public float groundDistance = 0.4f;
+    public float groundDistance = 0.001f;
     public LayerMask groundMask;
 
     public float jumpHeight = 1f;
