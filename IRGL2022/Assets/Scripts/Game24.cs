@@ -27,6 +27,7 @@ public class Game24 : Minigame
 
     public override void Init()
     {
+        
         base.Init();
         Debug.Log("init");
         expresion = "";

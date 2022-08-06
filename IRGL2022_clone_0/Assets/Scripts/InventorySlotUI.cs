@@ -44,9 +44,10 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            item.amount -= 1;
-            inventory.Remove(item);
-            drop.DropItem(item,1);
+            int itemDrop = Mathf.Max(item.prefab.GetComponent<Item>().maxStack, item.amount);
+            item.amount -= itemDrop;
+            inventory.Remove(item);            
+            drop.DropItem(item,itemDrop);
             //Debug.Log(eventData.);
         }
     }

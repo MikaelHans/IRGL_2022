@@ -129,8 +129,6 @@ public class GunSystem : MonoBehaviourPun
             ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + ammoCount);
             ammunitionDisplay.enabled = true;
         }
-
-
     }
 
     private void MyInput()

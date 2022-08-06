@@ -57,7 +57,7 @@ public class airplane : MonoBehaviourPun
         {
             airplaneVCam.Priority = -100;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && GameStart == false && !checkIfPlayerHasSpawned())
+        if (Input.GetKeyDown(KeyCode.Space) && GameStart == false && !checkIfPlayerHasSpawned() && !PhotonNetwork.IsMasterClient)
         {
             //player drop from airplane
             has_dropped=true;

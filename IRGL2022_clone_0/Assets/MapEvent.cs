@@ -22,6 +22,9 @@ public class MapEvent : MonoBehaviour
 
     public Player thisPlayer;
 
+    public Material selfMaterial;
+    public Material teammateMaterial;
+
     void Start()
     {
         mapCamera = GameObject.Find("Map Camera");
@@ -92,7 +95,21 @@ public class MapEvent : MonoBehaviour
             {
                 if (player.Team_id == thisPlayer.Team_id)
                 {
-                    player.mapEvent.mapMarker.transform.localScale = new Vector3(diff, diff, diff);
+                    float mapHeightScaling = 1f;
+                    if (mapCamera != null)
+                    {
+                        mapHeightScaling = (mapCamera.transform.position.y / 248f);
+                    }
+                    player.mapEvent.mapMarker.transform.localScale = new Vector3(diff * mapHeightScaling, diff * mapHeightScaling, diff * mapHeightScaling);
+
+                    if (player.playerName == thisPlayer.playerName)
+                    {
+                        player.mapEvent.mapMarker.GetComponentInChildren<MeshRenderer>().material = selfMaterial;
+                    }
+                    else
+                    {
+                        player.mapEvent.mapMarker.GetComponentInChildren<MeshRenderer>().material = teammateMaterial;
+                    }
                 }
             }
         }
