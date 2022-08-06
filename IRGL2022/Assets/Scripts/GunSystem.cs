@@ -135,7 +135,7 @@ public class GunSystem : MonoBehaviourPun
     {
         if (currentPlayer.photonView.IsMine)
         {
-            currentPlayer.crosshairGroup.SetActive(true);
+            currentPlayer.crosshairGroup.SetActive(!currentPlayer.GetComponent<MapEvent>().isMapOpened);
             //if player can hold mouse to shoot or not(spray opo tapping)
             if (allowButtonHold) shooting = fireKeyPressed;
             else shooting = fireKeyPressed;
@@ -144,7 +144,7 @@ public class GunSystem : MonoBehaviourPun
             currentPlayer.weaponHandlingMode.SetAiming(fireKeyPressed || adsKeyPressed);
             if (currentPlayer.fpstpsToggle.isFPSMode)
             {
-                currentPlayer.crosshairGroup.SetActive(!(fireKeyPressed || adsKeyPressed));
+                currentPlayer.crosshairGroup.SetActive(!(fireKeyPressed || adsKeyPressed) && !currentPlayer.GetComponent<MapEvent>().isMapOpened);
                 currentPlayer.ADSVcam.Priority = (fireKeyPressed || adsKeyPressed) ? 2 : -1;
             }
             else
