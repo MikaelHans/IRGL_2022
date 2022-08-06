@@ -51,8 +51,8 @@ public class UnlockableChest : MonoBehaviourPun
 
     public void destroyChest()
     {
-        photonView.RPC("destroyChestRPC", RpcTarget.All, gameObject.GetPhotonView().ViewID);
         Cancel();
+        photonView.RPC("destroyChestRPC", RpcTarget.All, gameObject.GetPhotonView().ViewID);
     }
 
     [PunRPC]
@@ -61,8 +61,8 @@ public class UnlockableChest : MonoBehaviourPun
         GameObject item = PhotonView.Find(viewID).gameObject;
         if (item.GetPhotonView().IsMine)
         {
-            PhotonNetwork.Destroy(PhotonView.Find(viewID));
             item.GetComponent<UnlockableChest>().Cancel();
+            PhotonNetwork.Destroy(PhotonView.Find(viewID));
         }
     }
 
