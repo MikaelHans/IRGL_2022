@@ -41,8 +41,7 @@ public class UnlockableChest : MonoBehaviourPun
             tmp.GetComponent<Item>().amount = items[i].amount;
             tmp.GetComponent<Item>().name = items[i].Name;
         }
-        game.closeWindow();
-        destroyChest();
+        Close();
     }
 
     public void fillChest(ItemData[] _items)
@@ -53,6 +52,7 @@ public class UnlockableChest : MonoBehaviourPun
     public void destroyChest()
     {
         photonView.RPC("destroyChestRPC", RpcTarget.All, gameObject.GetPhotonView().ViewID);
+        Close();
     }
 
     [PunRPC]
@@ -61,21 +61,22 @@ public class UnlockableChest : MonoBehaviourPun
         GameObject item = PhotonView.Find(viewID).gameObject;
         if (item.GetPhotonView().IsMine)
         {
+            item.GetComponent<UnlockableChest>().Close();
             PhotonNetwork.Destroy(PhotonView.Find(viewID));
         }
     }
 
     [PunRPC]
     public void update_score_chest(int team_id, int score = 100)
-    {        
-        if(playerHandle != null)
+    {
+        if (playerHandle != null)
         {
             if (playerHandle.photonView.IsMine)
             {
                 ScoreKeeper scorekeeper = FindObjectOfType<ScoreKeeper>();
                 scorekeeper.update_team_score(team_id, score);
             }
-        }        
+        }
     }
 
     public void sync_chest(string json)
