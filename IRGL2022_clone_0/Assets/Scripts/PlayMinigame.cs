@@ -28,6 +28,8 @@ public class PlayMinigame : MonoBehaviour
         {
             currentMinigame.closeWindow();
             currentChest.Cancel();
+            currentMinigame = null;
+            currentChest = null;
         }
         isMinigameOpened = false;
     }
