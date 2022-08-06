@@ -34,10 +34,11 @@ public class ChracterPickUpWeapon : MonoBehaviourPun
     // Start is called before the first frame update
     void Start()
     {
-        gunEquiped = -1;
+        gunEquiped = 0;
         meleesystem = GetComponentInChildren<MeleeSystem>(true).gameObject;
 
         GunList.AddRange(gunContainer.GetComponentsInChildren<GunSystem>());
+        setActiveGun(gunEquiped);
     }
 
     public void Pickup()
