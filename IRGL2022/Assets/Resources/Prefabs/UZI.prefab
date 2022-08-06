@@ -4773,7 +4773,7 @@ GameObject:
   - component: {fileID: 2132081173709817060}
   - component: {fileID: 4733675366271715853}
   m_Layer: 7
-  m_Name: Uzi
+  m_Name: UZI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4830,7 +4830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252e107f92aba624e91e78009152c0d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Uzi
+  itemName: UZI
   icon: {fileID: 21300000, guid: 6a0eb086c78bd7242888358e7298f7ac, type: 3}
   maxStack: 0
   amount: 0
