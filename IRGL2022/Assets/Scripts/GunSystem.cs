@@ -101,8 +101,8 @@ public class GunSystem : MonoBehaviourPun
 
             MyInput();
 
-            float x = Random.Range(-finalSpread * 1.6f, finalSpread * 1.6f);
-            float y = Random.Range(-finalSpread * 0.6f, finalSpread * 0.6f);
+            float x = Random.Range(-finalSpread, finalSpread);
+            float y = Random.Range(-finalSpread, finalSpread);
             Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
             Debug.DrawLine(fpsCam.transform.position, fpsCam.transform.position + direction * 5, Color.red);
 
@@ -230,7 +230,7 @@ public class GunSystem : MonoBehaviourPun
         //increase spread when moving
         if (controller.velocity.magnitude > 0)
         {
-            finalSpread = spread * 2.0f;
+            finalSpread = spread;
         }
         else
         {
@@ -241,8 +241,8 @@ public class GunSystem : MonoBehaviourPun
             finalSpread *= adsSpread;
         }
         //spread
-        float x = Random.Range(-finalSpread * 1.6f, finalSpread * 1.6f);
-        float y = Random.Range(-finalSpread * 0.6f, finalSpread * 0.6f);
+        float x = Random.Range(-finalSpread, finalSpread);
+        float y = Random.Range(-finalSpread, finalSpread);
 
         //Calculate Direction with Spread
         Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
