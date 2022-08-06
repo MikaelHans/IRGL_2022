@@ -23,7 +23,7 @@ public class ShrinkLogic : MonoBehaviourPun
     public float shrinkDuration = 60f;
     public float shrinkDelay = 120f;
 
-    private int tapeCounter = 0;
+    public int tapeCounter = 0;
     public float totalTime = 0;
 
     private Vector3 currentPosition;
@@ -42,8 +42,6 @@ public class ShrinkLogic : MonoBehaviourPun
 
     public bool can_respawn;
     bool initSpawn;
-
-    public int TapeCounter { get => tapeCounter; set => tapeCounter = value; }
 
     public float minimumDist;
     int seed = 2022;
@@ -72,7 +70,7 @@ public class ShrinkLogic : MonoBehaviourPun
             {
                 if (totalTime <= shrinkDelay + shrinkDuration)
                 {
-                    transform.position = currentPosition - ((currentPosition - shrinkTape[tapeCounter].position.localPosition) * ((totalTime - shrinkDelay) / (shrinkDuration)));
+                    transform.position = currentPosition - ((currentPosition - shrinkTape[tapeCounter].position.position) * ((totalTime - shrinkDelay) / (shrinkDuration)));
 
                     float scaler = (1 - (shrinkTape[tapeCounter].ratio * ((totalTime - shrinkDelay) / shrinkDuration)));
 
@@ -109,7 +107,7 @@ public class ShrinkLogic : MonoBehaviourPun
 
     public void spawn_airplane()
     {
-        if (PhotonNetwork.IsMasterClient && (initSpawn || (can_respawn && TapeCounter < shrinkTape.Count - last_spawn)))
+        if (PhotonNetwork.IsMasterClient && (initSpawn || (can_respawn && tapeCounter < shrinkTape.Count - last_spawn)))
         {
             currentPosition = transform.position;
             currentScale = transform.localScale;
@@ -131,7 +129,7 @@ public class ShrinkLogic : MonoBehaviourPun
             _airplane.GetComponent<airplane>().destination = new Vector3(destinationPos.x, destinationPos.y, destinationPos.z);
             //airplane.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
         }
-        else if(TapeCounter < shrinkTape.Count - last_spawn)
+        else if(tapeCounter < shrinkTape.Count - last_spawn)
         {
             PhotonNetwork.Disconnect();
             SceneManager.LoadScene(0);
