@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Potion
   icon: {fileID: 21300000, guid: 1398a5887d3971444ac9daa2e5d92274, type: 3}
-  maxStack: 2
+  maxStack: 1
   amount: 1
   itemObject: {fileID: 0}
   prefab: {fileID: 6860850774082911116}

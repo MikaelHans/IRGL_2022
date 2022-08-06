@@ -47,6 +47,7 @@ public class CharacterPickUpItem : MonoBehaviourPun
                     item = item.transform.parent.gameObject;
                 }
                 item.GetComponent<Item>().PickUp(gameObject.GetComponent<Player>());
+
                 if (item.GetComponent<IStoreable>() != null)
                 {
                     pickUpItem(item.GetComponent<Item>());

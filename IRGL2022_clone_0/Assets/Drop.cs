@@ -16,6 +16,6 @@ public class Drop : MonoBehaviourPun
         Vector3 force = new Vector3(0, dropForce, dropForce);
 
         drop.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * dropForce);
-        drop.GetComponent<Item>().amount = amount;
+        drop.GetComponent<Item>().sync_amount(amount);
     }
 }

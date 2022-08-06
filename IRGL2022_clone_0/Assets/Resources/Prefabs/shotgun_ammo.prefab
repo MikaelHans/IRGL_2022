@@ -65,7 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: shotgun_ammo
   icon: {fileID: 21300000, guid: c194fc296969c084d957f8faed365a87, type: 3}
-  maxStack: 40
+  maxStack: 20
   amount: 10
   itemObject: {fileID: 0}
   prefab: {fileID: 4096903830080551914}

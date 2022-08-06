@@ -60,6 +60,7 @@ MonoBehaviour:
   - update_score_death
   - DisconnectAllPlayers
   - DisconnectManually
+  - rpc_sync_amount
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

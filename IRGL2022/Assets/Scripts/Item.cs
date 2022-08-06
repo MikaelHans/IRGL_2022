@@ -49,6 +49,11 @@ public abstract class Item : MonoBehaviourPun
         photonView.RPC("rpc_destroy", RpcTarget.All);
     }
 
+    public void sync_amount(int amount)
+    {
+        photonView.RPC("rpc_sync_amount", RpcTarget.AllBuffered, amount);
+    }
+
     [PunRPC]
     public void rpc_destroy()
     {
@@ -58,12 +63,18 @@ public abstract class Item : MonoBehaviourPun
         }
     }
 
+    [PunRPC]
+    public void rpc_sync_amount(int amount)
+    {
+        this.amount = amount;
+    }
+
     public virtual ItemData to_data()
     {
         ItemData data = new ItemData();
         data.prefab = prefab;
         data.amount = amount;
-        data.Name = name;
+        data.Name = itemName;
 
         return data;
     }
