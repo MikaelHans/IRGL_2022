@@ -4924,6 +4924,7 @@ MonoBehaviour:
   ItemRarity: 50
   gun_system: {fileID: 0}
   WeaponID: 1
+  ammoType: Heavy
 --- !u!54 &4311835750542008014
 Rigidbody:
   m_ObjectHideFlags: 0

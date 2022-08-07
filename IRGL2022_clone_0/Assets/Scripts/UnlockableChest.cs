@@ -34,7 +34,6 @@ public class UnlockableChest : MonoBehaviourPun
     {
         photonView.RPC("update_score_chest", RpcTarget.All, playerHandle.Team_id, reward);
         isOpened = true;
-        Cancel();
         for (int i = 0; i < items.Length; i++)
         {
             GameObject tmp = PhotonNetwork.Instantiate("Prefabs/" + items[i].prefab.GetComponent<Item>().itemName, transform.position + (transform.forward * 2), transform.rotation);
@@ -42,6 +41,7 @@ public class UnlockableChest : MonoBehaviourPun
             tmp.GetComponent<Item>().amount = items[i].amount;
             tmp.GetComponent<Item>().name = items[i].Name;
         }
+        destroyChest();
     }
 
     public void fillChest(ItemData[] _items)
@@ -51,8 +51,8 @@ public class UnlockableChest : MonoBehaviourPun
 
     public void destroyChest()
     {
-        photonView.RPC("destroyChestRPC", RpcTarget.All, gameObject.GetPhotonView().ViewID);
         Cancel();
+        photonView.RPC("destroyChestRPC", RpcTarget.All, gameObject.GetPhotonView().ViewID);
     }
 
     [PunRPC]

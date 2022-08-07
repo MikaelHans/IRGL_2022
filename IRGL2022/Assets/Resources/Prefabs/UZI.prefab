@@ -4842,6 +4842,7 @@ MonoBehaviour:
   ItemRarity: 60
   gun_system: {fileID: 0}
   WeaponID: 3
+  ammoType: Small
 --- !u!54 &2996943484628457373
 Rigidbody:
   m_ObjectHideFlags: 0

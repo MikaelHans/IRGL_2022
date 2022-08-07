@@ -85,6 +85,7 @@ MonoBehaviour:
   ItemRarity: 30
   gun_system: {fileID: 0}
   WeaponID: 6
+  ammoType: Assault
 --- !u!54 &7164014706734435349
 Rigidbody:
   m_ObjectHideFlags: 0

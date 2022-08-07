@@ -86,6 +86,7 @@ MonoBehaviour:
   ItemRarity: 60
   gun_system: {fileID: 0}
   WeaponID: 2
+  ammoType: Shotgun
 --- !u!54 &4705280805442977875
 Rigidbody:
   m_ObjectHideFlags: 0

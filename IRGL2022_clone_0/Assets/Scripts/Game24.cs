@@ -92,7 +92,7 @@ public class Game24 : Minigame
         if (expresion == "(*)(*)")
         {
             chest.dropContent();
-            eturn;
+            return;
         }
 
         try

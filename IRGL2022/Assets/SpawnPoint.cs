@@ -16,7 +16,24 @@ public class SpawnPoint : MonoBehaviourPun
             int randomIndex = Random.Range(0, 100);
             if(randomIndex <= 65)
             {
-                allitems.Add(spawn.spawn().to_data());
+                ItemData spawned = spawn.spawn().to_data();
+                allitems.Add(spawned);
+                if (spawned.prefab.GetComponent<Weapon>() != null)// if weapon spawn also 1 instance of ammo
+                {
+                    Weapon weapon = spawned.prefab.GetComponent<Weapon>();
+                    Cloud cloud = GameObject.FindGameObjectWithTag("cloud").GetComponent<Cloud>();
+                    foreach (Item item in cloud.cloud)
+                    {
+                        if(item.prefab.GetComponent<Ammo>())
+                        {
+                            if(item.prefab.GetComponent<Ammo>().ammoType == weapon.ammoType)
+                            {
+                                allitems.Add(item.to_data());
+                            }
+                        }
+                    }
+                }
+                
             }            
         }
         string json = JsonHelper.ToJson<ItemData>(allitems.ToArray());

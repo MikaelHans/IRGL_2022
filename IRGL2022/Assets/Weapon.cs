@@ -6,4 +6,5 @@ public class Weapon : Item
 {
     public GunSystem gun_system;
     public int WeaponID;
+    public string ammoType;
 }
