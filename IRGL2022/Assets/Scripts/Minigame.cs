@@ -35,11 +35,14 @@ public class Minigame : MonoBehaviour
 
     public virtual void closeWindow()
     {
-        attachedPlayer.GetComponent<PlayMinigame>().isMinigameOpened = false;
-        canvas.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        chest.Close();
+        if(attachedPlayer != null)
+        {
+            attachedPlayer.GetComponent<PlayMinigame>().isMinigameOpened = false;
+            canvas.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            chest.Close();
+        }        
     }
 
 }
