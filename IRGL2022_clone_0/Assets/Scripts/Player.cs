@@ -215,7 +215,8 @@ public class Player : MonoBehaviourPun
 
     public void Death(int killer_team_id)
     {
-        //Death function        
+        //Death function
+        
         if (photonView.IsMine)
         {
             // inventoryUI.removeAll();
@@ -280,8 +281,12 @@ public class Player : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
-            ScoreKeeper scorekeeper = FindObjectOfType<ScoreKeeper>();
-            scorekeeper.update_team_score(team_id, score);
+            int teamid = FindObjectOfType<Cloud>().teamID;
+            if (teamid != team_id)
+            {
+                ScoreKeeper scorekeeper = FindObjectOfType<ScoreKeeper>();
+                scorekeeper.update_team_score(team_id, score);
+            }         
         }
     }
 

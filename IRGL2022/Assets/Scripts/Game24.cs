@@ -33,8 +33,8 @@ public class Game24 : Minigame
         Debug.Log("init");
         expresion = "";
         expGUI.text = expresion;
-        int start = UnityEngine.Random.Range(0, 1999);
-        start /= 4;
+        int start = UnityEngine.Random.Range(0, 499);
+        start = start*4;
         for (int i = 0; i < 4; i++)
         {
             int x = i;
