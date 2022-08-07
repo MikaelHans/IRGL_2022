@@ -61,6 +61,9 @@ public class Player : MonoBehaviourPun
         //inventoryUI = GetComponentInChildren<InventoryUI>();
         playerName = photonView.Owner.NickName;
         team_id = (int)photonView.InstantiationData[0];
+        Debug.Log("#####################################");
+        Debug.Log(photonView.InstantiationData);
+        Debug.Log(team_id);
         if (photonView.IsMine)//if is this client player
         {
             //playerCam = gameObject.GetComponentInChildren<Camera>();
