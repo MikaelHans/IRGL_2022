@@ -44,5 +44,4 @@ public class Minigame : MonoBehaviour
             chest.Close();
         }        
     }
-
 }

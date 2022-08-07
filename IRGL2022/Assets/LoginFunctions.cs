@@ -95,15 +95,15 @@ public class LoginFunctions : MonoBehaviour
                     int teamID = json_obj.team_id;
                     int _roomID = json_obj.room_id; // rooom id as roomID
                     warningDisplay.text = json_obj.message;
-                    if(roomID == _roomID)
+                    if (teamID == -1)
                     {
-                        if (teamID == -1)
-                        {
-                            // logged as admin
-                            loginButton.GetComponent<LoadSceneButton>().LoadTargetScene(true);
-                            yield break;
-                        }
-                        else
+                        // logged as admin
+                        loginButton.GetComponent<LoadSceneButton>().LoadTargetScene(true);
+                        yield break;
+                    }
+                    else
+                    {
+                        if (roomID == _roomID)
                         {
                             cloud.email = email;
                             cloud.teamID = teamID;
@@ -111,15 +111,13 @@ public class LoginFunctions : MonoBehaviour
 
                             loginButton.GetComponent<LoadSceneButton>().LoadTargetScene(false);
                             yield break;
-
                         }
-                    }
-                    else
-                    {
-                        warningDisplay.text = "wrong room please contact IRGL CP";
-                    }
-                }   
-                
+                        else
+                        {
+                            warningDisplay.text = "wrong room please contact IRGL CP";
+                        }
+                    }                    
+                }                   
             }
             catch (System.Exception)
             {
