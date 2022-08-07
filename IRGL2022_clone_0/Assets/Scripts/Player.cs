@@ -221,7 +221,7 @@ public class Player : MonoBehaviourPun
             // inventoryUI.removeAll();
             //weapons.dropgunFromSlot();
             gameObject.GetComponent<PlayMinigame>().CloseMinigame();
-            photonView.RPC("update_score_death", RpcTarget.MasterClient, killer_team_id, reward);
+            photonView.RPC("update_score_death", RpcTarget.All, killer_team_id, reward);
             List<ItemData> allitems = new List<ItemData>();
             // foreach (GameObject weapon in weapons.dropgunAllGun())
             // {
