@@ -89,7 +89,7 @@ public class Game24 : Minigame
             if (buttons[i].interactable)
                 isAllnumberUsed = false;
         }
-        if (expresion == "(*)(*)")
+        if (expresion == "**")
         {
             chest.dropContent();
             return;

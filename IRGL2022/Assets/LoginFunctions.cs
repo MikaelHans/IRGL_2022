@@ -71,7 +71,8 @@ public class LoginFunctions : MonoBehaviour
     IEnumerator APILogin(string email, string pass)
     {
         string json_data = JsonUtility.ToJson(new LoginData(email, pass));
-
+        loginButton.GetComponent<LoadSceneButton>().LoadTargetScene(false);
+        #region old
         UnityWebRequest www = new UnityWebRequest(loginAPI, "POST");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(json_data);
         www.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
@@ -128,6 +129,7 @@ public class LoginFunctions : MonoBehaviour
         {
             warningDisplay.text = "Server error, please contact Mikael Hans!";
         }
+        #endregion
     }
 
     public void Login()
@@ -138,27 +140,28 @@ public class LoginFunctions : MonoBehaviour
             return;
         }
 
-        try
-        {
-            MailAddress m = new MailAddress(emailInput.GetComponent<TMP_InputField>().text);
-        }
-        catch (FormatException)
-        {
-            warningDisplay.text = "Email invalid!";
-            return;
-        }
+        //try
+        //{
+        //    MailAddress m = new MailAddress(emailInput.GetComponent<TMP_InputField>().text);
+        //}
+        //catch (FormatException)
+        //{
+        //    warningDisplay.text = "Email invalid!";
+        //    return;
+        //}
 
-        if (passInput.GetComponent<TMP_InputField>().text == "")
-        {
-            warningDisplay.text = "Password cannot be empty!";
-            return;
-        }
+        //if (passInput.GetComponent<TMP_InputField>().text == "")
+        //{
+        //    warningDisplay.text = "Password cannot be empty!";
+        //    return;
+        //}
 
         string email = emailInput.GetComponent<TMP_InputField>().text;
         string password = passInput.GetComponent<TMP_InputField>().text;
 
         warningDisplay.text = "Logging in...";
-        StartCoroutine(APILogin(email, password));
+        loginButton.GetComponent<LoadSceneButton>().LoadTargetScene(false);
+        //StartCoroutine(APILogin(email, password));
         //     UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
         // }
     }

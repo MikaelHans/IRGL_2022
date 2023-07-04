@@ -32,8 +32,7 @@ namespace Unity.FPS.UI
             DefaultRoomOptions.PlayerTtl = max_dc_time;//max time for a player to dc
             DefaultRoomOptions.IsVisible = true;
             DefaultRoomOptions.IsOpen = true;
-            PhotonNetwork.AutomaticallySyncScene = true;
-            
+            PhotonNetwork.AutomaticallySyncScene = true;            
         }
 
         private void Awake()
@@ -82,14 +81,15 @@ namespace Unity.FPS.UI
         public override void OnJoinRoomFailed(short returnCode, string message)//on failed to join room
         {
             Debug.Log("Failed To Join Room," + "\n" + " Error Code: " + returnCode + "\n" + "Error Message: " + message);//if failed to join for any reason, create room
-            if(isAdmin)
-            {
-                CreateNewRoom();
-            }
-            else
-            {
-                Debug.Log("Not Admin");
-            }
+            CreateNewRoom();
+            //if(isAdmin)
+            //{
+            //    CreateNewRoom();
+            //}
+            //else
+            //{
+            //    Debug.Log("Not Admin");
+            //}
         }
 
 
