@@ -5,9 +5,9 @@ using UnityEngine;
 
 public static class Solve24Game
 {
-    public static List<int> Generate24()
+    public static List<int[]> Generate24()
     {
-        List<int> result = new List<int>();
+        List<int[]> result = new List<int[]>();
 
         for(int i=0;i< 500;i++)
         {
@@ -17,10 +17,12 @@ public static class Solve24Game
                 UnityEngine.Random.InitState(i);
                 problem = new[] { UnityEngine.Random.Range(1, 9), UnityEngine.Random.Range(1, 9), UnityEngine.Random.Range(1, 9), UnityEngine.Random.Range(1, 9) };
             }
-            for(int j =0;j<problem.Length;j++)
-            {
-                result.Add(problem[j]);
-            }            
+            result.Add(problem);
+            //Debug.Log(problem);
+            //for(int j =0;j<problem.Length;j++)
+            //{
+            //    result.Add(problem[j]);
+            //}            
         }
         //var testCases = new[] {
         //    new [] { 1,1,2,7 },

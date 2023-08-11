@@ -9,6 +9,6 @@ public class test : MonoBehaviour
     public List<int> problems24 = new List<int>();
     void Start()
     {
-        problems24 = Solve24Game.Generate24();
+        //problems24 = Solve24Game.Generate24();
     }
 }
